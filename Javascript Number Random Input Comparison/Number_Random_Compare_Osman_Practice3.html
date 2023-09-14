@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <title>Document</title>
+
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            color: rgb(85, 84, 84);
+        }
+
+        .title {
+            color: rgb(85, 85, 85);
+            font-size: 16px;
+        }
+
+        .inputNumber {
+            font-size: 18px;
+            color: grey;
+        }
+
+        .number {
+            font-size: 35px;
+
+
+        }
+
+        .btn {
+            border: none;
+            background-color: rgb(185, 185, 185);
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 80px;
+            height: 40px;
+            font-size: 16px;
+            transition: all 0.24s;
+            margin-left: 4px;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: rgb(171, 170, 170);
+        }
+
+
+        .instruction {
+            font-size: 16px;
+        }
+
+        .green {
+            color: rgb(1, 208, 1);
+
+        }
+
+        .blue {
+            color: rgb(0, 136, 255);
+        }
+
+        .red {
+            color: rgb(255, 0, 0);
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <p class="title">Guess Combinator</p>
+
+    <div class="game"></div>
+
+    <button class="btn">Start</button>
+
+    <p class="instruction">Instructions: Guess the combination, <span class="blue">blue</span> is higher, <span
+            class="red">red</span> is lower and <span class="green">green</span> is correct. Try to solve it.</p>
+
+    <script>
+
+        var title = document.querySelector('.title')
+        var game = document.querySelector('.game')
+        var btn = document.querySelector('.btn')
+
+        var gamePlay = false
+
+        btn.addEventListener('click', () => {
+
+            console.log('click')
+
+            if (!gamePlay) {
+
+                btn.innerHTML = 'Guess'
+
+                createInput(6)
+
+                gamePlay = true
+
+            } else {
+
+                var number = document.querySelectorAll('.number')
+
+                // forEach (new way to write syntax)
+                // for (var element of number) {
+                //     console.log(element)
+                // }
+
+                number.forEach((element) => {
+                    // console.log(element)
+
+                    var computerNumber = element.getAttribute('correct')
+                    console.log(computerNumber, 'computerNumber')
+
+
+                    var playerNumber = element.value
+                    console.log(playerNumber, 'playerNumber')
+
+                    if (computerNumber > playerNumber) {
+                        element.style.backgroundColor = ' rgb(255, 0, 0)'
+
+                    } else if (computerNumber < playerNumber) {
+                        element.style.backgroundColor = 'rgb(0, 136, 255)'
+                    } else {
+                        element.style.backgroundColor = 'rgb(1, 208, 1)'
+                    }
+                })
+            }
+        })
+
+
+
+        function createInput(num) {
+
+            for (var i = 0; i < num; i++) {
+
+                var input = document.createElement('input')
+                input.classList.add('number')
+
+                input.type = 'number'
+                input.style.width = '50px'
+                input.style.height = '50px'
+                input.style.margin = '5px'
+                input.min = 0
+                input.max = 9
+
+                var random = Math.floor(Math.random() * 10)
+                input.setAttribute('correct', random)
+
+                game.append(input)
+
+            }
+
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+
+
+
+</html>

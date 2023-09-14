@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        font-family: 'Roboto', sans-serif;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .main {
+        width: 100%;
+        height: 99.89vh;
+        border: 10px solid hotpink;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .quest {
+        width: 48.5%;
+        border: 1px solid red;
+        display: flex;
+        justify-content: flex-start;
+        color: grey;
+    }
+
+    .answer {
+        width: 300px;
+        height: 50px;
+        border: 2px solid rgb(0, 218, 40);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .correct {
+        position: absolute;
+        font-size: 40px;
+        color: limegreen;
+        opacity: 0;
+    }
+
+    .fail {
+        position: absolute;
+        font-size: 40px;
+        color: red;
+        opacity: 0;
+
+    }
+
+    .container {
+        /* border: 5px solid lime; */
+        width: 50%;
+        height: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .box {
+        width: 31%;
+        height: 31%;
+        background-color: black;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .flip {
+        animation-name: flip;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+
+
+    }
+
+
+    @keyframes flip {
+        0% {
+            transform: rotateX(0deg);
+        }
+
+        100% {
+            transform: rotateX(180deg);
+        }
+    }
+
+    .active {
+        background-color: orange;
+        /* opacity: 0; */
+        /* width: 100%;
+        height: 100%; */
+    }
+</style>
+
+<body>
+
+    <div class="main">
+
+        <p class="quest">Please click to find the color?
+        <div class="answer">
+            <p class="correct">Correct</p>
+            <p class="fail">Fail</p>
+        </div>
+        </p>
+
+        <div class="container">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+    </div>
+
+
+
+    <script>
+
+        // practice 1 start teacher 
+
+        // var box = document.querySelectorAll('.box');
+        // var correct = document.querySelector('.correct');
+        // var fail = document.querySelector('.fail');
+
+
+        // var rColor = ['red', 'red', 'red', 'red', 'red', 'red', 'red', 'red', 'orange']
+
+        // var random = Math.floor(Math.random() * rColor.length)
+        // console.log(random)
+
+
+        // box.forEach(function (element, index) {
+        //     element.addEventListener('click', function () {
+        //         console.log('click is working')
+
+        //         element.classList.add('flip')
+
+        //         if (random == 8) {
+        //             alert('found')
+        //             this.classList.add('active')
+
+
+        //             setTimeout(function () {
+        //                 window.location.reload()
+        //             }, 10)
+
+        //         } else {
+        //             this.style.background = rColor[random]
+        //         }
+        //     })
+        // })
+
+        // practice 1 end teacher
+
+
+        // practice 2 start
+
+        var box = document.querySelectorAll('.box');
+        var correct = document.querySelector('.correct');
+        var fail = document.querySelector('.fail');
+
+        var color = ['red', 'orange', 'red', 'red', 'red', 'red', 'red', 'red', 'red']
+
+        box.forEach(function (element, index) {
+            element.addEventListener('click', function () {
+                console.log('click is working')
+
+                var random = Math.floor(Math.random() * color.length)  // box.length - 1
+                console.log(random)
+                var select = color[random]
+                console.log(select)
+
+                element.classList.add('flip')
+
+                element.classList.add('active')
+
+                if (random == 1) {
+                    fail.style.opacity = '0'
+
+                    correct.style.opacity = '1'
+                    element.style.backgroundColor = 'orange'
+
+
+
+                    setTimeout(function () {
+                        alert('Congratulation Winner')
+                        location.reload()
+                    }, 10)
+
+
+
+                } else {
+                    correct.style.opacity = '0'
+                    fail.style.opacity = '1'
+                    element.style.backgroundColor = 'red'
+                    // this.style.background = color[random]
+                }
+
+
+            })
+        })
+
+  // practice 2 end 
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>

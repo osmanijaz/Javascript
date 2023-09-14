@@ -1,0 +1,172 @@
+<html>
+
+<head>
+    <title>JavaScript</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .message {
+            font-size: 2em;
+            margin-bottom: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="message"></div>
+    <input type="text" class="hidden">
+    <button type="button">Start</button>
+
+
+
+    <script>
+        const message = document.querySelector(".message");
+        const guess = document.querySelector("input");
+        const button = document.querySelector("button");
+        let inplay = false;
+
+
+
+        let scramble = "";
+        let scrambled = "";
+        let score = 0;
+
+
+        const myArray = ['school', 'cook', 'apple', 'bake', 'soup', 'yellow'];
+
+        // start:
+        // index = 0
+        // length = 1
+
+
+        button.addEventListener("click", function () {
+
+            if (!inplay) {
+                button.innerHTML = "Guess"
+                guess.classList.toggle("hidden")
+                inplay = true
+
+
+
+                // only gives number index randomly 
+                var random = Math.floor(Math.random() * myArray.length)
+                console.log(random, 'random');
+
+                // call this way for random word
+                var randomWord = myArray[random]
+                console.log(randomWord, 'randomWord');
+
+                // shortcut one line random word 
+                var random = myArray[Math.floor(Math.random() * myArray.length)]
+
+                // sent from javascript stored outside function
+                scramble = random.split("")
+                console.log(scramble, 'scramble');
+
+                // new stored in scrambled from function
+                scrambled = randomArray(scramble)
+                console.log(scrambled, 'ss');
+
+                // call direct from HTML and style in CSS 
+                message.innerHTML = scrambled.join("")
+
+
+            } else {
+                // effort of attempts 
+                score++
+                console.log('hello from else result', score);
+            }
+
+        })
+
+
+
+        // ---
+
+
+        function randomArray(arr) {
+            console.log(arr, 'arr');
+
+            // return "hello"
+
+            // start index with 0 and length with 1:
+            // index = 0    0, 1, 2
+            // length = 1   1, 2, 3
+
+            //i = 0, 1, 2, 
+            // length = 1, 2, 3
+            // for (let i = 0; i >= arr.length-1; i++)
+
+            // arr ['n', 'e', 'w']
+
+            // let scramble = '';
+            // let scrambled = '';
+
+            // scramble = random.split("")
+            // console.log(scramble, 'scramble');
+
+            // scrambled = randomArray(scramble)
+            // console.log(scrambled, 'ss');
+
+
+
+
+            for (let i = arr.length - 1; i >= 0; i--) {
+                console.log(i, 'i');
+
+                // length - 1
+
+                // length = 1,   3, 2, 1
+                // index = 0,    2, 1, 0
+                // arr ['w', 'e', 'n']
+
+                let temp = arr[i];
+                console.log(temp, 'temp');
+
+
+                let j = Math.floor(Math.random() * (i + 1));
+                // old index = 0,    2, 1, 0
+
+                // i + 1
+                // new index + 1,    3, 2, 1
+
+                // Math.floor(Math.random()
+                // new index,    2, 1, 3 (any random)
+
+                console.log(j, 'j');
+
+
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+
+            console.log(arr, 'arr swap');
+            return arr
+            // console.log('helo');
+
+        }
+
+                // ---output start---
+                // 3 'i'
+
+                // l temp
+                // 0 'j'
+                // 2 'i'
+
+                // m temp
+                // 0 'j'
+                // 1 'i'
+
+                // t temp
+                // 1 'j'
+
+                // ---output end---
+
+
+    </script>
+</body>
+
+</html>

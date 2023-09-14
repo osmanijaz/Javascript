@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game</title>
+
+
+  <style>
+
+        *{
+          padding: 0;
+          margin: 0;
+          font-family: 'Courier New', Courier, monospace;
+        }
+        body{
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          align-items: center;
+          flex-direction: column;
+          height: 100vh;
+        }
+        .container{
+          width: 50%;
+          height: 90%;
+          /* background-color: red; */
+          display: flex;
+          justify-content: space-evenly;
+          flex-wrap: wrap;
+          visibility: hidden;
+        }
+        .empty{
+          width: 200px;
+          height: 200px;
+          margin-top: 6px;
+          background-color: black;
+          border-radius: 10px;
+          position: relative;
+          overflow: hidden;
+          transition: 0.6s;
+        }
+        .fill{
+          width: 100%;
+          height: 100%;
+          /* margin-top: 50px; */
+          background-color: black;
+          border-radius: 10px;
+          /* left: 100px; */
+          position: absolute;
+          background-size: cover;
+          background-image: url(https://images.unsplash.com/photo-1551085254-e96b210db58a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=680&q=80);
+          top: 0;
+          left: 0;
+          opacity: 0;
+          transition: 0.6s;
+        }
+        #message{
+          font-size: 25px;
+          font-weight: bold;
+        }
+        button{
+          padding: 5px 20px;
+          background-color: darkgoldenrod;
+          border: none;
+          color: white;
+          font-weight: bold;
+          border-radius: 5px;
+          font-size: 20px;
+        }
+
+  </style>
+
+
+</head>
+<body>
+      <div id="message">Find the IMAGE behind the black box...</div>
+      <button>Let's Start</button>
+      <div class="container">
+        <div class="empty"></div>
+        <div class="empty"></div>
+        <div class="empty"></div>
+        <div class="empty"></div>
+        <div class="empty"></div>
+        <div class="empty"></div>
+        <div class="empty"></div>
+        <div class="empty"></div>
+        <div class="empty"></div>
+      </div>
+      
+      
+      
+      <script>
+        
+        var main = document.querySelector(".container");
+        var empties = document.querySelectorAll(".empty");
+        var btn = document.querySelector("button");
+        var count = 1
+
+      
+        btn.addEventListener("click", function(){
+          main.style.visibility = "visible"
+          // console.log("Clicked");
+          var random = Math.floor(Math.random() * empties.length)
+          console.log(random);
+          var div = document.createElement("div");
+          div.classList.add("fill")
+          empties[random].append(div) 
+          
+          empties.forEach(function(e){
+            e.addEventListener("click", function(){
+              if(e != empties[random]){
+                console.log("No");
+                e.style.backgroundImage = "url(data:image/png;base64,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)";
+                e.style.backgroundSize = "cover";
+                e.style.transform = "rotateY(180deg)";
+                count++
+              }
+              else{
+                e.style.backgroundColor = "transparent";
+                div.style.opacity = 1;
+                var message;
+                message = "Congratulation!  You Find the Image in" + " " + count + "th" + " " + "Guesses";
+                alert(message)
+                e.style.transform = "rotateY(180deg)";
+                setTimeout(() => {
+                    location.reload()
+                }, 1000);
+              }
+            })
+          })
+
+
+        })
+
+
+
+
+    </script>
+
+
+
+  
+</body>
+</html>

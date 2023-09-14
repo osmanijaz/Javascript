@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>complete bar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            background-color: beige;
+            font-family: cursive;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .main-div {
+            /* border: 1px solid #000; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .filling {
+            width: 380px;
+            height: 50px;
+            /* background-color: aqua; */
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        button {
+            border: none;
+            width: 160px;
+            height: 45px;
+            border-radius: 5px;
+            background-color: aquamarine;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 22px;
+            color: black;
+        }
+
+        .line-bar {
+            width: 100%;
+            height: 2px;
+            display: flex;
+            /* background-color: black; */
+        }
+
+        .bar {
+            width: 0%;
+            height: 2px;
+            background-color: black;
+            /* transform-origin: left; */
+            transition: 0.2s linear;
+        }
+
+        .hidd {
+            opacity: 0.5;
+        }
+
+        .circles {
+            width: 35px;
+            height: 35px;
+            border: 2px solid blue;
+            border-radius: 50px;
+            position: absolute;
+            top: 10%;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: black;
+            background-color: white;
+            transition: 0.5s linear;
+        }
+
+        .c1 {
+            left: -18px;
+        }
+
+        .c2 {
+            left: 75px;
+        }
+
+        .c3 {
+            left: 170px;
+        }
+
+        .c4 {
+            left: 268px;
+        }
+
+        .c5 {
+            left: 364px;
+        }
+
+        .bordercolor {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-div">
+        <div class="filling">
+            <div class="line-bar">
+                <div class="bar"></div>
+            </div>
+            <div class="circles bordercolor c1">1</div>
+            <div class="circles c2">2</div>
+            <div class="circles c3">3</div>
+            <div class="circles c4">4</div>
+            <div class="circles c5">5</div>
+        </div>
+        <div class="btn">
+            <button class="btn2 hidd" disabled>Previous</button>
+            <button class="btn1">Next</button>
+        </div>
+    </div>
+    <script>
+        let btn1 = document.querySelector('.btn1')
+        let btn2 = document.querySelector('.btn2')
+        let bar = document.querySelector('.bar')
+        let circles = document.querySelectorAll('.circles')
+        let count = 0
+        let value = 0
+
+        btn1.addEventListener('click', function () {
+            count = count + 25
+            bar.style.width = count + "%"
+            value++
+            circles.forEach((ele, index) => {
+                ele.classList.add('bordercolor')
+                if (index <= value){
+                    ele.classList.add('bordercolor')
+                }
+                else{
+                    ele.classList.remove('bordercolor')
+                }
+            })
+            if (count == 25) {
+                btn2.disabled = false
+                btn2.classList.remove('hidd')
+            }
+            if(count==100){
+                console.log(btn1);
+                btn1.disabled = true
+                btn1.classList.add('hidd')
+            }
+        })
+
+
+
+        btn2.addEventListener('click', function () {
+            console.log(btn2,'btn1');
+            count = count - 25
+            bar.style.width = count + "%"
+            value--
+            circles.forEach((ele, index) => {
+                ele.classList.add('bordercolor')
+                if (index <= value){
+                    ele.classList.add('bordercolor')
+                }
+                else{
+                    ele.classList.remove('bordercolor')
+                }
+            })
+            if (count == 0) {
+                btn1.disabled = false
+                btn1.classList.remove('hidd')
+                btn2.disabled = true
+                btn2.classList.add('hidd')
+            }
+            if(count==75){
+                btn1.disabled = false
+                btn1.classList.remove('hidd')
+            }
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // btn1.addEventListener('click', () => {
+
+        //     count++
+        //     circles.forEach(function (ele, index) {
+        //         if (index <= count) {
+        //             ele.classList.add('bordercolor')
+        //         }
+        //         else{
+        //         ele.classList.remove('bordercolor')
+        //         }
+        //     })
+
+
+        //     if (count == 1) {
+        //         bar.style.width = '25%'
+        //         btn2.disabled = false
+        //         btn2.classList.remove('hidd')
+        //     }
+        //     if (count == 2) {
+        //         bar.style.width = '50%'
+        //     }
+        //     if (count == 3) {
+        //         bar.style.width = '75%'
+        //     }
+        //     if (count == 4) {
+        //         bar.style.width = '100%'
+        //         btn1.disabled = true
+        //         btn1.classList.add('hidd')
+        //     }
+        // })
+
+        // btn2.addEventListener('click', function () {
+        //     count--
+        //     circles.forEach(function (ele, index) {
+        //         console.log(ele, 'ele');
+        //         if (index <= count) {
+        //             ele.classList.add('bordercolor')
+        //         }
+        //         else{
+        //         ele.classList.remove('bordercolor')
+        //         }
+        //     })
+        //     if (count == 0) {
+        //         bar.style.width = '0%'
+        //         btn2.disabled = true
+        //         btn2.classList.add('hidd')
+        //         btn1.disabled = false
+        //         btn1.classList.remove('hidd')
+        //     }
+        //     if (count == 1) {
+        //         bar.style.width = '25%'
+        //     }
+        //     if (count == 2) {
+        //         bar.style.width = '50%'
+        //     }
+        //     if (count == 3) {
+        //         bar.style.width = '75%'
+        //         btn1.disabled = false
+        //         btn1.classList.remove('hidd')
+        //     }
+        //     if (count == 4) {
+        //         bar.style.width = '100%'
+        //     }
+        // })
+
+
+    </script>
+</body>
+
+</html>

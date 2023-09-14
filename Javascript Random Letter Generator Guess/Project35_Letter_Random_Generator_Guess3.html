@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+  </head>
+
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    #messegeScramble {
+      color: grey;
+      font-size: 16.5px;
+    }
+
+    .input {
+      color: grey;
+      font-size: 14px;
+
+      font-size: 30px;
+      display: none;
+    }
+
+    .button {
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      height: 40px;
+      width: 60px;
+      margin-top: 10px;
+      background-color: rgb(212, 212, 212);
+      font-size: 15px;
+      color: gray;
+    }
+
+    .button:hover {
+      background-color: rgb(199, 199, 199);
+      color: rgb(43, 43, 43);
+    }
+  </style>
+
+  <body>
+    <p id="messegeScramble"></p>
+    <input type="text" class="input" />
+    <br />
+    <button class="button">Start</button>
+    <div id="result"></div>
+
+    <script>
+      var messegeScramble = document.querySelector('#messegeScramble');
+      var button = document.querySelector('.button');
+      var input = document.querySelector('input');
+
+      var play = false;
+      var showBrowser = '';
+
+      var scramble;
+
+      var random;
+
+      var count = 0;
+
+      var myArray = ['apple', 'onion', 'carrot', 'tomato', 'potato', 'mango'];
+
+      button.addEventListener('click', function () {
+        if (!play) {
+          button.innerHTML = 'Guess';
+          console.log('click');
+          play = true;
+          input.classList.toggle('input');
+
+          random = myArray[Math.floor(Math.random() * myArray.length)];
+          // console.log(random, 'random')
+
+          scramble = random.split('');
+
+          console.log(scramble, 'scramble');
+
+          showBrowser = randomArray(scramble);
+
+          console.log(showBrowser);
+
+          messegeScramble.innerHTML = showBrowser.join('');
+        } else {
+          // console.log('else')
+
+          if (input.value == random) {
+            console.log('Winner Match');
+            result.innerHTML = `Winner Match`;
+          } else {
+            count++;
+
+            console.log(`Try again attempt ${count}`);
+            result.innerHTML = `Try again attempt ${count}`;
+          }
+        }
+      });
+
+      function randomArray(arr) {
+        // var count = 0
+        for (var i = arr.length - 1; i >= 0; i--) {
+          // count++
+
+          console.log(i, 'i', arr[i]);
+
+          var splitLetterSave = arr[i];
+          console.log(splitLetterSave);
+
+          var newRandomMix = Math.floor(Math.random() * (i + 1));
+
+          arr[i] = arr[newRandomMix];
+          arr[newRandomMix] = splitLetterSave;
+
+          // messegeScramble.innerHTML = arr.join('')
+        }
+        return arr;
+      }
+    </script>
+  </body>
+</html>

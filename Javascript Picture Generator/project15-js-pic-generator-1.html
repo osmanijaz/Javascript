@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    * {
+        font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 50px;
+        color: lightpink;
+    }
+
+    .pic {
+        margin: auto;
+        width: 700px;
+        height: 450px;
+        border: 0.5px solid lightgray;
+        margin-top: 30px;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn {
+        width: 85px;
+        height: 40px;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        border-radius: 5px;
+        background-color: lightsalmon;
+        color: white;
+        cursor: pointer;
+
+    }
+
+    .image {
+        width: 100%;
+        height: 100%;
+
+    }
+</style>
+
+<body>
+
+    <h1>Random Picture Generator</h1>
+
+    <div class="button-container">
+        <button class="btn" onclick="btnStyle()">Refresh</button>
+    </div>
+
+
+
+    <img class="pic" src="" alt="">
+
+
+
+    <script>
+
+        var btn = document.getElementsByClassName('btn')[0]
+        var pic = document.getElementsByClassName('pic')[0]
+
+        var computer = 0
+        var player = 0
+        var array = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.jpg', '19.jpg', '20.jpg', '21.jpg', '22.jpg', '23.jpg', '24.jpg', '25.jpg', '26.jpg', '27.jpg', '28.jpg', '29.jpg', '30.jpg']
+
+
+        function btnStyle() {
+            btn.style.backgroundColor = 'lightgrey'
+            var num = Math.floor(Math.random() * 30)
+            computer = array[num]
+            // pic.setAttribute('class', value)
+            pic.setAttribute('src', computer)
+        }
+        btnStyle()
+
+
+        btn.addEventListener('click', function (e) {
+            player = e.target.innerHTML
+            console.log(player)
+        })
+
+        btnStyle()
+    </script>
+
+
+</body>
+
+</html>

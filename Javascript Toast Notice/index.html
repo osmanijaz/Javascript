@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rebeccapurple;
+  font-family: 'Poppins', sans-serif;
+
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+#parent{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  /* height: 100vh; */
+  justify-content: flex-start;
+}
+
+.btn {
+  background-color: #ffffff;
+  color: rebeccapurple;
+  font-family: inherit;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+#toasts {
+  position: absolute;
+  /* left: 50%; */
+  /* top: 100; */
+  /* bottom: 0; */
+  /* right: 0; */
+  /* bottom: 10px;
+  right: 0px; */
+  /* display: flex;
+  border: 1px solid;
+  flex-direction: column;
+  align-items: flex-end;  */
+  /* border: 1px solid green;
+  /* height: 100px; */
+  /* width: 100px; */
+}
+
+.toast {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+}
+
+.toast.info {
+  color: rebeccapurple;
+}
+
+.toast.success {
+  color: green;
+}
+
+.toast.error {
+  color: red;
+  background-color: black;
+}
+.top-right{
+    right : 0
+}
+.top-center{
+    right: 50%;
+}
+.top-left{
+    left: 0;
+}
+
+    </style>
+</head>
+<body>
+    <div  id="parent">
+
+        <div id="toasts">
+                <div class="toast"></div>
+            
+            
+        </div>
+    </div>
+
+    <button class="btn" id="button">Show Notification</button>
+    <input placeholder="title" type="text"  class="ass" id="title">
+    <input type="text" id="message" placeholder="message">
+
+  Top-Right : <input class="inp" type="radio" name="pos" p="top-right"  taqdeer = "no one " >
+Top-center : <input class="inp" type="radio" name="pos" p="top-center">
+Top-left : <input class="inp" type="radio" name="pos" p="top-left"><br>
+
+<input type="checkbox" p="error" class="inp"> Error
+<input type="checkbox" p="success" class="inp"> Success
+<input type="checkbox" p="info" class="inp"> Info
+
+
+    <script>
+        var toasts = document.getElementById('toasts')
+        var btn = document.querySelector('.btn')
+        var btn = document.querySelector('.btn')
+        let toast = document.querySelector('.toast')
+
+        console.log(toast);
+
+        var title = document.getElementById('title')
+        var message = document.getElementById('message')
+        var inpt = document.querySelectorAll('.inp')
+        var positionSetting = ['top', 'left', 'right', 'bottom']
+        console.log(inpt);
+
+        console.log(btn);
+        btn.addEventListener('click', function(){
+            console.log('clicked');
+            var showAlert = document.createElement('div')
+            showAlert.classList.add('toast')
+            showAlert.innerHTML= `title : ${title.value} <br /> Message: ${message.value}`
+            toasts.appendChild(showAlert)
+
+        //    toasts.style.left="0%"
+        //    toasts.style.bottom="0"
+
+        inpt.forEach(function(singleInput){
+            // console.log(singleInput.data-position1);
+            if(singleInput.checked == true){
+               var value =  singleInput.getAttribute('p')
+                console.log(value,'value of data');
+
+                
+                    
+                if(value == 'top-right'){
+                    // toasts.style.right="0"
+                    // toasts.style.top="0"
+                    // toasts.style.background='red'
+                    // singleInput.checked=false
+                    toasts.classList.remove('top-center', 'top-left')
+                    
+                    console.log('if is working');
+                    toasts.classList.add('top-right')
+
+
+                }
+              else if(value == "top-center") {
+                  toasts.classList.remove('top-right', 'top-left')
+                  toasts.classList.add('top-center')
+                    console.log('else if working');
+                    // toasts.style.bottom="0%"
+                    // toasts.style.background='green'
+
+                
+                }
+                else if(value == "top-left"){
+
+                    toasts.classList.remove('top-right')
+                    toasts.classList.remove('top-center')
+
+                    toasts.classList.add('top-left')
+
+                }
+
+                else if(value == 'error'){
+                  // toasts.classList.add('toast')
+                  toasts.classList.add('toast','error')
+                  // console.log('error working');
+                  // console.log(value);
+                }
+
+                else if(value == 'info'){
+                  toasts.classList.add('info')
+                  // console.log('error working');
+                  // console.log(value);
+                }
+
+                else if(value == 'success'){
+                  toasts.classList.add('success')
+                  // console.log('error working');
+                  // console.log(value);
+                }
+                
+
+
+            }
+        })
+        // console.log(toasts , 'toasts');
+
+            setTimeout(function(){
+                    showAlert.remove()
+            },2000)
+
+            // console.log(message, title);
+
+            // console.log(title.value, 'title');
+
+        })
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+  
+    
+
+    
+<script>
+
+
+// ----- part 1 -----
+
+// --- setItem localStorage ---
+
+var data = "hello"
+localStorage.setItem("keyAnyNameID", 'data')
+console.log(data);
+
+localStorage.setItem("name1", "Osman")
+// localStorage.setItem("name2", "Sania")
+localStorage.setItem("age", 100)
+// localStorage.setItem("age", 200)
+
+
+var key = "name"
+var value = "sania"
+localStorage.setItem(key, value)
+
+var getData = localStorage.getItem(key)
+console.log(getData);
+
+
+
+
+// ----- part 2 -----
+
+var object = [{Name:"Mother", Age:64, Cast:"Kashmir", Location:"United Kingdom"}]
+
+var convert_to_string_object = JSON.stringify(object)
+console.log(object, 'object');
+console.log(convert_to_string_object, 'convert_to_string_object');
+
+
+localStorage.setItem("userData", convert_to_string_object)
+var getBack = localStorage.getItem("userData")
+console.log(getBack);
+var convertOriginal = JSON.parse(getBack)
+console.log(convertOriginal);
+
+
+// ----- part 3 -----
+
+
+var obj = [{Name:"Father", Age:65, cast:"Sheikh", Location:"England"}]
+
+var convertStringObject = JSON.stringify(obj)
+console.log(convertStringObject)
+localStorage.setItem('key1', convertStringObject)
+
+
+// ----- getting from application for console or output -----
+
+var getBackFromString = localStorage.getItem('key1')
+console.log(getBackFromString, 'getBackFromString')
+var parseObject = JSON.parse(getBackFromString)
+console.log(parseObject, 'parseObject')
+
+
+
+
+// ----- part 4 -----
+
+
+
+var arrayObject = [{Name: 'Abdul', Age: '33', Cast: 'Pataan', Location: 'London'}]
+
+var convertArrayObjectString = JSON.stringify(arrayObject)
+console.log(convertArrayObjectString, 'convertArrayObjectString')
+localStorage.setItem('keyA', convertArrayObjectString)
+
+var getBackString1 = localStorage.getItem('keyA')
+console.log(getBackString1, 'getBackString1')
+
+var parseObject1 = JSON.parse(getBackString1)
+console.log(parseObject1, 'parseObject1')
+
+
+// ----- part 5 with counter (++ --) -----
+
+var count = 0
+
+function plus(){
+count++
+}
+
+function minus(){
+count--
+}
+
+
+
+
+localStorage.setItem('countKey', count)
+
+var counterPlus = localStorage.getItem(countKey) 
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

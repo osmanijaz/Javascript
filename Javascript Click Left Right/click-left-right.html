@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        #btn {
+            width: 200px;
+            height: 50px;
+            border-radius: 30px;
+            background-color: burlywood;
+            outline: none;
+            margin-left: 40%;
+        }
+        #btn1{
+            width: 200px;
+            height: 50px;
+            border-radius: 30px;
+            background-color: burlywood;
+            outline: none;
+            margin-left: 40%;
+        }
+
+        #move {
+            width: 200px;
+            height: 100px;
+            background: green;
+            border-radius: 50px;
+            /* margin: auto; */
+            margin-top: 50px;
+        }
+
+        /* .hellow {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 20px;
+
+        } */
+        .what{
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <button id="btn" onclick="moveing()" >Click Me</button>
+
+    <button id="btn1" onclick="back()" >Click Me</button>
+    <div id="what" onclick="text()"><h1>What is your Name</h1></div>
+
+    <div id="move" onclick="nabeel()"></div>
+    <!-- <div class="hellow" onclick="nabeel()"></div> -->
+
+    <!-- <h1 onclick="hassan()" >helo</h1> -->
+    <!-- <h1 id="hsn" onclick="hasnat()">a</h1> -->
+    <!-- <p id="p" onclick="hassan()">neaiuvnvndnv</p> -->
+    <script>
+        //     // var hsn = document.getElementById('hsn')
+        //     var btn = document.getElementById('btn')
+        //     // var para = document.getElementById('p')
+        //     console.log(btn);
+        //     var Btnhtml = btn.innerHTML
+        //         console.log(Btnhtml);
+        //     btn.innerHTML= btn.innerHTML+ " " + 'sameer'
+
+        //     // var updatedHtml = btn.innerHTML
+        //     // console.log(updatedHtml);
+        //     // first way of calling the html elements in js is document.getElementById('id')
+
+
+        //     function hassan(){
+
+        //         console.log('hassan is cute boy');
+
+        //         var x = parseInt(prompt('enter a number'))
+
+
+        //         for(var i = 0 ; i < x; i++){
+        //             var p = document.createElement('div')
+        //             p.style.width='100px'
+        //             p.style.height='100px'
+        //             p.style.border='1px solid'
+        //             p.innerHTML = 'hello i am hassan a cute boy' + i
+        //             document.body.appendChild(p);
+        //         }
+
+
+
+        //     }
+        //     function hasnat(){
+        //         if(hsn.innerHTML=='a'){
+        //             hsn.innerHTML='b'
+        //             hsn.style.color='green'
+        //         }
+        //         else if(hsn.innerHTML=='b'){
+        //             hsn.innerHTML = 'n'
+        //             hsn.style.color='blue'
+        //             for(var i = 0 ; i < 10 ; i++){
+        //                 p.innerHTML = 'hello i am sameer dangrous boy ' + i
+        //                 console.log('hello i am sameer ' , i);
+        //             }
+        //         }  
+        //         else if(hsn.innerHTML=='n'){
+        //             hsn.innerHTML='m'
+        //             hsn.style.color='pink'
+        //         }  
+        //   else{
+        //     hsn.innerHTML='c'
+        //     hsn.style.color='red'
+        //   }
+
+        //         console.log('hasnat is lamboo');
+            // }
+
+        // hassan()
+
+
+
+
+        var n = 10
+        var b = document.getElementById('move')
+        var c = document.getElementById('btn1')
+        function moveing(){ 
+                    b.style.marginLeft=`${n}%`
+                    n=n+10
+                }
+                function back(){ 
+                    b.style.marginLeft=`${n}%`
+                    n=n-10
+            }
+
+
+
+        var hassan = 0
+        // var count = 0
+
+        function nabeel() {
+
+            hassan++
+            // count++
+            // console.log(count);
+            console.log(hassan);
+
+
+            for (var a = 0; a < 10; a++) {
+                // var move = document.getElementById('move')
+
+                // console.log(move,"Move");
+                var p = document.createElement('div')
+                p.style.width = '100px'
+                p.style.height = '100px'
+                p.style.border = '1px solid'
+                p.style.display = 'inline-block'
+                p.style.margin = '20px'
+                p.style.background = 'yellow'
+
+                p.style.borderRadius = '50px'
+
+                console.log(p);
+
+                p.innerHTML = 'hello i am hassan a cute boy' 
+                document.body.appendChild(p);
+                if (count == "1") {
+                    hellow.style.background = 'brown'
+                }
+                else if (count == "2") {
+                    hellow.style.background = 'red'
+                }
+                else if (count == '3') {
+                    hellow.style.background = 'blue'
+                }
+                else {
+                    hellow.style.background = 'pink'
+                    count = 0
+                }
+                p[6].style.background = 'red'
+                    
+                if (a == "4") {
+                    p.style.background = 'brown'
+                }
+                else if(a == '5'){
+                    p.style.background = 'brown'
+                }
+                else if(a == '6'){
+                    p.style.background = 'brown'
+                }
+                else{
+                    p.style.background='black'
+                }
+                if (hassan == "1") {
+                    move.style.background = 'brown'
+                }
+                else if (hassan == "2") {
+                    move.style.background = 'red'
+                    // for (var x = 0; x < 10; x++) {
+                    //     var o = document.getElementById('p')
+                    //     o.style.background = 'red'
+                    // }
+                }
+                else if (hassan == '3') {
+                    move.style.background = 'blue'
+                }
+                else {
+                    move.style.background = 'pink'
+                    hassan = 0
+                }
+            }
+        }
+
+
+            // let Name = "Nouman"
+            // let a = 10
+            // let b = 10
+
+            // console.log(`${Name} and so son ${a*b}`);
+
+        // var name = document.getElementById('what')
+     
+            function text(){
+                var name=document.getElementById("what")
+                for(var i=0;i<10;i++){
+                    console.log(name);
+                    name.innerHTML+='<h2>I am nouman</h2>';
+                }
+            }
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <title>Document</title>
+</head>
+<body>
+  <style>
+*{
+padding: 0;
+margin: 0;
+font-family: 'Roboto', sans-serif;
+
+
+}
+
+
+    .outputMain{
+      height: 100vh;
+      width: 100%;
+      background-color:rgb(170, 170, 170);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* flex-wrap: wrap; */
+      flex-direction: column;
+    }
+
+    .titleHeader{
+      width: 80%;
+      height: 65px;
+      background-color: white;
+      border-radius: 5px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border: 5px solid black;
+      font-weight: 500;
+      color: rgb(69, 69, 69);
+    }
+
+    .header{
+      background-color: white;
+      width: 80%;
+      height: 65px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      color: rgb(69, 69, 69);
+      border-radius: 5px;
+      margin: 10px;
+    }
+
+  </style>
+  
+<div class="outputMain">
+
+  <div class="titleHeader">
+    <p class="para">EMAIL</p>
+    <p class="para">PASSWORD</p>
+    </div>
+ 
+    <!-- <div class="header">
+      <p class="para">****</p>
+      <p class="para2">****</p>
+      </div>  -->
+
+    <div class="answer"> </div>
+
+
+
+</div>
+
+
+<script>
+
+var answer = document.querySelector('.answer')
+// var para = document.querySelector('.para')
+var outputMain = document.querySelector('.outputMain')
+
+var getFromLocalStorageSingle = localStorage.getItem('single') ? 
+JSON.parse(localStorage.getItem('single')) : []
+
+
+
+
+if(getFromLocalStorageSingle[0].nameObj == 'admin'){
+
+  var getFromLocalStorageAll = localStorage.getItem('item') ? 
+JSON.parse(localStorage.getItem('item')) : []
+  renderDataFinal(getFromLocalStorageAll)
+
+}else{
+  renderDataFinal(getFromLocalStorageSingle)
+}
+
+
+
+
+
+
+
+
+
+function renderDataFinal(showOutput){
+
+  showOutput.forEach((element, index)=>{
+
+    var createOutput1 = document.createElement('div')
+    createOutput1.classList.add('header')
+
+    outputMain.appendChild(createOutput1)
+
+    createOutput1.innerHTML = `<p class="para">${element.nameObj}</p> <p class="para">${element.pwObj}</p>`
+  
+  })
+
+
+
+}
+
+  
+  
+  
+ 
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

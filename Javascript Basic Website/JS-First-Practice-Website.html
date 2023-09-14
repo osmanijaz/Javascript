@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+   
+
+
+
+
+    <script>
+
+        // createElement()  appendChild()  innerHTML style{} setAttribute() 
+
+
+        // console.log(document.head);
+
+        //  create an element through js 
+        var main = document.createElement('div')
+        console.log(main);
+        // main.innerHTML = 'My first Javascript Website'
+        // main.style.color = ('white')
+
+        main.style.width = '100%'
+        main.style.height = '50px'
+        main.style.display = 'flex'
+        main.style.justifyContent = 'space-between'
+        main.style.alignItems = 'center'
+
+
+        main.style.background = 'black'
+        document.body.appendChild(main)
+
+
+
+        var heading = document.createElement('h1')
+        heading.innerHTML = 'LOGO '
+        // document.body.appendChild(heading)
+        main.appendChild(heading)
+        heading.style.color = 'white'
+        heading.style.marginLeft = '20px'
+        heading.style.letterSpacing = ('1px')
+
+
+   
+
+
+        // ===li start===
+
+
+        var navMain = document.createElement('div')
+        console.log('navMain')
+        // navMain.style.border = '5px solid black'
+        navMain.style.width = '460px'
+        navMain.style.height = '30px'
+        navMain.style.display = 'flex'
+        navMain.style.justifyContent = 'space-between'
+        navMain.style.alignItems = 'center'
+        // navMain.style.margin = 'auto'
+        // navMain.style.marginTop = '-40px'
+        main.appendChild(navMain)
+
+
+
+
+
+
+
+
+
+
+        var navbar = document.createElement('li')
+        navbar.innerHTML = 'Home'
+        navbar.style.listStyle = 'none'
+        navbar.style.color = 'white'
+
+        navMain.appendChild(navbar)
+
+
+        var navbar = document.createElement('li')
+        navbar.innerHTML = 'About Us'
+        navbar.style.listStyle = 'none'
+        navbar.style.color = 'white'
+
+        navMain.appendChild(navbar)
+
+        var navbar = document.createElement('li')
+        navbar.innerHTML = 'Menu'
+        navbar.style.listStyle = 'none'
+        navbar.style.color = 'white'
+        navMain.appendChild(navbar)
+
+        var navbar = document.createElement('li')
+        navbar.innerHTML = 'Blog'
+        navbar.style.listStyle = 'none'
+        navbar.style.color = 'white'
+        navMain.appendChild(navbar)
+
+        var navbar = document.createElement('li')
+        navbar.innerHTML = 'Contact'
+        navbar.style.listStyle = 'none'
+        navbar.style.color = 'white'
+        navMain.appendChild(navbar)
+
+
+        // ===li end===
+
+
+
+
+        var leftBox = document.createElement('div')
+        // leftBox.innerHTML =
+        // console.log('leftBox')
+        leftBox.style.width = '120px'
+        leftBox.style.height = '20px'
+        leftBox.style.display = 'flex'
+        leftBox.style.marginRight = '20px'
+        leftBox.style.justifyContent = 'space-between'
+        leftBox.style.alignItems = 'center'
+        
+        // leftBox.style.border = '3px solid blue'
+        main.appendChild(leftBox)
+
+
+        var icon1 = document.createElement('div')
+        icon1.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i>'
+        icon1.style.width = '50px'
+        icon1.style.height = '100%'
+        icon1.style.color = 'white'
+        icon1.style.fontSize = '20px'
+        icon1.style.display = 'flex'
+        icon1.style.justifyContent = 'center'
+        icon1.style.alignItems = 'center'
+        // icon1.style.border = '3px solid yellow'
+        leftBox.appendChild(icon1)
+
+
+        var icon1 = document.createElement('div')
+        icon1.innerHTML = '<i class="fa-solid fa-power-off"></i>'
+        icon1.style.width = '50px'
+        icon1.style.height = '100%'
+        icon1.style.color = 'white'
+        icon1.style.fontSize = '20px'
+        icon1.style.display = 'flex'
+        icon1.style.justifyContent = 'center'
+        icon1.style.alignItems = 'center'
+        // icon1.style.border = '3px solid yellow'
+        leftBox.appendChild(icon1)
+
+
+        var icon1 = document.createElement('div')
+        icon1.innerHTML = '<i class="fa-solid fa-bars"></i>'
+        icon1.style.width = '50px'
+        icon1.style.height = '100%'
+        icon1.style.color = 'white'
+        icon1.style.fontSize = '20px'
+        icon1.style.display = 'flex'
+        icon1.style.justifyContent = 'center'
+        icon1.style.alignItems = 'center'
+        // icon1.style.border = '3px solid yellow'
+        leftBox.appendChild(icon1)
+
+
+// ***grey background***
+
+        var container = document.createElement('div')
+        console.log(container);
+        container.style.width = '100%'
+        container.style.height = '500px'
+        container.style.background = 'lightgrey'
+   
+
+
+
+        document.body.appendChild(container)
+
+
+// ***boxLeft***
+
+var boxLeft = document.createElement('div')
+boxLeft.style.width='50%'
+boxLeft.style.height='100%'
+boxLeft.style.padding='1px'
+boxLeft.style.display='inline-block'
+boxLeft.style.verticalAlign='top'
+boxLeft.style.background='lightblue'
+container.appendChild(boxLeft)
+
+
+// text in boxLeft
+
+var text = document.createElement('h1')
+text.innerHTML= 'Header'
+
+text.style.fontSize='30px'
+text.style.fontWeight='500' 
+text.style.marginLeft='20px'
+
+text.style.marginTop='20px'
+boxLeft.appendChild(text)
+
+
+
+var text2 = document.createElement('p')
+text2.innerHTML='Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ut sunt quos dignissimos voluptas aspernatur officia maiores exercitationem, eaque quod voluptatem, dicta quaerat iste ex eos doloremque alias ab praesentium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ut sunt quos dignissimos voluptas aspernatur officia maiores exercitationem, eaque quod voluptatem, dicta quaerat iste ex eos doloremque alias ab praesentium. '
+text2.style.fontSize='16px'
+text2.style.fontWeight='400' 
+text2.style.marginLeft='20px'
+text2.style.marginTop='10px'
+text2.style.paddingRight='10px'
+boxLeft.appendChild(text2)
+
+
+var img1 = document.createElement('div')
+img1.style.backgroundImage ='url(team1.jpg)'
+img1.style.backgroundPosition = 'center'
+img1.style.backgroundSize = 'cover'
+
+// console.log('img1')
+img1.style.width='45%'
+img1.style.height='200px'
+img1.style.marginLeft='20px'
+img1.style.marginTop='24px'
+img1.style.display='inline-block'
+// img1.style.border='2px solid limegreen'
+boxLeft.appendChild(img1)
+
+var img2 = document.createElement('div')
+// console.log('img2')
+img2.style.backgroundImage ='url(team2.jpg)'
+img2.style.backgroundPosition = 'center'
+img2.style.backgroundSize = 'cover'
+img2.style.width='45%'
+img2.style.height='200px'
+img2.style.marginLeft='20px'
+img2.style.marginTop='24px'
+img2.style.display='inline-block'
+// img2.style.border='2px solid limegreen'
+boxLeft.appendChild(img2)
+
+// ***boxRight***
+
+var boxRight = document.createElement('div')
+boxRight.style.width='50%'
+boxRight.style.height='100%'
+boxRight.style.display='inline-block'
+boxRight.style.backgroundImage= 'url(team3.jpg)'
+boxRight.style.backgroundPosition ='center'
+boxRight.style.backgroundSize ='cover'
+container.appendChild(boxRight)
+
+
+// ***100% width yellow box***
+
+var boxyMain = document.createElement('div')
+boxyMain.style.width='100%'
+boxyMain.style.height='400px'
+boxyMain.style.backgroundColor='yellow'
+document.body.appendChild(boxyMain)
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0px;
+        margin: 0px;
+        font-family: 'Inconsolata', monospace;
+        }
+
+</style>
+
+<body>
+
+    <!-- navbar  -->
+
+    <div class="navMain">
+        <ul>
+            <li>HOME</li>
+            <li>ABOUT</li>
+            <li>MENU</li>
+            <li>WHERE</li>
+        </ul>
+    </div>
+
+    <!-- picture  -->
+
+    <div class="picMain">
+        <h1 class="picHead">the<br>Cafe</h1>
+
+
+        <div class="bottomMain">
+            <div class="openBottom">Open from 6am to 5pm</div>
+            <p class="textBottom">15 Adr street, 5015</p>
+        </div>
+    </div>
+
+    <!-- // about the cafe  -->
+
+    <div class="aboutTitle">ABOUT THE CAFE</div>
+
+
+    <div class="aboutText">
+        <p class="aboutP">The Cafe was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur
+            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>
+
+            In addition to our full espresso and brew bar menu, we serve fresh made-to-order breakfast and lunch
+            sandwiches, as well as a selection of sides and salads and other good stuff.</p>
+
+        <div class="aboutP2">
+            <p class="P2Text"><i>"Use products from nature for what it's worth - but never too early, nor too late."
+                    Fresh is the new sweet.</i>
+                <br><br>
+                Chef, Coffeeist and Owner: Liam Brown
+            </p>
+        </div>
+    </div>
+
+    <!-- pic1 -->
+    <div class="pic1"></div>
+
+
+    <div class="timeMain">
+        <p class="timeP1"><b>Opening hours:</b> everyday from 6am to 5pm.</p>
+        <br>
+        <p class="timeP2"><b>Address:</b> 15 Adr street, 5015, NY</p>
+    </div>
+
+    <!-- THE MENU -->
+
+<div class="menuMain">THE MENU</div>
+
+<!-- Table Menu  -->
+
+<div class="menuTable">
+
+<div class="menuEatDrink">
+
+<div class="Eat">Eat</div>    
+<div class="Drink">Drink</div>    
+</div>
+
+
+<p class="headP1">Bread Basket <br><br> </p>
+<p class="headP2">Assortment of fresh baked fruit breads and muffins 5.50</p>
+
+<p class="headP3">Honey Almond Granola with Fruits <br><br> </p>
+<p class="headP4">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p>
+
+<p class="headP5">Belgian Waffle <br><br> </p>
+<p class="headP6">Vanilla flavored batter with malted flour 7.50</p>
+
+
+<p class="headP7">Scrambled eggs <br><br> </p>
+<p class="headP8">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p>
+
+<p class="headP9">Blueberry Pancakes <br><br> </p>
+<p class="headP10">With syrup, butter and lots of berries 8.50</p>
+
+</div>
+
+<!-- where to find us  -->
+
+<div class="pic2"></div>
+
+<div class="whereTitle">WHERE TO FIND US</div>
+
+<p class="parafind">Find us at some address at some place.</p>
+
+<div class="pic3"></div>
+
+
+
+<div class="textBox">
+<p class="para123">
+    <span class="black">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste. <br><br>
+
+    <b>Reserve</b> a table, ask for today's special or just send us a message:
+</p>
+</div>
+
+
+
+<div class="inTxt">
+
+<input class="oneInput" type="text" placeholder="Name">
+
+
+<input class="fourInput" type="number" placeholder="">
+
+
+<input class="threeInput" type="datetime-local" placeholder="">
+
+<input class="twoInput" type="text" placeholder="Message \ Special requirements">
+</div>
+
+<button class="but">SEND MESSAGE</button>
+
+
+
+    <script>
+
+        // navbar
+
+        var navMain = document.querySelector('.navMain')
+        navMain.style.width = '100%'
+        navMain.style.height = '55px'
+        navMain.style.backgroundColor = 'black'
+
+
+        var ul = document.querySelector('ul')
+        ul.style.listStyle = 'none'
+        ul.style.width = '100%'
+        ul.style.display = 'flex'
+        ul.style.height = '100%'
+        ul.style.justifyContent = 'space-around'
+        ul.style.alignItems = 'center'
+
+
+        var li = document.querySelectorAll('li')
+        for (let i = 0; i < li.length; i++) {
+            li[i].style.color = 'white'
+            li[i].style.fontSize = '16px'
+        }
+        // li[1].style.color='white'
+        // li[2].style.color='white'
+        // li[3].style.color='white'
+
+
+        // picture 
+
+        var picMain = document.querySelector('.picMain')
+        picMain.style.width = '100%'
+        picMain.style.height = '402px'
+        // picMain.style.border='2px solid green'
+        picMain.style.backgroundImage = 'url(coffeehouse.jpg)'
+        picMain.style.backgroundPosition = 'center'
+        picMain.style.backgroundSize = '100%'
+        picMain.style.filter = 'grayscale(50%)'
+        picMain.style.display = 'flex'
+        picMain.style.flexDirection = 'column'
+        picMain.style.justifyContent = 'center'
+        picMain.style.alignItems = 'center'
+        picMain.style.padding = '1px'
+
+
+
+
+        var picHead = document.querySelector('.picHead')
+        picHead.style.color = 'white'
+        picHead.style.fontSize = '90px'
+        picHead.style.fontWeight = '400'
+        picHead.style.textAlign = 'center'
+        picHead.style.lineHeight = '120px'
+        picHead.style.marginTop = '40px'
+
+
+        var bottomMain = document.querySelector('.bottomMain')
+        bottomMain.style.width = '97%'
+        bottomMain.style.height = '25px'
+        // bottomMain.style.border='2px solid limegreen'
+        bottomMain.style.marginTop = '70px'
+        bottomMain.style.display = 'flex'
+        bottomMain.style.justifyContent = 'space-between'
+        bottomMain.style.alignItems = 'center'
+
+
+
+
+        var openBottom = document.querySelector('.openBottom')
+        openBottom.style.width = '165px'
+        openBottom.style.height = '25px'
+        openBottom.style.backgroundColor = 'black'
+        openBottom.style.color = 'white'
+        openBottom.style.fontSize = '15px'
+        openBottom.style.textAlign = 'center'
+        openBottom.style.lineHeight = '25px'
+
+
+        var textBottom = document.querySelector('.textBottom')
+        textBottom.style.color = 'white'
+        textBottom.style.fontSize = '15px'
+
+
+
+        // about the cafe 
+
+        var aboutTitle = document.querySelector('.aboutTitle')
+        aboutTitle.style.width = '200px'
+        aboutTitle.style.height = '27px'
+        aboutTitle.style.backgroundColor = 'black'
+        aboutTitle.style.color = 'white'
+        aboutTitle.style.textAlign = 'center'
+        aboutTitle.style.lineHeight = '27px'
+        aboutTitle.style.letterSpacing = '3px'
+        aboutTitle.style.margin = 'auto'
+        aboutTitle.style.marginTop = '70px'
+        aboutTitle.style.fontSize = '20px'
+
+
+        var aboutText = document.querySelector('.aboutText')
+        aboutText.style.width = '700px'
+        aboutText.style.height = '380px'
+        // aboutText.style.border = '2px solid black'
+        aboutText.style.margin = 'auto'
+        aboutText.style.marginTop = '90px'
+
+
+        var aboutP = document.querySelector('.aboutP')
+        aboutP.style.fontSize = '18px'
+        aboutP.style.fontWeight = '400'
+        aboutP.style.lineHeight = '27px'
+
+        var aboutP2 = document.querySelector('.aboutP2')
+        aboutP2.style.width = '100%'
+        aboutP2.style.height = '135px'
+        // aboutP2.style.border='2px solid lime'
+        aboutP2.style.marginTop = '0px'
+        // aboutP2.style.padding='1px'
+        aboutP2.style.backgroundColor = 'rgba(193, 193, 193, 0.2)'
+        aboutP2.style.borderLeft = '6px solid rgb(179, 179, 179)'
+
+
+        var P2Text = document.querySelector('.P2Text')
+        P2Text.style.fontSize = '18px'
+        P2Text.style.fontWeight = '400'
+        P2Text.style.margin = 'auto'
+        P2Text.style.padding = '30px'
+        P2Text.style.marginTop = '34px'
+
+        // pic1 
+
+        var pic1 = document.querySelector('.pic1')
+        pic1.style.width = '700px'
+        pic1.style.height = '395px'
+        // pic1.style.border='2px solid black'
+        pic1.style.margin = 'auto'
+        pic1.style.marginTop = '30px'
+        pic1.style.backgroundImage = 'url(coffeeshop.jpg)'
+        pic1.style.backgroundPosition = 'center'
+        pic1.style.filter = 'grayscale(60%)'
+
+
+
+
+        var timeMain = document.querySelector('.timeMain')
+        timeMain.style.width = '700px'
+        timeMain.style.height = '100px'
+        // timeMain.style.border = '2px solid limegreen'
+        timeMain.style.margin = 'auto'
+        timeMain.style.marginTop = '20px'
+
+
+
+        var timeP1 = document.querySelector('.timeP1')
+        timeP1.style.fontSize = '18px'
+
+
+        var timeP2 = document.querySelector('.timeP2')
+        timeP2.style.fontSize = '18px'
+
+// THE MENU
+
+var menuMain = document.querySelector('.menuMain')
+menuMain.style.width = '135px'
+menuMain.style.height = '25px'
+menuMain.style.backgroundColor = 'black'
+menuMain.style.color = 'white'
+menuMain.style.textAlign = 'center'
+menuMain.style.lineHeight = '25px'
+menuMain.style.fontSize = '20px'
+menuMain.style.letterSpacing = '3px'
+menuMain.style.margin = 'auto'
+
+
+// Table Menu 
+
+var menuTable = document.querySelector('.menuTable')
+menuTable.style.width = '700px'
+menuTable.style.height = '680px'
+menuTable.style.border = '0.5px solid rgba(199, 199, 199, 0.651)'
+menuTable.style.margin = 'auto'
+menuTable.style.marginTop = '60px'
+menuTable.style.boxShadow = '0.2px 0.2px 10px 0.1px grey'
+
+
+var menuEatDrink = document.querySelector('.menuEatDrink')
+menuEatDrink.style.width = '100%'
+menuEatDrink.style.height = '43px'
+menuEatDrink.style.display = 'flex'
+menuEatDrink.style.padding='5px'
+menuEatDrink.style.boxSizing='border-box'
+menuEatDrink.style.borderBottom = '0.5px solid grey'
+menuEatDrink.style.boxShadow = '0.2px 0.2px 3px 0.1px grey'
+
+
+
+var Eat = document.querySelector('.Eat')
+Eat.style.width='50%'
+Eat.style.height='100%'
+Eat.style.border='0.5px solid grey'
+Eat.style.backgroundColor='grey'
+Eat.style.color='white'
+
+Eat.style.textAlign='center'
+Eat.style.lineHeight='33.5px'
+
+
+
+var Drink = document.querySelector('.Drink')
+Drink.style.width='50%'
+Drink.style.height='100%'
+// Drink.style.border='0.5px solid grey'
+Drink.style.textAlign='center'
+Drink.style.lineHeight='33.5px'
+
+var headP1 = document.querySelector('.headP1')
+headP1.style.fontSize='19px' 
+headP1.style.fontWeight='500' 
+headP1.style.marginLeft='6px' 
+headP1.style.marginTop='60px' 
+
+
+var headP2 = document.querySelector('.headP2')
+headP2.style.fontSize='17px' 
+headP2.style.fontWeight='400' 
+headP2.style.marginLeft='6px' 
+headP2.style.color='rgb(117, 117, 117)' 
+
+
+
+
+var headP3 = document.querySelector('.headP3')
+headP3.style.fontSize='19px' 
+headP3.style.fontWeight='500' 
+headP3.style.marginLeft='6px' 
+headP3.style.marginTop='60px' 
+
+
+var headP4 = document.querySelector('.headP4')
+headP4.style.fontSize='17px' 
+headP4.style.fontWeight='400' 
+headP4.style.marginLeft='6px' 
+headP4.style.color='rgb(117, 117, 117)' 
+
+
+var headP5 = document.querySelector('.headP5')
+headP5.style.fontSize='19px' 
+headP5.style.fontWeight='500' 
+headP5.style.marginLeft='6px' 
+headP5.style.marginTop='60px' 
+
+
+var headP6 = document.querySelector('.headP6')
+headP6.style.fontSize='17px' 
+headP6.style.fontWeight='400' 
+headP6.style.marginLeft='6px' 
+headP6.style.color='rgb(117, 117, 117)' 
+
+
+
+var headP7 = document.querySelector('.headP7')
+headP7.style.fontSize='19px' 
+headP7.style.fontWeight='500' 
+headP7.style.marginLeft='6px' 
+headP7.style.marginTop='60px' 
+
+
+var headP8 = document.querySelector('.headP8')
+headP8.style.fontSize='17px' 
+headP8.style.fontWeight='400' 
+headP8.style.marginLeft='6px' 
+headP8.style.color='rgb(117, 117, 117)' 
+
+
+var headP9 = document.querySelector('.headP9')
+headP9.style.fontSize='19px' 
+headP9.style.fontWeight='500' 
+headP9.style.marginLeft='6px' 
+headP9.style.marginTop='60px' 
+
+
+var headP10 = document.querySelector('.headP10')
+headP10.style.fontSize='17px' 
+headP10.style.fontWeight='400' 
+headP10.style.marginLeft='6px' 
+headP10.style.color='rgb(117, 117, 117)'
+
+
+// where to find us
+
+var pic2=document.querySelector('.pic2')
+pic2.style.width='700px'
+pic2.style.height='390px'
+// pic2.style.border='2px solid black'
+pic2.style.margin='auto'
+pic2.style.marginTop='30px'
+pic2.style.backgroundImage = 'url(coffeehouse2.jpg)'
+pic2.style.backgroundPosition = 'center'
+pic2.style.filter = 'grayscale(60%)'
+
+
+var whereTitle = document.querySelector('.whereTitle')
+whereTitle.style.width='240px'
+whereTitle.style.height='25px'
+whereTitle.style.backgroundColor='black'
+whereTitle.style.color='white'
+whereTitle.style.fontSize='18px'
+whereTitle.style.letterSpacing='3px'
+whereTitle.style.textAlign='center'
+whereTitle.style.lineHeight='25px'
+whereTitle.style.margin='auto'
+whereTitle.style.marginTop='60px'
+
+
+var parafind = document.querySelector('.parafind')
+parafind.style.fontSize='18px'
+parafind.style.marginLeft='280px'
+parafind.style.marginTop='40px'
+
+
+
+var pic3=document.querySelector('.pic3')
+pic3.style.width='700px'
+pic3.style.height='390px'
+// pic3.style.border='2px solid black'
+pic3.style.margin='auto'
+pic3.style.marginTop='30px'
+pic3.style.backgroundImage = 'url(map.jpg)'
+pic3.style.backgroundPosition = 'center'
+pic3.style.filter = 'grayscale(80%)'
+
+
+
+
+
+var black=document.querySelector('.black')
+// black.style.width='60px' 
+// black.style.headP1='40px' 
+black.style.backgroundColor='black' 
+black.style.color='white' 
+
+
+var textBox=document.querySelector('.textBox')
+textBox.style.width='700px' 
+textBox.style.height='130px' 
+// textBox.style.border='2px solid black' 
+textBox.style.margin='auto' 
+textBox.style.marginTop='40px' 
+textBox.style.fontSize='18px' 
+ 
+
+var inTxt = document.querySelector('.inTxt')
+inTxt.style.width='700px'
+inTxt.style.height='300px'
+// inTxt.style.border='2px solid black'
+inTxt.style.margin='auto'
+
+
+var oneInput = document.querySelector('.oneInput')
+oneInput.style.width='100%'
+oneInput.style.height='60px'
+oneInput.style.paddingLeft='10px'
+oneInput.style.fontSize='18px'
+oneInput.style.boxSizing='border-box'
+
+
+
+
+var fourInput = document.querySelector('.fourInput')
+fourInput.style.width='100%'
+fourInput.style.height='60px'
+fourInput.style.paddingLeft='10px'
+fourInput.style.fontSize='18px'
+fourInput.style.boxSizing='border-box'
+fourInput.style.marginTop='12px'
+
+
+
+var threeInput = document.querySelector('.threeInput')
+threeInput.style.width='100%'
+threeInput.style.height='60px'
+threeInput.style.paddingLeft='10px'
+threeInput.style.fontSize='18px'
+threeInput.style.boxSizing='border-box'
+threeInput.style.marginTop='12px'
+
+var twoInput = document.querySelector('.twoInput')
+twoInput.style.width='100%'
+twoInput.style.height='60px'
+twoInput.style.paddingLeft='10px'
+twoInput.style.fontSize='18px'
+twoInput.style.boxSizing='border-box'
+twoInput.style.color='lightgray'
+twoInput.style.marginTop='12px'
+
+
+var but = document.querySelector('.but')
+but.style.width='140px'
+but.style.height='40px'
+but.style.backgroundColor='black'
+but.style.color='white'
+but.style.fontSize='18px'
+but.style.marginLeft='281px'
+
+
+
+
+    </script>
+
+</body>
+
+</html>

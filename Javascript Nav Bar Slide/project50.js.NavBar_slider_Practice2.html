@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      font-family: 'Roboto', sans-serif;
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .parent {
+      width: 100%;
+      height: 100vh;
+      background-image: url(https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/wp-content/uploads/2017/11/Tesla-Roadster-103.jpg);
+      background-position: center;
+      background-size: cover;
+    }
+
+    .navbar {
+      width: 100%;
+      height: 10vh;
+      /* border:2px solid rgb(159, 159, 159); */
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+        .li_div{
+            width: 55%;
+            height: 10vh;
+            /* border:5px solid rgb(21, 21, 21); */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+       
+
+
+        nav{
+       position: relative;
+       /* border: 5px solid rgb(255, 0, 128); */
+       width: 100%;
+       }
+
+
+       ul{
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       /* border:5px solid lime; */
+        
+           
+       }
+
+
+       li {
+    
+            color:gray;
+            width: 100px;
+          height: 20px;
+            /* border: 5px solid rgb(0, 242, 255); */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+             list-style: none;
+        
+        }
+
+        a {
+         
+            text-decoration: none;
+           font-weight: 450;
+            /* color: rgb(91, 91, 91); */
+            z-index:2;
+            font-size: 15px;
+            color: black;
+        
+        }
+
+       
+
+        #hover {
+            position: absolute;
+            top: -5px;
+            left: 2px;
+            width: 100px;
+            height: 30px;
+           background-color: #999999de;
+            border-radius: 5px;
+            transition: all .56s ease;
+            visibility: hidden;
+            cursor: pointer;
+           
+        }
+
+
+
+
+  </style>
+  <body>
+    <div class="parent">
+      <div class="navbar">
+
+
+        <div class="li_div">
+
+          <nav>
+            <ul>
+              <li><a href="">Model S</a></li>
+              <li><a href="">Model 3</a></li>
+              <li><a href="">Model X</a></li>
+              <li><a href="">Model Y</a></li>
+              <li><a href="">Solar Roof</a></li>
+              <li><a href="">Solar Panels</a></li>
+              <li><a href="">Powerwall</a></li>
+          </ul>
+          <div id="hover"></div>
+         </nav>
+       </div>
+
+
+
+
+
+
+
+      </div>
+    </div>
+
+
+
+
+
+    <script>
+       var nav = document.querySelector('nav');
+        var hover = document.getElementById('hover');
+        var link = document.querySelectorAll('nav li');
+        // console.log(link, 'link');
+
+        var linkWidth = link[0].offsetWidth 
+      console.log(linkWidth, 'linkWidth')
+
+      var activeLink = 0 
+
+ // initialize hover div position
+ hover.style.transform = `translateX(${activeLink * linkWidth}px)`
+
+
+   // update hover div position when link is hovered
+
+   link.forEach((element, index) => {
+            element.addEventListener('mouseenter', () => {
+                hover.style.transform = `translateX(${index * linkWidth}px)`;
+                hover.style.visibility = 'visible'
+                activeLink = index;
+            });
+        });
+
+  // reset hover div position when mouseleave nav element
+
+  nav.addEventListener('mouseleave', () => {
+hover.style.transform = `translateX(${activeLink * linkWidth}px)`;
+      hover.style.visibility = 'hidden'
+});
+
+
+    </script>
+  </body>
+</html>

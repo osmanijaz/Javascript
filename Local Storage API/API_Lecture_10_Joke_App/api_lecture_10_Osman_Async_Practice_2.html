@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <title>Dad Jokes</title>
+
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fffb00;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+  padding: 50px 20px;
+  text-align: center;
+  max-width: 100%;
+  width: 800px;
+}
+
+h3 {
+
+  margin: 0;
+  opacity: 0.5;
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+
+.joke {
+  font-size: 30px;
+  letter-spacing: 1px;
+  line-height: 40px;
+  margin: 50px auto;
+  max-width: 600px;
+}
+
+.btn {
+  background-color: #464646;
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+  padding: 14px 40px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+    </style>
+
+
+
+  </head>
+  <body>
+
+    <div class="container">
+      <h3>Don't Laugh Challenge</h3>
+      <div id="joke" class="joke">Loading...</div>
+      <button id="jokeBtn" class="btn">Joke</button>
+    </div>
+    
+    <script>
+
+      const joke = document.getElementById('joke')     
+      const button = document.getElementById('jokeBtn')
+
+
+    button.addEventListener('click', ()=>{
+    // console.log('click')
+
+    getData()
+    })
+
+    getData()
+
+
+    // fetch(url).then((response)=>response.json()).then((data)=>{
+    //   console.log(data);
+    // })
+
+    async function getData(){
+    // await working if we set async
+    
+
+    // --- link works directly without objects ---
+    // e.g. for paid and free APIs 
+    var response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    var data = await response.json()
+    console.log(data)
+    
+ 
+    // ---2---headers 
+
+    var object = {
+      headers:{Accept:'application/json'}
+      }
+
+    // ---1--- link needs objects linked to API webpage 
+    // e.g. link headers to get a response from API website  
+
+    // fetch(url, object)
+    var response = await fetch('https://icanhazdadjoke.com', object)
+    var data = await response.json()
+    console.log(data)
+
+    joke.innerHTML = data.joke
+    
+
+
+
+
+
+    }
+
+
+
+
+
+
+   
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

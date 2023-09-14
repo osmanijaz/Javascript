@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+function parent( ){
+var y = 30
+
+function child1( ){
+var z = 40    
+console.log (x,y,z, `child1`)	
+// (child 1 can take x=20,y=30 and its own z=40 variable but can not take from child 2 below t=70)
+
+}
+
+function child2( ){
+var t =70
+console.log (x,y,t, `child2`)	
+
+
+// (child 2 can take x=20,y=30 and its own t=70 variable but can not take from child 1 above t=70)
+child1( )
+}
+child2( ) 
+}
+
+parent( )
+20 30 70 'child2'
+20 30 40 'child1'
+
+
+
+
+
+    </script>
+</body>
+</html>

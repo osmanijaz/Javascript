@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+
+</style>
+
+
+
+<body>
+
+  <button class="minus">minus</button>
+  <button class="plus">plus</button>
+<p id="number">0</p>
+
+<script>
+
+// --- teacher ---
+
+// var plus = document.getElementsByTagName("button")[0]
+// var minus = document.getElementsByTagName("button")[1]
+// var counter = document.getElementsByTagName("h1")[0]
+
+// var count = localStorage.getItem("count") ? localStorage.getItem("count") : 0
+// console.log(count);
+
+// counter.innerHTML=count
+
+// localStorage.setItem("count", count)
+
+
+
+
+// plus.addEventListener("click", ()=>{
+// count++
+// console.log("plusss");
+// counter.innerHTML=count
+// localStorage.setItem("count", count)
+
+
+
+// })
+
+// --- teacher ---
+
+
+
+
+
+
+// ----- counter (++ --) -----
+
+
+var minus = document.querySelector(".minus")
+var plus = document.querySelector(".plus")
+var number = document.getElementById("number")
+
+
+var count = 0
+
+var count = localStorage.getItem('count') ? localStorage.getItem('count') : 0
+number.innerHTML = count
+// localStorage.setItem("count", count) // already stored in if else
+
+
+plus.addEventListener('click', ()=>{
+count++
+console.log(count)
+number.innerHTML = count
+localStorage.setItem('count', count)
+})
+
+
+minus.addEventListener('click', ()=>{
+count--
+console.log(count)
+number.innerHTML = count
+localStorage.setItem('count', count)
+
+})
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

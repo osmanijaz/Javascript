@@ -1,0 +1,100 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+#background{
+    width:100%;
+    height:100vh;
+    border: 1px solid #000;
+    background-image:url(./images/Screen\ Shot\ 2023-02-01\ at\ 12.49.47\ PM.png);
+    background-position:center;
+    background-size:cover;
+    position:relative;
+}
+
+/* -------button-------- */
+#show-monkey{
+    position:absolute;
+    width:auto;
+    height:auto;
+    /* border: 1px solid #000; */
+    top:-60px;
+    left:88px;
+    transition:0.5s;
+}
+#show-monkey img{
+    cursor:pointer;
+}
+/* -------button-------- */
+
+
+
+/* -------body-------- */
+  #container{
+    position:absolute;
+    width:800px;
+    height:0px;
+    border: 1px solid transparent;
+    top:100px;
+    left:500px;
+    display:grid;
+    grid-template-columns:repeat(4 , 1fr);
+    grid-template-rows:auto;
+    grid-gap : 20px ;
+    transition:0.5s;
+  }
+
+  .tile{
+    background-color:black;
+    border-radius:15px;
+    cursor:pointer;
+    background-image:url(./images/Screen\ Shot\ 2023-02-01\ at\ 1.25.03\ PM.png);
+    background-position:center;
+    background-size:cover;
+    box-shadow:0px 0px 20px 0px white;
+    transition:1s;
+  }
+  .t1{
+    grid-column:1/2;
+    grid-row:1/2;
+  }
+  .t2{
+    grid-column:2/3;
+    grid-row:1/2;
+  }
+  .t3{
+    grid-column:3/4;
+    grid-row:1/2;
+  }
+  .t4{
+    grid-column:4/5;
+    grid-row:1/2;
+  }
+  .t5{
+    grid-column:1/2;
+    grid-row:2/3;
+  }
+  .t6{
+    grid-column:2/3;
+    grid-row:2/3;
+  }
+  .t7{
+    grid-column:3/4;
+    grid-row:2/3;
+  }
+  .t8{
+    grid-column:4/5;
+    grid-row:2/3;
+  }
+/* -------body-------- */
+
+/* -------active------ */
+
+.active{
+    transform:rotateY(180deg);
+    background-color:white;
+    background-image:none;
+}
+
+/* -------active------ */

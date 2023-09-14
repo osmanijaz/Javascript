@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>react animtions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+            flex-direction: column;
+            height: 100vh;
+            background-color: rgb(36, 36, 68);
+            padding-left: 20%;
+        }
+
+        .main {
+            width: 400px;
+            height: 400px;
+            border-radius: 8px;
+            background-color: rgb(211, 171, 171);
+            box-shadow: inset 0px 0px 10px 3px black, 0px 0px 10px 3px aquamarine;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: 0.34s;
+        }
+
+        .main:hover {
+            background-color: black;
+        }
+
+        .new {
+            width: 70px;
+            height: 70px;
+            border-radius: 5px;
+            background-color: white;
+            position: absolute;
+            transition: 0.3s;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: cursive;
+        }
+
+        .text {
+            width: 700px;
+            justify-content: space-between;
+            display: flex;
+            align-items: center;
+        }
+
+        .x {
+            font-size: 50px;
+            font-family: cursive;
+            color: white;
+        }
+
+        #y {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .score{
+            font-size: 50px;
+            font-family: cursive;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="score" id="score">score:- 20</p>
+    <div class="text">
+        <p class="x" id="x">X-axis:-</p>
+        <div class="main"></div>
+    </div>
+    <p class="x" id="y">Y-axis:-</p>
+    <script>
+        let main = document.querySelector('.main')
+        let axis = document.querySelectorAll('.x')
+        var create = document.createElement('div')
+        create.classList.add('new')
+        create.innerHTML=`Click Me`
+        main.appendChild(create)
+        let random1
+        let random2
+        let colorarr = ['red', 'orange','white', 'yellow', 'aqua', 'aquamarine']
+        let count = 0
+
+
+        main.addEventListener('mousemove', function (e) {
+            let positionsX_axis = e.x
+            let positionsY_axis = e.y
+            axis[0].innerHTML = `X-axis:- <br> ${positionsX_axis}`
+            axis[1].innerHTML = `Y-axis:- ${positionsY_axis}`
+        })
+
+
+
+        create.addEventListener('click', function () {
+            count++
+            score.innerHTML = `score:- ${count}`
+            random1 = colorarr[Math.floor(Math.random() * colorarr.length)]
+            // console.log(random1,'random1');
+            create.style.backgroundColor = random1
+        })
+
+        function moving() {
+            let details = main.getBoundingClientRect()
+            // console.log(details,'details');
+            let positionsx = details.width
+            // console.log(positionsx);
+            let positionsy = details.height
+            // console.log(positionsy);
+            random1 = Math.floor(Math.random() * positionsx)
+            random2 = Math.floor(Math.random() * positionsy)
+            create.style.bottom = `${random2}px`
+            create.style.right = `${random1}px`
+            create.style.top = `${random2}px`
+            create.style.left = `${random1}px`
+        }
+        // moving()
+        setInterval(() => {
+            moving()
+        }, 200);
+
+    </script>
+</body>
+
+</html>

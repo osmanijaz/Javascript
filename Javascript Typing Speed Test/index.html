@@ -1,0 +1,64 @@
+<html>
+
+    <head>
+        <title>JavaScript</title>
+    </head>
+    
+    <body>
+        <div class="message"></div>
+        <textarea  name="words" cols="75" rows="5" disabled></textarea>
+        <br>
+        <button type="button">Start</button>
+        <script>
+
+            let btn = document.querySelector('button')
+            let text = document.querySelector('textarea')
+            let message = document.querySelector('.message') 
+
+            let count = 0
+
+
+            let messageArray = [ "i like javascript", "how fast can you type ", "you are a slow typer ", "find joy in the journey "] 
+
+            // console.log(random);
+            // message[messageArray].innerHTML=
+            btn.addEventListener('click', (e)=>{
+            
+
+                console.log('clicked');
+                if(btn.innerHTML=="Start"){
+                    btn.innerHTML='done'
+                     playeGame()
+                    // text.getAttribute("enable")
+
+                }else{
+                    btn.innerHTML="Start"
+                    endGame()
+                   
+
+                }
+
+            })
+            
+        
+            function playeGame(){
+                count++
+                var  random = Math.floor(Math.random() * messageArray.length )
+
+                text.disabled=false
+                    message.innerHTML=messageArray[random] 
+            }
+
+
+            function endGame(){
+                text.disabled=true
+                    text.value=""
+                    message.innerHTML=""
+
+            }
+
+
+        </script>
+    </body>
+    
+    </html>

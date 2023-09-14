@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style></style>
+  </head>
+  <body>
+    <div class="message"></div>
+
+    <textarea name="" id="" cols="30" rows="10" disabled></textarea><br />
+
+    <button>Start</button>
+
+    <div class="result"></div>
+
+    <script>
+      var msg = document.querySelector('.message');
+      var txtArea = document.getElementsByTagName('textarea')[0];
+
+      var btn = document.getElementsByTagName('button')[0];
+      var result = document.querySelector('.result');
+
+      var arrayMsgs = [
+        'What is your name?',
+        'What is the day today?',
+        'What is the time now?',
+        'How are you?',
+      ];
+
+      var time1Answer
+      var time2Answer
+
+      btn.addEventListener('click', () => {
+        console.log('click');
+
+        if (btn.innerHTML === 'Start') {
+          txtArea.disabled = false;
+
+   
+
+          btn.innerHTML = 'Done';
+
+          var random = Math.floor(Math.random() * arrayMsgs.length);
+          console.log(random, 'random');
+
+          var msgAnswer = arrayMsgs[random];
+          console.log(msgAnswer, 'msgAnswer');
+
+          msg.innerHTML = msgAnswer;
+
+          var Time1 = new Date()
+          time1Answer = Time1.getTime()
+
+
+          
+          
+
+
+
+        } else {
+          btn.innerHTML = 'Start';
+          txtArea.disabled = true;
+
+          var Time2 = new Date()
+          time2Answer = Time2.getTime() 
+
+          // let totalTime = ((endTime - startTime) / 1000) milliseconds
+          let totalTime = ((time2Answer - time1Answer) / 1000)
+
+          var playerTypingValue = txtArea.value.length;
+          console.log(playerTypingValue);
+
+          var totalSeconds =  Math.floor((playerTypingValue / totalTime) * 60)  //seconds
+
+
+          result.innerHTML = totalSeconds + ' words per minute'
+
+
+
+        }
+      });
+    </script>
+  </body>
+</html>

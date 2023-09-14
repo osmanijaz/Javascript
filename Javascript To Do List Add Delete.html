@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+          body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+          }
+
+          .wrapper {
+            /* border: 1px solid #000; */
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+          }
+
+          h1 {
+            text-align: center;
+          }
+
+          input[type="text"]{
+            width: 60%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+          }
+
+          button{
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+          }
+
+          button:hover{
+            background-color: #3e8e41;
+          }
+
+          ul{
+            width: 60%;
+            list-style: none;
+            line-height: 20px;
+            padding: 0;
+          }
+
+          li{
+            padding: 10px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+          }
+          .btn{
+            margin-top: 30px;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+          }
+          .btn:hover{
+            background-color: #3e8e41;
+          }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <h1>To-Do List</h1>
+      <input type="text" placeholder="Add a new task" id="task-input">
+      <button type="button" id="add-btn">Add</button>
+      <button type="button" id="add-btn2">clear list</button>
+      <ul id="task-list"></ul>
+    </div>
+
+    <!-- <script src="script.js"></script> -->
+
+    <script>
+            const taskInput = document.getElementById("task-input");
+            const addBtn = document.getElementById("add-btn");
+            const addBtn2 = document.getElementById("add-btn2");
+            const taskList = document.getElementById("task-list");
+
+            function addTask() {
+              if (taskInput.value === "") {
+                return;
+              }
+              const newTask = document.createElement("li");
+              newTask.style.display='inlineblock'
+              newTask.innerText = taskInput.value ;
+              taskList.appendChild(newTask);
+              const newbtn = document.createElement("button");
+              newbtn.innerHTML='Delete Wish'
+              newbtn.classList.add('newbtn')
+              newbtn.addEventListener('click',function(){
+               newTask.style.display='none'
+               newbtn.style.display='none'
+              })
+              taskList.appendChild(newbtn);
+              taskInput.value = "";
+            }
+            addBtn.addEventListener("click",function(){
+                  addTask();
+            })
+            addBtn2.addEventListener('click',function(){
+              taskList.innerHTML=''
+            })
+            taskInput.addEventListener("keydown", function(event) {
+              if (event.keyCode === 13) {
+                addTask();
+              }
+            });
+
+    </script>
+  </body>
+</html>

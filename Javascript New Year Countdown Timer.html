@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class='year'></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Poppins, sans-serif;
+        }
+        .main{
+            height: 100vh;
+            width: 100%;
+            background-color:#020202;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+       
+        .h2024{
+            font-size: 85px;
+            color: #FFFFFF;
+        }
+        .new{
+            margin: 6vh;
+            font-size: 50px;
+            color: #FFFFFF;
+        }
+        .div{
+            height: 65vh;
+            width: 30%;
+            background-color:darkslategrey;
+            border-radius: 15px;
+            padding: 10px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .box1{
+            height: 29vh;
+            width: 45%;
+            background-color:#272727;
+            border-radius: 10px;
+            font-size: 35px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        .sml-box{
+            height: 9vh;
+            width: 100%;
+            background-color: #222222;
+            color: #FFFFFF;
+            position: absolute;
+            left: 0;
+            bottom: 1px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .h0{
+            margin: 7vh;
+            font-size: 55px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1 class="h2024"></h1>
+        <h1 class="new">New Year Countdown</h1>
+        <div class="div">
+            <div class="box1 day">
+                <h4 class="h0">00</h4>
+                <div class="sml-box ">
+                    <h4>Days</h4>
+                </div>
+            </div>
+            <div class="box1 hour">
+                <h4 class="h0">00</h4>
+                <div class="sml-box">
+                    <h4>Hours</h4>
+                </div>
+            </div>
+            <div class="box1 min">
+                <h4 class="h0">00</h4>
+                <div class="sml-box">
+                    <h4>Minutes</h4>
+                </div>
+            </div>
+            <div class="box1 sec">
+                <h4 class="h0">00</h4>
+                <div class="sml-box">
+                    <h4>Seconds</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var h1 = document.querySelectorAll('.h0')
+        var h2024 = document.querySelector('.h2024')
+        var clas = document.querySelector('.year')
+        var currentTime = new Date().getFullYear()
+        var newYear = new Date(`january 01 ${currentTime + 1} 00:00:00 `)
+        function update(){
+            var currentYear = new Date()
+            var time = newYear - currentYear
+            var d = Math.floor(time/1000/60/60/24)
+            var h = Math.floor(time/1000/60/60) % 24
+            var m = Math.floor(time/1000/60) % 60
+            var s = Math.floor(time/1000) % 60
+            h1[0].innerHTML=d
+            h1[1].innerHTML=h
+            h1[2].innerHTML=m
+            h1[3].innerHTML=s
+            h2024.innerHTML=currentTime + 1
+            clas.innerHTML=currentTime + 1 + ' | webDevrs'
+        }
+        update()
+        setInterval(update,1000)
+       
+
+     
+
+    </script>
+</body>
+</html>

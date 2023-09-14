@@ -1,0 +1,240 @@
+<!-- <html>
+
+<head>
+    <title>JavaScript</title>
+    <style>
+        textarea {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body> Source Text
+    <br>
+    <textarea name="copyTxt" rows="3" cols="50">Hello World</textarea><br>
+    <button class="moverBtn">Move Text</button>
+    <button class="copyBtn">Copy Text</button>
+    <br>
+    <textarea name="finalTxt" rows="3" cols="50"></textarea>
+    <div class="output"></div>
+    <script>
+        const copyTxt = document.querySelector("textarea[name=copyTxt]");
+        const finalTxt = document.querySelector("textarea[name=finalTxt]");
+        const moverBtn = document.querySelector(".moverBtn");
+        const copyBtn = document.querySelector(".copyBtn");
+        const output = document.querySelector(".output");
+        moverBtn.addEventListener("click", moveText);
+        copyBtn.addEventListener("click", copyText);
+        finalTxt.addEventListener("click", selAll);
+        copyTxt.addEventListener("click", selAll);
+
+        function selAll() {
+            this.select();
+        }
+
+        function copyText() {
+            let temp = copyTxt.value;
+            copytoClipBoard(temp);
+        }
+
+
+        function copytoClipBoard(str) {
+            const textarea = document.createElement("textarea");
+            textarea.value = str;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            output.innerHTML = "<h3>Copied content</h3>" + textarea.value;
+        }
+
+
+        function moveText() {
+            let temp = copyTxt.value;
+            finalTxt.value = temp;
+        }    
+
+
+
+
+
+        function selAll() {
+            this.select()
+        }
+
+        function copyText() {
+            let text = copyTxt.value
+            // console.log(text);
+            copytoClipBoard(text)
+        }
+
+        function copytoClipBoard(str) {
+            const textarea = document.createElement('textarea')
+            textarea.value = str
+            console.log('hello');
+            document.body.appendChild(textarea)
+            textarea.select();
+            document.execCommand('copy');
+            // document.body.removeChild(textarea);
+            output.innerHTML = "<h3>Copied content</h3>" + textarea.value;
+        }
+
+        function moveText() {
+            let text = copyTxt.value
+            finalTxt.value = text
+        }
+
+    </script>
+</body>
+
+</html> -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>passing-text</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: slategray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-form {
+            background-color: darkcyan;
+            /* border: 1px solid #000; */
+            margin-top: 90px;
+            padding: 20px 10px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.374);
+        }
+
+        .main-form h3 {
+            font-size: 30px;
+            text-transform: capitalize;
+            text-align: center;
+            color: white;
+        }
+
+        .inpt {
+            text-transform: capitalize;
+            padding: 15px 50px 15px 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            background-color: cadetblue;
+            color: white;
+            outline: none;
+            margin: 20px;
+        }
+
+        ::placeholder {
+            color: white;
+        }
+
+        .btn {
+            max-width: 1000px;
+            text-transform: capitalize;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+            border: none;
+            border-radius: 7px;
+            background-color: cadetblue;
+            padding: 16px 40px;
+            margin-left: 37%;
+            margin-top: 20px;
+        }
+
+        .subdiv {
+            width: 300px;
+            position: absolute;
+            top: 100px;
+            visibility: hidden;
+            padding-right: 10px;
+            background-color: darkcyan;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.374);
+        }
+
+        .insty {
+            text-transform: capitalize;
+            padding: 12px 80px 12px 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            background-color: cadetblue;
+            color: white;
+            outline: none;
+            margin: 15px 20px 15px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-form">
+        <h3> pleace fill your form</h3>
+        <input type="text" placeholder="first name *" class="inpt">
+        <input type="text" placeholder="last name *" class="inpt"> <br>
+        <input type="email" placeholder="email address *" class="inpt">
+        <input type="password" placeholder="password*" class="inpt"> <br>
+        <textarea class="inpt" placeholder="what is qualification for you?" cols="60" rows="5"></textarea> <br>
+        <button class="btn">
+            submit form
+        </button>
+    </div>
+    <div class="subdiv">
+
+    </div>
+    <script>
+        let main = document.querySelector('.main-form')
+        let inpt = document.querySelectorAll('.inpt')
+        let btn = document.querySelector('.btn')
+        btn.addEventListener('click', btnclk)
+
+        for(const convert of inpt){
+            convert.addEventListener('click',function(){
+                this.select()
+            })
+        }
+
+        function btnclk() {
+            for (const textvalue of inpt) {
+                var value = textvalue.value
+                creating(value)
+            }
+        }
+
+        function creating(pass) {
+            for (var n = 0; n < 5; n++) {
+                var int = document.createElement('input')
+                int.classList.add('insty')
+                int.value = pass
+            }
+            var sibling = main.nextElementSibling
+            sibling.appendChild(int)
+            sibling.style.visibility = 'visible'
+            main.style.display = 'none'
+        }
+
+
+    </script>
+</body>
+
+</html>

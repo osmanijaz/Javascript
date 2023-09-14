@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Weather App</title>
+  
+    <style>
+
+      *{
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    
+      }
+      body{
+        overflow: hidden;
+   
+      }
+      .container{
+          width: 100%;
+          height: 100vh;
+          /* background-image: url(./app-images/Science_forest_1167053895.jpg); */
+          background-size: cover;          
+          display: flex;
+          justify-content: center;
+          align-items: center;
+         
+        }
+        .inner{
+          width: 500px;
+          height: 350px;
+          background-color: rgba(255, 255, 255, 0.479);
+          border-radius: 20px;
+          color: black;
+          backdrop-filter: blur(5px);
+          border: 5px solid lime ;
+        }
+        .data-get{
+          width: 100%;
+          height: 50px;
+          margin-top: 40px;
+          display: flex;
+          justify-content: space-evenly;
+          /* background-color: wheat; */
+          align-items: center;
+          border: 5px solid rgb(208, 0, 255) ;
+        }
+        .C-name{
+          width: 250px;
+          height: 35px;
+          padding: 0 20px;
+          border: none;
+          font-size: 15px;
+          border-radius: 20px;
+          color: gray;
+          /* background-color: rgba(37, 37, 37, 0.767); */
+          outline: none;
+          border: 5px solid rgb(255, 0, 0) ;
+        }
+        .search{
+          width: max-content;
+          padding: 14px;
+          background-color: white;
+          color: black;
+          border: none;
+          font-size: 10px;
+          border-radius: 50%;
+          cursor: pointer;
+          border: 5px solid rgb(0, 195, 255) ;
+        }
+        .search:hover{
+          background-color: white;
+          font-weight: bold;
+          color: rgb(0, 144, 222);
+        }
+        .data-show{
+          width: 80%;
+          height: 200px;
+          margin: auto;
+          /* background-color: darkmagenta; */
+          padding: 1px;
+          border: 5px solid rgb(0, 98, 255) ;
+        }
+        .data-show h3{
+          font-size: 20px;
+          margin-left: 1vw;
+          margin-top: 2vh;
+          border: 5px solid rgb(255, 255, 0) ;
+        }
+        .data-show h5{
+          font-size: 35px;
+          margin-left: 1vw;
+          margin-top: 2vh;
+          border: 5px solid rgb(64, 214, 255) ;
+        }
+        .icon{
+          width: 100px;
+          height: 100px;
+          /* background-color: darksalmon; */
+          color: white;
+          float: right;
+          margin-top: -70px;
+          margin-right: 20px;
+          border: 5px solid rgb(23, 23, 23) ;
+        }
+        .icon img{
+          width: 100%;
+          height: 100%;
+          border: 5px solid lime ;
+        }
+        .description{
+          margin-left: 1vw;
+          margin-top: 5vh;
+          font-size: 16px;
+          border: 5px solid rgb(254, 122, 159) ;
+        }
+        .wind{
+          margin-left: 1vw;
+          margin-top: 1vh;
+          font-size: 16px;
+          border: 5px solid rgb(114, 114, 114) ;
+        }
+        
+
+
+    </style>
+
+
+</head>
+<body>
+
+
+  <div class="container">
+
+      <div class="inner">
+
+          <div class="data-get">
+              <input type="text" class="C-name" placeholder="Enter City ">
+              <button class="search"><i class="fas fa-search"></i></button>
+          </div>
+
+          <div class="data-show">
+              <h3>Weather in <span class="city_name">Lahore</span></h3>
+              <h5 class="temp">00'C</h5>
+              <div class="icon"></div>
+              <p class="description">Fog</p>
+              <p class="wind">Wind Speed: <span class="speed">2.3 Km/h</span></p>
+          </div>
+
+      </div>
+
+  </div>
+
+  <script>
+
+  const  input = document.querySelector("input"),
+        btn = document.querySelector("button"),
+        city_name = document.querySelector(".city_name"),
+        temp = document.querySelector(".temp"),
+        icon = document.querySelector(".icon"),
+        description = document.querySelector(".description"),
+        speed = document.querySelector(".speed");
+
+
+    
+
+        // fetch(url).then((response)=>response.json()).then((data)=>{
+          // console.log(data);
+        // })
+
+
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=lahore&appid=f65e32faa80c40a876bd4112cd36e525`)
+
+
+          // .then((res) => console.log(res))
+          .then((res) => res.json())
+          
+          .then((data) => {
+
+            console.log(data);
+            let tempe = data.main.temp;
+            let temperature = Math.floor(tempe - 273.15);
+            let image = data.weather[0].icon
+            let Desc = data.weather[0].main
+            let W_speed = data.wind.speed
+            
+            let icon_image = `https://openweathermap.org/img/wn/${image}@2x.png`
+
+
+            city_name.innerHTML = data.name;
+            temp.innerHTML = `${temperature}'C`
+            icon.innerHTML = `<img src = ${icon_image}>`
+            
+            description.innerHTML = Desc
+            speed.innerHTML = W_speed
+          })
+
+      btn.addEventListener("click", function(){
+        
+        
+        if(input.value != ""){
+          let city = input.value;
+
+
+          fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f65e32faa80c40a876bd4112cd36e525`)
+
+
+          .then((res) => res.json())
+          .then((data) => {
+
+
+            console.log(data);
+            let tempe = data.main.temp;
+            let temperature = Math.floor(tempe - 273.15);
+            let image = data.weather[0].icon
+            let Desc = data.weather[0].main
+            let W_speed = data.wind.speed
+            
+            let icon_image = `https://openweathermap.org/img/wn/${image}@2x.png`
+
+
+            city_name.innerHTML = data.name;
+            temp.innerHTML = `${temperature}'C`
+
+            icon.innerHTML = `<img src = ${icon_image}>`
+            
+            description.innerHTML = Desc
+            speed.innerHTML = W_speed
+
+          })
+        }
+
+        else{
+        
+          alert("Please type city name")
+        
+        }
+      })
+
+
+
+  </script>
+  
+</body>
+</html>

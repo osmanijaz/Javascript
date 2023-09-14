@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            height: 50vh;
+            width: 50%;
+            border: 1px solid #000;
+            margin:10vh auto;
+            position: relative;
+        }
+        .img{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+        .btn-div{
+            height: 50px;
+            width: 50%;
+            /* border: 1px solid #000; */
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button{
+            height: 40px;
+            width: 19%;
+            border: 1px solid #000;
+        }
+        .active{
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <img class="img" src="https://images.unsplash.com/photo-1675334159066-ca737fe1b726?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1174&q=80" alt="">
+        <img class="img" src="https://images.unsplash.com/photo-1675326570919-946d728e9a25?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1212&q=80" alt="">
+        <img class="img" src="https://images.unsplash.com/photo-1675329335405-16dcbb019428?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" alt="">
+        <img class="img" src="https://images.unsplash.com/photo-1675332968270-0f1caf74e604?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" alt="">
+        <img class="img" src="https://images.unsplash.com/photo-1675558373517-123361c6b740?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0MHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" alt="">
+    </div>
+   <div class="btn-div">
+    <button id="0">Btn-1</button>
+    <button id="1">Btn-2</button>
+    <button id="2">Btn-3</button>
+    <button id="3">Btn-4</button>
+    <button id="4">Btn-5</button>
+   </div>
+   <script>
+    var img = document.querySelectorAll('.img')
+    var btn = document.getElementsByTagName('button')
+
+    for(var i = 0; i < btn.length; i++){
+
+        btn[i].addEventListener('click',function(){
+            zindexremover()
+            img[this.id].classList.add('active')
+            console.log(this);
+        })
+    }
+    function zindexremover(){
+        for(var i = 0; i < btn.length; i++){
+            img[i].classList.remove('active')
+        }
+    }
+
+   </script>
+</body>
+</html>

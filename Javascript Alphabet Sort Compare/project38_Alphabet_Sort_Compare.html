@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    #btn {
+      border: none;
+      background-color: rgb(202, 202, 202);
+      color: black;
+      border-radius: 5%;
+      padding: 1em;
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: 500;
+      margin: 5px;
+      /* transition: all 0.3s; */
+    }
+
+    #btn:hover {
+      background-color: rgb(169, 169, 169);
+    }
+
+    #btn:focus {
+      background-color: rgb(0, 0, 0);
+      color: white;
+    }
+
+    #text {
+      margin-left: 7px;
+      font-size: 50px;
+    }
+
+    #letterShow {
+      margin-left: 8px;
+      font-size: 30px;
+    }
+
+    #error {
+      color: red;
+      margin-left: 6px;
+      font-size: 40px;
+    }
+
+    /* button  */
+
+    /* output1 */
+    /* alphabet */
+    /* String.fromCharCode()  */
+
+    /* output2 */
+    /* "You have X amount of guesses left" */
+    /* _ _ _ _ _ _ guess word */
+
+
+  </style>
+  <body>
+    <div class="output1"></div>
+    <div class="output2"></div>
+    <button id="btn">Select</button>
+    <div id="text"></div>
+    <div id="letterShow"></div>
+    <div id="error"></div>
+
+    <script>
+      // var error = document.getElementById('error');
+      console.log(error);
+      var btn = document.getElementById('btn');
+      var output1 = document.querySelector('.output1');
+      var output2 = document.querySelector('.output2');
+
+      var words = ['javascript', 'react', 'computer', 'html', 'css'];
+
+      console.log(words, 'words');
+
+      var random = Math.floor(Math.random() * words.length);
+      console.log(random, 'random');
+
+      var wordShuffle = words[random];
+      console.log(wordShuffle, 'wordShuffle');
+
+      var split = wordShuffle.split('');
+
+      console.log(split, 'split');
+
+      var lengthRandomWord;
+      var count = 0;
+
+      btn.addEventListener('click', function () {
+        console.log('click');
+        underline();
+        createAlphabet();
+
+        lengthRandomWord = wordShuffle.length;
+        console.log(lengthRandomWord);
+
+        btn.style.display = 'none';
+      });
+
+      function createAlphabet() {
+        for (var i = 0; i < 26; i++) {
+          var alphabet = String.fromCharCode(65 + i);
+
+          var button = document.createElement('button');
+          button.innerHTML = alphabet;
+          button.classList.add('abcCompare');
+
+          // ----style----
+
+          button.style.backgroundColor = 'lightgrey';
+          button.style.color = 'black';
+          button.style.marginTop = '20px';
+          button.style.fontWeight = '500';
+          button.style.border = 'none';
+          button.style.borderRadius = '5%';
+          button.style.marginLeft = '5px';
+          button.style.fontSize = '16px';
+          button.style.padding = '1.05em';
+          button.style.cursor = 'pointer';
+
+          // ----style----
+
+          output1.appendChild(button);
+        }
+
+        var abcCompare = document.querySelectorAll('.abcCompare');
+
+        abcCompare.forEach((element) => {
+          element.addEventListener('click', () => {
+
+            console.log(abcCompare)
+            var newLineCompare = document.querySelectorAll('.newLineCompare');
+
+
+
+
+
+            for (var a = 0; a < split.length; a++) {
+
+
+              if (element.innerHTML.toUpperCase() == split[a].toUpperCase()) {
+                // console.log('working')
+                // console.log(split[a], 'split[a]')
+
+
+                newLineCompare[a].innerHTML = element.innerHTML;
+                // show the matched answer's in the dashe's then add ++ one point for ever correct letter match
+                console.log(a, 'index', 'newLineCompare[a]')
+
+
+                count++;
+                console.log(count, 'count');
+
+                letterShow.innerHTML =
+                  'You selected the correct letter ' + element.innerHTML;
+
+                  error.innerHTML = '';
+
+
+                break;
+                // break will stop the loop first before moving forward to else 
+
+              } 
+              else {
+                element.disabled = false;
+                console.log('yes');
+                element.style.opacity = '0.3';
+                console.log(error);
+                error.innerHTML = ' Error letter please try again...';
+                          
+              }
+            }
+
+            text.innerHTML = lengthRandomWord - count + " letter attempt's left";
+          });
+        });
+      }
+
+      function underline() {
+        split.forEach(() => {
+          var line = document.createElement('div');
+          line.innerHTML = '_';
+          line.classList.add('newLineCompare');
+
+          // ----style----
+
+          line.style.display = 'inline-block';
+          line.style.fontSize = '50px';
+          line.style.color = 'Grey';
+          line.style.marginLeft = '5px';
+          line.style.marginTop = '10px';
+
+          // ----style----
+
+          output2.appendChild(line);
+        });
+      }
+    </script>
+  </body>
+</html>

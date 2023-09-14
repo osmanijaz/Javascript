@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+
+
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        margin: 0px;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        font-weight: 400;
+        color: grey;
+        /* border: 2px solid red; */
+
+    }
+
+    .fa-heart {
+        color: red;
+    }
+
+    small {
+        /* width: 100%; */
+        display: block;
+        text-align: center;
+
+        /* border: 2px solid red; */
+    }
+
+    .times {
+        color: grey;
+        font-size: 16px;
+        font-weight: 400;
+
+    }
+
+    .love {
+
+        width: 300px;
+        height: 400px;
+        /* border: 1px solid black; */
+        margin: auto;
+        margin-top: 40px;
+        background: url('https://images.unsplash.com/photo-1597687154732-9b205f4f5c1c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTl8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.25), 0px 10px 10px rgba(0, 0, 0, 0.22);
+        position: relative;
+        max-width: 100%;
+    }
+
+    .love .icon {
+
+        text-align: center;
+        line-height: 30px;
+        position: absolute;
+
+        /* margin-top: 50%;
+        font-size: 40px; */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.9);
+
+
+        animation: grow 0.7s linear infinite;
+        overflow: hidden;
+    }
+
+    @keyframes grow {
+        to {
+            transform: translate(-50%, -50%) scale(3.5);
+            opacity: 0;
+        }
+    }
+</style>
+
+<body>
+    <h3 class="title">Double click on the image to&nbsp;
+        <!-- <i class="fa-solid fa-heart"></i> -->
+        &nbspit
+    </h3>
+
+    <small>You liked it <span class="times">0</span>
+        times</small>
+
+    <div class="love">
+        <!-- <i class="fa-solid fa-heart icon"></i> -->
+        <script>
+
+
+            var love = document.querySelector('.love');
+            var times = document.querySelector('.times');
+
+            love.addEventListener('dblclick', (e) => {
+                // console.log('click')
+                number(e)
+                createHeart(e)
+
+            })
+
+            var count = 0
+
+            var number = (a) => {
+                count++
+                times.innerHTML = count
+            }
+
+            var createHeart = (b) => {
+                var heart = document.createElement('i')
+                heart.classList.add('fa-solid', 'fa-heart', 'icon')
+                // <!-- <i class="fa-solid fa-heart icon"></i> -->
+
+                var x = b.x
+                var y = b.y
+
+
+                // offset outside DIV
+
+                var xDimension = b.target.offsetLeft
+                var yDimension = b.target.offsetTop
+                console.log(xDimension, yDimension)
+
+                var leftPosition = x - xDimension
+                var topPosition = y - yDimension
+                console.log(leftPosition, topPosition)
+
+                // style
+
+                heart.style.left = `${leftPosition}px`
+                heart.style.top = `${topPosition}px`
+
+                setTimeout(() => {
+                    heart.remove()
+                }, 1000)
+
+
+                love.appendChild(heart)
+
+            }
+
+
+
+
+
+        </script>
+
+
+
+</body>
+
+</html>

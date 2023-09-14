@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        .main{
+            height: 50vh;
+            width: 50%;
+            border: 1px solid #000;
+            margin: 15vh auto;
+            /* overflow: hidden; */
+            position: relative;
+            overflow: hidden;
+        }
+        .slider{
+            height: 100%;
+            width: 100%;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center; 
+            justify-content: space-between;
+            /* transition: .5s; */
+        }
+        .slides{
+            height: 90%;
+            width: 100%;
+            position: absolute;
+            border: 1px solid #000;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 45px;
+            
+        }
+      
+        #input1 , #input2{
+          display:none ;
+        }
+      
+        .radio1{
+            height: 25px;
+            width: 25px;
+            border: 1px solid #000;
+            position: absolute;
+            top: 47%;
+            z-index: 4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+        }
+        .r1{
+            left: 0;
+        }
+        .r2{
+            right: 0;
+        }
+    
+        .slides:nth-child(1){
+            background-color: aqua;
+            z-index: 2;
+        }
+        .slides:nth-child(2){
+            background-color: rgb(0, 0, 255);
+        }
+        .slides:nth-child(3){
+            background-color: rgb(60, 255, 0);
+        }
+        .slides:nth-child(4){
+            background-color: rgb(255, 230, 0);
+        }
+        .slides:nth-child(5){
+            background-color: rgb(255, 0, 132);
+        }
+
+        .active{
+            z-index: 3 !important;
+            animation: slide 1s linear;
+
+        }
+        @keyframes slide {
+            0%{
+                left: 100%;
+            }
+            100%{
+                left: 0%;
+            }
+        }
+        .active2{
+            z-index: 2;
+            animation: slide2 1s linear;
+        }
+        @keyframes slide2 {
+            0%{
+                left: 0%;
+            }
+            100%{
+                left: -100%;
+            }
+        }
+
+
+        .active3{
+            z-index: 3 !important;
+            animation: slide3 1s linear;
+
+        }
+        @keyframes slide3 {
+            0%{
+                left: -100%;
+            }
+            100%{
+                left: 0%;
+            }
+        }
+        .active4{
+            z-index: 2;
+            animation: slide4 1s linear;
+        }
+        @keyframes slide4 {
+            0%{
+                left: 0%;
+            }
+            100%{
+                left: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+
+        <div class="slider">
+            <div class="slides">1</div>
+            <div class="slides">2</div>
+            <div class="slides">3</div>
+            <div class="slides">4</div>
+            <div class="slides">5</div>
+        </div>
+
+        <input type="radio" name="input" id="input1">
+        <label for="input1" class="radio1 r1">
+            <i class="fa-solid fa-chevron-left"></i>
+        </label>
+
+        <input type="radio" name="input" id="input2">
+        <label for="input2" class="radio1 r2">
+            <i class="fa-solid fa-chevron-right"></i>
+        </label>
+    </div>
+   <script>
+    var slides = document.querySelectorAll('.slides')
+    console.log(slides);
+    var radio1 = document.querySelectorAll('.radio1')
+    var count  = 0
+    var prevIndex = 0
+    radio1[0].addEventListener('click', function(){
+        count++
+        if(count >= slides.length){
+            count = 0
+            prevIndex = 4
+        }
+        else{
+            prevIndex = count-1
+        }
+        slides.forEach(element => {
+            element.classList.remove('active')
+            element.classList.remove('active2')
+            element.classList.remove('active3')
+            element.classList.remove('active4')
+        })
+        slides[count].classList.add('active')
+        slides[prevIndex].classList.add('active2')
+    })
+    radio1[1].addEventListener('click', function(){
+        count--
+        if(count < 0){
+            count = slides.length - 1
+            console.log(count);
+                prevIndex = 0
+        }
+        else{
+            prevIndex = count+1
+            console.log(count);
+        }
+        slides.forEach(function(ele,index){
+            ele.classList.remove('active')
+            ele.classList.remove('active2')
+            ele.classList.remove('active3')
+            ele.classList.remove('active4')
+            })
+         slides[count].classList.add('active3')
+        slides[prevIndex].classList.add('active4')
+    })
+
+  
+
+
+
+
+
+   </script>
+</body>
+</html>

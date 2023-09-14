@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <title>Document</title>
+
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            color: rgb(85, 84, 84);
+        }
+
+        .title {
+            color: rgb(85, 85, 85);
+            font-size: 16px;
+        }
+
+        .inputNumber {
+            font-size: 18px;
+            color: grey;
+
+
+        }
+
+        .btn {
+            border: none;
+            background-color: rgb(185, 185, 185);
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 80px;
+            height: 40px;
+            font-size: 16px;
+            transition: all 0.24s;
+            margin-left: 4px;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: rgb(171, 170, 170);
+        }
+
+
+        .instruction {
+            font-size: 16px;
+        }
+
+        .green {
+            color: rgb(1, 208, 1);
+
+        }
+
+        .blue {
+            color: rgb(0, 136, 255);
+        }
+
+        .red {
+            color: rgb(255, 0, 0);
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <p class="title">Guess Combinator</p>
+    <div class="game"></div>
+    <button class="btn">Start</button>
+
+    <p class="instruction">Instructions: Guess the combination, <span class="blue">blue</span> is higher, <span
+            class="red">red</span> is lower and <span class="green">green</span> is correct. Try to solve it.</p>
+
+    <script>
+
+        var title = document.querySelector('.title')
+        var game = document.querySelector('.game')
+        var btn = document.querySelector('.btn')
+
+        var gamePlay = false
+
+
+        
+        // btn.addEventListener('click', (abc) => {
+        btn.addEventListener('click', () => {
+            console.log('clicked')
+
+            if (!gamePlay) {
+
+                createInputs(6)
+
+                btn.innerHTML = 'Guess'
+                // abc.target.innerHTML = 'Guess'
+        
+                gamePlay = true
+
+            } else {
+
+                var inputNumber = document.querySelectorAll('.inputNumber')
+
+
+                
+
+                inputNumber.forEach((element) => {
+
+                    console.log(element.correctNumber, 'correctNumber')
+
+
+                    var getCorrect = element.getAttribute('correctNumber')
+                    console.log(getCorrect, 'getAttribute', 'get');
+
+                })
+
+            }
+        })
+
+
+
+
+
+        // ---inputs---
+
+        function createInputs(num) {
+
+            for (var i = 0; i < num; i++) {
+                console.log(i)
+
+
+
+                var random = Math.floor(Math.random() * 10)
+
+                console.log(random, 'random')
+
+                //  diffrence b/w document and window =>
+
+                // console.log(document);
+                // console.log(window);
+
+                var input = document.createElement('input')
+                // console.log(input, 'input')
+                input.type = 'number'
+                input.style.outline = 'none'
+                input.style.marginLeft = '5px'
+                input.max = 9
+                input.min = 0
+                input.style.width = '50px'
+                input.classList.add('inputNumber')
+
+
+
+
+                input.setAttribute('correctNumber', random)
+                console.log(input, 'input', 'correctNumber', 'set');
+
+                game.appendChild(input)
+
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

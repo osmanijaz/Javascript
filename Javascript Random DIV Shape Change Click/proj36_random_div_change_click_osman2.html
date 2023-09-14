@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        /* overflow: hidden; */
+    }
+
+    * {
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
+
+<body>
+
+    <p id="text"></p>
+    <p class="message"></p>
+    <button class="button">Start</button>
+    <div class="gameArea"></div>
+
+    <script>
+        var message = document.querySelector('.message')
+        var button = document.querySelector('.button')
+        var gameArea = document.querySelector('.gameArea')
+
+        // var playSave = [{ play: false }, { note: 'book'}]
+        // Boolean      (true, false)
+        // String       ('Hello', 'World', 'Uzbekistan') 
+        // Null         (null)
+        // Undefined    (undefined ) 
+        // Number       1, 4, 7, 231, 51, 11, 9	
+        // Symbol       let sym1 = Symbol()	
+        // Objects      {a: 123}, [1]	
+
+        var color = ['red', 'blue', 'green', 'yellow', 'purple'];
+
+        var playSave = { play: false }
+
+
+        var startTime
+        var endTime
+
+        button.addEventListener('click', function (e) {
+            console.log('click')
+
+            if (!playSave.play) {
+                console.log('if')
+                // e.target.style.display = 'none' (with arrow function)
+                // this.target.style.display = 'none' (with function(e))
+                button.style.display = 'none'
+                playSave.play = 'true'
+
+                message.innerHTML = 'Click Box Quickly! (Time Sensitive), Good Luck!'
+                myBox()
+                // randomNumber()
+
+
+
+            } else {
+
+
+            }
+        })
+
+
+
+        function myBox() {
+
+            console.log('myBox')
+
+            // option 1 
+            // var randomColor = Math.floor(Math.random() * color.length)
+            // box.style.backgroundColor = color[randomColor]
+
+            // option 2 
+            var randomColor = color[Math.floor(Math.random() * color.length)]
+            // box.style.backgroundColor = randomColor
+
+            // option 3 
+            // var randomColor = Math.floor(Math.random() * color.length)
+            // var newRandomColor = color[randomColor]
+            // box.style.backgroundColor = newRandomColor
+
+            // var newRandomColorSave = color[randomColor]
+            // console.log(newRandomColorSave)
+
+            var box = document.createElement('div')
+            box.style.backgroundColor = randomColor
+            box.style.position = 'relative';
+            box.style.cursor = 'pointer'
+
+            box.style.width = randomNumber(100, 50) + 'px';
+            box.style.height = randomNumber(100, 50) + 'px';
+            box.style.borderRadius = randomNumber(50, 5) + '%';
+            box.style.left = randomNumber(700, 100) + 'px';
+            box.style.top = randomNumber(200, 100) + 'px';
+
+            startTime = 0
+
+            startTime = new Date().getTime()
+
+
+
+            box.addEventListener('click', function (e) {
+                box.style.display = 'none'
+
+                endTime = new Date().getTime()
+                // console.log(endTime, 'endTime')
+
+                var totalTime = ((endTime - startTime) / 1000)
+                // console.log(totalTime, 'totalTime')
+
+                text.innerHTML = `Time ${totalTime} seconds`
+                console.log(text.innerHTML)
+
+                myBox()
+
+            })
+            gameArea.appendChild(box)
+        }
+
+
+        function randomNumber(numMax, numMin) {
+            var tempValue = (Math.floor(Math.random() * numMax) + numMin)
+
+            return tempValue
+
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>

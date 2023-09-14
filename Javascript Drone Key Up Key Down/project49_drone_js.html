@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+
+  <style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background-color: rgb(59,152,247);
+    border: 3px solid lime ;
+}
+.drone{
+    width: 150px;
+    height: 100px;
+    position: absolute;
+    /* transition:  0.6s; */
+    /* transition: transform 1s; */
+    /* background-color: antiquewhite; */
+        border: 5px solid rgb(255, 0, 208) ;
+
+}
+.drone img{
+    width: 100%; 
+    border: 3px solid rgb(255, 247, 0) ;
+}
+
+
+  </style>
+    
+
+    <div class="container">
+
+
+        <div class="drone">
+
+
+            <img src="https://d18l82el6cdm1i.cloudfront.net/uploads/T4au985zC2-dronescaling5.gif" alt="">
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+var drone = document.querySelector(".drone");
+var container = document.querySelector(".container");
+
+let keys = {
+  ArrowUp: false,
+  ArrowDown: false,
+  ArrowRight: false,
+  ArrowLeft: false,
+};
+
+let player = {
+    speed: 5,
+}
+
+document.addEventListener("keydown", pressOn);
+document.addEventListener("keyup", pressOff);
+document.addEventListener("DOMContentLoaded", start);
+
+
+function start(){
+    player.x = drone.offsetLeft;
+    player.y = drone.offsetTop;
+}
+
+  window.requestAnimationFrame(playGame);
+
+function pressOn(e) {
+  e.preventDefault();
+  keys[e.key] = true;
+}
+
+function pressOff(e) {
+  e.preventDefault();
+    drone.style.transform = "rotate(0deg)"
+    keys[e.key] = false;
+}
+
+function playGame() {
+let area = container.getBoundingClientRect();
+  if (keys.ArrowUp && player.y > area.top) {
+    // console.log(player.y, 'y', 'up')
+    player.y -= player.speed;
+    console.log(player.y, 'y', 'up')
+  }
+
+  if (keys.ArrowDown && player.y < area.bottom - 120) {
+    player.y += player.speed;
+    console.log(player.y, 'y', 'down')
+  }
+
+
+  if (keys.ArrowLeft && player.x > 0) {
+      drone.style.transform = "rotate(-20deg)"
+      player.x -= player.speed;
+    }
+
+
+    if (keys.ArrowRight && player.x < area.width - 160) {
+      drone.style.transform = "rotate(20deg)"
+    player.x += player.speed;
+  }
+
+
+  drone.style.left = player.x + "px";
+  drone.style.top = player.y + "px";
+  window.requestAnimationFrame(playGame);
+}
+
+    </script>
+</body>
+</html>

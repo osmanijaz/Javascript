@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        font-family: Arial, sans-serif;
+
+    }
+
+    .circleButton {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: grey;
+        margin-top: 15px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: lightgrey;
+        font-size: 40px;
+    }
+
+
+    .contentMain {
+        width: 500px;
+        height: 350px;
+        border: 3px solid rgb(209, 209, 209);
+        margin: auto;
+        margin-top: -100px;
+        position: relative;
+    }
+
+    .content {
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-size: 200px;
+        color: rgb(255, 255, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        opacity: 0;
+    }
+
+    .active {
+        opacity: 1;
+    }
+
+    .circleStyle {
+        background-color: pink;
+        color: black;
+        animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.1);
+        }
+
+    }
+</style>
+
+
+<body>
+
+    <div onmouseenter="trigger(this ,'c1')" class="circleButton circleStyle">1</div>
+    <div onmouseenter="trigger(this ,'c2')" class="circleButton">2</div>
+    <div onmouseenter="trigger(this ,'c3')" class="circleButton">3</div>
+
+
+
+    <div class="contentMain">
+
+        <div class="content active" id="c1"
+            style="background-image: url(https://images.unsplash.com/photo-1484591974057-265bb767ef71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80);">
+            1</div>
+
+
+        <div class="content" id="c2"
+            style="background-image: url(https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg);">2</div>
+
+
+        <div class="content" id="c3"
+            style="background-image: url(https://assets.photographycourse.net/wp-content/uploads/2022/04/12225324/Portrait-vs-Landscape-Featured-Image-3.jpg);">
+            3</div>
+    </div>
+
+    <script>
+
+        var circleButton = document.querySelectorAll('.circleButton')
+        var content = document.querySelectorAll('.content')
+
+        function trigger(circleStyle, id) {
+            console.log('it is working')
+            console.log(circleStyle, id)
+            circleStyle_NameChange_Remove()
+            circleStyle.classList.add('circleStyle')
+
+
+            var getContent = document.getElementById(id)
+            console.log(getContent)
+            removeContent_Active()
+            getContent.classList.add('active')
+
+        }
+
+
+
+        // remove circleButtonStyle
+
+        function circleStyle_NameChange_Remove() {
+            circleButton.forEach(function (element, index) {
+                element.classList.remove('circleStyle')
+
+
+            })
+        }
+
+
+        // remove Content
+
+        function removeContent_Active() {
+            content.forEach(function (element) {
+                console.log(element)
+                element.classList.remove('active')
+            })
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

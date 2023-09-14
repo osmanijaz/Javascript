@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.note{
+    width: 350px;
+    height: 300px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+}
+.note-heading{
+    border-radius: 10px 10px 0 0;
+    background-color: rgb(132, 255, 204);
+}
+.note-detail{
+    border-radius: 0px 0px 10px 10px;   
+    background-color: rgb(202, 255, 233);
+    height: 250px;
+}
+    </style>
+
+
+</head>
+<body>
+
+  <div class="container w-50">
+        <h1 class="text-center m-4 text-info">Notes App</h1>
+
+        <input type="text" class="form-control mt-4" placeholder="Heading" />
+        <textarea name="" id="" class="form-control mt-4" cols="30" rows="5" placeholder="Details"></textarea>
+        <button onclick="addNote()" class="btn btn-info mt-4">Add</button>
+    </div>
+    <hr />
+    <div class="notes-parent container" style="display: flex; flex-wrap: wrap;"></div>
+    
+
+  <script>
+
+    var inputs = document.querySelectorAll(".form-control");
+    var Nparent = document.querySelector(".notes-parent");
+    let Data = []
+
+    function addNote () {
+        Nparent.innerHTML = "";
+        let obj = {
+            heading: inputs[0].value,
+            details: inputs[1].value,
+        }
+        Data.push(obj)
+        Data.map((e) => {
+            console.log(Data);
+            Nparent.innerHTML += `
+                <div class="note">
+                    <div class="note-heading p-2"><h4>${e.heading}</h4></div>
+                    <div class="note-detail p-3"><p>${e.details}</p></div>
+                </div>
+            `
+        })
+    }
+
+
+
+  </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

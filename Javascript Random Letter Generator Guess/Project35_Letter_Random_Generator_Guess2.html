@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+  </head>
+
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    #messegeScramble {
+      color: grey;
+      font-size: 16.5px;
+    }
+
+    .input {
+      color: grey;
+      font-size: 14px;
+
+      font-size: 30px;
+      display: none;
+    }
+
+    .button {
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      height: 40px;
+      width: 60px;
+      margin-top: 10px;
+      background-color: rgb(212, 212, 212);
+      font-size: 15px;
+      color: gray;
+    }
+
+    .button:hover {
+      background-color: rgb(199, 199, 199);
+      color: rgb(43, 43, 43);
+    }
+  </style>
+
+  <body>
+    <p id="messegeScramble"></p>
+    <input type="text" class="input" />
+    <br />
+    <button class="button">Start</button>
+    <div id="result"></div>
+
+    <script>
+      var messegeScramble = document.querySelector('#messegeScramble');
+      var button = document.querySelector('.button');
+      var input = document.querySelector('input');
+
+      var play = false;
+      var scramble;
+      var showBrowser = '';
+      let score = 0;
+
+      var myArray = ['school', 'cook', 'apple', 'bake', 'soup', 'yellow'];
+      console.log(myArray);
+      var random;
+      button.addEventListener('click', function () {
+        if (!play) {
+          button.innerHTML = 'Guess';
+
+          input.classList.toggle('input');
+          input.style.outline = 'none';
+          input.style.fontSize = '18px';
+
+          play = true;
+
+          random = myArray[Math.floor(Math.random() * myArray.length)];
+          console.log(random, 'random');
+
+          scramble = random.split('');
+          console.log(scramble, 'scramble');
+
+          showBrowser = randomArray(scramble);
+          // receiveFunction(sendParameter)
+
+          messegeScramble.innerHTML = showBrowser.join('');
+        } else {
+          console.log('else');
+          console.log(score);
+          score++;
+          console.log(random);
+          console.log(input.value);
+          if (input.value == random) {
+            result.innerHTML = `win `;
+          } else if (input.value !== random) {
+            result.innerHTML = `try again ${score} `;
+          }
+        }
+      });
+
+      // function sendFunction(recieveParameter)
+      function randomArray(arr) {
+        console.log(arr, 'arr');
+
+        // normal for loop
+        // for (var i = 0; i < arr.length; i++) {
+        //     console.log(arr[i], 'i')
+
+        // arr         i
+        // school      0
+        // cook        1
+        // apple       2
+        // bake        3
+        // soup        4
+        // yellow      5
+
+        var count = 0;
+        for (var i = arr.length - 1; i >= 0; i--) {
+          count++;
+          console.log(arr[i], 'i', count);
+
+          // k > 3
+          // o > 2
+          // o > 1
+          // c >= 0
+
+          // length       i
+          // yellow 6     5
+          // soup   5     4
+          // bake   4     3
+          // apple  3     2
+          // cook   2     1
+          // school 1     0
+
+          var splitLetterSave = arr[i];
+          // console.log(splitLetterSave, 'splitLetterSave')
+
+          var newRandomLetterMix = Math.floor(Math.random() * (i + 1));
+          // console.log(newRandomLetterMix, 'newRandomLetterMix')
+
+          arr[i] = arr[newRandomLetterMix];
+          arr[newRandomLetterMix] = splitLetterSave;
+        }
+        console.log(arr, 'arr');
+        return arr;
+      }
+    </script>
+  </body>
+</html>

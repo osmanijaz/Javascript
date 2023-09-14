@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    body {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border: 3px solid lawngreen;
+
+    }
+
+
+
+
+    .btn {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 80px;
+
+    }
+
+    .sliderMain {
+        width: 900px;
+        height: 450px;
+        border: 1px solid black;
+        margin-top: 60px;
+        position: relative;
+        text-align: center;
+        line-height: 450px;
+        font-size: 70px;
+        color: rgb(80, 80, 80);
+
+
+
+    }
+
+
+    .slides {
+        position: absolute;
+
+    }
+
+
+    .slide1 {
+        background-color: lightblue;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slide2 {
+        background-color: lightcoral;
+        width: 100%;
+        height: 100%;
+        /* z-index: 100; */
+    }
+
+    .slide3 {
+        background-color: lightgreen;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slide4 {
+        background-color: lightpink;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slide5 {
+        background-color: lightsalmon;
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .active {
+        z-index: 10;
+
+    }
+</style>
+
+<body>
+
+    <button class="btn left">&lt;</button>
+    <div class="sliderMain">
+
+        <div class="slides slide1 active">1</div>
+        <div class="slides slide2">2</div>
+        <div class="slides slide3">3</div>
+        <div class="slides slide4">4</div>
+        <div class="slides slide5">5</div>
+
+    </div>
+
+    <button class="btn right">&gt;</button>
+
+    <script>
+
+
+        // ---get from html into js---
+
+        var right = document.querySelector('.right')
+        console.log(right)
+        var slides = document.getElementsByClassName('slides')
+        console.log(slides)
+        var left = document.querySelector('.left')
+        console.log(left)
+
+  // ---practice 4---
+
+  // ---right click---
+ let count = 0
+
+right.addEventListener('click', function(){
+count++
+removeActive()
+
+if(count==5){
+count=0
+console.log(count)
+}
+slides[count].classList.add('active')
+})
+
+
+// ---left click---
+
+
+left.addEventListener('click', function(){
+count--
+removeActive()
+console.log(count)
+
+if(count<0){
+count=slides.length -1
+
+}
+
+slides[count].classList.add('active')
+
+})
+
+
+
+
+//  ---global---
+
+function removeActive(){
+for(var i=0; i<slides.length; i++){
+slides[i].classList.remove('active')
+console.log(slides)
+}
+}
+
+    // ---practice 3---
+
+     // ---right click---
+
+    //  let count = 0
+    //  right.addEventListener('click', function(){
+    //     count++
+    // removeActive()
+    // if(count==5){
+    // count = 0
+    // }
+    // slides[count].classList.add('active')
+    //  })
+
+
+     // ---left click---
+
+//      left.addEventListener('click', function(){
+//     count--
+//     removeActive()
+//     if(count<0){
+//     count=slides.length -1
+//     console.log(count)
+// }
+
+// slides[count].classList.add('active')
+
+//      })
+
+
+
+    //  ---global---
+    // function removeActive(){
+    // for(var i=0; i<slides.length; i++){
+    // slides[i].classList.remove('active')
+    // console.log(slides)
+    // }
+    // }
+
+
+
+
+
+
+
+
+
+// ---practice 2---
+
+
+        // ---right click---
+
+        // let count = 0
+        // right.addEventListener('click', function () {
+        //     count++
+        //     removeActive()
+        //     if (count == 5) {
+        //         count = 0
+        //         console.log(count)
+        //     }
+        //     slides[count].classList.add('active')
+        // })
+
+
+        // ---left click---
+        // left.addEventListener('click', function () {
+        //     count--
+        //     removeActive()
+
+        //     if (count < 0) {
+        //         count = slides.length - 1
+        //         console.log(count)
+        //     }
+
+        //     slides[count].classList.add('active')
+        // })
+
+
+        // ---global---
+
+        // function removeActive() {
+        //     for (var i = 0; i < slides.length; i++) {
+        //         slides[i].classList.remove('active')
+        //         console.log(slides)
+
+        //     }
+        // }
+
+
+
+        
+// ---practice 1---
+
+// let count = 0;
+        // right.addEventListener('click', function () {
+        //     count++
+        //     if (count == 5) {
+        //         count = 0
+        //     }
+        //     removeSlides()
+        //     slides[count].classList.add('active')
+        //     console.log(count);
+        // })
+
+        // ---left click---
+
+        // left.addEventListener('click', function () {
+        //     count--
+
+        //     if (count < 0) {
+        //         count = slides.length - 1
+        //     }
+
+        //     removeSlides()
+
+        //     slides[count].classList.add('active')
+        //     console.log(count)
+        // })
+
+
+        // ---global---
+
+        // function removeSlides() {
+        //     for (var i = 0; i < slides.length; i++) {
+        //         slides[i].classList.remove('active')
+        //     }
+        // }
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

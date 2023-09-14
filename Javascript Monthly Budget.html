@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly-Budget</title>
+    <style>
+        .main-div{
+            height: 10vh;
+            width: 40%;
+            border: 1px solid #000;
+            margin: 10vh auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .input1{
+            height: 5vh;
+            width: 75%;
+            outline: none;
+            /* border: none; */
+            border-radius: 10px;
+            color: gray;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+        .btn1{
+            height: 5vh;
+            width: 20%;
+            background-color:rgb(100, 216, 100);
+            border: none;
+            border-radius: 5px;
+            /* color:white; */
+        }
+        .next-div{
+            height: auto;
+            width: 50%;
+            border: 1px solid #000;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            visibility: hidden;
+        }
+        .inputs-div{
+            height: 20vh;
+            width: 70%;
+            border: 1px solid #000;
+            
+        }
+        .input-1-div{
+            height: 6.666vh;
+            width: 100%;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+        }
+        .input2{
+            height: 5vh;
+            width: 100%;
+            outline: none;
+            /* border: none; */
+            border-radius: 10px;
+            color: gray;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+        .budget-div{
+            height:auto;
+            width: 30%;
+            border: 1px solid yellow;
+            /* overflow: scroll; */
+        }
+        .total-budget{
+            height: 6.666vh;
+            width: 100%;
+            border: 1px solid green;
+            display: flex;
+            align-items: center;
+            justify-content: center ;
+        }
+        .btn2{
+            height: 5vh;
+            width: 25%;
+            background-color: rgb(102, 220, 102);
+            border: none;
+            border-radius: 5px;
+            /* color: white; */
+        }
+    </style>
+</head>
+<body>
+    <div class="main-div">
+        <input class="input1" type="number" placeholder="Please tell us your monthly Budget" autofocus>
+        <button class="btn1">Enter</button>
+    </div>
+    <div class="next-div">
+        <div class="inputs-div">
+            <div class="input-1-div">
+                <input class="input2" type="text" placeholder="Ener product name">
+            </div>
+            <div class="input-1-div">
+                <input class="input2 input3" type="number" placeholder="Ener product price">
+            </div>
+            <div class="input-1-div">
+                <button class="btn2">Add</button>
+            </div>
+            
+        </div>
+        <div class="budget-div">
+            <div class="total-budget">
+                <p>Total Budget = <span class="span1"></span></p>
+            </div>
+            <div class="total-budget spn2">
+                <p>Left Budget = <span class="span2"></span></p>
+            </div>
+            <div class="total-budget">
+                <p>My Expens = <span class="span3"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var main_div = document.querySelector('.main-div')
+        var btn1 = document.querySelector('.btn1')
+        var btn2 = document.querySelector('.btn2')
+        var input1 = document.querySelector('.input1')
+        var input3 = document.querySelector('.input3')
+        var next_div = document.querySelector('.next-div')
+        var span1 = document.querySelector('.span1')
+        var span2 = document.querySelector('.span2')
+        var span3 = document.querySelector('.span3')
+        var spn2 = document.querySelector('.spn2')
+    
+        var budget = ''
+        var left = ''
+        var expens = ''
+        let minimum
+        btn1.addEventListener('click',function(){
+
+            if(input1.value==''){
+                input1.placeholder='"please enter the amount"'
+            }
+            else{
+                budget = parseInt(input1.value)
+                next_div.style.visibility='visible'
+                span1.innerHTML=budget
+                span2.innerHTML = budget
+                main_div.style.visibility = 'hidden'
+                 minimum = budget / 4
+                 console.log(minimum , 'run');
+                input1.value = ''
+            }
+        })
+
+        let Check = true
+        btn2.addEventListener('click',function(){
+            if(left >=0){
+            span2.innerHTML = budget - input3.value
+              left = span2.innerHTML
+              budget = left
+              console.log(budget);
+              expens = Number(input3.value)
+                let exp = Number(span3.innerHTML)
+                span3.innerHTML = exp + expens 
+              input3.value = ''
+              if(left<= minimum){
+                spn2.style.background='red'
+            }
+        }
+            else{
+                alert('you do not have sufficent balance plz refill your budget')
+                main_div.style.visibility = 'visible'
+                budget = ''
+                left = ''
+                span1.innerHTML = ''
+                span2.innerHTML = ''
+                span3.innerHTML = ''
+                input3.value = ''
+                spn2.style.background='transparent'
+            }
+             
+        })
+
+    </script>
+</body>
+</html>

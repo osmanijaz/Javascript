@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #btn {
+        width: 85px;
+        height: 45px;
+        border-radius: 5px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        font-size: 19px;
+        border: none;
+
+
+    }
+</style>
+
+
+<body>
+
+    <button id="btn" class="rock">rock</button>
+    <button id="btn" class="paper">paper</button>
+    <button id="btn" class="scissor">scissor</button>
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+
+
+
+
+
+
+        // ---call from body into JS---
+
+var rock = document.querySelector('.rock');
+console.log(rock)
+var paper = document.querySelector('.paper');
+console.log(paper)
+var scissor = document.querySelector('.scissor');
+console.log(scissor)
+
+
+var player
+var computer
+var array = ['rock', 'paper', 'scissor']
+// randomNumber()
+function randomNumber(){
+var num = Math.floor(Math.random()*3)
+computer = array[num]
+console.log(computer, num)
+}
+
+
+rock.addEventListener('click', function(){
+randomNumber()
+player = rock.innerHTML
+console.log(player,'player')
+console.log(computer,'computer');
+
+if(player=='rock' && computer =='paper'){
+alert('Computer WINS Paper beats Rock')
+}else if(player=='rock' && computer =='scissor'){
+alert('Player WINS Rock beats Scissor')
+}else 
+alert('Draw Rock and Rock')
+})
+
+
+
+paper.addEventListener('click', function(e){
+    randomNumber()
+    player = paper.innerHTML
+console.log(player)
+console.log(e.target.innerHTML)
+
+if(player=='paper' && computer =='rock'){
+alert('Player WINS Paper beats Rock')
+}else if(player=='paper' && computer =='scissor'){
+alert('Computer WINS Scissor beats Paper')
+}else 
+alert('Draw Paper and Paper')
+})
+
+scissor.addEventListener('click', function(){
+    randomNumber()
+    player = scissor.innerHTML
+console.log(player)
+
+if(player=='scissor' && computer =='rock'){
+alert('Computer WINS Rock beats Scissor')
+}else if(player=='scissor' && computer =='paper'){
+alert('Player WINS Scissor beats Paper')
+}else 
+alert('Draw Scissor and Scissor')
+})
+
+
+
+
+
+
+
+        // <!-- ---random number--- -->
+
+
+
+
+
+
+
+
+        // var player
+        // var computer
+        // var array = ['rock', 'scissor', 'paper']
+
+        // function randomNumber() {
+        //     var num = Math.floor(Math.random() * 3)
+        //     computer = array[num]
+        //     console.log(computer, num)
+        // }
+
+
+
+
+
+
+
+
+
+
+        // var rock = document.querySelector('.rock')
+        // console.log(rock)
+        // var paper = document.querySelector('.paper')
+        // console.log(paper)
+        // var scissor = document.querySelector('.scissor')
+        // console.log(scissor)
+
+
+
+
+        
+
+
+
+        // var rockStore
+        // rock.addEventListener('click', function () {
+        //     randomNumber()
+        //     console.log(this.textContent);
+        //     player = this.textContent
+        //     console.log(player);
+
+        //     if (player == 'rock' && computer == 'paper') {
+        //         alert('Computer Wins Paper beats Rock')
+        //     }
+        //     else if (player == 'rock' && computer == 'scissor') {
+        //         alert('Player Wins Rock beats Scissors')
+        //     } else {
+        //         alert('It is a Draw Rock matches Rock')
+        //     }
+        // })
+
+
+        // var paperStore
+        // paper.addEventListener('click', function () {
+        //     randomNumber()
+        //     console.log(this.textContent);
+        //     player = this.textContent
+        //     console.log(player)
+
+        //     if (player == 'paper' && computer == 'rock') {
+        //         alert('Paper Wins Paper beats Rock')
+        //     } else if (player == 'paper' && computer == 'scissor') {
+        //         alert('Computer Wins Paper beats Rock')
+        //     } else {
+        //         alert('It is a Draw Paper matches Paper')
+        //     }
+
+        // })
+
+
+
+        // var scissorStore
+        // scissor.addEventListener('click', function () {
+        //     randomNumber()
+        //     console.log(this.textContent)
+        //     player = this.textContent
+        //     console.log(player)
+        //     if (player == 'scissor' && computer == 'rock') {
+        //         alert('Computer Wins Rock beats Scissor')
+        //     } else if (player == 'scissor' && computer == 'paper') {
+        //         alert('Player Wins Scissor beats Paper')
+        //     } else {
+        //         alert('It is a Draw Scissor matches Scissor')
+        //     }
+
+        // })
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

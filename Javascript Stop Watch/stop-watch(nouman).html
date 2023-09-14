@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stop-watch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-container {
+            width: 100%;
+            height: 100vh;
+            border: 1px solid;
+            box-sizing: border-box;
+            display: flex;
+            place-content: center;
+            place-items: center;
+            background-color: #000;
+        }
+
+        .border-div {
+            width: 400px;
+            height: auto;
+            text-align: center;
+        }
+
+        .milli {
+            font-size: 30px;
+            text-transform: capitalize;
+            font-family: cursive;
+            margin-top: 50px;
+            color: rgba(255, 217, 0, 0.986);
+            text-shadow: 0px 6px 5px gold;
+        }
+
+        .gold {
+            font-size: 40px;
+            text-transform: capitalize;
+            font-family: cursive;
+            color: rgba(255, 217, 0, 0.986);
+            text-shadow: 0px 6px 5px gold;
+        }
+
+        button {
+            width: 120px;
+            height: 40px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid #000;
+            text-transform: capitalize;
+            font-size: 17px;
+            font-family: cursive;
+            color: gold;
+            background-color: chocolate;
+            font-weight: bolder;
+        }
+
+        .btn-div {
+            border: 1px solid;
+            display: flex;
+            margin-top: 150px;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="border-div">
+            <p class="gold">gold stop watch</p>
+            <p class="milli">0:0:0</p>
+            <div class="btn-div">
+                <button class="btn btn1">start</button>
+                <button class="btn btn2">stop</button>
+                <button class="btn btn3">reset</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        var btn1 = document.querySelector('.btn1')
+        var btn2 = document.querySelector('.btn2')
+        var btn3 = document.querySelector('.btn3')
+        var milli = document.querySelector('.milli')
+
+        var count = 0
+        var sec = 0
+        var min = 0
+
+        var interv
+        var secinter
+        var mininter
+
+        btn1.addEventListener('click', function () {
+            console.log('hello');
+
+            interv = setInterval(function () {
+                selectmili()
+            }, 100)
+            secinter = setInterval(function () {
+                selectsec()
+            }, 1000)
+            mininter = setInterval(function () {
+                selectmin()
+            }, 60000)
+
+        })
+
+        function selectmili() {
+            count++
+            milli.innerHTML = min + ':' + sec + ':' + count
+            // console.log(count,'coutn');
+            if (count >= '60') {
+                count = 0
+            }
+        }
+        function selectsec() {
+            sec++
+            console.log(sec, 'sec');
+            milli.innerHTML = min + ':' + sec + ':' + count
+            // console.log(count,'coutn');
+            if (sec >= '60') {
+                sec = 0
+            }
+        }
+        function selectmin() {
+            min++
+            console.log(min, 'min');
+            milli.innerHTML = min + ':' + sec + ':' + count
+            // console.log(count,'coutn');
+            if (min >= '60') {
+                min = 0
+            }
+        }
+
+        btn2.addEventListener('click', function () {
+
+            clearInterval(interv)
+            clearInterval(secinter)
+            clearInterval(mininter)
+            count = 0
+            sec = 0
+            min = 0
+        })
+        btn3.addEventListener('click', function () {
+            console.log('hello');
+            count = 0
+            sec = 0
+            min = 0
+            milli.innerHTML = min + ':' + sec + ':' + count
+        })
+
+
+
+    </script>
+</body>
+
+</html>

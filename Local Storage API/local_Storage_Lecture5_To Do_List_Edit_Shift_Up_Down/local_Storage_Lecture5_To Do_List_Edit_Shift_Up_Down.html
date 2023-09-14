@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      body {
+        background-color: rgb(230, 246, 255);
+        /* height: max-content; */
+        height: 97vh;
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        flex-direction: column;
+        padding-top: 10px;
+        /* border: 3px solid lime; */
+      }
+
+      .container {
+        width: 500px;
+        height: max-content;
+        /* height: 580px; */
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* border: 10px solid rgb(255, 225, 0); */
+      }
+
+      .title {
+        color: rgb(174, 174, 174);
+        font-size: 40px;
+        font-weight: 400;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      .input_btn_container {
+        width: 70%;
+        height: max-content;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* border: 5px solid lime; */
+      }
+
+      .inputStyle {
+        border: 0.5px solid grey;
+        outline: none;
+        padding-left: 2px;
+        font-size: 30px;
+        color: grey;
+        height: 40px;
+        width: 240px;
+        margin: 10px;
+        /* border: 3px solid rgb(0, 255, 242); */
+      }
+
+      .btn {
+        height: 40px;
+        width: 80px;
+        border: none;
+        background-color: lightslategray;
+        border-radius: 2px;
+        cursor: pointer;
+        color: white;
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        transform: scale(0.99);
+      }
+
+      .btn:hover {
+        background-color: rgb(106, 118, 130);
+        transform: scale(1);
+      }
+
+      /* width scrollbar*/
+      .output::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track scrollbar*/
+      .output::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      /* Handle scrollbar*/
+      .output::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+
+      /* Handle on hover scrollbar*/
+      .output::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+
+      .output {
+        border: 2px solid rgb(0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        height: 60vh;
+        width: 70%;
+
+        color: grey;
+        margin-left: 9px;
+        /* cursor: pointer; */
+      }
+
+      .buttonParentChild button {
+        margin-right: 5px;
+      }
+
+      .buttonParentChild {
+        /* width: max-content; */
+        width: 130px;
+        height: 30px;
+        /* border: 5px solid lime; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .outputChild {
+        border-bottom: 1px solid rgb(203, 203, 203);
+        background-color: white;
+        margin-left: -2px;
+        height: 40px;
+        margin-top: 0.9px;
+        font-size: 22px;
+        padding-left: 5px;
+        line-height: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: rgb(53, 53, 53);
+      }
+
+      /* up  */
+
+      .outputUpButtonChild {
+        height: 30px;
+        width: 30px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: lightgrey;
+        font-size: 16px;
+        transform: scale(0.99);
+      }
+
+      .outputUpButtonChild:hover {
+        background-color: rgb(176, 176, 176);
+        transform: scale(1.1);
+      }
+
+      /* down  */
+
+      .outputDownButtonChild {
+        height: 30px;
+        width: 30px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: lightgrey;
+        font-size: 16px;
+        transform: scale(0.99);
+      }
+
+      .outputDownButtonChild:hover {
+        background-color: rgb(176, 176, 176);
+        transform: scale(1.1);
+      }
+
+      /* delete  */
+
+      .outputDeleteButtonChild {
+        height: 30px;
+        width: 30px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: lightgrey;
+        font-size: 16px;
+        transform: scale(0.99);
+      }
+
+      .outputDeleteButtonChild:hover {
+        background-color: rgb(176, 176, 176);
+        transform: scale(1.1);
+      }
+
+      /* edit  */
+
+      .outputEditButtonChild {
+        height: 30px;
+        width: 30px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: lightgrey;
+        font-size: 16px;
+        transform: scale(0.99);
+      }
+
+      .outputEditButtonChild:hover {
+        background-color: rgb(176, 176, 176);
+        transform: scale(1.1);
+      }
+
+      .clear_all_btn {
+        border: none;
+        background-color: lightpink;
+        height: 40px;
+        width: 50%;
+        margin-top: 20px;
+        border-radius: 5px;
+        font-size: 17px;
+        color: #555;
+        cursor: pointer;
+        transition: all 0.54s;
+      }
+
+      .clear_all_btn:hover {
+        background-color: rgb(255, 166, 180);
+        color: #555;
+        font-weight: 450;
+      }
+
+      .clear_all_btn:focus {
+        background-color: rgb(255, 166, 180);
+        color: #555;
+        font-weight: 450;
+      }
+    </style>
+
+    <div class="container">
+      <p class="title">To Do List</p>
+
+      <div class="input_btn_container">
+        <input class="inputStyle" type="text" />
+        <button class="btn">Submit</button>
+      </div>
+
+      <div class="output"></div>
+
+      <button class="clear_all_btn">Clear All</button>
+    </div>
+
+    <script>
+      //       // --- practice start ---
+
+      var inputStyle = document.querySelector('.inputStyle');
+      var btn = document.querySelector('.btn');
+      var output = document.querySelector('.output');
+
+      var getBackString = localStorage.getItem('key1');
+   
+      console.log(getBackString, 'getBackString');
+
+      var parseObject = JSON.parse(getBackString);
+
+      console.log(parseObject, 'parseObject');
+
+      // var emptyArray = []
+      var emptyArray = parseObject;
+
+      let playerCheck = true
+      var getButtonIndex;
+
+      createPushingValue();
+
+      btn.addEventListener('click', () => {
+        // console.log('click')
+        createPushingValue();
+      });
+
+
+
+
+
+      function createPushingValue() {
+
+
+
+
+        if (playerCheck) {
+
+
+          console.log('if is working');
+          var emptyArray = localStorage.getItem('key1')
+            ? JSON.parse(localStorage.getItem('key1'))
+            : [];
+          var inputValueShowOutput = inputStyle.value;
+
+          console.log(inputValueShowOutput, 'inputValueShowOutput');
+
+          if (inputValueShowOutput != '') {
+            emptyArray.push(inputValueShowOutput);
+          }
+
+          output.innerHTML = '';
+          inputStyle.value = '';
+
+          var convertArrayObjectString = JSON.stringify(emptyArray);
+          console.log(convertArrayObjectString, 'convertArrayObjectString');
+          localStorage.setItem('key1', convertArrayObjectString);
+
+          renderData(emptyArray);
+        } 
+
+        else {
+          console.log('else is working');
+          parseObject[getButtonIndex] = inputStyle.value
+          console.log(parseObject[getButtonIndex], 'parseObject[getButtonIndex]')
+        
+          inputStyle.value = '';
+          playerCheck = true;
+
+          localStorage.setItem('key1', JSON.stringify(parseObject));
+          renderData(parseObject);
+           
+        }
+      }
+
+
+
+
+
+      
+
+      // --- Up Arrow Function ---
+
+      function upArrowFunction(index) {
+        // console.log(index, 'up arrow index is working')
+
+        var getLocalForUpArrow_A = localStorage.getItem('key1')
+          ? JSON.parse(localStorage.getItem('key1'))
+          : [];
+        // console.log(getLocalForUpArrow_A, 'getLocalForUpArrow_A')
+
+        if (getLocalForUpArrow_A[index - 1]) {
+          var storeCurrent_Up_IndexDown_B = getLocalForUpArrow_A[index];
+
+          var storeCurrent_Up_IndexDown_C = getLocalForUpArrow_A[index - 1];
+
+          getLocalForUpArrow_A[index] = storeCurrent_Up_IndexDown_C;
+          getLocalForUpArrow_A[index - 1] = storeCurrent_Up_IndexDown_B;
+        }
+
+        localStorage.setItem('key1', JSON.stringify(getLocalForUpArrow_A));
+        renderData(getLocalForUpArrow_A);
+      }
+
+      // --- Down Arrow Function ---
+
+      function downArrowFunction(index) {
+        // console.log()
+        console.log(index, 'index');
+
+        var getLocalForDownArrow_A = localStorage.getItem('key1')
+          ? JSON.parse(localStorage.getItem('key1'))
+          : [];
+        // console.log(getLocalForDownArrow_A, 'getLocalForDownArrow_A')
+
+        if (getLocalForDownArrow_A[index + 1]) {
+          var storeCurrentIndexDown_B = getLocalForDownArrow_A[index];
+          console.log(storeCurrentIndexDown_B, 'storeCurrentIndexDown_B');
+
+          var emptyArrayPlus1Output_C = getLocalForDownArrow_A[index + 1];
+          console.log(emptyArrayPlus1Output_C, 'emptyArrayPlus1Output_C');
+
+          getLocalForDownArrow_A[index] = emptyArrayPlus1Output_C;
+          getLocalForDownArrow_A[index + 1] = storeCurrentIndexDown_B;
+          console.log(getLocalForDownArrow_A, 'getLocalForDownArrow_A[index]');
+        }
+
+        localStorage.setItem('key1', JSON.stringify(getLocalForDownArrow_A));
+        renderData(getLocalForDownArrow_A);
+      }
+
+      // --- Notes Down Arrow Function Start ---
+
+      // function downArrowFunction(index){
+      // console.log(index, 'index')
+
+      //   var A = localStorage.getItem('key1') ? JSON.parse(localStorage.getItem  ('key1')) : []
+      // console.log(A, 'A')
+
+      //   if(A[index + 1]){
+
+      //   var B = A[index]
+      //   console.log(B, 'B')
+
+      //   var C = A[index + 1]
+      //   console.log(C, 'C')
+
+      //   A[index] = C
+      //   A[index + 1] = B
+      //   console.log(A, 'A[index]')
+      //   }
+
+      //   localStorage.setItem('key1', JSON.stringify(A))
+      //   renderData(A)
+      // }
+
+      // --- Notes Down Arrow Function End ---
+
+      // --- Edit Button function ---
+
+   
+
+      function editButtonFunction(element, index) {
+        // console.log(index, 'index')
+        // console.log(element, 'element')
+
+        // edit false so not to create in list but to go into existing innerHTML as it is an edit
+        playerCheck = false;
+        //  console.log(playerCheck = false, 'playerCheck = false')
+
+        inputStyle.value = element;
+        getButtonIndex = index;
+        console.log(getButtonIndex, 'getButtonIndex');
+
+        var getLocalForEditButton_A = localStorage.getItem('key1')
+          ? JSON.parse(localStorage.getItem('key1'))
+          : [];
+      }
+
+      // --- delete function ---
+
+      function deleteRemoveFunction(index) {
+        console.log('click');
+        var getfromlocal = localStorage.getItem('key1')
+          ? JSON.parse(localStorage.getItem('key1'))
+          : [];
+        getfromlocal.splice(index, 1);
+
+        // console.log(getfromlocal, 'getfromlocal updated');
+        localStorage.setItem('key1', JSON.stringify(getfromlocal));
+        renderData(getfromlocal);
+      }
+
+      function renderData(emptyArray) {
+        output.innerHTML = '';
+
+        emptyArray.forEach((element, index) => {
+          console.log(element, 'emptyArray');
+
+          // --- add paragraph main ---
+          var createOutputText = document.createElement('p');
+          createOutputText.classList.add('outputChild');
+          output.appendChild(createOutputText);
+          createOutputText.innerHTML = element;
+
+          // --- parent div for button created in Javascript ---
+          var buttonParent = document.createElement('div');
+          buttonParent.classList.add('buttonParentChild');
+          createOutputText.appendChild(buttonParent);
+
+          // --- edit button ---
+
+          var createOutputEdit = document.createElement('button');
+          createOutputEdit.classList.add('outputEditButtonChild');
+          // call from buttonParent (now parent)
+          buttonParent.appendChild(createOutputEdit);
+          createOutputEdit.innerHTML = `<i class="fa-regular fa-file"></i>`;
+
+          createOutputEdit.addEventListener('click', () =>
+            editButtonFunction(element, index)
+          );
+
+
+          // --- up button ---
+          var createOutputUp = document.createElement('button');
+          createOutputUp.classList.add('outputUpButtonChild');
+          // call from buttonParent (now parent)
+          buttonParent.appendChild(createOutputUp);
+          createOutputUp.innerHTML = `<i class="fa-solid fa-chevron-up"></i>`;
+
+          createOutputUp.addEventListener('click', () =>
+            upArrowFunction(index)
+          );
+
+          // --- down button ---
+
+          var createOutputDown = document.createElement('button');
+          createOutputDown.classList.add('outputDownButtonChild');
+          // call from buttonParent (now parent)
+          buttonParent.appendChild(createOutputDown);
+          createOutputDown.innerHTML = `<i class="fa-solid fa-chevron-down"></i>`;
+
+          createOutputDown.addEventListener('click', () =>
+            downArrowFunction(index)
+          );
+
+          // --- delete button  ---
+
+          var createOutputDelete = document.createElement('button');
+          createOutputDelete.classList.add('outputDeleteButtonChild');
+          // call from buttonParent (now parent)
+          buttonParent.appendChild(createOutputDelete);
+          createOutputDelete.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+
+          createOutputDelete.addEventListener('click', () =>
+            deleteRemoveFunction(index)
+          );
+        });
+      }
+
+      // clear all button
+
+      var clear_all_btn = document.querySelector('.clear_all_btn');
+
+      clear_all_btn.addEventListener('click', () => {
+        output.innerHTML = '';
+        localStorage.clear();
+      });
+
+      // --- practice end ---
+    </script>
+  </body>
+</html>

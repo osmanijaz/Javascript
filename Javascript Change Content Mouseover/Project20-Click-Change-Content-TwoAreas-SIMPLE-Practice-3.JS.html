@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .circle-container {
+            width: 30%;
+            height: 400px;
+            border: 1px solid;
+            float: left;
+            border: 2px solid yellow;
+        }
+
+        .content-container {
+            width: 30%;
+            height: 400px;
+            border: 4px solid red;
+            float: left;
+            margin-left: 300px;
+            position: relative;
+        }
+
+        .circle {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(4, 255, 50);
+            border-radius: 50%;
+        }
+
+        .content {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background-color: cadetblue;
+        }
+
+        .activeCircle {
+            background-color: aqua;
+        }
+
+        .activeContent {
+            z-index: 100;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="circle-container">
+
+        <div onmouseenter="activateCircle(this, 'c1')" class="circle one activeCircle">1</div>
+        <div onmouseenter="activateCircle(this, 'c2')" class="circle one">2</div>
+        <div onmouseenter="activateCircle(this, 'c3')" class="circle one">3</div>
+        <div onmouseenter="activateCircle(this, 'c4')" class="circle one">4</div>
+        <div onmouseenter="activateCircle(this, 'c5')" class="circle one">5</div>
+        <div onmouseenter="activateCircle(this , 'c6')" class="circle one">6</div>
+
+        <!-- <div  class="circle one activeCircle">
+            1
+        </div>
+        <div  class="circle one">2</div>
+        <div  class="circle one">3</div>
+        <div  class="circle one">4</div>
+        <div  class="circle one">5</div>
+        <div  class="circle one">6</div>
+         -->
+    </div>
+
+    <div class="content-container">
+        <div class="content activeContent " id="c1">
+            <p> i am in 1</p>
+        </div>
+
+        <div class="content" id="c2">
+            <p> i am in 2</p>
+        </div>
+        <div class="content" id="c3">
+            <p> i am in 3</p>
+        </div>
+        <div class="content" id="c4">
+            <p> i am in 4</p>
+        </div>
+        <div class="content " id="c5">
+            <p> i am in 5</p>
+        </div>
+        <div class="content" id="c6">
+            <p> i am in 6</p>
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        var circles = document.getElementsByClassName('circle')
+        var contents = document.getElementsByClassName('content')
+        function activateCircle(xyz, id) {
+
+            console.log('hello', xyz, id);
+            removeCircleActive()
+            xyz.classList.add('activeCircle')
+
+
+            var getPara = document.getElementById(id)
+            console.log(getPara);
+            getPara.classList.add('activeContent')
+        }
+
+        // for(var i = 0 ; i<circles.length;i++){
+        //     circles[i].addEventListener('mouseenter', function(){
+        //         console.log(this);
+        //             console.log('hello');
+        //     removeCircleActive()
+        //     this.classList.add('activeCircle')
+        //     })
+        // }
+
+        function removeCircleActive() {
+            for (var i = 0; i < circles.length; i++) {
+                circles[i].classList.remove('activeCircle')
+            }
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('activeContent')
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

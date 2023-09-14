@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+
+    <title>Document</title>
+</head>
+<style>
+    * {
+        font-family: 'Poppins', sans-serif;
+    }
+
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 60px;
+        border: 5px solid rgb(247, 0, 255);
+        width: max-content;
+        height: 400px;
+        padding: 20px;
+    }
+
+    .area {
+        outline: grey;
+        border: 0.5px solid rgb(180, 180, 180);
+        font-size: 15px;
+        color: grey;
+        width: 99%;
+    }
+
+
+    .button1 {
+        border: none;
+        background-color: rgb(211, 211, 211);
+        color: rgb(40, 40, 40);
+        font-size: 15px;
+        width: 80px;
+        height: 30px;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+    .button1:hover {
+
+        background-color: rgb(200, 200, 200);
+    }
+
+    #message {
+        color: grey;
+    }
+
+    .title {
+        color: grey;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <p class="title"></p>
+
+
+        <textarea class="area" name="" id="" cols="30" rows="10" disabled></textarea>
+
+        <button class="button1">Start</button>
+
+        <div id="message"></div>
+    </div>
+
+
+
+    <script>
+        var title = document.querySelector('.title')
+        var area = document.getElementsByTagName('textarea')
+        console.log(area);
+        // console.log(area);
+        var button1 = document.querySelector('.button1')
+        // console.log(button1);
+
+
+
+        let textArray = ["What is the meaning of life?", "How does a car engine work?", "What is the fastest land animal?", "How do you solve a Rubik's cube?"]
+
+
+        let startTime
+        let endTime
+
+        button1.addEventListener('click', function () {
+            // console.log("clikced");
+            if (button1.innerHTML == "Start") {
+                playeGame()
+
+
+            } else {
+                endGame()
+            }
+        })
+
+        var a
+
+        function playeGame() {
+            button1.innerHTML = 'Done'
+
+            // console.log(a, 'a');
+            //  a = new Date()
+            // console.log(a, 'a');
+            // // a = 30
+            // console.log(a, 'a');
+
+            console.log(startTime, 'start');
+
+
+            startTime = new Date().getTime()
+            console.log(startTime, 'startTime');
+
+            let random = Math.floor(Math.random() * textArray.length)
+
+            title.innerHTML = textArray[random]
+
+            area[0].disabled = false
+        }
+
+
+
+        function endGame() {
+            button1.innerHTML = 'Start'
+            // a = new Date()
+            // console.log(a, 'a');
+            endTime = new Date().getTime()
+            console.log(startTime, 'start');
+            let totalTime = ((endTime - startTime) / 1000)
+            //  get the speed  (wordsCount / totalTime) * 60 
+
+            let wordsCount = area[0].value.length
+            console.log(wordsCount);
+
+            
+            let speed = Math.round(((wordsCount / totalTime) * 60))
+
+ 
+
+
+
+
+            message.innerHTML = `You typed at the speed of ${speed} with the number of ${wordsCount} words per minute.`
+
+
+
+
+            
+            console.log(speed, 'speed');
+            console.log(totalTime, 'totalTime');
+            console.log(endTime);
+            area[0].disabled = true
+            area[0].value = ""
+        }
+
+// var time = new Date().getTime()
+// console.log(time);
+//  totalTime => startTime ,endTime => 
+//  typing speed => wrods / totalTime
+
+
+    </script>
+</body>
+
+</html>

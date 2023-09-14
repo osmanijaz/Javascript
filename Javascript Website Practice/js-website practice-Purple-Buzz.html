@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+
+        // nav main 
+        var navbar = document.createElement('div')
+        navbar.style.width = '100%'
+        navbar.style.height = '75px'
+        // navbar.style.border = '2px solid black'
+
+        navbar.style.display = 'flex';
+        navbar.style.justifyContent = 'space-between';
+        navbar.style.alignItems = 'center';
+
+        document.body.appendChild(navbar)
+
+
+
+        // logo 
+
+        var logo = document.createElement('div')
+        logo.style.backgroundImage = 'url(logo.jpg)'
+        logo.style.backgroundSize = 'cover'
+        logo.style.backgroundPosition = 'center'
+
+        logo.style.width = '165px';
+        logo.style.height = '30px';
+        // logo.style.border = '2px solid blue';
+        logo.style.marginLeft = '30px';
+        // logo.style.marginTop = '-5px';
+
+
+        navbar.appendChild(logo)
+
+
+
+
+
+
+
+        // list ul nav 
+
+        var mainUL = document.createElement('ul')
+        mainUL.style.width = '40%';
+        mainUL.style.height = '30px';
+        // mainUL.style.border = '2px solid red';
+        mainUL.style.display = 'flex';
+        mainUL.style.justifyContent = 'space-between';
+        mainUL.style.alignItems = 'center';
+        mainUL.style.color = 'grey';
+        navbar.appendChild(mainUL)
+
+
+        // list li nav
+
+        var mainLI = document.createElement('li')
+        mainLI.innerHTML = 'Home'
+        mainLI.style.fontSize = '16px'
+        mainLI.style.listStyle = 'none'
+        mainUL.appendChild(mainLI)
+
+
+        var mainLI = document.createElement('li')
+        mainLI.innerHTML = 'About'
+        mainLI.style.fontSize = '16px'
+        mainLI.style.listStyle = 'none'
+        mainUL.appendChild(mainLI)
+
+
+        var mainLI = document.createElement('li')
+        mainLI.innerHTML = 'Work'
+        mainLI.style.fontSize = '16px'
+        mainLI.style.listStyle = 'none'
+        mainUL.appendChild(mainLI)
+
+
+        var mainLI = document.createElement('li')
+        mainLI.innerHTML = 'Pricing'
+        mainLI.style.fontSize = '16px'
+        mainLI.style.listStyle = 'none'
+        mainUL.appendChild(mainLI)
+
+
+        var mainLI = document.createElement('li')
+        mainLI.innerHTML = 'Contact'
+        mainLI.style.fontSize = '16px'
+        mainLI.style.listStyle = 'none'
+        mainUL.appendChild(mainLI)
+
+
+        // icons-right
+
+        var icons = document.createElement('div')
+        icons.style.width = '165px';
+        icons.style.height = '30px';
+        icons.style.display = 'flex';
+        icons.style.justifyContent = 'space-between';
+        icons.style.alignItems = 'center';
+        icons.style.marginRight = '20px';
+
+
+        // icons.style.border = '2px solid green';
+        navbar.appendChild(icons)
+
+        // icon 
+
+        var icon1 = document.createElement('div')
+        icon1.innerHTML = '<i class="fa-solid fa-bell"></i>'
+        icon1.style.width = '50px'
+        icon1.style.display = 'flex'
+        icon1.style.justifyContent = 'center'
+        icon1.style.alignItems = 'center'
+        icon1.style.fontSize = '22px'
+        icon1.style.color = 'rgb(98, 102, 234)'
+        icon1.style.height = '100%'
+        // icon1.style.border = '2px solid purple'
+        icons.appendChild(icon1)
+
+        var icon2 = document.createElement('div')
+        icon2.innerHTML = '<i class="fa-solid fa-gear"></i>'
+        icon2.style.width = '50px'
+        icon2.style.display = 'flex'
+        icon2.style.justifyContent = 'center'
+        icon2.style.alignItems = 'center'
+        icon2.style.fontSize = '22px'
+        icon2.style.height = '100%'
+        // icon2.style.border = '2px solid purple'
+        icon2.style.color = 'rgb(98, 102, 234)'
+        icons.appendChild(icon2)
+
+        var icon3 = document.createElement('div')
+        icon3.innerHTML = '<i class="fa-solid fa-user"></i>'
+        icon3.style.width = '50px'
+        icon3.style.display = 'flex'
+        icon3.style.justifyContent = 'center'
+        icon3.style.alignItems = 'center'
+        icon3.style.fontSize = '22px'
+        icon3.style.height = '100%'
+        // icon3.style.border = '2px solid purple'
+        icon3.style.color = 'rgb(98, 102, 234)'
+        icons.appendChild(icon3)
+
+        // main pic 
+
+
+        var main = document.createElement('div')
+        main.style.backgroundImage = 'url(banner.jpg.jpg)'
+        main.style.backgroundSize = 'cover'
+        main.style.backgroundPosition = 'center'
+        main.style.display = 'flex'
+        main.style.justifyContent = 'center'
+        main.style.alignItems = 'center'
+
+
+        main.style.width = '100%'
+        main.style.height = '535px'
+        // main.style.border = '4px solid red'
+        // main.style.backgroundColor='lightpink'
+        document.body.appendChild(main)
+
+
+
+        // main text 
+
+        var textMain = document.createElement('div')
+        textMain.style.width = '65%'
+        textMain.style.height = '70%'
+        // textMain.style.border = '2px solid limegreen'
+        main.appendChild(textMain)
+
+
+        // purple head 
+
+        var purpleHead = document.createElement('p')
+        purpleHead.innerHTML = ' HTML CSS Template with Bootstrap '
+        textMain.style.color = 'rgb(98, 102, 234)'
+        textMain.style.fontWeight = '200'
+        textMain.style.fontSize = '66px'
+        textMain.style.lineHeight = '75px'
+        textMain.appendChild(purpleHead)
+
+
+        var purpleText = document.createElement('p')
+        purpleText.innerHTML = 'Est volutpat nunc, ut dictum ante magna eget leo. Aenean sit amet felis eget dolor maximus elementum pulvinar nec nisl. Pellentesque eget tempor mi. Morbi vitae turpis purus. Duis suscipit augue non neque fringilla.'
+        purpleText.style.color = 'grey'
+        purpleText.style.fontSize = '16px'
+        purpleText.style.lineHeight = '24px'
+        purpleText.style.marginTop = '20px'
+        purpleText.style.fontWeight = '400'
+        purpleText.style.lineHeight = '24px'
+        textMain.appendChild(purpleText)
+
+
+        var button = document.createElement('button')
+        button.innerHTML = 'Get Started'
+        button.style.width = '145px'
+        button.style.fontSize = '16px'
+        button.style.color = 'rgb(98, 102, 234)'
+        button.style.height = '45px'
+        button.style.borderRadius = '50px'
+        button.style.border = '1px solid rgb(98, 102, 234)'
+        button.style.background = 'transparent'
+        textMain.appendChild(button)
+
+
+        // services 
+
+        var serviceMain = document.createElement('div')
+        serviceMain.style.width = '100%'
+        serviceMain.style.height = '305px'
+        serviceMain.style.display = 'flex'
+        serviceMain.style.flexDirection = 'column'
+
+        serviceMain.style.justifyContent = 'space-evenly'
+        serviceMain.style.alignItems = 'center'
+        serviceMain.style.paddingBottom = '40px'
+
+        // serviceMain.style.border='2px solid limegreen'
+        document.body.appendChild(serviceMain)
+
+
+        var serviceTxt = document.createElement('p')
+        serviceTxt.innerHTML = ' Services '
+        serviceTxt.style.textAlign = 'center'
+        serviceTxt.style.fontSize = '34px'
+        serviceTxt.style.fontWeight = '500'
+        serviceTxt.style.marginTop = '40px'
+        serviceMain.appendChild(serviceTxt)
+
+
+
+        // box text main 
+
+        var boxtxt = document.createElement('div')
+        boxtxt.style.width = ('765px')
+        boxtxt.style.height = ('140px')
+        boxtxt.style.display = ('flex')
+        boxtxt.style.justifyContent = ('space-between')
+
+        // boxtxt.style.border=('2px solid blue')
+        boxtxt.style.marginTop = ('40px')
+        serviceMain.appendChild(boxtxt)
+
+
+        var img = document.createElement('div')
+        img.innerHTML = ' <i class="fa-solid fa-gift"></i>'
+        img.style.display = 'flex'
+        img.style.justifyContent = 'center'
+        img.style.alignItems = 'center'
+        img.style.fontSize = '23px'
+        img.style.width = ('35px')
+        img.style.height = ('35px')
+        // img.style.border = ('2px solid red')
+
+        boxtxt.appendChild(img)
+
+
+
+        // green box
+
+        var boxHead = document.createElement('div')
+        boxHead.style.width = ('700px')
+        boxHead.style.height = ('130px')
+        // boxHead.style.border=('2px solid green')
+        boxtxt.appendChild(boxHead)
+
+
+        var boxtxt = document.createElement('div')
+        boxtxt.innerHTML = ' Make Success for future '
+        boxtxt.style.fontSize = ('28px')
+        boxtxt.style.fontWeight = ('400')
+        boxHead.appendChild(boxtxt)
+
+        var line = document.createElement('div')
+        line.style.width = ('150px')
+        line.style.height = ('4.5px')
+        line.style.marginTop = ('5px')
+        // line.style.border=('1px solid rgb(98, 102, 234)') 
+        line.style.backgroundColor = ('rgb(98, 102, 234)')
+        boxtxt.appendChild(line)
+
+
+        var para = document.createElement('p')
+        para.innerHTML = 'You are free to use this template for your commercial or business websites. Sapien tellus vel ipsum. Pellentesque in ipsum ut orci vehicula sagittis et in libero. Etiam a neques. It is too easy to illegally copy and repost this template.'
+
+        para.style.fontSize = ('15px')
+        para.style.color = ('grey')
+        para.style.lineHeight = ('24px')
+        para.style.marginTop = ('10px')
+        boxtxt.appendChild(para)
+
+
+        // blue background
+
+        var blueMain = document.createElement('div')
+        blueMain.style.width = ('100%')
+        blueMain.style.height = ('135px')
+        blueMain.style.display = ('flex')
+        blueMain.style.justifyContent = ('center')
+        blueMain.style.alignItems = ('center')
+        blueMain.style.backgroundColor = ('rgb(98, 102, 234)')
+        document.body.appendChild(blueMain)
+
+
+
+
+        var blueUL = document.createElement('ul')
+        blueUL.style.width = ('40%')
+        blueUL.style.height = ('50px')
+        blueUL.style.fontWeight = ('300')
+        blueUL.style.display = ('flex')
+        blueUL.style.justifyContent = ('space-between')
+        blueUL.style.alignItems = ('center')
+
+        // blueUL.style.border = ('2px solid white')
+        blueMain.appendChild(blueUL)
+
+
+
+        var blueLI = document.createElement('li')
+        blueLI.innerHTML = 'All'
+        blueLI.style.listStyle = ('none')
+        blueLI.style.textAlign = ('center')
+        blueLI.style.lineHeight = ('40px')
+
+        blueLI.style.color = ('white')
+        blueLI.style.border = ('1px solid #4232C2')
+        blueLI.style.backgroundColor = ('#4232C2')
+        blueLI.style.borderRadius = ('50px')
+        blueLI.style.width = ('65px')
+        blueLI.style.height = ('40px')
+
+
+
+        blueUL.appendChild(blueLI)
+
+
+        var blueLI = document.createElement('li')
+        blueLI.innerHTML = 'Graphics'
+        blueLI.style.listStyle = ('none')
+        blueLI.style.color = ('white')
+        blueUL.appendChild(blueLI)
+
+
+        var blueLI = document.createElement('li')
+        blueLI.innerHTML = 'UI/UX'
+        blueLI.style.listStyle = ('none')
+        blueLI.style.color = ('white')
+        blueUL.appendChild(blueLI)
+
+
+
+        var blueLI = document.createElement('li')
+        blueLI.innerHTML = 'Branding'
+        blueLI.style.listStyle = ('none')
+        blueLI.style.color = ('white')
+        blueUL.appendChild(blueLI)
+
+
+        // six boxes 
+
+        var sixMain = document.createElement('div')
+        sixMain.style.width = ('100%')
+        sixMain.style.height = ('670px')
+        sixMain.style.display = ('flex')
+        sixMain.style.justifyContent = ('space-evenly')
+        sixMain.style.flexWrap = ('wrap')
+        sixMain.style.paddingTop = ('60px')
+
+
+
+
+
+        // sixMain.style.border = ('2px solid red')
+        document.body.appendChild(sixMain)
+
+
+        // box 1
+
+        var sixBox = document.createElement('div')
+        sixBox.style.backgroundImage = 'linear-gradient(to bottom, rgba(245, 246, 252, 0.01), rgba(0, 0, 0, 1)), url(services-01.jpg)'
+        sixBox.style.backgroundSize = ('cover')
+        sixBox.style.width = ('255px')
+        sixBox.style.height = ('255px')
+        sixBox.style.border = ('1px solid black')
+        sixBox.style.borderRadius = ('10px')
+        sixMain.appendChild(sixBox)
+
+
+
+
+
+        // ---
+
+        var sixtxt = document.createElement('div')
+        sixtxt.style.width = ('230px')
+        sixtxt.style.height = ('100px')
+        // sixtxt.style.border=('2px solid red')
+        sixtxt.style.display = ('flex')
+        sixtxt.style.flexDirection = ('column')
+
+
+        sixtxt.style.margin = ('auto')
+        sixtxt.style.marginTop = ('130px')
+        sixBox.appendChild(sixtxt)
+
+
+        var sixbut = document.createElement('button')
+        sixbut.innerHTML = 'UI/UX Design'
+        sixbut.style.color = ('white')
+        sixbut.style.fontSize = ('15px')
+        sixbut.style.fontWeight = ('300')
+        sixbut.style.width = ('140px')
+        sixbut.style.height = ('40px')
+        sixbut.style.border = ('1.5px solid white')
+        sixbut.style.background = ('transparent')
+        sixbut.style.borderRadius = ('50px')
+        sixtxt.appendChild(sixbut)
+
+        var sixpar = document.createElement('p1')
+        sixpar.innerHTML = ' Lorem ipsum dolar sit amet, consectetur adipisicing'
+        sixpar.style.fontSize = ('15px')
+        sixpar.style.marginTop = ('15px')
+        sixpar.style.color = ('white')
+        sixtxt.appendChild(sixpar)
+
+        // ---
+
+
+
+
+
+        // box 2 
+
+        var sixBox = document.createElement('div')
+        sixBox.style.backgroundImage = 'linear-gradient(to bottom, rgba(245, 246, 252, 0.01), rgba(0, 0, 0, 1)), url(services-02.jpg)'
+        sixBox.style.backgroundSize = ('cover')
+
+        sixBox.style.width = ('255px')
+        sixBox.style.height = ('255px')
+        sixBox.style.border = ('1px solid black')
+        sixBox.style.borderRadius = ('10px')
+        sixMain.appendChild(sixBox)
+
+        // ---
+
+        var sixtxt = document.createElement('div')
+        sixtxt.style.width = ('230px')
+        sixtxt.style.height = ('100px')
+        // sixtxt.style.border=('2px solid red')
+        sixtxt.style.display = ('flex')
+        sixtxt.style.flexDirection = ('column')
+
+
+        sixtxt.style.margin = ('auto')
+        sixtxt.style.marginTop = ('130px')
+        sixBox.appendChild(sixtxt)
+
+
+        var sixbut = document.createElement('button')
+        sixbut.innerHTML = 'Social Media'
+        sixbut.style.color = ('white')
+        sixbut.style.fontSize = ('15px')
+        sixbut.style.fontWeight = ('300')
+        sixbut.style.width = ('140px')
+        sixbut.style.height = ('40px')
+        sixbut.style.border = ('1.5px solid white')
+        sixbut.style.background = ('transparent')
+        sixbut.style.borderRadius = ('50px')
+        sixtxt.appendChild(sixbut)
+
+        var sixpar = document.createElement('p1')
+        sixpar.innerHTML = ' Lorem ipsum dolar sit amet, consectetur adipisicing'
+        sixpar.style.fontSize = ('15px')
+        sixpar.style.marginTop = ('15px')
+        sixpar.style.color = ('white')
+        sixtxt.appendChild(sixpar)
+
+        // ---
+
+
+
+
+        // box 3
+
+        var sixBox = document.createElement('div')
+        sixBox.style.backgroundImage = 'linear-gradient(to bottom, rgba(245, 246, 252, 0.01), rgba(0, 0, 0, 1)), url(services-03.jpg)'
+        sixBox.style.backgroundSize = ('cover')
+        sixBox.style.width = ('255px')
+        sixBox.style.height = ('255px')
+        sixBox.style.border = ('1px solid black')
+        sixBox.style.borderRadius = ('10px')
+        sixMain.appendChild(sixBox)
+
+
+        // ---
+
+        var sixtxt = document.createElement('div')
+        sixtxt.style.width = ('230px')
+        sixtxt.style.height = ('100px')
+        // sixtxt.style.border=('2px solid red')
+        sixtxt.style.display = ('flex')
+        sixtxt.style.flexDirection = ('column')
+
+
+        sixtxt.style.margin = ('auto')
+        sixtxt.style.marginTop = ('130px')
+        sixBox.appendChild(sixtxt)
+
+
+        var sixbut = document.createElement('button')
+        sixbut.innerHTML = 'Marketing'
+        sixbut.style.color = ('white')
+        sixbut.style.fontSize = ('15px')
+        sixbut.style.fontWeight = ('300')
+        sixbut.style.width = ('140px')
+        sixbut.style.height = ('40px')
+        sixbut.style.border = ('1.5px solid white')
+        sixbut.style.background = ('transparent')
+        sixbut.style.borderRadius = ('50px')
+        sixtxt.appendChild(sixbut)
+
+        var sixpar = document.createElement('p1')
+        sixpar.innerHTML = ' Lorem ipsum dolar sit amet, consectetur adipisicing'
+        sixpar.style.fontSize = ('15px')
+        sixpar.style.marginTop = ('15px')
+        sixpar.style.color = ('white')
+        sixtxt.appendChild(sixpar)
+
+        // ---
+
+
+        // box 4 
+
+        var sixBox = document.createElement('div')
+        sixBox.style.backgroundImage = 'linear-gradient(to bottom, rgba(245, 246, 252, 0.01), rgba(0, 0, 0, 1)), url(services-04.jpg)'
+        sixBox.style.backgroundSize = ('cover')
+        sixBox.style.width = ('255px')
+        sixBox.style.height = ('255px')
+        sixBox.style.border = ('1px solid black')
+        sixBox.style.borderRadius = ('10px')
+        sixMain.appendChild(sixBox)
+
+
+        // ---
+
+        var sixtxt = document.createElement('div')
+        sixtxt.style.width = ('230px')
+        sixtxt.style.height = ('100px')
+        // sixtxt.style.border=('2px solid red')
+        sixtxt.style.display = ('flex')
+        sixtxt.style.flexDirection = ('column')
+
+
+        sixtxt.style.margin = ('auto')
+        sixtxt.style.marginTop = ('130px')
+        sixBox.appendChild(sixtxt)
+
+
+        var sixbut = document.createElement('button')
+        sixbut.innerHTML = 'Graphic'
+        sixbut.style.color = ('white')
+        sixbut.style.fontSize = ('15px')
+        sixbut.style.fontWeight = ('300')
+        sixbut.style.width = ('140px')
+        sixbut.style.height = ('40px')
+        sixbut.style.border = ('1.5px solid white')
+        sixbut.style.background = ('transparent')
+        sixbut.style.borderRadius = ('50px')
+        sixtxt.appendChild(sixbut)
+
+        var sixpar = document.createElement('p1')
+        sixpar.innerHTML = ' Lorem ipsum dolar sit amet, consectetur adipisicing'
+        sixpar.style.fontSize = ('15px')
+        sixpar.style.marginTop = ('15px')
+        sixpar.style.color = ('white')
+        sixtxt.appendChild(sixpar)
+
+        // ---
+
+
+        // box 5 
+
+        var sixBox = document.createElement('div')
+        sixBox.style.backgroundImage = 'linear-gradient(to bottom, rgba(245, 246, 252, 0.01), rgba(0, 0, 0, 1)), url(services-05.jpg)'
+        sixBox.style.backgroundSize = ('cover')
+        sixBox.style.width = ('255px')
+        sixBox.style.height = ('255px')
+        sixBox.style.border = ('1px solid black')
+        sixBox.style.borderRadius = ('10px')
+        sixMain.appendChild(sixBox)
+
+
+        // ---
+
+        var sixtxt = document.createElement('div')
+        sixtxt.style.width = ('230px')
+        sixtxt.style.height = ('100px')
+        // sixtxt.style.border=('2px solid red')
+        sixtxt.style.display = ('flex')
+        sixtxt.style.flexDirection = ('column')
+
+
+        sixtxt.style.margin = ('auto')
+        sixtxt.style.marginTop = ('130px')
+        sixBox.appendChild(sixtxt)
+
+
+        var sixbut = document.createElement('button')
+        sixbut.innerHTML = 'Digital Marketing'
+        sixbut.style.color = ('white')
+        sixbut.style.fontSize = ('15px')
+        sixbut.style.fontWeight = ('300')
+        sixbut.style.width = ('140px')
+        sixbut.style.height = ('40px')
+        sixbut.style.border = ('1.5px solid white')
+        sixbut.style.background = ('transparent')
+        sixbut.style.borderRadius = ('50px')
+        sixtxt.appendChild(sixbut)
+
+        var sixpar = document.createElement('p1')
+        sixpar.innerHTML = ' Lorem ipsum dolar sit amet, consectetur adipisicing'
+        sixpar.style.fontSize = ('15px')
+        sixpar.style.marginTop = ('15px')
+        sixpar.style.color = ('white')
+        sixtxt.appendChild(sixpar)
+
+        // ---
+
+        // box 6 
+
+        var sixBox = document.createElement('div')
+        sixBox.style.backgroundImage = 'linear-gradient(to bottom, rgba(245, 246, 252, 0.01), rgba(0, 0, 0, 1)), url(services-06.jpg)'
+        sixBox.style.backgroundSize = ('cover')
+        sixBox.style.width = ('255px')
+        sixBox.style.height = ('255px')
+        sixBox.style.border = ('1px solid black')
+        sixBox.style.borderRadius = ('10px')
+        sixMain.appendChild(sixBox)
+
+
+        // ---
+
+        var sixtxt = document.createElement('div')
+        sixtxt.style.width = ('230px')
+        sixtxt.style.height = ('100px')
+        // sixtxt.style.border=('2px solid red')
+        sixtxt.style.display = ('flex')
+        sixtxt.style.flexDirection = ('column')
+
+
+        sixtxt.style.margin = ('auto')
+        sixtxt.style.marginTop = ('130px')
+        sixBox.appendChild(sixtxt)
+
+
+        var sixbut = document.createElement('button')
+        sixbut.innerHTML = 'Market Research'
+        sixbut.style.color = ('white')
+        sixbut.style.fontSize = ('15px')
+        sixbut.style.fontWeight = ('300')
+        sixbut.style.width = ('140px')
+        sixbut.style.height = ('40px')
+        sixbut.style.border = ('1.5px solid white')
+        sixbut.style.background = ('transparent')
+        sixbut.style.borderRadius = ('50px')
+        sixtxt.appendChild(sixbut)
+
+        var sixpar = document.createElement('p1')
+        sixpar.innerHTML = ' Lorem ipsum dolar sit amet, consectetur adipisicing'
+        sixpar.style.fontSize = ('15px')
+        sixpar.style.marginTop = ('15px')
+        sixpar.style.color = ('white')
+        sixtxt.appendChild(sixpar)
+
+        // ---
+
+        // box 7 
+
+        var sixBox = document.createElement('div')
+        sixBox.style.backgroundImage = 'linear-gradient(to bottom, rgba(245, 246, 252, 0.01), rgba(0, 0, 0, 1)), url(services-07.jpg)'
+        sixBox.style.backgroundSize = ('cover')
+        sixBox.style.width = ('255px')
+        sixBox.style.height = ('255px')
+        sixBox.style.border = ('1px solid black')
+        sixBox.style.borderRadius = ('10px')
+        sixMain.appendChild(sixBox)
+
+
+        // ---
+
+        var sixtxt = document.createElement('div')
+        sixtxt.style.width = ('230px')
+        sixtxt.style.height = ('100px')
+        // sixtxt.style.border=('2px solid red')
+        sixtxt.style.display = ('flex')
+        sixtxt.style.flexDirection = ('column')
+
+
+        sixtxt.style.margin = ('auto')
+        sixtxt.style.marginTop = ('130px')
+        sixBox.appendChild(sixtxt)
+
+
+        var sixbut = document.createElement('button')
+        sixbut.innerHTML = 'Business'
+        sixbut.style.color = ('white')
+        sixbut.style.fontSize = ('15px')
+        sixbut.style.fontWeight = ('300')
+        sixbut.style.width = ('140px')
+        sixbut.style.height = ('40px')
+        sixbut.style.border = ('1.5px solid white')
+        sixbut.style.background = ('transparent')
+        sixbut.style.borderRadius = ('50px')
+        sixtxt.appendChild(sixbut)
+
+        var sixpar = document.createElement('p1')
+        sixpar.innerHTML = ' Lorem ipsum dolar sit amet, consectetur adipisicing'
+        sixpar.style.fontSize = ('15px')
+        sixpar.style.marginTop = ('15px')
+        sixpar.style.color = ('white')
+        sixtxt.appendChild(sixpar)
+
+        // ---
+
+        // box 8 
+
+        var sixBox = document.createElement('div')
+        sixBox.style.backgroundImage = 'linear-gradient(to bottom, rgba(245, 246, 252, 0.01), rgba(0, 0, 0, 1)), url(services-08.jpg)'
+        sixBox.style.backgroundSize = ('cover')
+        sixBox.style.width = ('255px')
+        sixBox.style.height = ('255px')
+        sixBox.style.border = ('1px solid black')
+        sixBox.style.borderRadius = ('10px')
+        sixMain.appendChild(sixBox)
+
+
+        // ---
+
+        var sixtxt = document.createElement('div')
+        sixtxt.style.width = ('230px')
+        sixtxt.style.height = ('100px')
+        // sixtxt.style.border=('2px solid red')
+        sixtxt.style.display = ('flex')
+        sixtxt.style.flexDirection = ('column')
+
+
+        sixtxt.style.margin = ('auto')
+        sixtxt.style.marginTop = ('130px')
+        sixBox.appendChild(sixtxt)
+
+
+        var sixbut = document.createElement('button')
+        sixbut.innerHTML = 'Branding'
+        sixbut.style.color = ('white')
+        sixbut.style.fontSize = ('15px')
+        sixbut.style.fontWeight = ('300')
+        sixbut.style.width = ('140px')
+        sixbut.style.height = ('40px')
+        sixbut.style.border = ('1.5px solid white')
+        sixbut.style.background = ('transparent')
+        sixbut.style.borderRadius = ('50px')
+        sixtxt.appendChild(sixbut)
+
+        var sixpar = document.createElement('p1')
+        sixpar.innerHTML = ' Lorem ipsum dolar sit amet, consectetur adipisicing'
+        sixpar.style.fontSize = ('15px')
+        sixpar.style.marginTop = ('15px')
+        sixpar.style.color = ('white')
+        sixtxt.appendChild(sixpar)
+
+        // ---
+
+
+        // great transformation purple background 
+
+        var greatPurple = document.createElement('div')
+        greatPurple.style.width = ('100%')
+        greatPurple.style.height = ('180px')
+        greatPurple.style.display = ('flex')
+        greatPurple.style.justifyContent = ('space-around')
+        greatPurple.style.alignItems = ('center')
+        // greatPurple.style.border = ('1px solid')
+        greatPurple.style.backgroundColor = ('rgb(98, 102, 234)')
+        document.body.appendChild(greatPurple)
+
+
+
+
+        var whiteBox = document.createElement('div')
+
+        whiteBox.style.width = ('80px')
+        whiteBox.innerHTML = '<i class="fa-solid fa-box-open"></i> '
+
+        whiteBox.style.height = ('80px')
+        whiteBox.style.fontSize = ('60px')
+        whiteBox.style.display = ('flex')
+        whiteBox.style.justifyContent = ('center')
+        whiteBox.style.alignItems = ('center')
+
+
+        whiteBox.style.color = ('white')
+        // whiteBox.style.border = ('2px solid white')
+        greatPurple.appendChild(whiteBox)
+
+
+
+        var whiteTxt = document.createElement('div')
+        whiteTxt.innerHTML = 'Great transformations successful '
+        whiteTxt.style.fontSize = ('17px')
+        whiteTxt.style.textAlign = ('center')
+        whiteTxt.style.fontWeight = ('300')
+        whiteTxt.style.color = ('white')
+        whiteTxt.style.width = ('350px')
+        whiteTxt.style.height = ('65px')
+        // whiteTxt.style.border = ('2px solid yellow')
+        greatPurple.appendChild(whiteTxt)
+
+
+
+        var whiteTxt2 = document.createElement('div')
+        whiteTxt2.innerHTML = 'Quis ipsum suspendisse ultrices gravida.'
+        whiteTxt2.style.fontSize = ('13px')
+        whiteTxt.appendChild(whiteTxt2)
+
+
+
+
+
+        var whiteBtn = document.createElement('button')
+        whiteBtn.innerHTML = 'View Our Work'
+
+        whiteBtn.style.width = ('160px')
+        whiteBtn.style.border = ('none')
+        whiteBtn.style.color = ('white')
+        whiteBtn.style.fontSize = ('15px')
+
+        whiteBtn.style.height = ('50px')
+        whiteBtn.style.borderRadius = ('50px')
+        whiteBtn.style.backgroundColor = ('#382BA5')
+        greatPurple.appendChild(whiteBtn)
+
+
+        // recent works 
+
+        var recentMain = document.createElement('div')
+        recentMain.style.width = ('100%')
+        recentMain.style.height = ('1000px')
+        // recentMain.style.border=('2px solid red')
+        document.body.appendChild(recentMain)
+
+
+        var recentHead = document.createElement('p')
+        recentHead.innerHTML = 'Recent Works'
+        recentHead.style.textAlign = 'center'
+        recentHead.style.fontSize = '33px'
+        recentHead.style.paddingBottom = '90px'
+
+
+        recentHead.style.fontWeight = '500'
+        recentHead.style.marginTop = '50px'
+        recentMain.appendChild(recentHead)
+
+
+
+        // box 1
+
+        var recentBox = document.createElement('div')
+        recentBox.style.width = ('340px')
+        recentBox.style.height = ('340px')
+        recentBox.style.display = ('inline-block')
+        recentBox.style.margin = ('20px')
+        recentBox.style.backgroundImage = 'linear-gradient(to bottom, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 1)), url(recent-work-01.jpg)'
+        recentBox.style.backgroundSize = ('cover')
+        recentBox.style.borderRadius = ('10px')
+        recentBox.style.border = ('1px solid black')
+        recentMain.appendChild(recentBox)
+
+
+        var boxH1 = document.createElement('p')
+        boxH1.innerHTML = 'Social Media'
+        boxH1.style.fontSize = ('23px')
+        boxH1.style.fontWeight = ('100')
+        boxH1.style.marginLeft = ('20px')
+        boxH1.style.marginTop = ('240px')
+        recentBox.appendChild(boxH1)
+
+
+        var boxp = document.createElement('p')
+        boxp.innerHTML = 'Lorem Ipsum Sum Dolar Sit Consencuter'
+        boxp.style.fontSize = ('14px')
+        boxp.style.fontWeight = ('100')
+        boxp.style.marginLeft = ('20px')
+        boxp.style.marginTop = ('15px')
+        recentBox.appendChild(boxp)
+
+
+
+
+
+
+        // box 2
+
+        var recentBox = document.createElement('div')
+        recentBox.style.width = ('340px')
+        recentBox.style.height = ('340px')
+        recentBox.style.margin = ('20px')
+        recentBox.style.backgroundImage = 'linear-gradient(to bottom, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 1)), url(recent-work-02.jpg)'
+        recentBox.style.backgroundSize = ('cover')
+        recentBox.style.display = ('inline-block')
+        recentBox.style.borderRadius = ('10px')
+        recentBox.style.border = ('1px solid black')
+        recentMain.appendChild(recentBox)
+
+        var boxH1 = document.createElement('p')
+        boxH1.innerHTML = 'Web Marketing'
+        boxH1.style.fontSize = ('23px')
+        boxH1.style.fontWeight = ('100')
+        boxH1.style.marginLeft = ('20px')
+        boxH1.style.marginTop = ('240px')
+        recentBox.appendChild(boxH1)
+
+
+        var boxp = document.createElement('p')
+        boxp.innerHTML = 'Lorem Ipsum Sum Dolar Sit Consencuter'
+        boxp.style.fontSize = ('14px')
+        boxp.style.fontWeight = ('100')
+        boxp.style.marginLeft = ('20px')
+        boxp.style.marginTop = ('15px')
+        recentBox.appendChild(boxp)
+        // box 3
+
+        var recentBox = document.createElement('div')
+        recentBox.style.width = ('340px')
+        recentBox.style.height = ('340px')
+        recentBox.style.margin = ('20px')
+        recentBox.style.margin = ('20px')
+        recentBox.style.backgroundImage = 'linear-gradient(to bottom, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 1)), url(recent-work-03.jpg)'
+        recentBox.style.backgroundSize = ('cover')
+        recentBox.style.display = ('inline-block')
+        recentBox.style.borderRadius = ('10px')
+        recentBox.style.border = ('1px solid black')
+        recentMain.appendChild(recentBox)
+
+        var boxH1 = document.createElement('p')
+        boxH1.innerHTML = 'R & D'
+        boxH1.style.fontSize = ('23px')
+        boxH1.style.fontWeight = ('100')
+        boxH1.style.marginLeft = ('20px')
+        boxH1.style.marginTop = ('240px')
+        recentBox.appendChild(boxH1)
+
+
+        var boxp = document.createElement('p')
+        boxp.innerHTML = 'Lorem Ipsum Sum Dolar Sit Consencuter'
+        boxp.style.fontSize = ('14px')
+        boxp.style.fontWeight = ('100')
+        boxp.style.marginLeft = ('20px')
+        boxp.style.marginTop = ('15px')
+        recentBox.appendChild(boxp)
+        // box 4
+
+        var recentBox = document.createElement('div')
+        recentBox.style.width = ('340px')
+        recentBox.style.height = ('340px')
+        recentBox.style.display = ('inline-block')
+        recentBox.style.backgroundImage = 'linear-gradient(to bottom, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 1)), url(recent-work-04.jpg)'
+        recentBox.style.backgroundSize = ('cover')
+        recentBox.style.borderRadius = ('10px')
+        recentBox.style.margin = ('20px')
+        recentBox.style.border = ('1px solid black')
+        recentMain.appendChild(recentBox)
+
+        var boxH1 = document.createElement('p')
+        boxH1.innerHTML = 'Public Relation'
+        boxH1.style.fontSize = ('23px')
+        boxH1.style.fontWeight = ('100')
+        boxH1.style.marginLeft = ('20px')
+        boxH1.style.marginTop = ('240px')
+        recentBox.appendChild(boxH1)
+
+
+        var boxp = document.createElement('p')
+        boxp.innerHTML = 'Lorem Ipsum Sum Dolar Sit Consencuter'
+        boxp.style.fontSize = ('14px')
+        boxp.style.fontWeight = ('100')
+        boxp.style.marginLeft = ('20px')
+        boxp.style.marginTop = ('15px')
+        recentBox.appendChild(boxp)
+        // box 5
+
+        var recentBox = document.createElement('div')
+        recentBox.style.width = ('340px')
+        recentBox.style.height = ('340px')
+        recentBox.style.backgroundImage = 'linear-gradient(to bottom, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 1)), url(recent-work-05.jpg)'
+        recentBox.style.backgroundSize = ('cover')
+        recentBox.style.display = ('inline-block')
+        recentBox.style.borderRadius = ('10px')
+        recentBox.style.margin = ('20px')
+        recentBox.style.border = ('1px solid black')
+        recentMain.appendChild(recentBox)
+
+        var boxH1 = document.createElement('p')
+        boxH1.innerHTML = 'Branding'
+        boxH1.style.fontSize = ('23px')
+        boxH1.style.fontWeight = ('100')
+        boxH1.style.marginLeft = ('20px')
+        boxH1.style.marginTop = ('240px')
+        recentBox.appendChild(boxH1)
+
+
+        var boxp = document.createElement('p')
+        boxp.innerHTML = 'Lorem Ipsum Sum Dolar Sit Consencuter'
+        boxp.style.fontSize = ('14px')
+        boxp.style.fontWeight = ('100')
+        boxp.style.marginLeft = ('20px')
+        boxp.style.marginTop = ('15px')
+        recentBox.appendChild(boxp)
+        // box 6
+
+        var recentBox = document.createElement('div')
+        recentBox.style.width = ('340px')
+        recentBox.style.height = ('340px')
+        recentBox.style.backgroundImage = 'linear-gradient(to bottom, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 1)), url(recent-work-06.jpg)'
+        recentBox.style.backgroundSize = ('cover')
+        recentBox.style.margin = ('20px')
+        recentBox.style.display = ('inline-block')
+        recentBox.style.borderRadius = ('10px')
+        recentBox.style.border = ('1px solid black')
+        recentMain.appendChild(recentBox)
+
+        var boxH1 = document.createElement('p')
+        boxH1.innerHTML = 'Creative Design'
+        boxH1.style.fontSize = ('23px')
+        boxH1.style.fontWeight = ('100')
+        boxH1.style.marginLeft = ('20px')
+        boxH1.style.marginTop = ('240px')
+        recentBox.appendChild(boxH1)
+
+
+        var boxp = document.createElement('p')
+        boxp.innerHTML = 'Lorem Ipsum Sum Dolar Sit Consencuter'
+        boxp.style.fontSize = ('14px')
+        boxp.style.fontWeight = ('100')
+        boxp.style.marginLeft = ('20px')
+        boxp.style.marginTop = ('15px')
+        recentBox.appendChild(boxp)
+
+        // footer 
+
+
+        var footerMain = document.createElement('div')
+        footerMain.style.width = ('100%')
+        footerMain.style.height = ('330px')
+        footerMain.style.display = ('flex')
+        footerMain.style.backgroundColor = ('rgb(98, 102, 234)')
+        document.body.appendChild(footerMain)
+
+
+
+
+        // box 1
+
+        var footBox = document.createElement('div')
+        footBox.style.width = ('25%')
+        footBox.style.height = ('330px')
+        // footBox.style.border = ('2px solid red')
+        footerMain.appendChild(footBox)
+
+
+        var logoWhite = document.createElement('div')
+        logoWhite.style.backgroundImage = 'url(logowhite.JPG)'
+        logoWhite.style.height = ('50px')
+        logoWhite.style.width = ('218px')
+        logoWhite.style.marginLeft = ('20px')
+        logoWhite.style.marginTop = ('50px')
+        footBox.appendChild(logoWhite)
+
+
+
+        var logotxt = document.createElement('p')
+        logotxt.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.'
+        logotxt.style.fontSize = ('15px')
+        logotxt.style.color = ('white')
+        logotxt.style.marginLeft = ('30px')
+        logotxt.style.marginTop = ('30px')
+        footBox.appendChild(logotxt)
+
+
+
+        var iconMain = document.createElement('div')
+        iconMain.style.width = ('150px')
+        iconMain.style.height = ('30px')
+        iconMain.style.marginLeft = ('20px')
+        iconMain.style.marginTop = ('30px')
+        iconMain.style.display = ('flex')
+        // iconMain.style.border = ('2px solid red')
+        footBox.appendChild(iconMain)
+
+
+        var minibox = document.createElement('div')
+        minibox.innerHTML='<i class="fa-brands fa-facebook-f"></i>'
+        minibox.style.width = ('25%')
+        minibox.style.display = ('flex')
+        minibox.style.justifyContent = ('center')
+        minibox.style.alignItems = ('center')
+        minibox.style.color = ('white')
+        minibox.style.height = ('100%')
+        // minibox.style.border = ('2px solid red')
+        iconMain.appendChild(minibox)
+
+
+
+        var minibox = document.createElement('div')
+        minibox.innerHTML='<i class="fa-brands fa-linkedin"></i>'
+        minibox.style.width = ('25%')
+        minibox.style.display = ('flex')
+        minibox.style.justifyContent = ('center')
+        minibox.style.alignItems = ('center')
+        minibox.style.color = ('white')
+        minibox.style.height = ('100%')
+        // minibox.style.border = ('2px solid red')
+        iconMain.appendChild(minibox)
+
+
+        var minibox = document.createElement('div')
+        minibox.innerHTML='<i class="fa-brands fa-twitter"></i>'
+        minibox.style.width = ('25%')
+        minibox.style.display = ('flex')
+        minibox.style.justifyContent = ('center')
+        minibox.style.alignItems = ('center')
+        minibox.style.color = ('white')
+        minibox.style.height = ('100%')
+        // minibox.style.border = ('2px solid red')
+        iconMain.appendChild(minibox)
+
+
+        var minibox = document.createElement('div')
+        minibox.innerHTML='<i class="fa-brands fa-instagram"></i>'
+        minibox.style.width = ('25%')
+        minibox.style.display = ('flex')
+        minibox.style.justifyContent = ('center')
+        minibox.style.alignItems = ('center')
+        minibox.style.color = ('white')
+        minibox.style.height = ('100%')
+        // minibox.style.border = ('2px solid red')
+        iconMain.appendChild(minibox)
+
+        // box 2
+
+        var footBox = document.createElement('div')
+        footBox.style.width = ('25%')
+        footBox.style.height = ('330px')
+        // footBox.style.border = ('2px solid yellow')
+        footerMain.appendChild(footBox)
+
+        var footpar = document.createElement('p')
+        footpar.innerHTML='Our Company'
+
+        footpar.style.color=('white')
+        footpar.style.margin=('30px')
+        footBox.appendChild(footpar)
+
+        var footpar = document.createElement('p')
+        footpar.innerHTML='> Home' 
+        footpar.style.color=('white')
+        footpar.style.fontSize=('14px')
+        footpar.style.marginLeft=('30px')
+        footBox.appendChild(footpar)
+        
+        var footpar = document.createElement('p')
+        footpar.innerHTML='> About Us' 
+        footpar.style.color=('white')
+        footpar.style.fontSize=('14px')
+        footpar.style.marginLeft=('30px')
+        footpar.style.marginTop=('10px')
+        footBox.appendChild(footpar)
+
+        var footpar = document.createElement('p')
+        footpar.innerHTML='> Work' 
+        footpar.style.color=('white')
+        footpar.style.fontSize=('14px')
+        footpar.style.marginLeft=('30px')
+        footpar.style.marginTop=('10px')
+        footBox.appendChild(footpar)
+
+        var footpar = document.createElement('p')
+        footpar.innerHTML='> Price' 
+        footpar.style.color=('white')
+        footpar.style.fontSize=('14px')
+        footpar.style.marginLeft=('30px')
+        footpar.style.marginTop=('10px')
+        footBox.appendChild(footpar)
+
+        var footpar = document.createElement('p')
+        footpar.innerHTML='> Contact' 
+        footpar.style.color=('white')
+        footpar.style.fontSize=('14px')
+        footpar.style.marginLeft=('30px')
+        footpar.style.marginTop=('10px')
+        footBox.appendChild(footpar)
+        // box 3
+
+        var footBox = document.createElement('div')
+        footBox.style.width = ('25%')
+        footBox.style.height = ('330px')
+        // footBox.style.border = ('2px solid green')
+        footerMain.appendChild(footBox)
+
+        var footpar = document.createElement('p')
+        footpar.innerHTML='Our Works'
+
+        footpar.style.color=('white')
+        footpar.style.margin=('30px')
+        footBox.appendChild(footpar)
+
+        var footpar = document.createElement('p')
+        footpar.innerHTML='> Branding' 
+        footpar.style.color=('white')
+        footpar.style.fontSize=('14px')
+        footpar.style.marginLeft=('30px')
+        footBox.appendChild(footpar)
+        
+        var footpar = document.createElement('p')
+        footpar.innerHTML='> Business' 
+        footpar.style.color=('white')
+        footpar.style.fontSize=('14px')
+        footpar.style.marginLeft=('30px')
+        footpar.style.marginTop=('10px')
+        footBox.appendChild(footpar)
+
+        var footpar = document.createElement('p')
+        footpar.innerHTML='> Marketing' 
+        footpar.style.color=('white')
+        footpar.style.fontSize=('14px')
+        footpar.style.marginLeft=('30px')
+        footpar.style.marginTop=('10px')
+        footBox.appendChild(footpar)
+
+        var footpar = document.createElement('p')
+        footpar.innerHTML='> Social Media' 
+        footpar.style.color=('white')
+        footpar.style.fontSize=('14px')
+        footpar.style.marginLeft=('30px')
+        footpar.style.marginTop=('10px')
+        footBox.appendChild(footpar)
+
+        var footpar = document.createElement('p')
+        footpar.innerHTML='> Digital Solution' 
+        footpar.style.color=('white')
+        footpar.style.fontSize=('14px')
+        footpar.style.marginLeft=('30px')
+        footpar.style.marginTop=('10px')
+        footBox.appendChild(footpar)
+
+        var footpar = document.createElement('p')
+        footpar.innerHTML='> Graphic' 
+        footpar.style.color=('white')
+        footpar.style.fontSize=('14px')
+        footpar.style.marginLeft=('30px')
+        footpar.style.marginTop=('10px')
+        footBox.appendChild(footpar)
+        // box 4
+
+        var footBox = document.createElement('div')
+        footBox.style.width = ('25%')
+        footBox.style.height = ('330px')
+        // footBox.style.border = ('2px solid hotpink')
+        footerMain.appendChild(footBox)
+
+
+        var footpar = document.createElement('p')
+        footpar.innerHTML='For Client'
+
+        footpar.style.color=('white')
+        footpar.style.margin=('30px')
+        footBox.appendChild(footpar)
+
+        var footpar = document.createElement('p')
+        footpar.innerHTML='T: 010-020-0340' 
+        footpar.style.color=('white')
+        footpar.style.fontSize=('14px')
+        footpar.style.marginLeft=('30px')
+        footBox.appendChild(footpar)
+        
+        var footpar = document.createElement('p')
+        footpar.innerHTML='E: mail@domain.com' 
+        footpar.style.color=('white')
+        footpar.style.fontSize=('14px')
+        footpar.style.marginLeft=('30px')
+        footpar.style.marginTop=('10px')
+        footBox.appendChild(footpar)
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catching Element</title>
+
+    <style>
+      .gameArea {
+        width: 800px;
+        height: 600px;
+        background-color: ;
+      }
+
+      .score {
+        font-size: 3em;
+      }
+
+      .square {
+        position: relative;
+        border: 1px solid #474747;
+        width: 98px;
+        height: 98px;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 100px;
+        font-size: 24px;
+        color: #222222;
+      }
+
+      .box {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+
+      .active {
+        background-color: green;
+        color: white;
+      }
+
+
+
+    </style>
+  </head>
+  <body>
+    <div class="gameArea"></div>
+    <div>Score :<span class="score">0</span></div>
+
+    <script>
+      var score = document.querySelector('.score');
+      var gameArea1 = document.querySelector('.gameArea');
+      var gameArea = gameArea1.getBoundingClientRect();
+      console.log(gameArea);
+      // returns: left, top, right, bottom, x, y, width, height
+      // relative to the viewport
+
+      //declare box 
+      var box 
+
+  // declare square as an empty array 
+  // elements created 1, 2, 3, 4 etc. will store into the square array
+
+  var square = []
+
+  //these key values could be saved globally but stored inside an abject
+
+  var player = {
+
+    speed: 100,
+    square: 1,
+    score: 0, 
+  }
+
+  //  var gamebox = {
+//   x: 8,
+//   y:6, 
+//  }
+
+
+// array 
+
+var gamebox = {
+x: Math.floor(gameArea.width / 100), // 800 / 100 = 8 boxes 
+y: Math.floor(gameArea.height / 100), // 600 / 100 = 6 boxes
+}
+
+
+
+// second step 
+
+document.addEventListener('DOMContentLoaded', build);
+//  DOMContentLoaded javascript window event 
+// window loads e.g. refresh 
+// function build will be called
+
+
+  function build(){
+
+    // player box (red) 
+
+    box = document.createElement('div');
+    box.classList.add('box')
+    gameArea1.appendChild(box)
+    
+    // element top and left stored 
+    box.x = gameArea.top; //8px top stored
+    box.y = gameArea.left; //8px left stored
+    
+    // concatenate into px 
+    box.style.left = box.x + 'px'
+    // console.log(box.x)
+    box.style.top = box.y + 'px'
+    // console.log(box.y)
+
+
+    // counting square boxes second created 
+
+    var counter = 1 
+    for(var y = 0; y < gamebox.y; y++){ // 6 times
+    for(var x = 0; x <gamebox.x; x++){ //8 times  
+
+      // y = 1 times
+      // x = 8 times 
+
+      // y = 2 times
+      // x = 8 times 
+
+      // y = 2 times
+      // x = 8 times
+
+      // etc. up to 6 times for y and 8 times for x
+
+      // ---
+
+      square[counter] = document.createElement('div')
+      square[counter].classList.add('square') 
+      square[counter].innerHTML = counter 
+      gameArea1.appendChild(square[counter]) 
+      counter++ 
+    }
+  }
+
+     // random box (green) third created***
+     makeActive();  
+
+  }
+
+  function makeActive(){
+
+    var randomIndex = Math.floor(Math.random()*square.length)
+
+    // square.length is 48
+    // 48 and less will generate any numbers
+
+
+
+ // if randomIndex e.g. 48 is not equal to 0
+    // && if player.square is not equal to randomIndex e.g. 48
+
+    if(randomIndex !=0 && player.square != randomIndex){
+
+
+  // player.square is 1 from above e.g.  
+    // var player = {
+    //     speed: 100,
+    //     square: 1,
+    //     score: 0,
+    //   };
+
+       // randomIndex number generated should not = 0 
+    // player.square should not equal randomIndex
+// && both must be true and generates the green box
+
+
+square[randomIndex].classList.add('active');
+
+
+
+    }else{
+
+      makeActive()
+
+    }
+      }
+
+      // third step 
+      
+      // key up will call function in object
+
+      document.addEventListener('keyup', function(element){
+        console.log(element.keyCode)
+
+        var allowKey = {
+          37: 'left', 
+          38: 'up', 
+          39: 'right', 
+          40: 'down', 
+        };
+
+        if(allowKey[element.keyCode]){
+          
+          // if in object allowKey there is a keyCode e.g. 38: 'up' then execute function 
+
+          handleKeyPress(allowKey[element.keyCode]);
+        } 
+      })
+
+      // function handleKeyPress(allowKey[element.keyCode]);
+      function handleKeyPress(key){
+        if(key === 'left' && box.x > gameArea.left){
+        // if(key === 'left' && 8 > 8)
+
+        box.x -= player.speed
+        // box.x -= 100 minus 100 
+        player.square--
+        }
+
+
+        // gameArea.right - box.offsetWidth
+        // 708px - 100px 
+        if(key === 'right' && box.x < gameArea.right - box.offsetWidth){
+          box.x += player.speed
+          player.square++
+        }
+
+        if(key=== 'up' && box.y > gameArea.top){
+          box.y -= player.speed
+          console.log(player.square, 'up')
+          player.square -= gameArea.x
+          console.log(player.square, 'up')
+       }
+
+       if(key=== 'down' && box.y < gameArea.bottom - box.offsetWidth){
+          box.y += player.speed
+         player.square += gameArea.x
+        }
+
+        // values for moving red box 
+
+        box.style.top = box.y + 'px'
+        box.style.left = box.x + 'px'
+
+
+        if(square[player.square].classList.contains('active')){
+          // if square green box is in [index 1] contains show add active    
+
+          square[player.square].classList.remove('active')
+          // then remove green box from [index 1] 
+
+          makeActive();
+          player.score++;
+          score.innerHTML = player.score
+        }
+
+      }
+      
+
+    </script>
+  </body>
+</html>

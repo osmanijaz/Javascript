@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        font-family: sans-serif, Arial;
+
+    }
+
+
+    .main {
+        width: 95%;
+        /* height: 95vh; */
+        height: max-content;
+        border: 5px solid lime;
+        margin: 0.7rem auto;
+    }
+
+    .title {
+        text-align: center;
+    }
+
+
+
+    .container {
+        width: 98%;
+        height: max-content;
+        border: 5px solid rgb(38, 0, 255);
+        margin: 0.7rem auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .left {
+        width: 49.5%;
+        /* height: 100vh; */
+        height: max-content;
+        border: 3px solid hotpink;
+        display: inline-block;
+        vertical-align: top;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+
+    }
+
+
+
+    .image-container {
+        width: 90%;
+        height: 50%;
+
+        margin: 20px auto;
+
+    }
+
+    .image {
+        width: 100%;
+        border: 2px solid black;
+    }
+
+    .paragraph {
+        border: 2px solid red;
+        width: 90%;
+        height: 30%;
+
+
+    }
+
+    .para-style {
+        font-size: 19.9px;
+        line-height: 28px;
+    }
+
+
+
+    /* ****right Box**** */
+
+    .right {
+        width: 48%;
+        height: max-content;
+        /* height: 100vh; */
+        border: 10px solid hotpink;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex-direction: column;
+    }
+
+    .dropContainer {
+        width: 80%;
+        padding: 10px;
+
+        height: max-content;
+        border: 5px solid rgb(255, 235, 14);
+        margin: 10px;
+        overflow: hidden;
+    }
+
+
+
+
+
+
+
+    .questBar {
+        width: 100%;
+        height: 50px;
+        border: 5px solid black;
+        border-radius: 10px;
+        background-image: linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+
+    .fa {
+        margin-right: 15px;
+        font-weight: bolder;
+        color: white;
+
+    }
+
+    .questions {
+        color: white;
+        margin-left: 10px;
+    }
+
+    .content {
+        width: 100%;
+        height: 0px;
+
+        /* height: max-content; */
+        border: 3px solid blue;
+        padding: 5px;
+        box-sizing: border-box;
+
+    }
+
+    .active{
+        height: 120px;
+        border: 5px solid rgb(0, 213, 255);
+
+    }
+
+
+
+
+    @media screen and (max-width:1133px) {
+
+        .left {
+            width: 100%;
+        }
+
+        .right {
+            width: 100%;
+        }
+
+        .para-style {
+            text-align: center;
+        }
+
+    }
+</style>
+
+<body>
+
+    <div class="main">
+
+        <h1 class="title">Frequently Asked Questions</h1>
+
+        <div class="container">
+
+            <div class="left">
+
+                <div class="image-container">
+                    <img class="image" src="./faq.jpg.jpg" alt="" srcset="">
+                </div>
+
+                <div class="paragraph">
+                    <p class="para-style">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi porro quam
+                        id sunt! Nobis beatae dignissimos sit dolorem eum, consequatur libero iste quisquam, magni
+                        aliquid ut eveniet. Nihil totam dolore eum ratione vero vel tempora, id quae deleniti
+                        consectetur sapiente.</p>
+                </div>
+            </div>
+
+
+            <div class="right">
+
+                <!-- ---A---  -->
+
+                <div class="dropContainer">
+                    <div class="questBar ">
+                        <p class="questions">What is Shopify and how does it work?</p>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+
+                    <!-- -----sibling Div------ -->
+                    <div class="content "> 
+                        <!-- active -->
+                        <p class="para-text">123 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa id
+                            repellat ipsam iure sint a, tempora soluta laboriosam aliquid vero labore quos excepturi
+                            temporibus placeat?</p>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+                <!-- ---B---  -->
+
+                <div class="dropContainer">
+                    <div class="questBar">
+                        <p class="questions">How much does Shopify cost?</p>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <!-- -----sibling Div------ -->
+                    <div class="content">
+                        <p class="para-text">123 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa id
+                            repellat ipsam iure sint a, tempora soluta laboriosam aliquid vero labore quos excepturi
+                            temporibus placeat?</p>
+                    </div>
+
+                </div>
+
+                <!-- ---C---  -->
+
+
+                <div class="dropContainer">
+                    <div class="questBar">
+                        <p class="questions">Can I use my own domain name with Shopify?</p>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <!-- -----sibling Div------ -->
+                    <div class="content">
+                        <p class="para-text">123 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa id
+                            repellat ipsam iure sint a, tempora soluta laboriosam aliquid vero labore quos excepturi
+                            temporibus placeat?</p>
+                    </div>
+                </div>
+
+                <!-- ---D---  -->
+
+                <div class="dropContainer">
+                    <div class="questBar">
+                        <p class="questions">Do I need to be a designer or developer to use Shopify?</p>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <!-- -----sibling Div------ -->
+                    <div class="content">
+                        <p class="para-text">123 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa id
+                            repellat ipsam iure sint a, tempora soluta laboriosam aliquid vero labore quos excepturi
+                            temporibus placeat?</p>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+    <script>
+
+        // Javascript 
+
+        // var dropContainer = document.querySelectorAll('.dropContainer')
+        // var questBar = document.querySelectorAll('.questBar')
+        // var content = document.querySelectorAll('.content')
+
+
+        //         questBar.forEach(function(element){
+        // element.addEventListener('click', function(){
+        // console.log(element)
+        // element.nextElementSibling.classList.add('active')
+        // })
+        //        })
+
+
+        // questBar.forEach(function (element, index) {
+        //     // console.log(element, index)
+        //     element.addEventListener('click', function () {
+        //         console.log(element)
+        //         // console.log(this)
+
+        //         removeActive()
+
+        //         var icon = document.getElementsByTagName('i')[0]
+        //         console.log(icon, 'icon working target')
+
+        //         // var sibling = this.nextElementSibling
+        //         var sibling = element.nextElementSibling
+
+        //         // if (icon.className == 'fa fa-chevron-down') 
+
+        //         if (icon.classList.contains('fa-chevron-down')) {
+        //             console.log('if')
+
+        //             icon.classList.remove('fa-chevron-down')
+        //             icon.classList.add('fa-chevron-up')
+        //             sibling.classList.add('active')
+        //         }
+        //         else {
+
+        //             icon.classList.remove('fa-chevron-up')
+        //             icon.classList.add('fa-chevron-down')
+        //             sibling.classList.remove('active')
+        //         }
+
+        // })
+        // })
+
+        // function removeActive(){
+        //     questBar.forEach(function(ele){
+        //         var siblingNewName = ele.nextElementSibling
+        //         siblingNewName.classList.remove('active')
+
+                
+        //     })
+
+
+        // }
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+        <script src="./project23 - Osman(ScrollDownUp)-Javascript-Practice.js"></script>
+</body>
+
+</html>

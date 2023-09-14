@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+*{
+  font-family: 'Press Start 2P', cursive;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+body{
+  background-color: #516dff;
+  color: #fff;
+  height: 100vh;
+  margin: 0;
+}
+
+.screen{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.btn{
+  border: 0;
+  background-color: white;
+  color: #516dff;
+  padding: 15px 20px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.up{
+margin-top: -100vh;
+}
+
+h1{
+
+}
+
+.insects-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+
+  /* padding: 0; */
+}
+
+.insects-list li{
+
+margin: 10px;
+list-style: none;
+color: white;
+
+
+}
+
+.insects-list p{
+  color: white;
+  padding-bottom: 15px;
+
+}
+
+.choose-insect-btn{
+width: 200px;
+height: 200px;
+background: transparent;
+border: 2px solid white;
+cursor: pointer;
+color: white;
+transition: all 0.15s;
+}
+
+.choose-insect-btn:hover{
+  background-color: white;
+
+
+}
+.choose-insect-btn:hover p{
+  color: #516dff;
+}
+
+.create_insect{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 100px;
+  position: absolute; 
+  /* removes from center of image */
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 0.3s ease-in-out;
+  /* border: 5px solid lime; */
+  cursor: pointer;
+}
+
+.create_insect img{
+  width: 100%;
+  height: 100%;
+}
+
+.game_container{
+position: relative;
+border: 5px solid greenyellow;
+overflow: hidden;
+}
+
+.time, .score{
+position: absolute;  
+top: 20px;
+}
+
+.time{
+  left: 20px;
+  
+}
+
+.score{
+  right: 20px;
+  
+}
+
+.message{
+line-height: 1.7;
+width: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+padding: 20px;
+z-index: 100;
+visibility: hidden;
+position: absolute;
+top: 40%;
+left: 50%;
+transform: translate(-50%, -50%);
+transition: transform 0.4s ease-in;
+}
+
+.message.active{
+  visibility: visible;
+}
+
+.create_insect.remove{
+transform: translate(-50%, -50%) scale(0);
+}
+
+
+  </style>
+
+</head>
+<body>
+
+<div class="screen">
+<h1>Catch The Insect</h1>
+<button class="btn">Play Game</button>
+</div>
+
+<div class="screen">
+
+  <h1>What is your favorite insect?</h1>
+
+  <ul class="insects-list">
+
+    <li>
+      <button class="choose-insect-btn">
+        <p>Fly</p>
+        <img width="150px" height="100px" src="https://www.geo.tv/assets/uploads/updates/2023-02-21/472029_227393_updates.jpg" alt="fly">
+      </button>
+    </li>
+
+    <li>
+      <button class="choose-insect-btn">
+        <p>Mosquito</p>
+      
+        <img width="150px" height="100px" src="https://i.samaaenglish.tv/primary/2023/03/1114060126d03c2.png" alt="Mosquito">
+  
+      </button>
+    </li>
+
+
+    <li>
+      <button class="choose-insect-btn">
+        <p>Spider</p>
+        <img width="150px" height="100px"
+           src="https://s1.dmcdn.net/v/Mzbz41QObQKJtohtC/x1080"
+           alt="spider"
+           />
+      </button>
+    </li>
+
+    <li>
+      <button class="choose-insect-btn">
+        <p>Roach</p>
+        <img width="150px" height="100px"
+           src="https://variety.com/wp-content/uploads/2020/06/obama.jpg?w=681&h=383&crop=1"
+           alt="roach"
+           />
+      </button>
+    </li>
+
+  </ul>
+</div>
+
+<div class="screen game_container">
+  <h3 class="time">Time: 00:00</h3>
+  <h3 class="score">Score: 0</h3>
+
+  <h5 class="message">
+    Are you annoyed yet? <br>
+    You are playing an impossible game!! 
+  </h5>
+
+
+
+
+</div>
+
+
+
+  <script>
+
+    var btn = document.querySelector('.btn')
+    var screen = document.querySelectorAll('.screen')  
+    var game_container = document.querySelector('.game_container')
+    var score1 = document.querySelector('.score')
+    var time1 = document.querySelector('.time')
+    var message = document.querySelector('.message')
+
+    var choose_insect_object_save = {}
+    var score = 0 
+    var seconds = 0 
+
+    
+    btn.addEventListener('click', function(){
+    screen[0].classList.add('up')
+
+
+  })
+
+
+
+  var choose_insect_btns = document.querySelectorAll('.choose-insect-btn')
+
+  // choose_insect_btns.forEach((element)=>{
+  // }) 
+
+  // can also write forEach like this...
+
+  choose_insect_btns.forEach(element =>{
+
+    element.addEventListener('click', ()=>{
+      console.log('button working')
+
+
+      var img = element.querySelector('img')
+         console.log(img, 'img')
+
+         var src = img.getAttribute('src')
+         console.log(src, 'src')
+         
+         var alt = img.getAttribute('alt')
+         console.log(alt, 'alt')
+
+
+        // store save in object
+   
+     choose_insect_object_save = 
+        {
+          // src, alt
+          // src, alt
+          src:src,
+          alt:alt
+        }
+
+        console.log( choose_insect_object_save, ' choose_insect_object_save')
+
+        screen[1].classList.add('up')
+        createInsect()
+        setTimeout(createInsect, 500)
+    })
+    
+  })
+
+  function createInsect(){
+
+    var insect = document.createElement('div')
+    insect.classList.add('create_insect')
+
+    // if you want more than one parameters in return
+    // store in brackets {x, y, z}
+
+    var {x,y} = getRandomLocation()
+    console.log(x, 'x', y, 'y');
+    insect.style.left = `${x}px`
+    insect.style.top = `${y}px`
+
+insect.innerHTML = 
+`<img src="${choose_insect_object_save.src}" 
+alt="${choose_insect_object_save.alt}"
+style="transform: rotate(${Math.random() * 360}deg)"/>`
+
+insect.addEventListener('click', multiplyInsect)
+
+game_container.appendChild(insect)
+
+}
+
+
+
+function multiplyInsect(){
+  increaseScore()
+  startGame()
+
+console.log('click multiply working')
+
+this.classList.add('remove')
+
+setTimeout(() => this.remove(), 2000)
+
+// can write like this also:
+// setTimeout(() =>{
+//   this.remove()
+// }, 2000)
+
+
+
+
+setTimeout(createInsect, 1000)
+setTimeout(createInsect, 1000)
+// setTimeout(createInsect, 1000)
+// setTimeout(createInsect, 1000)
+// setTimeout(createInsect, 1000)
+
+}
+
+
+
+function getRandomLocation(){
+var width = window.innerWidth
+var height = window.innerHeight
+console.log(width, 'width', height, 'height')
+
+var y = Math.random() * (height - 200) + 200
+var x = Math.random() * (width - 200) + 150
+console.log(x,y);
+return{ x, y }
+
+}
+
+function increaseScore(){
+  score++
+  if(score > 5){
+    message.classList.add('active')
+  
+  }
+  console.log(score);
+  score1.innerHTML = `Score: ${score}`
+}
+
+
+function startGame() {
+    setInterval(increaseTime, 1000)
+}
+
+function increaseTime() {
+  seconds++
+    let m = Math.floor(seconds / 60)
+    let s = seconds % 60
+    m = m < 10 ? `0${m}` : m
+    s = s < 10 ? `0${s}` : s
+
+    if(m<10){
+      m = `0${m}`
+   }else{
+    m
+   }
+
+   if(s < 10){
+    s = `0${s}`
+   }else{
+    s
+   }
+
+
+    time1.innerHTML = `Time: ${m}:${s}`
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,633 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rebeccapurple;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .btn {
+            background-color: #ffffff;
+            color: rebeccapurple;
+            font-family: inherit;
+            font-weight: bold;
+            padding: 1rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        #toasts {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            /* flex-direction: column; */
+            align-items: flex-end;
+            flex-direction: column-reverse;
+            /* border: 4px solid #000; */
+        }
+
+        .bar {
+            width: 100%;
+            height: 5px;
+            background-color: blue;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            animation: move 2s linear infinite;
+        }
+        @keyframes move{
+            0%{
+                width: 100%;
+                /* transform-origin: right; */
+            }
+            100%{
+                width: 0%;
+                /* transform-origin: left; */
+            }
+        }
+
+        .toast {
+            background-color: #fff;
+            border-radius: 5px;
+
+            height: 50px;
+            width: 200px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0.5rem;
+        }
+
+        .toast.info {
+            color: rebeccapurple;
+        }
+
+        .toast.success {
+            color: green;
+        }
+
+        .toast.error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="toasts"></div>
+    <button class="btn" id="button">
+        show Notification
+    </button>
+    <script>
+        var toasts = document.getElementById('toasts')
+        var btn = document.querySelector('.btn')
+        var random = ['messg1', 'messg2', 'messg3', 'messg4', 'messg5', 'messg6']
+        // console.log(btn);
+        btn.addEventListener('click', function () {
+            var showAlert = document.createElement('div')
+            showAlert.classList.add('toast')
+            var a = Math.floor(Math.random() * random.length)
+            showAlert.innerHTML = random[a]
+            var bars = document.createElement('div')
+            bars.classList.add('bar')
+            console.log(bars);
+            showAlert.appendChild(bars)
+            toasts.appendChild(showAlert)
+            setTimeout(function () {
+                showAlert.remove()
+            }, 2000)
+        })
+
+
+    </script>
+</body>
+
+</html> -->
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>slide bar colors</title>
+    <style>
+        body {
+            background: burlywood;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header1 {
+            border: 1px solid;
+            height: 10vh;
+            background-color: red;
+        }
+
+        .header2 {
+            width: 300px;
+            height: 100vh;
+            border: 2px solid;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: blue;
+            z-index: -100;
+        }
+
+        .Setting-main-div {
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            background-color: brown;
+            position: absolute;
+            bottom: 90px;
+            right: 70px;
+            font-size: 20px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.34s;
+        }
+
+        .fa-gear {
+            animation: move 2s linear infinite;
+        }
+
+        @keyframes move {
+            from {
+                transform: rotate(0);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .popin-div {
+            width: 500px;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.668);
+            position: fixed;
+            top: 0;
+            right: -500px;
+            transition: 0.34s;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .act {
+            right: 0;
+        }
+
+        .acting {
+            right: 550px;
+        }
+
+        .color-main-div1 {
+            width: 100%;
+            height: 300px;
+            border: 1px solid;
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            /* flex-direction: column; */
+            justify-content: space-evenly;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .color-divs {
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            background-color: red;
+            cursor: pointer;
+            margin-left: 22px;
+        }
+
+        .coloring {
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            background-color: red;
+            cursor: pointer;
+            margin-left: 22px;
+        }
+
+        .color21 {
+            background-color: black;
+        }
+
+        .color22 {
+            background-color: rgb(255, 0, 0);
+        }
+
+        .color23 {
+            background-color: yellow;
+        }
+
+        .color24 {
+            background-color: purple;
+        }
+
+        .color25 {
+            background-color: brown;
+        }
+
+        .color26 {
+            background-color: orange;
+        }
+
+        .color27 {
+            background-color: green;
+        }
+
+        .color28 {
+            background-color: gray;
+        }
+
+        .color29 {
+            background-color: white;
+        }
+
+        .color30 {
+            background-color: rgb(90, 119, 90);
+        }
+
+        .color31 {
+            background-color: blueviolet;
+        }
+
+        .color32 {
+            background-color: burlywood;
+        }
+
+        .color33 {
+            background-color: aquamarine;
+        }
+
+        .color34 {
+            background-color: chartreuse;
+        }
+
+        .color35 {
+            background-color: chocolate;
+        }
+
+        .color36 {
+            background-color: cyan;
+        }
+
+        .color37 {
+            background-color: darkgrey;
+        }
+
+        .color38 {
+            background-color: aqua;
+        }
+
+        .color39 {
+            background-color: navy;
+        }
+
+        .color40 {
+            background-color: darkslategray;
+        }
+
+
+
+        .color1 {
+            background-color: black;
+        }
+
+        .color2 {
+            background-color: rgb(255, 0, 0);
+        }
+
+        .color3 {
+            background-color: yellow;
+        }
+
+        .color4 {
+            background-color: purple;
+        }
+
+        .color5 {
+            background-color: brown;
+        }
+
+        .color6 {
+            background-color: orange;
+        }
+
+        .color7 {
+            background-color: green;
+        }
+
+        .color8 {
+            background-color: gray;
+        }
+
+        .color9 {
+            background-color: white;
+        }
+
+        .color10 {
+            background-color: rgb(90, 119, 90);
+        }
+
+        .color11 {
+            background-color: blueviolet;
+        }
+
+        .color12 {
+            background-color: burlywood;
+        }
+
+        .color13 {
+            background-color: aquamarine;
+        }
+
+        .color14 {
+            background-color: chartreuse;
+        }
+
+        .color15 {
+            background-color: chocolate;
+        }
+
+        .color16 {
+            background-color: cyan;
+        }
+
+        .color17 {
+            background-color: darkgrey;
+        }
+
+        .color18 {
+            background-color: aqua;
+        }
+
+        .color19 {
+            background-color: navy;
+        }
+
+        .color20 {
+            background-color: darkslategray;
+        }
+
+        .choose {
+            width: 100%;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header1"></header>
+    <header class="header2"></header>
+
+    <div onclick="chk()" class="Setting-main-div">
+        <i class="fa-solid fa-gear"></i>
+    </div>
+    <div class="popin-div">
+        <div class="color-main-div1">
+            <h2 class="choose">CHOOSE YOUR HEADER COLOR</h2>
+            <div class="color-divs color1"></div>
+            <div class="color-divs color2"></div>
+            <div class="color-divs color3"></div>
+            <div class="color-divs color4"></div>
+            <div class="color-divs color5"></div>
+            <div class="color-divs color6"></div>
+            <div class="color-divs color7"></div>
+            <div class="color-divs color8"></div>
+            <div class="color-divs color9"></div>
+            <div class="color-divs color10"></div>
+            <div class="color-divs color11"></div>
+            <div class="color-divs color12"></div>
+            <div class="color-divs color13"></div>
+            <div class="color-divs color14"></div>
+            <div class="color-divs color15"></div>
+            <div class="color-divs color16"></div>
+            <div class="color-divs color17"></div>
+            <div class="color-divs color18"></div>
+            <div class="color-divs color19"></div>
+            <div class="color-divs color20"></div>
+        </div>
+        <div class="color-main-div1">
+            <h2 class="choose">CHOOSE YOUR SIDE BAR COLOR</h2>
+            <div class="coloring color21"></div>
+            <div class="coloring color22"></div>
+            <div class="coloring color23"></div>
+            <div class="coloring color24"></div>
+            <div class="coloring color25"></div>
+            <div class="coloring color26"></div>
+            <div class="coloring color27"></div>
+            <div class="coloring color28"></div>
+            <div class="coloring color29"></div>
+            <div class="coloring color30"></div>
+            <div class="coloring color31"></div>
+            <div class="coloring color32"></div>
+            <div class="coloring color33"></div>
+            <div class="coloring color34"></div>
+            <div class="coloring color35"></div>
+            <div class="coloring color36"></div>
+            <div class="coloring color37"></div>
+            <div class="coloring color38"></div>
+            <div class="coloring color39"></div>
+            <div class="coloring color40"></div>
+        </div>
+    </div>
+
+
+    <script>
+        let popin = document.querySelector('.popin-div')
+        let gear = document.querySelector('.Setting-main-div')
+        let nav = document.querySelector('.header1')
+        let navs = document.querySelector('.header2')
+        let colors = document.querySelectorAll('.color-divs')
+        let coloring = document.querySelectorAll('.coloring')
+        function chk() {
+            popin.classList.toggle('act')
+            gear.classList.toggle('acting')
+        }
+        colors.forEach(function (color) {
+            color.addEventListener('click', function () {
+                console.log('hello');
+                // console.log(this);
+                var hyyyy = getComputedStyle(this).background
+                nav.style.background = hyyyy
+            })
+        })
+        coloring.forEach(function (colors) {
+            colors.addEventListener('click', function () {
+                console.log('hello');
+                var helooooo = getComputedStyle(this)
+                navs.style.background = helooooo.background
+            })
+        })
+    </script>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+<!-- sir ka code hai getcomputedstyle wala -->
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Add styles for the navigation bar */
+      nav {
+        background-color: #333;
+        overflow: hidden;
+        display: flex;
+      }
+      
+      /* Style the links inside the navigation bar */
+      nav a {
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+      }
+      
+      /* Change the color of links on hover */
+      nav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+      
+      /* Add a color to the active/current link */
+      nav a.active {
+        background-color: #4CAF50;
+        color: white;
+      }
+      .settings{
+          margin: 500px 600px;
+
+      }
+      .slideBar{
+          width: 500px;
+          height: 300px;
+          background-color: #212621;
+          margin-top: -900px;
+          margin-left: 700px;
+
+      }
+      .box {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(207, 12, 12);
+}
+
+    </style>
+  </head>
+  <body>
+    <nav id="nav">
+      <a class="active" href="#home">Home</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <button class="settings">click</button>
+
+    <div class="slideBar">
+        <button class="box a" style="background-color: red;"></button>
+<button class="box a" style="background-color: orange;"></button>
+<button class="box a" style="background-color: yellow;"></button>
+<button class="box a" style="background-color: green;"></button>
+<button class="box a" style="background-color: blue;"></button>
+<div class="box a" style="background-color: indigo;"></button>
+<div class="box a" style="background-color: violet;"></div>
+<div class="box a" style="background-color: pink;"></div>
+<div class="box a" style="background-color: purple;"></div>
+<div class="box a" style="background-color: brown;"></div> 
+
+
+
+    </div>
+
+   <button class="box box1"></button><button class="box box1"></button><button class="box box1"></button><button class="box box1"></button><button class="box box1"></button><button class="box box1"></button><button class="box box1"></button><button class="box box1"></button><button class="box box1"></button><button class="box box1"></button>
+    <script>
+
+        var nav = document.getElementById('nav')
+
+         var boxes = document.querySelectorAll('.box')
+
+
+      
+      boxes.forEach(function(item){
+        console.log(item);
+        // item.style.background='black'
+        item.addEventListener('click', function(){
+            console.log('hell', this);
+            var btnStyle = getComputedStyle(this).background
+            console.log(btnStyle, "btnstyle");
+            nav.style.background=btnStyle
+
+        })
+      })
+
+
+
+
+    </script>
+  </body>
+</html> -->

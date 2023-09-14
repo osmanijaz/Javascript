@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inputschangings</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            /* display: flex; */
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+            background-color:wheat;
+        }
+        .heading{
+            font-size: 60px;
+            width: 100%;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            /* height: max-content; */
+
+        }
+        .text{
+            width: 60%;
+        height: max-content;
+        /* background-color: chartreuse; */
+        font-size: 50px;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+        }
+        .image{
+            height: 700px;
+            width: 500px;
+            border: 1px solid;
+            overflow: hidden;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+      <h1 class="heading">UPDATE CSS VARIABLES WITH <span style="color: orange;">JS</span></h1>
+      <div class="text">
+        SPACING: <input type="range" id="range" value="10" min="0" max="100">
+        blur: <input type="range" id="range" value="0" min="0" max="50">
+        rotate: <input id="range" type="range" value="0" min="0" max="100">
+        scale: <input id="range" type="range" min="0" value="0" max="100">
+        Base Color: <input class="color" type="color">
+      </div>  
+      <div class="image">
+          <img  src="https://repository-images.githubusercontent.com/355764515/98c47a00-993d-11eb-96eb-e1a7c090f252" alt="">
+      </div>
+    </div>
+
+
+    <script>
+
+        let ranges = document.querySelectorAll('#range')
+        let image = document.querySelector('.image')
+        let  img = document.querySelector('.image img')
+        let color = document.querySelector('.color')
+        let span = document.querySelector('.heading span')
+
+
+
+        ranges[0].addEventListener('input', function(e) {
+    //   const value = e.target.value
+      image.style.padding = `${e.target.value}px`
+    })
+    ranges[1].addEventListener('input', (e) => {
+      const value = e.target.value
+      img.style.filter = `blur(${value}px)`
+    })
+    ranges[2].addEventListener('input', (e) => {
+      const value = e.target.value
+      img.style.transform = `rotate(${value}deg)`
+    })
+    ranges[3].addEventListener('input', (e) => {
+      const value = e.target.value
+      // image.style.transform = `scale(${value})`
+      img.style.transform = `scale(${value})`
+    })
+    color.addEventListener('input', (e) => {
+      const value = e.target.value
+      image.style.backgroundColor = value
+      span.style.color = value
+    })
+    </script>
+</body>
+</html>

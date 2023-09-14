@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        font-family: 'Roboto', sans-serif;
+        color: #333;
+        font-size: 1.1rem;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        border: 3px solid lime;
+        height: 100vh;
+      }
+
+      main {
+        max-width: 700px;
+        min-height: 99vh;
+        border: 3px solid rgb(43, 0, 255);
+        margin: 0 auto;
+      }
+
+      .header {
+        background: lightblue;
+        padding: 1rem;
+      }
+
+      .title {
+        font-size: 2rem;
+        font-weight: 400;
+        margin: 10px 0px;
+        text-align: center;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        text-align: center;
+        border: 3px solid rgb(255, 0, 43);
+      }
+
+      a {
+        text-decoration: none;
+        color: rgb(15, 96, 163);
+        font-size: 1rem;
+      
+      }
+
+      a:hover {
+        color: rgb(9, 63, 107);
+      }
+
+      .content {
+        padding: 0.5rem 1rem;
+        /* top and bottom padding are 0.5rem */
+        /* right and left padding are 1rem */
+        border: 3px solid rgb(3, 255, 179);
+      
+      
+      }
+
+      .pagination {
+
+        margin-top: 1.5rem;
+        
+         display: flex;
+        justify-content: center; 
+        border: 5px solid rgb(57, 43, 255) ;
+      }
+
+      .pagination_link{
+        background-color: rgb(206, 206, 206);
+        padding: 5px 10px;
+        cursor: pointer;
+        margin-left: 4px;
+        transform: all 0.15s ease;
+       
+
+      }
+
+      .pagination_link:hover {
+        transform: scale(1.08);
+        background-color: rgb(152, 152, 152);
+      }
+
+      
+    </style>
+  </body>
+
+  <main>
+    <div class="header">
+      <p class="title">Pagination</p>
+      <p class="subtitle">
+        The following data is being fetched from
+        <a target="_blank" href="https://jsonplaceholder.typicode.com/">
+          JSON Placeholder API</a
+        >
+      </p>
+    </div>
+
+    <div class="content">Loading...</div>
+
+    <div class="pagination">
+      <a class="pagination_link" href="#">1</a>
+      <a class="pagination_link" href="#">2</a>
+      <a class="pagination_link" href="#">3</a>
+      <a class="pagination_link" href="#">4</a>
+      <a class="pagination_link" href="#">5</a>
+      <a class="pagination_link" href="#">6</a>
+      <a class="pagination_link" href="#">7</a>
+      <a class="pagination_link" href="#">8</a>
+      <a class="pagination_link" href="#">9</a>
+      <a class="pagination_link" href="#">10</a>
+    </div>
+
+
+  </main>
+
+  <script>
+
+let content = document.querySelector(".content");
+    
+async function getData(){
+
+  let response = await fetch("https://jsonplaceholder.typicode.com/posts");
+
+  let data = await response.json();
+  
+  return data
+
+} 
+
+
+let elementNumber = 10;
+
+renderData(0, elementNumber)
+
+//Must be in name e.g startElement, number
+
+function renderData(startElement, number){
+
+  getData().then((data1)=>{
+
+// getData() into data1
+
+data1 = data1.splice(startElement, number);
+console.log(data1) 
+
+let item = " ";
+
+data1.forEach((element)=>{
+
+  item += `<p style='margin-top: 10px' >  ${element.id} ${element.title}
+</p>`;
+
+
+
+  
+  
+})
+
+content.innerHTML = item;
+
+})
+} 
+
+
+let pagination_link = document.querySelectorAll(".pagination_link");
+
+
+pagination_link.forEach((e) => {
+  e.addEventListener("click", showNumber);
+});
+
+
+function showNumber() {
+  let number = parseInt(this.textContent);
+
+  renderData(number * 10 - 10, elementNumber);
+
+}
+
+
+
+
+
+
+  </script>
+</html>

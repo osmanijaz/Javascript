@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Quiz App</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+      * {
+        box-sizing: border-box;
+        /* overflow: hidden; */
+        font-family: 'Poppins', sans-serif;
+        /* overflow: hidden; */
+      }
+
+      body {
+        height: 90vh;
+        width: 99.39%;
+        display: flex;
+        justify-content: center;
+        /* background-color: hotpink; */
+
+        /* align-items: center; */
+      }
+
+      .quiz-header {
+        padding: 0.5rem;
+        /* cursor: pointer; */
+        /* background-color: rgb(246, 255, 0); */
+        margin-top: 10px;
+      }
+
+      .quiz-header h2 {
+        padding: 1rem;
+        /* text-align: center; */
+        margin: 0;
+      }
+
+      .quiz-header ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0.1rem 0;
+      }
+
+      .quiz-header ul li {
+        font-size: 1.2rem;
+        margin: 1rem 0;
+      }
+
+      .quiz-header ul li label {
+        cursor: pointer;
+      }
+
+      .button-container {
+        width: 100%;
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .submit {
+        border: none;
+        height: 97%;
+        width: 10%;
+        background-color: #000000;
+        cursor: pointer;
+        /* border-radius: 50%; */
+        position: fixed;
+      }
+
+      .right {
+        right: 10%;
+      }
+
+      .left {
+        left: 10%;
+      }
+
+      .quiz-container button {
+        /* display: inline-block; */
+        background-color: #8e44ad;
+        color: #fff;
+        border: none;
+        /* display: block; */
+        width: 100%;
+        cursor: pointer;
+        font-size: 1.1rem;
+        font-family: inherit;
+        padding: 1.3rem;
+      }
+
+      .submit:hover {
+        background-color: #252525;
+      }
+
+      .submit:focus {
+        outline: none;
+        background-color: #252525;
+      }
+
+      .arrow {
+        font-size: 30px;
+        color: white;
+        font-size: 60px;
+      }
+
+      .submit_Final {
+        background-color: rgb(255, 0, 0);
+        padding: 5px;
+        color: white;
+        border: none;
+        width: 30%;
+        height: 10%;
+        top: 1.3%;
+        font-size: 30px;
+        position: fixed;
+        cursor: pointer;
+      }
+
+      .submit_Final:hover {
+        background-color: rgb(231, 0, 0);
+        color: #000000;
+      }
+
+      .number {
+        color: rgb(0, 0, 0);
+      }
+
+      .lastPage{
+        margin-top:  100px;
+      }
+
+      label {
+        cursor: pointer;
+        /* border: 3px solid rgb(255, 111, 0); */
+        /* background-color: rgb(207, 207, 207); */
+      }
+    </style>
+  </head>
+
+  <body>
+    <button class="submit right">
+      <i class="fa-solid fa-chevron-right arrow"></i>
+    </button>
+
+    <div class="quiz-container" id="quiz">
+      <!-- quiz -----start---- -->
+
+      <!-- <div class="quiz-header">
+            <h2 id="question">Question?</h2>
+            <ul>
+                <li>
+                    <input type="radio" name="answer" id="a" class="answer">
+                    <label for="a" id="a_text">Answer</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" id="b" class="answer">
+                    <label for="b" id="b_text">Answer</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" id="c" class="answer">
+                    <label for="c" id="c_text">Answer</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" id="d" class="answer">
+                    <label for="d" id="d_text">Answer</label>
+                </li>
+            </ul>
+        </div> -->
+
+      <!-- quiz -----end---- -->
+    </div>
+
+    <button class="submit left">
+      <i class="fa-solid fa-chevron-left arrow"></i>
+    </button>
+
+    <button class="submit_Final">Submit</button>
+
+    <script>
+      const quizData = [
+        {
+          id: 1,
+          question: 'Which language run in a web browser?',
+          a: 'Java',
+          b: 'C',
+          c: 'Python',
+          d: 'JavaScript',
+          correct: 'd1',
+        },
+        {
+          id: 2,
+          question: 'What does CSS stand for?',
+          a: 'Central Style Sheets',
+          b: 'Cascading Style Sheets',
+          c: 'Cascading Simple Sheets',
+          d: 'Cars SUVs Sailboats',
+          correct: 'b2',
+        },
+        {
+          id: 3,
+          question: 'What does HTML stand for?',
+          a: 'Hypertext Markup Language',
+          b: 'Hypertext Markdown Language',
+          c: 'Hyperloop Machine Language',
+          d: 'Helicopters Terminals Motorboats Lamborginis',
+          correct: 'a3',
+        },
+        {
+          id: 4,
+          question: 'What year was JavaScript launched?',
+          a: '1996',
+          b: '1995',
+          c: '1994',
+          d: 'none of the above',
+          correct: 'b4',
+        },
+        {
+          id: 5,
+          question: 'Which language run in a web browser?',
+          a: 'Java',
+          b: 'C',
+          c: 'Python',
+          d: 'JavaScript',
+          correct: 'd5',
+        },
+        {
+          id: 6,
+          question: 'What does CSS stand for?',
+          a: 'Central Style Sheets',
+          b: 'Cascading Style Sheets',
+          c: 'Cascading Simple Sheets',
+          d: 'Cars SUVs Sailboats',
+          correct: 'b6',
+        },
+        {
+          id: 7,
+          question: 'What does HTML stand for?',
+          a: 'Hypertext Markup Language',
+          b: 'Hypertext Markdown Language',
+          c: 'Hyperloop Machine Language',
+          d: 'Helicopters Terminals Motorboats Lamborginis',
+          correct: 'a7',
+        },
+        {
+          id: 8,
+          question: 'What year was JavaScript launched?',
+          a: '1996',
+          b: '1995',
+          c: '1994',
+          d: 'none of the above',
+          correct: 'b8',
+        },
+        {
+          id: 9,
+          question: 'Which language run in a web browser?',
+          a: 'Java',
+          b: 'C',
+          c: 'Python',
+          d: 'JavaScript',
+          correct: 'd9',
+        },
+        {
+          id: 10,
+          question: 'What does CSS stand for?',
+          a: 'Central Style Sheets',
+          b: 'Cascading Style Sheets',
+          c: 'Cascading Simple Sheets',
+          d: 'Cars SUVs Sailboats',
+          correct: 'b10',
+        },
+        {
+          id: 11,
+          question: 'What does HTML stand for?',
+          a: 'Hypertext Markup Language',
+          b: 'Hypertext Markdown Language',
+          c: 'Hyperloop Machine Language',
+          d: 'Helicopters Terminals Motorboats Lamborginis',
+          correct: 'a11.',
+        },
+        {
+          id: 12,
+          question: 'What year was JavaScript launched?',
+          a: '1996',
+          b: '1995',
+          c: '1994',
+          d: 'none of the above',
+          correct: 'b12',
+        },
+        {
+          id: 13,
+          question: 'Which language run in a web browser?',
+          a: 'Java',
+          b: 'C',
+          c: 'Python',
+          d: 'JavaScript',
+          correct: 'd13',
+        },
+        {
+          id: 14,
+          question: 'What does CSS stand for?',
+          a: 'Central Style Sheets',
+          b: 'Cascading Style Sheets',
+          c: 'Cascading Simple Sheets',
+          d: 'Cars SUVs Sailboats',
+          correct: 'b14',
+        },
+        {
+          id: 15,
+          question: 'What does HTML stand for?',
+          a: 'Hypertext Markup Language',
+          b: 'Hypertext Markdown Language',
+          c: 'Hyperloop Machine Language',
+          d: 'Helicopters Terminals Motorboats Lamborginis',
+          correct: 'a15',
+        },
+        {
+          id: 16,
+          question: 'What year was JavaScript launched?',
+          a: '1996',
+          b: '1995',
+          c: '1994',
+          d: 'none of the above',
+          correct: 'b16',
+        },
+        {
+          id: 17,
+          question: 'Which language run in a web browser?',
+          a: 'Java',
+          b: 'C',
+          c: 'Python',
+          d: 'JavaScript',
+          correct: 'd17',
+        },
+        {
+          id: 18,
+          question: 'What does CSS stand for?',
+          a: 'Central Style Sheets',
+          b: 'Cascading Style Sheets',
+          c: 'Cascading Simple Sheets',
+          d: 'Cars SUVs Sailboats',
+          correct: 'b18',
+        },
+
+        {
+          id: 19,
+          question: 'What does HTML stand for?',
+          a: 'Hypertext Markup Language',
+          b: 'Hypertext Markdown Language',
+          c: 'Hyperloop Machine Language',
+          d: 'Helicopters Terminals Motorboats Lamborginis',
+          correct: 'a19',
+        },
+        {
+          id: 20,
+          question: 'What year was JavaScript launched?',
+          a: '1996',
+          b: '1995',
+          c: '1994',
+          d: 'none of the above',
+          correct: 'b20',
+        },
+        {
+          id: 21,
+          question: 'Which language run in a web browser?',
+          a: 'Java',
+          b: 'C',
+          c: 'Python',
+          d: 'JavaScript',
+          correct: 'd21',
+        },
+        {
+          id: 22,
+          question: 'What does CSS stand for?',
+          a: 'Central Style Sheets',
+          b: 'Cascading Style Sheets',
+          c: 'Cascading Simple Sheets',
+          d: 'Cars SUVs Sailboats',
+          correct: 'b22',
+        },
+        {
+          id: 23,
+          question: 'What does HTML stand for?',
+          a: 'Hypertext Markup Language',
+          b: 'Hypertext Markdown Language',
+          c: 'Hyperloop Machine Language',
+          d: 'Helicopters Terminals Motorboats Lamborginis',
+          correct: 'a23',
+        },
+        {
+          id: 24,
+          question: 'What year was JavaScript launched?',
+          a: '1996',
+          b: '1995',
+          c: '1994',
+          d: 'none of the above',
+          correct: 'b24',
+        },
+        {
+          id: 25,
+          question: 'Which language run in a web browser?',
+          a: 'Java',
+          b: 'C',
+          c: 'Python',
+          d: 'JavaScript',
+          correct: 'd25',
+        },
+        {
+          id: 26,
+          question: 'What does CSS stand for?',
+          a: 'Central Style Sheets',
+          b: 'Cascading Style Sheets',
+          c: 'Cascading Simple Sheets',
+          d: 'Cars SUVs Sailboats',
+          correct: 'b26',
+        },
+        {
+          id: 27,
+          question: 'What does HTML stand for?',
+          a: 'Hypertext Markup Language',
+          b: 'Hypertext Markdown Language',
+          c: 'Hyperloop Machine Language',
+          d: 'Helicopters Terminals Motorboats Lamborginis',
+          correct: 'a27',
+        },
+        {
+          id: 28,
+          question: 'What year was JavaScript launched?',
+          a: '1996',
+          b: '1995',
+          c: '1994',
+          d: 'none of the above',
+          correct: 'b28',
+        },
+        {
+          id: 29,
+          question: 'Which language run in a web browser?',
+          a: 'Java',
+          b: 'C',
+          c: 'Python',
+          d: 'JavaScript',
+          correct: 'd29',
+        },
+        {
+          id: 30,
+          question: 'What does CSS stand for?',
+          a: 'Central Style Sheets',
+          b: 'Cascading Style Sheets',
+          c: 'Cascading Simple Sheets',
+          d: 'Cars SUVs Sailboats',
+          correct: 'b30',
+        },
+        {
+          id: 31,
+          question: 'What does HTML stand for?',
+          a: 'Hypertext Markup Language',
+          b: 'Hypertext Markdown Language',
+          c: 'Hyperloop Machine Language',
+          d: 'Helicopters Terminals Motorboats Lamborginis',
+          correct: 'a31',
+        },
+        {
+          id: 32,
+          question: 'What year was JavaScript launched?',
+          a: '1996',
+          b: '1995',
+          c: '1994',
+          d: 'none of the above',
+          correct: 'b32',
+        },
+        {
+          id: 33,
+          question: 'Which language run in a web browser?',
+          a: 'Java',
+          b: 'C',
+          c: 'Python',
+          d: 'JavaScript',
+          correct: 'd33',
+        },
+        {
+          id: 34,
+          question: 'What does CSS stand for?',
+          a: 'Central Style Sheets',
+          b: 'Cascading Style Sheets',
+          c: 'Cascading Simple Sheets',
+          d: 'Cars SUVs Sailboats',
+          correct: 'b34',
+        },
+        {
+          id: 35,
+          question: 'What does HTML stand for?',
+          a: 'Hypertext Markup Language',
+          b: 'Hypertext Markdown Language',
+          c: 'Hyperloop Machine Language',
+          d: 'Helicopters Terminals Motorboats Lamborginis',
+          correct: 'a35',
+        },
+        {
+          id: 36,
+          question: 'What year was JavaScript launched?',
+          a: '1996',
+          b: '1995',
+          c: '1994',
+          d: 'none of the above',
+          correct: 'b36',
+        },
+        {
+          id: 37,
+          question: 'Which language run in a web browser?',
+          a: 'Java',
+          b: 'C',
+          c: 'Python',
+          d: 'JavaScript',
+          correct: 'd37',
+        },
+        {
+          id: 38,
+          question: 'What does CSS stand for?',
+          a: 'Central Style Sheets',
+          b: 'Cascading Style Sheets',
+          c: 'Cascading Simple Sheets',
+          d: 'Cars SUVs Sailboats',
+          correct: 'b38',
+        },
+        {
+          id: 39,
+          question: 'What does HTML stand for?',
+          a: 'Hypertext Markup Language',
+          b: 'Hypertext Markdown Language',
+          c: 'Hyperloop Machine Language',
+          d: 'Helicopters Terminals Motorboats Lamborginis',
+          correct: 'a39',
+        },
+        {
+          id: 40,
+          question: 'What year was JavaScript launched?',
+          a: '1996',
+          b: '1995',
+          c: '1994',
+          d: 'none of the above',
+          correct: 'b40',
+        },
+        {
+          id: 41,
+          question: 'Which language run in a web browser?',
+          a: 'Java',
+          b: 'C',
+          c: 'Python',
+          d: 'JavaScript',
+          correct: 'd41',
+        },
+        {
+          id: 42,
+          question: 'What does CSS stand for?',
+          a: 'Central Style Sheets',
+          b: 'Cascading Style Sheets',
+          c: 'Cascading Simple Sheets',
+          d: 'Cars SUVs Sailboats',
+          correct: 'b42',
+        },
+        {
+          id: 43,
+          question: 'What does HTML stand for?',
+          a: 'Hypertext Markup Language',
+          b: 'Hypertext Markdown Language',
+          c: 'Hyperloop Machine Language',
+          d: 'Helicopters Terminals Motorboats Lamborginis',
+          correct: 'a43',
+        },
+        {
+          id: 44,
+          question: 'What year was JavaScript launched?',
+          a: '1996',
+          b: '1995',
+          c: '1994',
+          d: 'none of the above',
+          correct: 'b44',
+        },
+        {
+          id: 45,
+          question: 'Which language run in a web browser?',
+          a: 'Java',
+          b: 'C',
+          c: 'Python',
+          d: 'JavaScript',
+          correct: 'd45',
+        },
+        {
+          id: 46,
+          question: 'What does CSS stand for?',
+          a: 'Central Style Sheets',
+          b: 'Cascading Style Sheets',
+          c: 'Cascading Simple Sheets',
+          d: 'Cars SUVs Sailboats',
+          correct: 'b46',
+        },
+        {
+          id: 47,
+          question: 'What does HTML stand for?',
+          a: 'Hypertext Markup Language',
+          b: 'Hypertext Markdown Language',
+          c: 'Hyperloop Machine Language',
+          d: 'Helicopters Terminals Motorboats Lamborginis',
+          correct: 'a47',
+        },
+        {
+          id: 48,
+          question: 'What year was JavaScript launched?',
+          a: '1996',
+          b: '1995',
+          c: '1994',
+          d: 'none of the above',
+          correct: 'b48',
+        },
+        {
+          id: 49,
+          question: 'Which language run in a web browser?',
+          a: 'Java',
+          b: 'C',
+          c: 'Python',
+          d: 'JavaScript',
+          correct: 'd49',
+        },
+        {
+          id: 50,
+          question: 'What does CSS stand for?',
+          a: 'Central Style Sheets',
+          b: 'Cascading Style Sheets',
+          c: 'Cascading Simple Sheets',
+          d: 'Cars SUVs Sailboats',
+          correct: 'b50',
+        },
+      ];
+
+      var quiz = document.getElementById('quiz');
+      var question = document.getElementById('question');
+
+      var a_text = document.getElementById('a_text');
+      var b_text = document.getElementById('b_text');
+      var c_text = document.getElementById('c_text');
+      var d_text = document.getElementById('d_text');
+
+      var submit_Final = document.querySelector('.submit_Final');
+
+      var left = document.querySelector('.left');
+      var right = document.querySelector('.right');
+
+      var startElement = 0;
+      var totalElement = 10;
+
+      var newQuiz = 0;
+      var count = 1;
+      var answersArray = [];
+      var emptyarray = [];
+      let score=0
+
+      onLoad(startElement, totalElement);
+
+      var answer;
+
+      right.addEventListener('click', () => {
+        // console.log('right click')
+
+        answer = document.querySelectorAll('.answer');
+
+        answer = playerSaveStoreAnswerOnly();
+
+        console.log(answer, 'answer');
+
+        answer.forEach((element) => {
+          // console.log('beforeeeee select all 10 questions first for next page');
+          if (emptyarray.length == 10) {
+            console.log('aftereeeee');
+            startElement = startElement + 10;
+            totalElement = totalElement + 10;
+            quiz.innerHTML = '';
+            onLoad(startElement, totalElement);
+            console.log(emptyarray);
+            console.log(...emptyarray);
+            answersArray = [...answersArray, ...emptyarray]
+            // answersArray = [...0, ...10] = [10]
+            // answersArray = [...10, ...10] = [20]
+            // answersArray = [...20, ...10] = [30]
+            // answersArray = [...30, ...10] = [40]
+            // answersArray = [...40, ...10] = [50]
+            emptyarray = [];
+            // window.scrollTo(0, 0);
+            window.scroll(0, 0);
+            // document.body.scrollY = 0
+
+            if (startElement == 50) {
+              submit_Final.style.display = 'block';
+            } else {
+              submit_Final.style.display = 'none';
+            }
+          }
+
+          // console.log(emptyarray);
+        });
+
+
+      });
+
+      left.addEventListener('click', () => {
+        console.log('click');
+
+        // answer = document.querySelectorAll('.answer')
+
+        // answer.forEach((element) => {
+
+        // if (count > 0) {
+
+        // count--
+        // answer = playerSaveStoreAnswerOnly()
+        startElement = startElement - 10;
+        totalElement = totalElement - 10;
+
+        window.scroll(0, 0);
+
+        // console.log(startElement, totalElement)
+        onLoad(startElement, totalElement);
+        // }
+
+        // })
+      });
+
+      function onLoad(startElement, totalElement) {
+        submit_Final.style.display = 'none';
+
+        var getTenQuestions = quizData.slice(startElement, totalElement);
+
+        // console.log(getTenQuestions, 'getTenQuestions')
+
+        console.log('startElement', startElement, 'totalElement', totalElement);
+
+        quiz.innerHTML = '';
+
+        var parentElement = document.createElement('div');
+
+        getTenQuestions.forEach(function (element, index) {
+          var div = document.createElement('div');
+
+          div.innerHTML = `
+                <div class="quiz-header">
+            <h2 id="question"> <span class='number'>${element.id}</span>. ${element.question}</h2>
+            <ul>
+
+                <li>
+                    <input type="radio" name="answer${count}" id="a${count}" class="answer">
+                    <label for="a${count}" id="a_text">${element.a}</label>
+                </li>
+
+
+                <li>
+                    <input type="radio" name="answer${count}" id="b${count}" class="answer">
+                    <label for="b${count}" id="b_text">${element.b}</label>
+                </li>
+
+            
+                <li>
+                    <input type="radio" name="answer${count}" id="c${count}" class="answer">
+                    <label for="c${count}" id="c_text">${element.c}</label>
+                </li>
+
+
+                <li>
+                    <input type="radio" name="answer${count}" id="d${count}" class="answer">
+                    <label for="d${count}" id="d_text">${element.d}</label>
+                </li>
+        
+            </ul>
+        </div>
+            `;
+
+          quiz.appendChild(div);
+          count++;
+        });
+      }
+
+      function playerSaveStoreAnswerOnly() {
+        answer = document.querySelectorAll('.answer');
+
+        var playerSaveStoreAnswerOnly;
+
+        answer.forEach((element) => {
+          if (element.checked) {
+            playerSaveStoreAnswerOnly = element.id;
+
+            console.log('id:', playerSaveStoreAnswerOnly);
+
+            // var answersArray = []
+
+            emptyarray.push(playerSaveStoreAnswerOnly);
+          }
+        });
+
+        return emptyarray;
+      }
+
+      submit_Final.addEventListener('click', () => {
+        console.log('click');
+
+        // answer = document.querySelectorAll('.answer');
+        // var newPlayerAnswer = playerSaveStoreAnswerOnly();
+
+        // answer.forEach((element) => {
+          
+            // console.log(newQuiz);
+            if (startElement >= 50) {
+              finalAnswers()
+              quiz.innerHTML = `<h2 class='lastPage'> You answered ${score} / ${quizData.length} question correctly.</h2> <button class='button' onclick = 'location.reload()' > Reload </button>`;
+            } else {
+              console.log(newQuiz, 'newQuiz');
+              newQuiz++;
+              onLoad();
+            }
+        // });
+      });
+
+      function finalAnswers(){
+        for (var i = 0; i < answersArray.length; i++) {
+            if (answersArray[i] == quizData[i].correct) {
+              score++;
+            }
+          }
+          console.log(score, 'score');
+        }
+
+
+
+    </script>
+  </body>
+</html>

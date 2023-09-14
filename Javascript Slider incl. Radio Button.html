@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<style>
+    * {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        height: 95vh;
+        /* border: 5px solid limegreen; */
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .mainContainer {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-top: 2%;
+        width: 100%;
+
+    }
+
+    .sliderMain {
+        width: 900px;
+        height: 450px;
+        /* border: 0.5px solid rgb(190, 190, 190); */
+        position: relative;
+        text-align: center;
+        line-height: 450px;
+        font-size: 70px;
+        color: rgb(80, 80, 80);
+        /* background-color: yellow; */
+        /* border: 5px solid lime; */
+
+    }
+
+    .slides {
+        position: absolute;
+        color: grey;
+
+    }
+
+    .slide1 {
+        background-color: lightblue;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slide2 {
+        background-color: lightcoral;
+        width: 100%;
+        height: 100%;
+        /* z-index: 100; */
+    }
+
+    .slide3 {
+        background-color: lightgreen;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slide4 {
+        background-color: lightpink;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slide5 {
+        background-color: lightsalmon;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slide6 {
+        background-color: lightblue;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slide7 {
+        background-color: lightcoral;
+        width: 100%;
+        height: 100%;
+        /* z-index: 100; */
+    }
+
+    .slide8 {
+        background-color: lightgreen;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slide9 {
+        background-color: lightpink;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slide10 {
+        background-color: lightsalmon;
+        width: 100%;
+        height: 100%;
+    }
+
+    .arrowStyleCircle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        width: 100px;
+        border-radius: 50px;
+        cursor: pointer;
+        background-color: rgba(241, 241, 241, 0.77);
+
+    }
+
+    .icon {
+        font-size: 60px;
+        cursor: pointer;
+        color: grey;
+
+    }
+
+    .active {
+        z-index: 100;
+    }
+
+    .labelMain {
+        /* border: 3px solid red; */
+        width: 50%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+    }
+
+
+    label {
+
+        border: 5px solid #3f6ad8f5;
+        /* position: absolute; */
+        width: 22px;
+        height: 22px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-top: 20px;
+        box-sizing: border-box;
+        text-align: center;
+        z-index: 1000;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.24s;
+    }
+
+    label:hover {
+        width: 25px;
+        height: 25px;
+    }
+
+    input {
+        display: none;
+    }
+</style>
+
+
+<body>
+
+
+    <div class="mainContainer">
+
+        <div class="left arrowStyleCircle">
+            <i class="fa-solid fa-chevron-left icon"></i>
+        </div>
+
+        <div class="sliderMain">
+            <div class="slides slide1 active">1</div>
+            <div class="slides slide2">2</div>
+            <div class="slides slide3">3</div>
+            <div class="slides slide4">4</div>
+            <div class="slides slide5">5</div>
+            <div class="slides slide6">6</div>
+            <div class="slides slide7">7</div>
+            <div class="slides slide8">8</div>
+            <div class="slides slide9">9</div>
+            <div class="slides slide10">10</div>
+        </div>
+
+        <div class="right arrowStyleCircle">
+            <i class="fa-solid fa-chevron-right icon"></i>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="labelMain">
+        <input type="radio" name="button" id="one">
+        <label class="a1" for="one"></label>
+
+        <input type="radio" name="button" id="two">
+        <label class="a1" for="two"></label>
+
+        <input type="radio" name="button" id="three">
+        <label class="a1" for="three"></label>
+
+        <input type="radio" name="button" id="four">
+        <label class="a1" for="four"></label>
+
+        <input type="radio" name="button" id="five">
+        <label class="a1" for="five"></label>
+
+        <input type="radio" name="button" id="six">
+        <label class="a1" for="six"></label>
+
+        <input type="radio" name="button" id="seven">
+        <label class="a1" for="seven"></label>
+
+        <input type="radio" name="button" id="eight">
+        <label class="a1" for="eight"></label>
+
+        <input type="radio" name="button" id="nine">
+        <label class="a1" for="nine"></label>
+
+        <input type="radio" name="button" id="ten">
+        <label class="a1" for="ten"></label>
+
+    </div>
+
+
+    <script>
+
+
+
+
+        // start ---
+
+        var left = document.querySelector('.left')
+
+        var right = document.querySelector('.right')
+
+        var slides = document.querySelectorAll('.slides')
+
+
+        // blue circle 
+        var a1 = document.querySelectorAll('.a1')
+
+
+
+
+        // right click button start 
+
+        var count = 0
+
+        right.addEventListener('click', function () {
+            console.log('right click working')
+            removeActive()
+            count++
+
+            // if (count == 10)  
+            if (count == slides.length) {
+                count = 0
+            }
+
+            slides[count].classList.add('active')
+
+        })
+
+
+
+
+        // left click button start
+
+        left.addEventListener('click', function () {
+            console.log('left click is working')
+            removeActive()
+            count--
+
+            if (count < 0) {
+                count = slides.length - 1
+                // count = 9
+            }
+
+            slides[count].classList.add('active')
+        })
+
+        // left click button end
+
+
+
+        // blue button start
+        a1.forEach(function (element, index) {
+            element.addEventListener('click', function
+                () {
+                console.log(index, 'blue circle click is working')
+                removeActive()
+                slides[index].classList.add('active')
+                count = index
+            })
+
+        })
+
+        // blue button end
+
+
+        //  global remove 
+
+        function removeActive() {
+            slides.forEach(function (element) {
+
+                element.classList.remove('active')
+
+                // no need with for each 
+                // slides[count].classList.remove('active')
+
+            })
+        }
+
+// ---end--- 
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

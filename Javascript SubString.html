@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+
+
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+
+
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: rgb(195, 195, 195);
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    div {
+        /* border: 2px solid red; */
+        margin: auto;
+        width: max-content;
+        margin-top: 100px;
+    }
+
+    p {
+
+        margin-top: 10px;
+    }
+
+    .max {
+        text-align: center;
+
+        width: 92px;
+        height: 100%;
+        /* border: 2px solid rgb(255, 0, 242); */
+        display: flex;
+        align-items: center;
+
+    }
+
+    .maxLength {
+
+
+        height: 23px;
+        width: 30px;
+        border: 1px solid rgb(192, 192, 192);
+
+
+        font-size: 14.5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 17px;
+        color: rgb(181, 181, 181);
+        font-weight: 500;
+
+    }
+
+    .maxLengthMain {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: max-content;
+        margin-top: 0px;
+        width: 100%;
+
+    }
+
+    textarea {
+        margin-top: 20px;
+        padding: 5px;
+        font-size: 20px;
+        outline: none;
+
+
+    }
+
+    .content {
+        margin-top: 30px;
+        height: 50px;
+        width: 328px;
+        /* width: 25.9%; */
+        border: 0.5px solid rgb(204, 204, 204);
+        font-size: 16px;
+        color: red;
+        /* overflow: hidden; */
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+    }
+</style>
+
+<body>
+
+    <div>
+        <p>Please enter your information?</p>
+
+        <div class="maxLengthMain">
+            <p class="max">Max Length:</p>
+            <p class="maxLength">20</p>
+        </div>
+
+
+        <!-- maxlength="20" -->
+        <textarea name="comments" id="" cols="30" rows="10" placeholder="Enter your comments..."></textarea>
+    </div>
+
+    <div class="content"></div>
+
+
+
+    <script>
+
+        // var div = document.querySelector('div')
+        // var p = document.querySelector('p')
+
+
+
+
+
+        // practice 1 start
+
+        // textarea.addEventListener('keydown', function () {
+
+        //     var substring = textarea.value.substring(0, 20)
+        //     maxLength.innerHTML = substring.length
+        //     content.innerHTML = textarea.value
+
+        //     textarea.value = substring
+
+        //     // console.log(substring1, 'substring');
+
+        //     if (substring.length >= 20) {
+        //         alert('ERROR')
+        //         console.log('alert', 'if')
+        //     }
+        //     })
+
+        // practice 1 end
+        // practice 2 start
+
+        // var textarea = document.querySelector('textarea')
+        // var maxLength = document.querySelector('.maxLength')
+        // var content = document.querySelector('.content')
+
+        // textarea.addEventListener('keydown', function () {
+        //     console.log('keydown working');
+
+        //     var substring = textarea.value.substring(0, 20)
+        //     console.log(substring, 'substring is working')
+        //     maxLength.innerHTML = substring.length
+        //     content.innerHTML = substring
+        //     textarea.value = substring
+
+        //     setTimeout(function () {
+        //         if (substring.length >= 20) {
+        //             alert('error')
+        //             textarea.value = ''
+        //             content.innerHTML = ''
+        //         }
+        //     }, 10)
+        // })
+
+        // practice 2 end 
+
+        // practice 3 start 
+
+        var textarea = document.querySelector('textarea');
+        var maxLength = document.querySelector('.maxLength');
+        var content = document.querySelector('.content');
+        
+
+
+        textarea.addEventListener('keydown', function () {
+            console.log('keydown working')
+
+            var substring = textarea.value.substring(0, 20)
+            console.log('substring working')
+
+            maxLength.innerHTML = substring.length
+            content.innerHTML = substring
+            textarea.value = substring
+
+            setTimeout(function () {
+                if (substring.length >= 20) {
+                    alert('error')
+                    content.innerHTML = ''
+                    textarea.value = ''
+                }
+            }, 10)
+
+        })
+
+
+
+
+
+// practice 3 end 
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    #btn {
+      border: none;
+      background-color: rgb(202, 202, 202);
+      color: black;
+      border-radius: 5%;
+      padding: 1em;
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: 500;
+      margin-left: 9.5px;
+      margin-top: 20px;
+      /* transition: all 0.3s; */
+    }
+
+    #btn:hover {
+      background-color: rgb(169, 169, 169);
+    }
+
+    #btn:focus {
+      background-color: rgb(0, 0, 0);
+      color: white;
+    }
+
+    #text {
+      margin-left: 7px;
+      font-size: 50px;
+    }
+
+    #letterShow {
+      margin-left: 10px;
+      font-size: 30px;
+    }
+
+    #error {
+      color: red;
+      margin-left: 6px;
+      font-size: 30px;
+    }
+
+    /* button  */
+
+    /* output1 */
+    /* alphabet */
+    /* String.fromCharCode()  */
+
+    /* output2 */
+    /* "You have X amount of guesses left" */
+    /* _ _ _ _ _ _ guess word */
+  </style>
+  <body>
+    <div class="output1"></div>
+    <div class="output2"></div>
+    <button id="btn">Select</button>
+    <div id="text"></div>
+    <div id="letterShow"></div>
+    <div id="error"></div>
+
+    <script>
+      var btn = document.getElementById('btn');
+      var output1 = document.querySelector('.output1');
+      var output2 = document.querySelector('.output2');
+
+      var words = ['javascript', 'html', 'css', 'react', 'mongodb'];
+      console.log(words);
+      // (5) ['javascript', 'html', 'css', 'react', 'mongodb']
+      // console.log(words.length)
+
+      var random = Math.floor(Math.random() * words.length);
+      // console.log(words[random]) // e.g. javascript'
+
+      // console.log(words[random]) // e.g. 'react'
+      // console.log(random)  e.g. 1,2,3
+
+      var wordShuffle = words[random];
+      console.log(wordShuffle, 'wordShuffle');
+
+      var split = wordShuffle.split('');
+      console.log(split, 'split');
+
+      var randomLetterLengthLeft;
+
+      var count = 0;
+
+      btn.addEventListener('click', function () {
+        console.log('click');
+
+        createAlphabet();
+        underline();
+
+        randomLetterLengthLeft = wordShuffle.length
+        // wordShuffle.length = e.g. length of html = 1,2,3,4
+
+
+
+        console.log(randomLetterLengthLeft, 'randomLetterLengthLeft')
+
+        btn.style.display = 'none';
+      });
+
+      // -----------
+
+      function createAlphabet() {
+        // loop start
+
+        for (var i = 0; i < 26; i++) {
+          var buttonABC = document.createElement('button');
+
+          buttonABC.innerHTML = String.fromCharCode(65 + i);
+          console.log(buttonABC);
+
+          buttonABC.classList.add('abcCompare_New');
+
+          //  ---style---
+
+          buttonABC.style.fontSize = '16px';
+          buttonABC.style.border = 'none';
+          buttonABC.style.marginLeft = '10px';
+          buttonABC.style.width = '38px';
+          buttonABC.style.height = '38px';
+          buttonABC.style.backgroundColor = 'lightGrey';
+          buttonABC.style.cursor = 'pointer';
+
+          //  ---style---
+          output1.appendChild(buttonABC);
+        }
+
+        // loop end
+
+        // ---compare start---
+
+        var abcCompare_New = document.querySelectorAll('.abcCompare_New');
+        console.log(abcCompare_New);
+
+        abcCompare_New.forEach((element) => {
+          element.addEventListener('click', () => {
+            // console.log('abcCompare_New');
+
+            var newLineCompare = document.querySelectorAll('.newLineCompare');
+            // console.log('newLineCompare');
+
+            for (a = 0; a < split.length; a++) {
+              if (element.innerHTML.toUpperCase() == split[a].toUpperCase()) {
+                // element.innerHTML.toUpperCase()
+                //  element = abcCompare_New = alphabet list (in uppercase)
+                // element.innerHTML = want to grab compare select the innerHTMl letters selected by the player from the alphabet list
+
+                // split.length (from above)
+                // split = ['h', 't', 'm', 'l']
+
+                // split[a] = loop
+                // a0 = split[0] = 'h'
+                // a1 = split[1] = 't'
+                // a2 = split[2] = 'm'
+                // a3 = split[3] = 'l'
+
+                // element.innerHTML.toUpperCase()
+                // .toUpperCase() = alphabet is uppercase
+                // split[a] = lowercase by default, need to compare with both the same uppercase
+
+                // --------------------------
+
+                //  element = abcCompare_New = alphabet A B C
+                // newLineCompare[a] =  _ _ _ _  // e.g. h, t, m, l
+                // [a] = will check compare one by one via loop
+
+                // show the matched text answer's in the dashes then add ++ one point for ever correct letter
+                newLineCompare[a].innerHTML = element.innerHTML;
+                // console.log(a, 'index', 'newLineCompare[a]');
+
+                count++;
+                console.log('count', count);
+
+                letterShow.innerHTML = 'You selected the correct letter ' + element.innerHTML
+
+                // element.innerHTML = call shows direct when player selects the correct letter from the list of alphabet. When correct letter is selected it will also display in letterShow.innerHTML 
+
+
+
+                text.innerHTML =  randomLetterLengthLeft - count + " letter attempt's left" 
+
+                error.innerHTML=''
+
+                break;
+
+         
+
+
+              }else{
+
+                element.disabled = 'none'
+                element.style.opacity='0.8'
+                // element.style.backgroundColor='lightGrey'
+                element.style.color='white'
+
+                error.innerHTML = ' Error letter please try again...';
+              }
+
+            }
+          });
+        });
+
+        // ---compare end---
+      }
+
+      // -----------
+
+      function underline() {
+        split.forEach((element) => {
+          var line = document.createElement('div');
+
+          line.classList.add('newLineCompare');
+
+          // line.innerHTML = element // word one by one e.g. C S S
+          line.innerHTML = '_'; // e.g. _ _ _
+
+          // ---style---
+
+          line.style.display = 'inline-block';
+          line.style.margin = '10px';
+          line.style.fontSize = '50px';
+          line.style.color = 'grey';
+
+          // ---style---
+
+          output2.appendChild(line);
+        });
+      }
+    </script>
+  </body>
+</html>

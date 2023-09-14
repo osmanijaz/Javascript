@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        #btn {
+            width: 200px;
+            height: 50px;
+            border-radius: 30px;
+            background-color: burlywood;
+            outline: none;
+            margin-left: 40%;
+        }
+        #btn1{
+            width: 200px;
+            height: 50px;
+            border-radius: 30px;
+            background-color: burlywood;
+            outline: none;
+            margin-left: 40%;
+        }
+
+        #move {
+            width: 200px;
+            height: 100px;
+            background: green;
+            border-radius: 50px;
+            /* margin: auto; */
+            position: absolute;
+            /* margin-top: 50px; */
+        }
+
+        /* .hellow {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 20px;
+
+        } */
+        .what{
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <button id="btn" >Click Me Right</button>
+
+    <button id="top1" >Click Me Top</button>
+    <button id="bottom1" >Click Me Bottom</button>
+
+    <button id="btn1" >Click Me Left</button>
+    <div id="what"><h1>What is your Name</h1></div>
+
+    <div id="move"></div>
+    <!-- <div class="hellow" onclick="nabeel()"></div> -->
+
+    <!-- <h1 onclick="hassan()" >helo</h1> -->
+    <!-- <h1 id="hsn" onclick="hasnat()">a</h1> -->
+    <!-- <p id="p" onclick="hassan()">neaiuvnvndnv</p> -->
+    
+    <script>
+
+
+
+var rightClick = document.getElementById('btn')
+var leftClick = document.getElementById('btn1')
+
+var top1 = document.getElementById('top1')
+var bottom1 = document.getElementById('bottom1')
+
+var outputText = document.getElementById('what')
+var move = document.getElementById('move')
+
+
+
+rightClick.addEventListener('click', ()=>{
+
+var marginLeftMove = move.getBoundingClientRect()
+move.style.marginLeft = `${marginLeftMove.left + 20}px`
+console.log(marginLeftMove)
+})
+
+
+leftClick.addEventListener('click', ()=>{
+
+var marginRightMove = move.getBoundingClientRect()
+move.style.marginLeft = `${marginRightMove.left - 20}px`
+
+
+})
+
+top1.addEventListener('click', ()=>{
+
+  var marginTopMove = move.getBoundingClientRect()
+  console.log(marginTopMove)
+
+  move.style.top = `${marginTopMove.top + 5}px`
+
+
+
+})
+
+bottom1.addEventListener('click', ()=>{
+
+var marginBottomMove = move.getBoundingClientRect()
+console.log(marginBottomMove)
+
+move.style.top = `${marginBottomMove.top - 5}px`
+
+console.log(marginBottomMove.top);
+
+
+})
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

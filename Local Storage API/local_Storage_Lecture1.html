@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+<script>
+
+//  setItem => localStorage
+
+var data = "hello"
+localStorage.setItem('keyNameID', 'data') // keyNameID: 'data'
+// localStorage.setItem('keyNameID', data) // keyNameID: 'hello' 
+// console.log(data);
+console.log(localStorage);
+
+
+var object1 = {
+  name1: 'osman',
+  age1: 33,
+  name2: 'nouman',
+  age2: 17
+}
+
+
+var newObject1 = JSON.stringify(object1) 
+localStorage.setItem('keyNameIDNew', newObject1) 
+
+
+// localStorage.setItem("name", "osman")
+// localStorage.setItem("name1", "taqdeer")
+// localStorage.setItem("age", 100)
+
+
+var getBackStringA = localStorage.getItem(newObject1)
+var getBackNewNameObject1FromStringB = JSON.parse(getBackStringA)
+console.log(getBackNewNameObject1FromStringB)
+
+
+
+
+
+</script>
+
+</body>
+</html>

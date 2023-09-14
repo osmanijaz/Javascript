@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAGINATION</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+        :root {
+            --line-border-fill: #000000;
+            --line-border-empty: #ff3e3e;
+        }
+
+        * {
+            box-sizing: border-box;
+            color: white;
+        }
+
+        body {
+            background-color: cadetblue;
+            font-family: "Muli", sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .pagination-number,
+        .pagination-button {
+            font-size: 1.1rem;
+            background-color: transparent;
+            border: none;
+            margin: 0.25rem 0.25rem;
+            cursor: pointer;
+            height: 2.5rem;
+            width: 2.5rem;
+            border-radius: 0.2rem;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .progress-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 30px;
+            max-width: 100%;
+            width: 350px;
+            margin-top: 30px;
+        }
+
+        .progress-container::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            height: 4px;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .progress {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            height: 4px;
+            width: 0%;
+            z-index: -1;
+            transition: 0.4s ease;
+        }
+
+        .circle {
+            /* background-color: #ff3e3e; */
+            color: #000000;
+            border-radius: 50%;
+            height: 30px;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* border: 3px solid var(--line-border-empty); */
+            transition: 0.4s ease;
+            cursor: pointer;
+            border: 1px solid white;
+        }
+
+        .focus {
+            background-color: red;
+            border: 1px solid red;
+        }
+
+        .btn {
+            background-color: var(--line-border-fill);
+            color: #fff;
+            border: 0;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            padding: 8px 30px;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn:focus {
+            outline: 0;
+        }
+
+        .btn:disabled {
+            background-color: var(--line-border-empty);
+            cursor: not-allowed;
+        }
+
+        .objectContainer {
+            width: 50%;
+            min-height: 200px;
+            border-radius: 5px;
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user .user-image {
+            border-radius: 50%;
+            height: 75px;
+            width: 75px;
+            object-fit: cover;
+        }
+
+        .user .user-details {
+            margin-left: 10px;
+        }
+
+        .user .username {
+            margin: 0;
+        }
+
+        .user .role {
+            font-weight: normal;
+            margin: 10px 0;
+        }
+
+        .testimonial {
+            line-height: 28px;
+            text-align: center;
+            font-family: cursive;
+            text-shadow: 0px 4px 3px black;
+        }
+
+        .circles-btn {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="objectContainer">
+            <h4 class="username">1</h4>
+            <p class="testimonial">
+                I've worked with literally hundreds of HTML/CSS developers and I have
+                to say the top spot goes to this guy. This guy is an amazing
+                developer. He stresses on good, clean code and pays heed to the
+                details. I love developers who respect each and every aspect of a
+                throughly thought out design and do their best to put it in code. He
+                goes over and beyond and transforms ART into PIXELS - without a
+                glitch, every time.
+            </p>
+        </div>
+
+        <div class="circles-btn">
+            <button class="btn" id="prev">Prev</button>
+            <div class="progress-container">
+                <!-- <div class="progress" id="progress"></div> -->
+                <button class="circle focus">1</button>
+                <button class="circle">2</button>
+                <button class="circle">3</button>
+                <button class="circle">4</button>
+            </div>
+            <button class="btn" id="next">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const prev = document.getElementById("prev");
+        const next = document.getElementById("next");
+        const circles = document.querySelectorAll(".circle");
+        const testimonial = document.querySelector(".testimonial");
+        const username = document.querySelector(".username");
+
+        let count = 0;
+
+        const testimonials = [
+            {
+                text: "I've worked with literally hundreds of HTML/CSS developers and I have to say the top spot goes to this guy. This guy is an amazing developer. He stresses on good, clean code and pays heed to the details. I love developers who respect each and every aspect of a throughly thought out design and do their best to put it in code. He goes over and beyond and transforms ART into PIXELS - without a glitch, every time.",
+            },
+            {
+                text: "This guy is an amazing frontend developer that delivered the task exactly how we need it, do your self a favor and hire him, you will not be disappointed by the work delivered. He will go the extra mile to make sure that you are happy with your project. I will surely work again with him!",
+            },
+            {
+                text: "This guy is a hard worker. Communication was also very good with him and he was very responsive all the time, something not easy to find in many freelancers. We'll definitely repeat with him.",
+            },
+            {
+                text: "This guy does everything he can to get the job done and done right. This is the second time I've hired him, and I'll hire him again in the future.",
+            },
+        ];
+
+
+        function loadarray(number) {
+
+            // console.log(number, "number");
+
+            if (number) {
+                count = number - 1
+            }
+            const texts = testimonials[count].text
+            testimonial.innerHTML = texts
+            username.innerHTML = count + 1
+        }
+
+        circles.forEach(function (item, index) {
+            item.addEventListener('click', function () {
+                loadarray(item.innerHTML)
+                for (var i = 0; i < circles.length; i++) {
+                    circles[i].classList.remove('focus')
+                }
+                circles[count].classList.add('focus')
+            })
+        })
+
+        next.addEventListener('click', function () {
+
+            count++
+            if (count >= testimonials.length - 1) {
+                count = testimonials.length - 1
+            }
+
+            circles.forEach(function (item, index) {
+                for (var i = 0; i < circles.length; i++) {
+                    circles[i].classList.remove('focus')
+                }
+            })
+            circles[count].classList.add('focus')
+
+            loadarray()
+        })
+        prev.addEventListener('click', function () {
+            count--
+            if (count < 0) {
+                count = 0
+            }
+            circles.forEach(function (item, index) {
+                for (var i = 0; i < circles.length; i++) {
+                    circles[i].classList.remove('focus')
+                }
+            })
+            circles[count].classList.add('focus')
+            loadarray()
+        })
+
+
+
+
+
+
+
+
+
+        // function updateTestimonial() {
+        //     const { text } = testimonials[count];
+        //     testimonial.innerHTML = text;
+        //     username.innerHTML = count + 1;
+        // }
+
+        // circles.forEach((element, index) => {
+        //     element.addEventListener("click", function () {
+        //         count = index;
+        //         updateTestimonial();
+        //     });
+        // });
+
+        // next.addEventListener("click", () => {
+        //     count++;
+        //     if (count > circles.length - 1) {
+        //         count = circles.length - 1;
+        //     }
+        //     updateTestimonial();
+        // });
+
+        // prev.addEventListener("click", () => {
+        //     count--;
+        //     if (count < 1) {
+        //         count = 0;
+        //     }
+        //     updateTestimonial();
+        // });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./proj22-Medical-Dashboard.CSS.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Dashboard</title>
+</head>
+
+<body>
+
+
+    <!-- bodyMain -->
+    <div class="bodyMain">
+
+
+        <!-- dashboardMain  Start-->
+
+
+        <div class="dashboardMain">
+
+
+
+
+            <!-- navBar Start-->
+            <div class="navBar">
+
+                <div class="barsIconMain">
+                    <i class="fa-solid fa-bars barsIcon"></i>
+                </div>
+
+
+
+                <div class="right-box-main">
+
+
+                    <div class="parent-box">
+
+                        <!-- dropdown 1 -->
+
+                        <div class="box dropMain">
+                            <i class="fa-solid fa-table-cells iconColorStyle"></i>
+                            <p class="boxP">Make an appointment</p>
+
+
+
+
+                        </div>
+                        <!-- dropdown 1 design  -->
+
+
+
+                        <div class="dropdown-design">
+
+                            <div class="dropbluehead">
+                                <h1 class="drophead">Make An Appointment</h1>
+
+                                <div class="crossButtonMain">
+                                    <i class="fa-solid fa-xmark crossButton"></i>
+                                </div>
+                            </div>
+
+
+                            <h1 class="drop-patient">PATIENT INFORMATION</h1>
+
+                            <hr class="drophr">
+
+                            <p class="drop-name"> Patient Name <br>
+                                <input
+                                    style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                    type="text" name="Patient Name" id="" placeholder="Enter Name">
+                            </p>
+
+
+                            <p class="drop-name"> Date of Birth <br>
+                                <input
+                                    style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                    type="number" name="Patient Name" id="" placeholder="">
+                            </p>
+
+                            <p class="drop-name"> Disease <br>
+                                <input
+                                    style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                    type="text" name="Patient Name" id="" placeholder="Disease">
+                            </p>
+
+                            <p class="drop-name drop2"> Address <br>
+                                <input
+                                    style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                    type="text" name="Address" id="" placeholder="Address">
+                            </p>
+
+
+                            <p class="drop-name drop2"> Phone no. <br>
+                                <input
+                                    style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                    type="number" name="Patient Name" id="" placeholder="Phone no.">
+                            </p>
+
+                            <p class="drop-name drop2"> Department Name <br>
+                                <input
+                                    style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                    type="text" name="Patient Name" id="" placeholder="Department Name">
+                            </p>
+
+                            <p class="drop-name drop2"> Appointment With <br>
+                                <input
+                                    style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                    type="text" name="Patient Name" id="" placeholder="Enter Doctor Name">
+                            </p>
+
+                            <p class="drop-name drop2"> Appointment Date <br>
+                                <input
+                                    style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                    type="text" name="Patient Name" id="" placeholder="Appointment Date">
+                            </p>
+
+
+                            <p class="drop-name drop2 drop3">Sex:
+                                <br>
+                                <input type="radio" name="genre" value="Male" checked="checked">Male
+                                <input class="left-female" type="radio" name="genre" value="Female">Female
+
+                            </p>
+
+                            <button class="but1">Reset</button>
+                            <button class="but1 but2">Add Appointment</button>
+
+                        </div>
+
+                        <!-- ----box 2 dropdown -->
+
+
+                        <div class="box box2">
+                            <i class="fa-solid fa-pen iconColorStyle"></i>
+                            <p class="boxP">Write a prescription</p>
+                        </div>
+
+                        <div class="dropdown-design2">
+
+                            <div class="dropbluehead">
+                                <h1 class="drophead">Make a prescription</h1>
+
+                                <div class="crossButtonMain2">
+                                    <i class="fa-solid fa-xmark crossButton"></i>
+                                </div>
+                            </div>
+
+                            <div class="main_patient">
+                                <h1 class="drop-patient">PATIENT INFORMATION</h1>
+
+                                <hr class="drophr">
+
+                                <p class="drop-name"> Patient Name <br>
+                                    <input
+                                        style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                        type="text" name="Patient Name" id="" placeholder="Enter Name">
+                                </p>
+
+
+                                <p class="drop-name"> Date of Birth <br>
+                                    <input
+                                        style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                        type="number" name="Patient Name" id="" placeholder="">
+                                </p>
+
+                                <p class="drop-name"> Address <br>
+                                    <input
+                                        style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                        type="text" name="Patient Name" id="" placeholder="Address">
+                                </p>
+
+                                <p class="drop-name drop2"> Phone no. <br>
+                                    <input
+                                        style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                        type="text" name="Address" id="" placeholder="Phone no.">
+                                </p>
+
+
+                                <p class="drop-name drop2"> Medication <br>
+                                    <input
+                                        style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                        type="number" name="Patient Name" id="" placeholder="Acetaminophen">
+                                </p>
+
+                                <p class="drop-name drop2"> Period Of medication <br>
+                                    <input
+                                        style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                        type="number" name="Patient Name" id="" placeholder="">
+                                </p>
+
+                                <p class="drop-name drop2"> Appointment With <br>
+                                    <input
+                                        style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                        type="text" name="Patient Name" id="" placeholder="Enter Doctor Name">
+                                </p>
+
+
+                            </div>
+
+
+                            <button class="but1 part2 ">Reset</button>
+                            <button class="but1 but2 part2">Add Appointment</button>
+
+
+
+
+
+
+
+                        </div>
+
+
+
+
+
+
+
+                        <!-- ----box 3 dropdown -->
+
+                        <div class="box box3">
+                            <i class="fa-regular fa-file-lines iconColorStyle"></i>
+                            <p class="boxP">Generate Report</p>
+                        </div>
+
+
+                        <div class="dropdown-design3">
+
+                            <div class="dropbluehead">
+                                <h1 class="drophead">Generate report</h1>
+
+                                <div class="crossButtonMain3">
+                                    <i class="fa-solid fa-xmark crossButton"></i>
+                                </div>
+                            </div>
+
+                            <div class="main_patient">
+                                <h1 class="drop-patient">PATIENT INFORMATION</h1>
+
+                                <hr class="drophr">
+
+                                <p class="drop-name"> Patient Name <br>
+                                    <input
+                                        style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                        type="text" name="Patient Name" id="" placeholder="Enter Name">
+                                </p>
+
+
+                                <p class="drop-name"> Date of Birth <br>
+                                    <input
+                                        style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                        type="number" name="Patient Name" id="" placeholder="">
+                                </p>
+
+                                <p class="drop-name"> Address <br>
+                                    <input
+                                        style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                        type="text" name="Patient Name" id="" placeholder="Address">
+                                </p>
+
+                                <p class="drop-name drop2"> Phone no. <br>
+                                    <input
+                                        style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                        type="text" name="Address" id="" placeholder="Phone no.">
+                                </p>
+
+
+                                <p class="drop-name drop2"> Report Type <br>
+                                    <input
+                                        style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                        type="number" name="Patient Name" id="" placeholder="Disease Report">
+                                </p>
+
+                                <p class="drop-name drop2"> Report Period <br>
+                                    <input
+                                        style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                        type="number" name="Patient Name" id="" placeholder="">
+                                </p>
+
+                                <p class="drop-name drop2"> Appointment With <br>
+                                    <input
+                                        style="margin-top: 5px; width: 260px; height: 40px; padding-left: 3px; font-size: 16px; color: grey;"
+                                        type="text" name="Patient Name" id="" placeholder="Enter Doctor Name">
+                                </p>
+
+
+                            </div>
+
+
+                            <button class="but1 part2 ">Reset</button>
+                            <button class="but1 but2 part2">Add Appointment</button>
+
+                        </div>
+                    </div>
+
+                    <div class="mainPinkBoxRight">
+
+                        <div class="right-box-side bell">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+
+
+                        <!-- dropdown bell  -->
+
+                        <div class="dropBell dropActive">
+                            <li class="bell-li">Notifiction</li>
+                            <hr>
+                            <li class="bell-li1">2 ways to improve your crypto dashboard
+                                access_time<br><span class="bell-span">30 seconds ago</span></li>
+
+                            <li class="bell-li1">You have newly registered users<br><span class="bell-span">45 seconds
+                                    ago</span></li>
+
+                            <li class="bell-li1">An application form has been submitted<br><span class="bell-span">12
+                                    seconds ago</span></li>
+
+
+                            <li class="bell-li1">An application form has been submitted<br><span class="bell-span">12
+                                    seconds ago</span></li>
+                            <hr>
+                            <li class="bell-li3">View all notifiction</li>
+                            <li class="bell-li"></li>
+                        </div>
+
+                        <!-- dropdown bell  -->
+
+                        <div class="right-box-side man">
+                            <img class="imgStyle" src="./Images/doctor.jpg" alt="" srcset="">
+                        </div>
+
+                        <div class="dropboxMan dropActive">
+                            <p class="manList">Welcome, Dr Samuel Deo</p>
+                            <hr>
+                            <li class="main-li"><i class="fa-solid fa-user link"></i>&nbsp Profile</li>
+                            <li class="main-li"><i class="fa-solid fa-envelope"></i>&nbsp Inbox</li>
+                            <li class="main-li"><i class="fa-solid fa-gear"></i>&nbsp Account Setting</li>
+                            <hr>
+                            <li class="main-li"><i class="fa-solid fa-lock"></i>&nbsp Lock</li>
+                            <li class="main-li"><i class="fa-solid fa-power-off"></i>&nbsp Logout</li>
+
+
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+            <!-- -- navBar End -- -->
+
+
+            <!-- *********************************** -->
+            <!-- *********************************** -->
+            <!-- dashboard content main start  -->
+            <!-- *********************************** -->
+            <!-- *********************************** -->
+
+            <div class="dashboardContainer1">
+                <div class="b123"></div>
+                <div class="b123"></div>
+                <div class="b123"></div>
+                <div class="b123"></div>
+
+
+            </div>
+
+            <div class="containSec2Main">
+                <div class="rect2 r1"></div>
+                <div class="rect2 r2"></div>
+                <div class="rect2 r3"></div>
+
+
+                <div class="box23 calender"></div>
+                <div class="box23 portfolio"></div>
+                
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- *********************************** -->
+            <!-- *********************************** -->
+            <!-- dashboard content main end  -->
+            <!-- *********************************** -->
+            <!-- *********************************** -->
+        </div>
+        <!-- -- dashboardMain End -- -->
+
+
+
+        <!-- sideBarMain Start-->
+        <div class="sideBarMain">
+            <div class="title"></div>
+            <div class="dr-circle-profile-pic">
+
+                <img class="profile-pic-style" src="./Images/doctor.jpg" alt="">
+
+
+            </div>
+            <h1 class="name">Dr.Samuel</h1>
+            <p class="job">Admin</p>
+
+            <ul class="sideBarUL">
+
+
+
+                <!-- main  -->
+                <li class="sideBarLI">
+
+                    <!-- div 1  -->
+                    <div class="nameV">
+                        <p class="sideBarP">Dashboard</p>
+                        <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+
+<!-- sibling  -->
+                    <div class="whitedrop ">
+                        <p class="dropName">Medjestic</p>
+
+                    </div>
+
+
+
+                </li>
+
+
+                <li class="sideBarLI">
+                    <div class="nameV">
+                        <p class="sideBarP">Doctor</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Doctor</p>
+                        <p class="dropName">Doctor List</p>
+
+                    </div>
+
+                </li>
+
+
+                <li class="sideBarLI">
+
+
+                    <div class="nameV">
+                        <p class="sideBarP">Patient</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Patient</p>
+                        <p class="dropName">Patient List</p>
+                    </div>
+
+
+                </li>
+
+
+
+
+
+
+
+
+                <li class="sideBarLI">
+
+                    <div class="nameV">
+                        <p class="sideBarP">Department</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Department</p>
+                        <p class="dropName">Department List</p>
+
+
+                    </div>
+
+
+
+                </li>
+
+
+
+                <li class="sideBarLI">
+
+                    <div class="nameV">
+                        <p class="sideBarP">Doctor Schedule</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Schedule</p>
+                        <p class="dropName">Schedule List</p>
+
+
+                    </div>
+                </li>
+
+                <li class="sideBarLI">
+                    <div class="nameV">
+                        <p class="sideBarP">Appointment</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Appointment</p>
+                        <p class="dropName">Appointment List</p>
+
+                    </div>
+                </li>
+
+
+                <li class="sideBarLI">
+
+                    <div class="nameV">
+                        <p class="sideBarP">Payment</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Payment</p>
+                        <p class="dropName">Payment List</p>
+
+                        <p class="dropName">Payment Invoice</p>
+
+                    </div>
+
+                </li>
+
+
+
+
+                <li class="sideBarLI">
+                    <div class="nameV">
+                        <p class="sideBarP">Report</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Report</p>
+                        <p class="dropName">Report List</p>
+                    </div>
+                </li>
+
+
+
+
+                <li class="sideBarLI">
+                    <div class="nameV">
+                        <p class="sideBarP">Human Resources</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Employee</p>
+                        <p class="dropName">Emplyee List</p>
+                        <p class="dropName">Add Nurse</p>
+                        <p class="dropName">Nurse List</p>
+                        <p class="dropName">Add Pharmacist</p>
+                        <p class="dropName">Pharmacist List</p>
+                        <p class="dropName">Add Representative</p>
+                        <p class="dropName">Representative List</p>
+                    </div>
+                </li>
+
+                <li class="sideBarLI">
+                    <div class="nameV">
+                        <p class="sideBarP">Bed Manager</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Bed</p>
+                        <p class="dropName">Bed List</p>
+                    </div>
+                </li>
+
+
+                <li class="sideBarLI">
+                    <div class="nameV">
+                        <p class="sideBarP">Notice</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Notice</p>
+                        <p class="dropName">Notice List</p>
+                    </div>
+                </li>
+
+
+
+                <li class="sideBarLI">
+
+                    <div class="nameV">
+                        <p class="sideBarP">Basic UI Element</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Element</p>
+                        <p class="dropName">Element List</p>
+
+                        <p class="dropName">Alerts</p>
+                        <p class="dropName">Buttons</p>
+                        <p class="dropName">Breadcrumbs</p>
+                        <p class="dropName">Badges</p>
+                        <p class="dropName">Cards</p>
+                        <p class="dropName">Progress Bars</p>
+                        <p class="dropName">Pre-Loaders</p>
+                        <p class="dropName">Tabs</p>
+                        <p class="dropName">Typography</p>
+
+
+                    </div>
+
+                </li>
+
+                <li class="sideBarLI">
+                    <div class="nameV">
+                        <p class="sideBarP">Dashboard</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+
+
+                    <div class="whitedrop">
+                        <p class="dropName">Medjestic</p>
+
+                    </div>
+
+
+
+                </li>
+
+
+                <li class="sideBarLI">
+                    <div class="nameV">
+                        <p class="sideBarP">Doctor</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Doctor</p>
+                        <p class="dropName">Doctor List</p>
+
+                    </div>
+
+                </li>
+
+
+                <li class="sideBarLI">
+
+
+                    <div class="nameV">
+                        <p class="sideBarP">Patient</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Patient</p>
+                        <p class="dropName">Patient List</p>
+                    </div>
+
+
+                </li>
+
+
+
+
+
+
+
+
+                <li class="sideBarLI">
+
+                    <div class="nameV">
+                        <p class="sideBarP">Department</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Department</p>
+                        <p class="dropName">Department List</p>
+
+
+                    </div>
+
+
+
+                </li>
+
+
+
+                <li class="sideBarLI">
+
+                    <div class="nameV">
+                        <p class="sideBarP">Doctor Schedule</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Schedule</p>
+                        <p class="dropName">Schedule List</p>
+
+
+                    </div>
+                </li>
+
+                <li class="sideBarLI">
+                    <div class="nameV">
+                        <p class="sideBarP">Appointment</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Appointment</p>
+                        <p class="dropName">Appointment List</p>
+
+                    </div>
+                </li>
+
+
+                <li class="sideBarLI">
+
+                    <div class="nameV">
+                        <p class="sideBarP">Payment</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Payment</p>
+                        <p class="dropName">Payment List</p>
+
+                        <p class="dropName">Payment Invoice</p>
+
+                    </div>
+
+                </li>
+
+
+
+
+                <li class="sideBarLI">
+                    <div class="nameV">
+                        <p class="sideBarP">Report</p>
+                          <i class="fa fa-chevron-down"></i> 
+                    </div>
+
+
+                    <div class="whitedrop">
+                        <p class="dropName">Add Report</p>
+                        <p class="dropName">Report List</p>
+                    </div>
+                </li>
+
+
+
+
+
+            </ul>
+
+
+
+        </div>
+
+
+        <!-- sideBarMain End-->
+
+
+
+    </div>
+    <script src="./proj22-Medical-Dashboard.JS.js"></script>
+</body>
+
+</html>

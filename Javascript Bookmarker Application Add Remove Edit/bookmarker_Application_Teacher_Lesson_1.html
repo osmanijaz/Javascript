@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="https://cdn.pixabay.com/photo/2016/12/27/13/10/logo-1933884__340.png"
+      type="image/x-icon"
+    />
+    <title>BookMarker App</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      header {
+        background-color: cyan;
+        height: 20vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #000;
+      }
+      .header {
+        font-size: 50px;
+        color: blue;
+      }
+      .sub_heading {
+        margin-top: 10px;
+        font-size: 20px;
+        color: rgb(142, 6, 246);
+      }
+      main {
+        padding: 1rem;
+        padding-top: 3rem;
+        min-height: 65vh;
+        width: 100%;
+        border: 1px solid #000;
+      }
+      .container {
+        width: 800px;
+        margin: 0 auto;
+        /* border: 1px solid #000; */
+      }
+      .input_form {
+        display: flex;
+        justify-content: center;
+      }
+      input {
+        padding: 5px 10px;
+        width: 100%;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        color: #555;
+        font-size: 0.95rem;
+        margin-right: 2rem;
+      }
+      .bookmark_btn {
+        padding: 8px 18px;
+        cursor: pointer;
+        border-radius: 2px;
+        background: #0e8a7e;
+        border: 2px solid #024a43;
+        letter-spacing: 1px;
+        color: white;
+        text-transform: uppercase;
+      }
+      .bookmark_btn:hover {
+        background: #009688;
+      }
+      .output-container {
+        margin-top: 2rem;
+        /* border: 1px solid rgb(221, 19, 19); */
+      }
+      .output-list {
+        /* height: 100px; */
+        width: 80%;
+        margin: 0 auto;
+        list-style: none;
+        padding: 0;
+        /* border: 1px solid #000; */
+      }
+      .output-list li {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      .output-list a {
+        text-decoration: none;
+        color: #0087ff;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+      .output-list a:hover {
+        text-decoration: underline;
+      }
+      .cross {
+        font-size: 0.9rem;
+        color: #f44336;
+        border: 1px solid;
+        padding: 3px 6px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .cross:hover {
+        box-shadow: 1px 2px 2px gray;
+      }
+      .cross:active {
+        box-shadow: 1px 2px 2px #f44336;
+      }
+      .edit {
+        text-decoration: underline;
+        color: gray;
+        margin-left: auto;
+        margin-right: 1.5rem;
+        line-height: 1.25;
+        cursor: pointer;
+      }
+      .edit:hover {
+        color: black;
+      }
+      .edit:active {
+        color: black;
+        text-shadow: 0 1px 2px gray;
+      }
+
+      footer {
+        font-size: 0.95rem;
+        text-align: center;
+        /* border: 1px solid #000; */
+      }
+      footer a {
+        color: #0e8a7e;
+        text-decoration: none;
+        letter-spacing: 1px;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p class="header">Bookmarker Application</p>
+      <p class="sub_heading">Bookmark your favorite Websites and Links</p>
+    </header>
+    <main>
+      <div class="container">
+        <form class="input_form">
+          <input type="text" placeholder="Enter URL..." class="url" />
+          <input type="text" placeholder="Enter Title..." class="title" />
+          <button type="submit" class="bookmark_btn">Bookmark</button>
+        </form>
+        <div class="output-container">
+          <ul class="output-list"></ul>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>
+        Designed and Coded by
+        <a href="http://www.amanmaharshi.com" target="_blank">Aman Maharshi</a>
+      </p>
+    </footer>
+
+    <script>
+      var urlInput = document.querySelector(".url");
+      var titleInput = document.querySelector(".title");
+      var btn = document.querySelector(".bookmark_btn");
+      var outputList = document.querySelector(".output-list");
+
+      btn.addEventListener("click", addList);
+      outputList.addEventListener("click", deleteItem);
+      outputList.addEventListener("click", editItem);
+
+      function addList(e) {
+        e.preventDefault();
+
+        var editedItem = document.querySelector(".mark");
+        var url = urlInput.value;
+        var title = titleInput.value;
+
+        if (!editedItem) {
+          showlistitem(url, title);
+
+          urlInput.value = "";
+          titleInput.value = "";
+        } else {
+          editedItem.firstChild.textContent = title;
+          editedItem.firstChild.setAttribute("href", url);
+
+          editedItem.classList.remove("mark");
+          urlInput.value = "";
+          titleInput.value = "";
+        }
+      }
+
+      function showlistitem(url, title) {
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.textContent = title;
+        a.setAttribute("href", url);
+        a.setAttribute("target", "_blank");
+        li.appendChild(a);
+
+        var edit = document.createElement("div");
+        var cross = document.createElement("div");
+        edit.classList.add("edit");
+        cross.classList.add("cross");
+        edit.innerHTML = "Edit";
+        cross.innerHTML = "X";
+        li.appendChild(edit);
+        li.appendChild(cross);
+        outputList.appendChild(li);
+      }
+
+      function deleteItem(e) {
+        console.log(e.target);
+        if (e.target.classList.contains("cross")) {
+          e.target.parentElement.remove();
+        }
+      }
+
+      function editItem(e) {
+        if (e.target.classList.contains("edit")) {
+          var element = e.target.parentElement;
+          var preurl = element.firstChild.getAttribute("href");
+          var pretitle = element.firstChild.textContent;
+
+          element.classList.add("mark");
+
+          urlInput.value = preurl;
+          titleInput.value = pretitle;
+        }
+      }
+    </script>
+  </body>
+</html>

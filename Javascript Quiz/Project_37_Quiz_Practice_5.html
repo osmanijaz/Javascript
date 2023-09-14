@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+            background-color: #b8c6dba6;
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            height: max-content;
+            /* width: 45%; */
+
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+            /* border: 1px solid rgb(163, 163, 163); */
+        }
+
+        .header {
+            padding: 3.5em;
+            border: 4px solid lightskyblue;
+            background-color: #fff;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .header h2 {
+            padding: 1em;
+            border: 3px solid yellow;
+            text-align: center;
+        }
+
+        .header ul {
+            border: 3px solid red;
+            padding: 0;
+            margin: 1em 0;
+            /* background-color: aqua; */
+            /* display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start; */
+        }
+
+        .header ul li {
+            /* width: 200px; */
+            height: 100%;
+            list-style: none;
+            border: 3px solid rgb(0, 255, 51);
+            margin: 1em 0;
+        }
+
+
+        /* .header ul li input {
+            border: 3px solid rgb(0, 8, 255);
+        } */
+
+        .header ul li label {
+            border: 3px solid rgb(255, 111, 0);
+            cursor: pointer;
+            font-size: 23px;
+
+        }
+
+        .button {
+            padding: 1.8em;
+            width: 100%;
+            /* height: 100%; */
+            cursor: pointer;
+            background-color: #8e44ad;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            font-family: inherit;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .button:focus {
+            outline: none;
+            background-color: #703889;
+
+
+        }
+
+        .lastPage {
+            padding: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container" id="quiz">
+
+        <div class="header">
+            <h2 id="question"></h2>
+
+            <ul>
+
+                <li>
+                    <input type="radio" name="answer" id="a" class="answer">
+                    <label for="a" id="a_text"></label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" id="b" class="answer">
+                    <label for="b" id="b_text"></label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" id="c" class="answer">
+                    <label for="c" id="c_text"></label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" id="d" class="answer">
+                    <label for="d" id="d_text"></label>
+                </li>
+
+            </ul>
+        </div>
+
+        <button class="button">Submit</button>
+    </div>
+
+    <script>
+
+        var quizData = [
+            {
+                question: 'Which language run in a web browser?',
+                a: 'Java',
+                b: 'C',
+                c: 'Python',
+                d: 'Javascript',
+                correct: 'd'
+            },
+            {
+                question: 'What does CSS stand for?',
+                a: 'Central Style Sheets',
+                b: 'Cascading Style Sheets',
+                c: 'Cascading Simple Sheets',
+                d: 'Cars SUVs Sailboats',
+                correct: 'b'
+            },
+            {
+                question: 'What does HTML stand for?',
+                a: 'Hypertext Markup Language',
+                b: 'Hypertext Markdown Language',
+                c: 'Hyperloop Machine Language',
+                d: 'Helicopters Terminals Motorboats Lamborginis',
+                correct: 'a'
+            },
+            {
+                question: "What year was JavaScript launched?",
+                a: "1996",
+                b: "1995",
+                c: "1994",
+                d: "none of the above",
+                correct: "b",
+            },
+        ];
+
+        var quiz = document.getElementById('quiz');
+        var answer = document.querySelectorAll('.answer')
+        var question = document.getElementById('question')
+
+        var a_text = document.getElementById('a_text')
+        var b_text = document.getElementById('b_text')
+        var c_text = document.getElementById('c_text')
+        var d_text = document.getElementById('d_text')
+
+        var button = document.querySelector('.button')
+
+        var newQuiz = 0
+
+        quizLoad()
+
+        function quizLoad() {
+            question.innerHTML = quizData[newQuiz].question
+            removeChecked()
+            a_text.innerHTML = quizData[newQuiz].a
+            b_text.innerHTML = quizData[newQuiz].b
+            c_text.innerHTML = quizData[newQuiz].c
+            d_text.innerHTML = quizData[newQuiz].d
+        }
+
+
+        var score = 0
+
+
+        function removeChecked() {
+            answer.forEach((element) => {
+                element.checked = false
+            })
+
+        }
+
+        button.addEventListener('click', (element) => {
+            console.log('click')
+
+            var playerAnswer = storePlayerAnswer()
+
+            answer.forEach((element) => {
+
+                if (element.checked == true) {
+
+                    if (playerAnswer = quizData[newQuiz].correct) {
+                        score++
+                        console.log(score, 'score')
+                    }
+
+                    if (newQuiz >= 3) {
+
+                        //newQuiz 0 >= 0 a true
+                        //newQuiz 1 >= 1 b true
+                        //newQuiz 2 >= 2 c true
+                        //newQuiz 3 >= 3 d true 
+                        //newQuiz 4 >= 3 false error 
+
+                        quiz.innerHTML = `<h2 class='lastPage'> You answered ${score} / ${quizData.length} question correctly.</h2> <button class='button' onclick = 'location.reload()' > Reload </button>`
+                    } else {
+                        console.log(newQuiz, 'newQuiz')
+                        newQuiz++
+                        quizLoad()
+                    }
+                }
+            })
+        })
+
+        function storePlayerAnswer(element) {
+
+            var storePlayerAnswer
+
+            answer.forEach((element) => {
+
+                if (element.checked) {
+                    storePlayerAnswer = element.id
+                    console.log('id:', storePlayerAnswer)
+                }
+
+            })
+            return storePlayerAnswer
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

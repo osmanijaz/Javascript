@@ -1,0 +1,536 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Accordion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="PRACTICAL.CSS">
+</head>
+
+<body>
+
+    <div class="main-wrapper">
+        <div class="container">
+            <div class="faq-title">
+                <h1>frequently asked questions</h1>
+            </div>
+            <div class="faq-content">
+                <div class="faq-left-content">
+                    <img src="faq.jpg">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi porro quam id sunt! Nobis
+                        beatae dignissimos sit dolorem eum, consequatur libero iste quisquam, magni aliquid ut eveniet.
+                        Nihil totam dolore eum ratione vero vel tempora, id quae deleniti consectetur sapiente.</p>
+                </div>
+
+                <div class="faq-right-content">
+                    <div class="faq-item">
+                        <div class="faq-item-head">
+                            <span class="faq-item-text">What is Shopify and how does it work?</span>
+                            <span class="faq-item-icon">
+                                <i class="fa fa-chevron-down"></i>
+                            </span>
+                        </div>
+                        <div class="faq-item-body">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa id repellat ipsam iure
+                                sint a, tempora soluta laboriosam aliquid vero labore quos excepturi temporibus placeat?
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-item-head">
+                            <span class="faq-item-text">How much does Shopify cost?</span>
+                            <span class="faq-item-icon">
+                                <i class="fa fa-chevron-down"></i>
+                            </span>
+                        </div>
+                        <div class="faq-item-body">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa id repellat ipsam iure
+                                sint a, tempora soluta?</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-item-head">
+                            <span class="faq-item-text">Can I use my own domain name with Shopify?</span>
+                            <span class="faq-item-icon">
+                                <i class="fa fa-chevron-down"></i>    
+                            </span>
+                        </div>
+                        <div class="faq-item-body">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa id repellat ipsam iure
+                                sint a, tempora soluta laboriosam aliquid vero labore quos excepturi temporibus placeat?
+                                Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-item-head">
+                            <span class="faq-item-text">Do I need to be a designer or developer to use Shopify?</span>
+                            <span class="faq-item-icon">
+                                <i class="fa fa-chevron-down"></i>
+                            </span>
+                        </div>
+                        <div class="faq-item-body">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa id repellat ipsam iure
+                                sint a, tempora soluta laboriosam aliquid vero labore quos excepturi temporibus placeat?
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, soluta.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            /* border: 1px solid; */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .main-wrapper {
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+
+        }
+
+        .faq-title h1 {
+            margin: 3rem 0 2.4rem 0;
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        .faq-content {
+            display: grid;
+            grid-template-columns: 100%;
+            row-gap: 1rem;
+        }
+
+        .faq-right-content,
+        .faq-left-content {
+            padding: 1.2rem;
+        }
+
+        .faq-left-content {
+            text-align: center;
+        }
+
+        .faq-left-content img {
+            width: 75%;
+            display: block;
+            margin: 1rem auto;
+        }
+
+        .faq-left-content p {
+            font-weight: 400;
+            opacity: 0.95;
+            max-width: 400px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item-head {
+            color: #fff;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-image: linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
+            box-shadow: 0 0 5px 0 rgb(255, 88, 96, 0.5);
+            opacity: 0.85;
+            padding: 0.6rem 1rem;
+            border-radius: 9px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .faq-item-head:hover {
+            box-shadow: 0 0 15px 0 rgb(255, 88, 96, 0.5);
+        }
+
+        .faq-item-icon {
+            cursor: pointer;
+        }
+
+        .faq-item-body {
+            overflow: hidden;
+            max-height: 0;
+            background: rgba(255, 88, 96, 0.1);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item-body p {
+            font-weight: 300;
+            padding: 1rem;
+        }
+
+        .show-para {
+            max-height: max-content;
+            /* js related */
+            transition: all 0.34s;
+        }
+
+
+        @media screen and (min-width: 800px) {
+            .faq-left-content {
+                text-align: left;
+            }
+
+            .faq-left-content img {
+                margin-left: 0;
+            }
+
+            .faq-left-content p {
+                margin-left: 0;
+                max-width: 460px;
+            }
+
+            .faq-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+
+
+    <script>
+
+        var items = document.querySelectorAll('.faq-item-head')
+
+        var body=document.querySelectorAll('.faq-item-body')
+
+
+
+        //  console.log(items);
+        items.forEach(function (head, index) {
+            // console.log(head);
+            head.addEventListener('click', function () {
+                // console.log(this,'this');
+                // removeShow()
+                var icon = this.getElementsByTagName('i')[0]
+
+                console.log(icon, 'iconIndex0');
+                
+
+                var sibling = this.nextElementSibling
+                // console.log(sibling, 'sibling');
+
+                if (icon.className == 'fa fa-chevron-down') {
+                    // console.log('if');
+                removeShow()
+                removeicon()
+                    icon.classList.remove('fa-chevron-down')
+                    icon.classList.add('fa-chevron-up')
+                    sibling.classList.add('show-para')
+                }
+                else {
+                    icon.classList.remove('fa-chevron-up')
+                    icon.classList.add('fa-chevron-down')
+                    sibling.classList.remove('show-para')
+
+                }
+            })
+        })
+
+
+        function removeShow() {
+
+            items.forEach(function (head) {
+
+                var siblings = head.nextElementSibling
+                // console.log(siblings);
+                siblings.classList.remove('show-para')
+            })
+
+
+        }
+
+        function removeicon(){
+            items.forEach(function(element){
+                var geticon = element.getElementsByTagName('i')[0]
+
+                    geticon.classList.remove('fa-chevron-up')
+                    geticon.classList.add('fa-chevron-down')
+                // newsibling.classList.remove('show-para')
+
+            })
+        }
+        // removeShow()
+    </script>
+</body>
+
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./web2.css">
+    <title>FAQ</title>
+</head>
+
+<body>
+    <h1>Frequently Asked Questions</h1>
+    <div class="faq-container">
+        <div class="faq">
+            <h3 class="faq-title">
+                Why shouldn't we trust atoms?
+            </h3>
+
+            <p class="faq-text">
+                They make up everything
+            </p>
+
+            <button class="faq-toggle">
+                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="faq ">
+            <h3 class="faq-title">
+                What do you call someone with no body and no nose?
+            </h3>
+            <p class="faq-text">
+                Nobody knows.
+            </p>
+            <button class="faq-toggle">
+                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="faq">
+            <h3 class="faq-title">
+                What's the object-oriented way to become wealthy?
+            </h3>
+            <p class="faq-text">
+                Inheritance.
+            </p>
+            <button class="faq-toggle">
+                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="faq">
+            <h3 class="faq-title">
+                How many tickles does it take to tickle an octopus?
+            </h3>
+            <p class="faq-text">
+                Ten-tickles!
+            </p>
+            <button class="faq-toggle">
+                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="faq">
+            <h3 class="faq-title">
+                What is: 1 + 1?
+            </h3>
+            <p class="faq-text">
+                Depends on who are you asking.
+            </p>
+            <button class="faq-toggle">
+                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Muli', sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            margin: 50px 0 30px;
+            /* border: 1px solid; */
+            text-align: center;
+        }
+
+        .faq-container {
+            max-width: 600px;
+            margin: 0 auto;
+            /* border: 1px solid; */
+        }
+
+        .faq {
+            background-color: transparent;
+            border: 1px solid #9fa4a8;
+            border-radius: 10px;
+            margin: 20px 0;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s ease;
+        }
+
+        .faq.active {
+            background-color: #fff;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .active::before,
+        .active::after {
+            content: '\f075';
+            font-family: 'Font Awesome 5 Free';
+            color: #2ecc71;
+            font-size: 7rem;
+            position: absolute;
+            opacity: 0.2;
+            top: 20px;
+            left: 20px;
+            z-index: 0;
+        }
+
+        .active::before {
+            color: #3498db;
+            top: -10px;
+            left: -30px;
+            transform: rotateY(180deg);
+        }
+
+        .faq-title {
+            margin: 0 35px 0 0;
+        }
+
+        .faq-text {
+            display: none;
+            margin: 30px 0 0;
+        }
+
+        .active .faq-text {
+            display: block;
+        }
+
+        .faq-toggle {
+            background-color: red;
+            border: 0;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            padding: 0;
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            height: 30px;
+            width: 30px;
+        }
+
+        .faq-toggle:focus {
+            outline: 0;
+        }
+
+        .faq-toggle .fa-times {
+            display: none;
+        }
+
+        .active .faq-toggle .fa-times {
+            color: #fff;
+            display: block;
+        }
+
+        .active .faq-toggle .fa-chevron-down {
+            display: none;
+        }
+
+        .active .faq-toggle {
+            background-color: #9fa4a8;
+        }
+    </style>
+
+
+
+    <script>
+        
+        const toggles = document.getElementsByClassName('faq-toggle')
+
+        // console.log(toggles);        
+        for (var i = 0; i < toggles.length; i++) {
+            // console.log(toggles[i]);
+            toggles[i].addEventListener('click', function () {
+                console.log(this.parentNode);
+                this.parentNode.classList.toggle('active')
+            })
+        } 
+        
+        
+        
+    //     const toggles = document.querySelectorAll('.faq-toggle')
+        
+    //     console.log(toggles);
+        
+        
+    //       toggles.forEach(function(toggle){
+    //       toggle.addEventListener('click', function() {
+    //       toggle.parentNode.classList.toggle('active')
+    // })
+// })
+    </script>
+</body>
+
+</html>

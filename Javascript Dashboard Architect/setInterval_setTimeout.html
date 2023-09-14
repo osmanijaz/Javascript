@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <link rel="stylesheet" href="./dashboard.html">
+<link rel="stylesheet" href="./dashboard.css"> -->
+
+
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+// Set Time OUT 
+// Set Interval 
+//  ************************************************** */ set time out set interval
+//  ************ START ****************
+// ***********************************
+
+// blue box 
+
+// **** Calling Start ****
+
+// button 
+
+var blueBoxMain_CLICK_BUTTON = document.querySelector('.blueBoxMain_CLICK_BUTTON');
+
+// content 
+var blueParent = document.querySelector('.blueParent')
+
+// **** Calling End ****
+
+
+
+// ****ADD EVENT LISTENER FUNCTION START****
+blueBoxMain_CLICK_BUTTON.addEventListener('click', function () {
+    // ****ADD EVENT LISTENER FUNCTION START****  
+
+
+    // **** Calling NEW Calling Start content creating a DIV****
+    var notificationChild = document.createElement('div');
+
+    // **** NEW Calling END ****
+
+    // **** ADDING NEW CALL TO CONTENT WITHOUT HTML ****
+    notificationChild.classList.add('notificationChild')
+    // **** ADDING NEW CALL TO CONTENT WITHOUT HTML ****
+
+    // style 
+
+
+
+
+    notificationChild.style.backgroundColor = 'green'
+    notificationChild.style.color = 'white'
+
+
+
+    //    ADDING INNER HTML VIA JS CREATE DIV DIRECT JS
+    // can style in CSS  
+
+
+    // only elements tags e.g. p, h1, etc. style in css  
+
+    // back ticks cam style line by line normal ticks cannot
+    notificationChild.innerHTML = `<div class="inner">
+
+    </div>`
+
+
+    //    ADDING INNER HTML VIA JS CREATE DIV DIRECT JS 
+
+    // append child 
+    blueParent.appendChild(notificationChild)
+
+    // *****
+    // set interval keeps going Infinately without stopping
+    // ********
+
+    // conditions function, time in ms
+    // setInterval(function, time in ms)
+
+    // 1000ms = 1second
+    // 60000ms = 1minute
+    // 3,600,000ms = 1hour
+
+    // setInterval(function () {
+    //     notificationChild.remove()
+    // }, 5000)
+
+
+     // *****
+    // set timeout stops after timer 
+    // ********
+
+    setTimeout(function () {
+        notificationChild.remove()
+    }, 3000)
+
+
+    // ****END ADD EVENT LISTENER FUNCTION END****    
+})
+// ****END ADD EVENT LISTENER FUNCTION END****
+
+// *************END*************
+// Set Time OUT 
+// Set Interval 
+//  ************************************************** */ set time out set interval
+//  ************ END ****************
+// ***********************************
+
+
+
+
+    </script>
+
+    
+ 
+</body>
+</html>

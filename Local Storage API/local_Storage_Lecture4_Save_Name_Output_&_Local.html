@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      body {
+        background-color: rgb(230, 246, 255);
+        height: 100vh;
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        flex-direction: column;
+        margin-top: 50px;
+      }
+
+      .container {
+        width: max-content;
+        height: max-content;
+        /* border: 5px solid limegreen; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .inputStyle {
+        border: 0.5px solid grey;
+        outline: none;
+        padding-left: 2px;
+        font-size: 30px;
+        color: grey;
+
+        height: 40px;
+        width: 240px;
+        margin: 10px;
+      }
+
+      .btn {
+        height: 40px;
+        width: 80px;
+        border: none;
+        background-color: lightslategray;
+        border-radius: 2px;
+        cursor: pointer;
+        color: white;
+        font-size: 15px;
+        letter-spacing: 0.5px;
+      }
+
+      .btn:hover {
+        background-color: rgb(106, 118, 130);
+      }
+
+      .btn:focus {
+        background-color: rgb(94, 101, 108);
+      }
+
+      .output {
+        /* border: 5px solid hotpink; */
+        display: flex;
+        /* align-items: center; */
+        flex-direction: column;
+        height: 40px;
+        width: 320px;
+
+        color: grey;
+        /* margin-top: 2px; */
+      }
+
+      .outputChild {
+        border: 1px solid gray;
+        background-color: white;
+        margin-left: -2px;
+        height: 40px;
+        width: 243px;
+        margin-top: 7px;
+        font-size: 30px;
+        padding-left: 2px;
+        line-height: 40px;
+      }
+    </style>
+
+    <div class="container">
+      <input class="inputStyle" type="text" />
+      <button class="btn">Submit</button>
+    </div>
+
+    <div class="output"></div>
+
+    <script>
+      // --- practice 1 start ---
+
+      // var inputStyle = document.querySelector('.inputStyle');
+      // var btn = document.querySelector('.btn');
+      // var output = document.querySelector('.output');
+
+      // var getBackString = localStorage.getItem('key1')
+      // console.log(getBackString, 'getBackString')
+
+      // var parseObject = JSON.parse(getBackString)
+      // console.log(parseObject, 'parseObject')
+
+      // // var emptyArray = [];
+      // var emptyArray = parseObject;
+
+      // createPushingValue()
+
+      // btn.addEventListener('click', () => {
+      // createPushingValue()
+      // });
+
+      // function createPushingValue(){
+
+      //   var inputValueShowOutput = inputStyle.value;
+      //   console.log(inputValueShowOutput, 'inputValueShowOutput');
+
+      //   if (inputValueShowOutput != '') {
+      //     emptyArray.push(inputValueShowOutput);
+      //   }
+
+      //   output.innerHTML = '';
+      //   inputStyle.innerHTML = '';
+
+      //   var convertArrayObjectString = JSON.stringify(emptyArray)
+      //   console.log(convertArrayObjectString, 'convertArrayObjectString')
+      //   localStorage.setItem('key1', convertArrayObjectString)
+
+      //   emptyArray.forEach((element) => {
+      //     console.log(element, 'emptyArray');
+
+      //     var createOutputText = document.createElement('p');
+      //     createOutputText.classList.add('outputChild');
+      //     output.appendChild(createOutputText);
+
+      //     createOutputText.innerHTML = element;
+      //   });
+      // }
+
+      // --- practice 1 end ---
+
+//       // --- practice 2 start ---
+
+//       var inputStyle = document.querySelector('.inputStyle');
+//       var btn = document.querySelector('.btn');
+//       var output = document.querySelector('.output');
+
+//       // ---getBackString 2nd part start---
+
+//       var getBackString = localStorage.getItem('key1')
+//       console.log(getBackString, 'getBackString')
+
+//       var parseObject = JSON.parse(getBackString)
+//       console.log(parseObject, 'parseObject')
+
+//       // ---getBackString 2nd part end---
+
+
+// // ---empty array global start---
+
+//       // var emptyArray = [];
+//       var emptyArray = parseObject;
+
+// // ---empty array global end---
+
+
+
+//       createPushingValue()
+
+
+
+
+//       // ---btn click start---
+
+//       btn.addEventListener('click', () => {
+//       createPushingValue()
+//       });
+
+//       // ---btn click end---
+
+      
+//       // ---function createPushingValue start---
+
+//       function createPushingValue(){
+
+
+//         // --- inputStyle value start--- 
+
+//         var inputValueShowOutput = inputStyle.value;
+//         console.log(inputValueShowOutput, 'inputValueShowOutput');
+
+//       // --- inputStyle value end--- 
+
+//       // --- if empty array push start ---
+
+//         if (inputValueShowOutput != '') {
+//           emptyArray.push(inputValueShowOutput);
+//         }
+
+//         // --- if empty array push end ---
+
+//         // --- remove output / input start ---
+
+//         output.innerHTML = '';
+//         inputStyle.innerHTML = '';
+
+//         // --- remove output / input end ---
+
+//       // --- Convert String 1st part start---
+
+//         var convertArrayObjectString = JSON.stringify(emptyArray)
+//         console.log(convertArrayObjectString, 'convertArrayObjectString')
+//         localStorage.setItem('key1', convertArrayObjectString)
+
+//       // --- Convert String 1st part end---
+
+//         // --- empty array for each start---
+
+
+
+//         emptyArray.forEach((element) => {
+//           console.log(element, 'emptyArray');
+
+//           // --- create output start ---
+
+//           var createOutputText = document.createElement('p');
+//           createOutputText.classList.add('outputChild');
+//           output.appendChild(createOutputText);
+
+//             // --- create output end ---
+
+//           createOutputText.innerHTML = element;
+//         });
+//            // --- empty array for each end---
+//       }
+
+//       // ---function createPushingValue end---
+
+//       // --- practice 2 end ---
+
+//       // --- practice 3 start ---
+
+      var inputStyle = document.querySelector('.inputStyle');
+      var btn = document.querySelector('.btn');
+      var output = document.querySelector('.output');
+
+
+      var getBackString = localStorage.getItem('key1')
+      console.log(getBackString, 'getBackString')
+
+      var parseObject = JSON.parse(getBackString)
+
+      console.log(parseObject, 'parseObject')
+
+
+
+      // var emptyArray = []
+      var emptyArray = parseObject
+
+      createPushingValue()
+
+      btn.addEventListener('click', ()=>{
+        // console.log('click')
+        createPushingValue()
+      })
+
+
+
+      function createPushingValue(){
+
+        var inputValueShowOutput = inputStyle.value;
+
+        console.log(inputValueShowOutput, 'inputValueShowOutput')
+
+
+        if(inputValueShowOutput != ''){
+          emptyArray.push(inputValueShowOutput);
+        }
+
+        output.innerHTML = '';
+        inputStyle.innerHTML=''
+
+        var convertArrayObjectString = JSON.stringify(emptyArray)
+        console.log(convertArrayObjectString, 'convertArrayObjectString')
+        localStorage.setItem('key1',convertArrayObjectString)
+    
+
+      emptyArray.forEach((element)=>{
+        console.log(element, 'emptyArray')
+
+        var createOutputText = document.createElement('p')
+        createOutputText.classList.add('outputChild')
+
+        output.appendChild(createOutputText)
+
+        createOutputText.innerHTML = element
+      })
+
+    }
+     
+      // --- practice 3 end ---
+
+   
+
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .main{
+            height: 10vh;
+            width: 50%;
+            border: 1px solid #000;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            margin: 30vh auto;
+            position: relative;
+        }
+        .color{
+            height: 100%;
+            width: 1%;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: .5s;
+        }
+        .div{
+            height: 100vh;
+            width: 100%;
+            border: 1px solid #000;
+            background-image:url(get\ together.webp);
+            background-position: center;
+            background-size: cover;
+            animation: anim 1s linear;    
+            display: block;
+        }
+        @keyframes anim{
+            0%{
+                display: block;
+            }
+            100%{
+                display: none;
+            }
+        }
+        .flexdiv{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1></h1>
+    </div>
+
+    <script>
+        var main = document.querySelector('.main')
+        var heading = document.getElementsByTagName('h1')
+        console.log(heading);
+
+        var count1 = 0
+        var div = document.createElement('div')
+        div.classList.add('color')
+        main.appendChild(div)
+
+
+         var Interval = setInterval(()=>{
+            count1++
+            heading[0].innerHTML= count1 + '%'
+            div.style.width=count1 +'%'
+            if(count1 == 100){
+                clearInterval(Interval)
+                main.style.display='none'
+                var div1 = document.createElement('div')
+                div1.classList.add('div')
+                document.body.appendChild(div1)
+                setInterval(() => {
+                    div1.style.display = 'none'
+                    document.body.innerHTML='<h1> hey its pleausre to host you</h1>'
+                }, 2000);
+
+            }
+         },100)
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Document</title>
+
+
+</head>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 95vh;
+
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+    }
+
+
+
+    .main {
+        width: 85%;
+        height: 230px;
+        /* border: 5px solid lime; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+    }
+
+    .box {
+        width: 335px;
+        height: 210px;
+        border: 0.1px solid rgb(221, 221, 221);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .circleMain {
+        width: 55px;
+        height: 55px;
+        border-radius: 50px;
+        border: 0.5px solid lightgrey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: lightgray;
+        margin-top: 15px;
+
+
+    }
+
+    .icon {
+        font-size: 23px;
+
+    }
+
+    .number {
+        width: 75px;
+        height: 50px;
+        /* border: 1px solid lightgrey; */
+        text-align: center;
+        line-height: 50px;
+        font-size: 38px;
+        color: rgba(44, 44, 44, 0.851);
+
+    }
+
+    .title {
+        font-size: 12px;
+        color: gray;
+
+    }
+
+    .smallIconNumMain {
+        width: 50px;
+        height: 20px;
+        /* border: 1px solid black; */
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-bottom: 10px;
+    }
+
+    .iconSmall {
+        font-size: 10px;
+    }
+
+    .smallNumber {
+        font-size: 11px;
+
+    }
+</style>
+
+<body>
+
+
+    <div class="main">
+
+        <!-- box 1 start -->
+        <div class="box">
+            <div class="circleMain">
+                <i class="fa-solid fa-gear icon"></i>
+            </div>
+            <h1 class="number"><span class="BigNum">42</span>k</h1>
+            <p class="title">Total Views</p>
+            <div class="smallIconNumMain">
+
+                <i class="fa-solid fa-chevron-up iconSmall"></i>
+                <p class="smallNumber"><span class="smallNum">35</span>%</p>
+
+            </div>
+
+
+
+        </div>
+
+
+        <!-- box 1 end -->
+
+
+
+        <!-- box 2 start -->
+
+        <div class="box">
+            <div class="circleMain">
+                <i class="fa-solid fa-tv icon"></i>
+            </div>
+
+            <h1 class="number"><span class="BigNum">42</span>k</h1>
+            <p class="title">Profiles</p>
+
+            <div class="smallIconNumMain">
+                <p class="smallNumber"><span class="smallNum">35</span>%</p>
+                <i class="fa-solid fa-arrow-left iconSmall"></i>
+            </div>
+        </div>
+
+
+        <!-- box 2 end -->
+
+
+        <!-- box 3 start -->
+
+        <div class="box">
+            <div class="circleMain">
+                <i class="fa-solid fa-window-restore icon"></i>
+            </div>
+            <h1 class="number"><span class="BigNum">42</span>k</h1>
+            <p class="title">Reports Submitted</p>
+            <div class="smallIconNumMain">
+
+
+                <p class="smallNumber"><span class="smallNum">35</span>%</p>
+                <i class="fa-solid fa-chevron-up iconSmall"></i>
+
+            </div>
+        </div>
+
+
+        <!-- box 3 end -->
+
+    </div>
+
+
+
+
+    <script>
+
+        // **** practice 1 start ****
+
+        // var BigNum = document.querySelectorAll('.BigNum')
+        // var smallNum = document.querySelectorAll('.smallNum')
+
+        // var count = 0;
+        // var mrandomNumber = Math.floor(Math.random() * 100)
+
+        // let setnumber = setInterval(function () {
+        //     count++;
+        //     console.log(count);
+
+
+
+        //     BigNum.forEach(function (element) {
+        //         element.innerHTML = count
+
+
+        //     })
+
+
+
+        //     smallNum.forEach(function (element) {
+        //         element.innerHTML = count
+
+
+        //     })
+
+        // ----------------------------------------
+        // (count >= 100) up to 100
+        // count = mrandomNumber (random number)
+        // ----------------------------------------
+
+
+        //     if (count >= mrandomNumber) {
+        //         clearInterval(setnumber)
+        //     }
+        // }, 100);
+
+
+        // **** practice 1 end ****
+        // --------------------------
+
+
+        // **** practice 2 start ****
+
+        // var BigNum = document.querySelectorAll('.BigNum')
+        // var smallNum = document.querySelectorAll('.smallNum')
+
+        // var count = 0
+
+        // var randomNumber = Math.floor(Math.random() * 100)
+
+        // var setNumber = setInterval(function () {
+
+        //     count++
+        //     // console.log(count)
+
+        //     BigNum.forEach(function (element) {
+        //         element.innerHTML = count
+
+        //     })
+
+        //     smallNum.forEach(function (element) {
+        //         element.innerHTML = count
+        //     })
+
+        //     // if (count >= 100) {
+        //     //     clearInterval(setNumber)
+        //     // }
+
+        //     if (count >= randomNumber) {
+        //         clearInterval(setNumber)
+        //     }
+
+        // }, 100)
+
+        // **** practice 2 end ****
+
+
+
+        // change all 3 indiviually randomly 
+
+
+        // **** practice 3 start ****
+
+        var BigNum1 = document.querySelectorAll('.BigNum')[0]
+        console.log(BigNum1);
+        var smallNum1 = document.querySelectorAll('.smallNum')[0]
+
+
+        var BigNum2 = document.querySelectorAll('.BigNum')[1]
+        var smallNum2 = document.querySelectorAll('.smallNum')[1]
+
+
+        var BigNum3 = document.querySelectorAll('.BigNum')[2]
+        var smallNum3 = document.querySelectorAll('.smallNum')[2]
+
+        // count 1 --------
+
+
+        var count1 = 0
+        var randomNumber1 = Math.floor(Math.random() * 100)
+        console.log(randomNumber1)
+
+
+        var setCount1 = setInterval(function () {
+
+
+            count1++;
+            console.log(count1);
+
+
+            // BigNum.forEach(function (element, index) {
+            //     element.innerHTML = count1
+
+            BigNum1.innerHTML = count1
+
+            // })
+
+            // smallNum.forEach(function (element, index) {
+            //     element.innerHTML = count1
+            smallNum1.innerHTML = count1
+
+
+
+            // })
+
+
+            if (count1 >= randomNumber1) {
+
+                clearInterval(setCount1)
+            }
+
+
+
+        }, 10);
+
+
+
+        // count 2 --------
+
+
+        var count2 = 0
+
+
+        var randomNumber2 = Math.floor(Math.random() * 100)
+        console.log(randomNumber2)
+
+        var setCount2 = setInterval(function () {
+
+            count2++;
+            console.log(count2);
+
+            // BigNum.forEach(function (element, index) {
+            //     element.innerHTML = count2
+            BigNum2.innerHTML = count2
+
+
+            // })
+
+            // smallNum.forEach(function (element, index) {
+            //     element.innerHTML = count2
+            smallNum2.innerHTML = count2
+
+
+            // })
+
+
+            if (count2 >= randomNumber2) {
+
+                clearInterval(setCount2)
+            }
+        }, 10);
+
+
+
+        // count 3 --------
+
+
+
+        var count3 = 0
+
+
+        var randomNumber3 = Math.floor(Math.random() * 100)
+        console.log(randomNumber3)
+
+        var setCount3 = setInterval(function () {
+
+            count3++;
+            console.log(count3);
+
+            // BigNum.forEach(function (element, index) {
+            //     element.innerHTML = count3
+
+            BigNum3.innerHTML = count3
+
+            // })
+
+
+            // smallNum.forEach(function (element, index) {
+            //     element.innerHTML = count3
+            smallNum3.innerHTML = count3
+
+
+            // })
+
+
+            if (count3 >= randomNumber3) {
+
+                clearInterval(setCount3)
+            }
+        }, 10);
+
+        // **** practice 3 end ****
+
+
+
+    </script>
+
+</body>
+
+</html>

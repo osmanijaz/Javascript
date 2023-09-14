@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Weather Project Osman</title>
+  </head>
+  <body>
+    <style>
+      * {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+
+      body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 5px solid lime; */
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-image: url(https://media.istockphoto.com/id/1128410927/photo/blue-sky-background-and-white-clouds-soft-focus-and-copy-space.jpg?b=1&s=170667a&w=0&k=20&c=YL7M8pssMunJkW_R5RqP9kTAP8A37s0Kqgiy1cmrvWU=)
+      }
+
+
+      .container{
+        width: 500px;
+        height: 380px;
+        border: 1px solid grey;
+        border-radius:  20px;
+        backdrop-filter: blur(10px);
+      }
+
+      .data_get{
+        width: 100%;
+        height: 50px;
+        /* border-top: 1px solid rgb(110, 110, 110); */
+        /* border-bottom: 1px solid rgb(110, 110, 110); */
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+     }
+
+     .cityNameInput{
+
+      outline: none;
+      border: none;
+      border-radius: 25px;
+      width: 250px;
+      height: 35px;
+    padding: 0px 15px;
+      font-size: 16px;
+      color: rgb(12, 12, 12);
+     }
+
+     .cityNameInput::placeholder{
+      color: black;
+     }
+
+     .search{
+
+      width: 35px;
+      height: 35px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.15s;
+    
+     }
+
+     .search:hover{
+      background-color: black;
+      color: white;
+        }
+
+    
+      .data_show_output_container{
+        width: 80%;
+        height: 215px;
+        /* border-top: 1px solid rgb(110, 110, 110); */
+        /* border-bottom: 1px solid rgb(110, 110, 110); */
+        margin: auto;
+        margin-top: 35px;
+
+      }
+
+      .data_show_output_container h3{
+        font-weight: 400;
+        /* border: 2px solid green ; */
+        width: 100%;
+        padding: 0px 20px;
+        margin-top: 10px;
+      }
+ 
+      .city_name{
+        font-weight: bold;
+      }
+
+      .data_show_output_container h5{
+        font-weight: 400;
+        /* border: 2px solid green; */
+        width: 100%;
+        padding: 0px 20px;
+        margin-top: 10px;
+        font-size: 50px;
+   
+      }
+
+
+      .icon{
+
+        width: 100px;
+          height: 100px;
+          /* border: 2px solid red; */
+          float: right;
+          margin-top: -80px;
+          margin-right: 40px;
+       }
+
+       .icon img{
+          width: 100%;
+          height: 100%;
+          /* border: 5px solid lime ; */
+        }
+
+
+        .description{
+        font-weight: 400;
+        /* border: 2px solid green; */
+        width: 100%;
+        padding: 0px 20px;
+        margin-top: 40px;
+        font-size: 20px;
+   
+      }
+
+      
+      .wind{
+        font-weight: 400;
+        /* border: 2px solid green; */
+        width: 100%;
+        padding: 0px 20px;
+        margin-top: 10px;
+        font-size: 20px;
+   
+      }
+
+
+    </style>
+
+
+
+<div class="container">
+
+  <div class="data_get">
+    <input type="text" class="cityNameInput"
+    placeholder=" Enter City">
+    <button class="search"><i class="magnify fas fa-search"></i></button>
+  </div>
+
+  <div class="data_show_output_container">
+    <h3>Weather in <span class="city_name">London</span></h3>
+    <h5 class="temp">00'C</h5>
+    <div class="icon"></div>
+    <p class="description">Fog</p>
+    <p class="wind">Wind Speed: <span class="speed">2.3 Km/h</span></p>
+  </div>
+</div>
+
+    <script>
+
+const input = document.querySelector('.cityNameInput'),
+button = document.querySelector('.search'),
+city_name = document.querySelector('.city_name'),
+temp = document.querySelector('.temp'),
+icon = document.querySelector('.icon'),
+description = document.querySelector('.description'),
+speed = document.querySelector('.speed');
+
+
+// fetch().then((response)=>response.json()).then((data)=>{
+// console.log(data);
+// })
+
+
+fetch(`https://api.openweathermap.org/data/2.5/weather?q=london&appid=f65e32faa80c40a876bd4112cd36e525`)
+
+.then((response)=>response.json())
+
+// .then((response)=>console.log(response))
+
+.then((data)=>{
+console.log(data, 'data')
+
+// kelvin temperature
+var tempA = data.main.temp;
+console.log(tempA)
+
+// kelvin temperature to celsius 
+var temperature = Math.floor(tempA - 273.15)
+console.log(temperature)
+var desc = data.weather[0].main;
+var image = data.weather[0].icon
+var wind_speed = data.wind.speed 
+
+
+var icon_image = `https://openweathermap.org/img/wn/${image}@2x.png`
+
+
+// show in ouput 
+
+city_name.innerHTML = data.name
+temp.innerHTML =`${temperature}'C`
+icon.innerHTML = `<img src="${icon_image}">`
+
+    
+description.innerHTML = desc
+speed.innerHTML = wind_speed
+
+})
+
+
+
+button.addEventListener('click', function(){
+
+  if(input.value != ''){
+
+  var city = input.value;
+
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f65e32faa80c40a876bd4112cd36e525`)
+
+
+
+    .then((response) => response.json())
+          .then((data) => {
+
+
+            console.log(data);
+            let tempA = data.main.temp;
+            let temperature = Math.floor(tempA - 273.15);
+            let image = data.weather[0].icon
+            let desc = data.weather[0].main
+            let wind_speed = data.wind.speed
+            
+            let icon_image = `https://openweathermap.org/img/wn/${image}@2x.png`
+
+
+            city_name.innerHTML = data.name;
+            temp.innerHTML = `${temperature}'C`
+
+            icon.innerHTML = `<img src = ${icon_image}>`
+            
+            description.innerHTML = desc
+            speed.innerHTML = wind_speed
+
+          })
+  
+
+
+
+  }else{
+    alert("Please type city name")
+  }
+
+
+
+})
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

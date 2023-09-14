@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+<style>
+*{
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+body{
+
+height: auto;
+background-color: lightcyan;
+
+
+
+}
+
+h1{
+  margin-bottom: 20px;
+}
+.register_container{
+  margin: auto;
+  width: 380px;
+  height: max-content;
+  background-color: #282e33;
+  padding: 22px 22px 35px 22px;
+  margin-top: 20px;
+  margin-bottom:30px ;
+ 
+  border-radius: 5px;
+  color: white;
+
+}
+
+
+.register_container form input[type="text"]{
+width: 100%;
+padding: 0px 5px;
+border-radius: 0px 3px 3px 0px;
+height: 50px;
+font-size: 18px;
+border: none;
+outline: none;
+color: gray;
+margin-bottom: 1em;
+margin-top: 10px;
+
+}
+
+#name::placeholder{
+color: gray;
+
+
+}
+
+h1{
+  color: white;
+}
+
+
+.register_container form input[type="number"]{
+width: 100%;
+padding: 0px 5px;
+border-radius: 0px 3px 3px 0px;
+height: 50px;
+font-size: 18px;
+border: none;
+outline: none;
+color: gray;
+margin-bottom: 1em;
+margin-top: 10px;
+background-color: #f0f0f0;
+border: 1px solid black;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+
+.register_container form input[type="email"]{
+width: 100%;
+padding: 0px 5px;
+border-radius: 0px 3px 3px 0px;
+height: 50px;
+font-size: 18px;
+border: none;
+outline: none;
+color: gray;
+margin-bottom: 1em;
+margin-top: 10px;
+background-color: #f0f0f0;
+
+}
+
+.register_container form input[type="password"]{
+width: 100%;
+padding: 0px 5px;
+border-radius: 0px 3px 3px 0px;
+height: 50px;
+font-size: 18px;
+border: none;
+outline: none;
+color: gray;
+margin-bottom: 1em;
+margin-top: 10px;
+background-color: #f0f0f0;
+
+}
+
+.helper-text{
+/* border: 2px solid red; */
+font-size: 15px;
+width: max-content;
+margin-left: 15px;
+line-height: 18px;
+margin-bottom: 1em;
+
+}
+
+.rgstr_btn{
+margin-top: 3%;
+background: #b5cd60;
+border-radius: 5px;
+  width: 100%;
+  border: none;
+  padding: 15px 0px 15px 0px;
+
+  cursor: pointer;
+}
+
+
+
+
+</style>
+  
+<div class="register_container">
+<form name="form_login">
+  <h1>REGISTER</h1>
+
+
+    <!-- id  -->
+<label for="number">ID Number</label>
+<input type="number" id="number" placeholder="ID Number" required>
+
+
+  <!-- username  -->
+<label for="name">User Name</label>
+<input type="text" id="name" placeholder="Username" required>
+
+
+  <!-- email  -->
+  <label for="email">Email</label>
+  <input type="email" id="email" placeholder="Email" required>
+
+
+
+  <!-- password  -->
+  <label for="password">Password</label>
+  <input type="password" id="email" placeholder="Password" required>
+
+
+  <ul class="helper-text">
+        
+    <li class="length">Must be at least 8 characters long.</li>
+
+    <li class="lowercase">Must contain a lowercase letter.</li>
+
+    <li class="uppercase">Must contain an uppercase letter.</li>
+
+    <li class="special">Must contain a number or special character.</li>
+
+  </ul>
+
+  <input
+  class="rgstr_btn"
+    type="submit"
+    value="Register"/>
+   
+  <input
+  class="rgstr_btn login_btn"
+    type="submit"
+    value="Login"/>
+
+    
+</form>
+</div>
+
+
+
+<script>
+
+
+
+</script>
+
+ 
+</body>
+</html>

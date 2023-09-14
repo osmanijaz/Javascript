@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            height: 120vh;
+            width: 100%;
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .p {
+            font-size: 20px;
+            letter-spacing: 5px;
+            text-align: center;
+            margin: 5vh;
+        }
+
+        .h1 {
+            text-align: center;
+            font-size: 40px;
+            margin: 0;
+        }
+
+        .forEach {
+            height: 10vh;
+            width: 50%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: auto;
+        }
+
+        .li {
+            font-size: 17px;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .active-border {
+            border: 2px dashed #EE822F;
+            padding: 10px;
+            border-radius: 25px;
+        }
+
+        .img-container {
+            width: 70%;
+            margin: 5vh auto;
+            position: relative;
+        }
+
+        .img-parent {
+            height: max-content;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            position: absolute;
+            z-index: -5;
+        }
+
+        .divs {
+            height: 40vh;
+            width: 22%;
+            background-color: #F4F4F4;
+            margin-left: 30px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .divs img {
+            width: 100%;
+            transition: .5s;
+            cursor: pointer;
+        }
+
+        .divs:hover img {
+            transform: scale(1.2);
+        }
+
+        .trolly {
+            height: 50px;
+            width: 50px;
+            background-color: grey;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: 1s;
+        }
+
+        .divs:hover .trolly {
+            opacity: 1;
+        }
+
+        .active-index {
+            z-index: 5;
+        }
+
+        .bag {
+            position: fixed;
+            top: 3vh;
+            right: 20%;
+        }
+
+        .fade-div {
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.352);
+            position: absolute;
+            top: -100%;
+            left: 0;
+            transition: .5s;
+            z-index: 10;
+        }
+
+        .top {
+            top: 0;
+        }
+
+        .left-div {
+            height: 100%;
+            width: 25%;
+            background-color: whitesmoke;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            transition: .5s;
+            z-index: 11;
+        }
+
+        .left {
+            left: 75%;
+        }
+
+        .nav {
+            height: 70px;
+            width: 100%;
+            background-color: purple;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: yellow;
+            font-size: 20px;
+            transition: .5s;
+            cursor: pointer;
+        }
+
+        .nav:hover {
+            background-color: black;
+        }
+
+        .viewCart {
+            height: 50px;
+            width: 80%;
+            background-color: black;
+            margin: auto;
+            margin-top: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: whitesmoke;
+            transition: .5s;
+            font-size: 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .viewCart:hover {
+            background-color: purple;
+        }
+
+        .view {
+            margin-top: 3vh;
+        }
+
+        .append {
+            height: max-content;
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 3vh auto;
+        }
+
+        .appendChild {
+            height: 10vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="fade-div"></div>
+        <div class="left-div">
+            <div class="nav">
+                <p>Shopping Card</p>
+                <i class="fa-solid fa-chevron-right fa-shake fa-2xl"></i>
+            </div>
+            <div class="append"></div>
+            <div class="viewCart">View cart</div>
+            <div class="viewCart view">View Checkout</div>
+        </div>
+        <i class="fa-solid fa-bag-shopping fa-beat fa-2xl bag"></i>
+        <p class="p">BEST PRODUCT</p>
+        <h1 class="h1">New Collection</h1>
+        <div class="forEach">
+            <p class="li active-border">ALL</p>
+            <p class="li">NEW</p>
+            <p class="li">SELLERS</p>
+            <p class="li">FEATURED</p>
+            <p class="li">SALE</p>
+        </div>
+        <div class="img-container">
+            <div class="img-parent active-index">
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/1%20(1).jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/2%20(1).jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/5.jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/3.jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/4.jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/6.jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/7.jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/8.jfif" alt="">
+                </div>
+            </div>
+            <div class="img-parent ">
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/1%20(1).jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/3.jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/6.jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/8.jfif" alt="">
+                </div>
+            </div>
+            <div class="img-parent">
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/2%20(1).jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/5.jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/3.jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/7.jfif" alt="">
+                </div>
+            </div>
+            <div class="img-parent">
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/1%20(1).jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/5.jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/4.jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/7.jfif" alt="">
+                </div>
+            </div>
+            <div class="img-parent">
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/2%20(1).jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/4.jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/6.jfif" alt="">
+                </div>
+                <div class="divs">
+                    <div class="trolly">
+                        <i class="fa-solid fa-cart-shopping fa-bounce fa-2xl "></i>
+                    </div>
+                    <img src="https://rococo-crepe-92ed77.netlify.app/Add%20To%20Cart_images/8.jfif" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var container = document.querySelector('.container')
+        var fade_div = document.querySelector('.fade-div')
+        var left_div = document.querySelector('.left-div')
+        var li = document.querySelectorAll('.li')
+        var nav = document.querySelector('.nav')
+        var img_parent = document.querySelectorAll('.img-parent')
+        var trolly = document.querySelectorAll('.trolly')
+        console.log(trolly);
+        var icon = document.querySelector('.bag')
+        var append = document.querySelector('.append')
+
+        li.forEach((e, ind) => {
+            e.addEventListener('click', function () {
+                li.forEach((ele, i) => {
+                    ele.classList.remove('active-border')
+                })
+                img_parent.forEach((el, i) => {
+                    el.style.display = 'none'
+                })
+                e.classList.add("active-border")
+                img_parent[ind].classList.add('active-index')
+                img_parent[ind].style.display = 'flex'
+
+            })
+        })
+        icon.addEventListener('click', () => {
+            icon.style.display = 'none'
+            fade_div.classList.add('top')
+            left_div.classList.add('left')
+        })
+        nav.addEventListener('click', () => {
+            icon.style.display = 'flex'
+            fade_div.classList.remove('top')
+            left_div.classList.remove('left')
+        })
+        trolly.forEach((e) => {
+            e.addEventListener('click', function () {
+                var p = e.parentElement.childNodes[3].getAttribute('src')
+                let newimg = document.createElement("img")
+                newimg.setAttribute("src", p)
+                newimg.classList.add('appendChild')
+                append.appendChild(newimg)
+                // console.log(p);
+
+            })
+        })
+    </script>
+</body>
+
+</html>

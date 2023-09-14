@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+background-color: #7C96AB;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+
+#inp{
+  height: 70px;
+  width: 40%;
+  margin: 30px;
+background-color: #555;
+font-size: 20px;
+color: white;
+text-align: center;
+outline: none;
+border: none;
+border-radius: 30px;
+
+
+}
+/* ::placeholder{
+  font-size: 20px;
+  padding: 30%;
+} */
+
+
+#main{
+width: 100%;
+display: flex;
+flex-wrap: wrap;
+gap: 50px;
+justify-content: center;
+background-color: #7C96AB;
+
+}
+
+.cards{
+  height: 200px;
+  background-color: #3C486B;
+width: 20%;
+border-radius: 10px;
+color: coral;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+
+}
+
+    </style>
+</head>
+<body>
+    
+    <input id="inp" type="text" placeholder="Enter A Country Name">
+    <main id="main"> </main>
+  
+  
+  
+
+<script>
+    let Countries;
+
+
+let options = {
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': '4a6c52891emshd1c0608696477a6p195368jsn67ccc5bd0c21',
+        'X-RapidAPI-Host': 'covid-193.p.rapidapi.com'
+    }
+};
+
+fetchApi()
+
+async function fetchApi(){
+
+let resp = await fetch('https://covid-193.p.rapidapi.com/statistics', options)
+let data = await resp.json()
+
+Countries = data.response
+
+for(let Country of Countries){
+
+
+    let cards = document.createElement('div')
+    cards.classList.add('cards')
+    cards.innerHTML=
+    `
+    <h3>Continent: ${Country.continent}</h3>
+    <p>Country: ${Country.country}</p>
+    <p>Tests:${Country.tests.total}</p>
+    <p>Cases: ${Country.cases.total}</p>
+
+    `;
+    
+    main.appendChild(cards)
+
+
+}
+
+}
+
+
+
+inp.addEventListener('input', ()=>{
+
+    main.innerHTML = ''
+
+    let inputValue = inp.value
+    
+
+
+let filteredCountry = Countries.filter((country) =>{
+return country.country.includes(inputValue)
+})
+
+for(let FC of filteredCountry){
+
+    let cards = document.createElement('div')
+    cards.classList.add('cards')
+    cards.innerHTML=
+    `
+    <h3>Continent: ${FC.continent}</h3>
+    <p>Country: ${FC.country}</p>
+    <p>Tests:${FC.tests.total}</p>
+    <p>Cases: ${FC.cases.total}</p>
+
+    `;
+    
+    main.appendChild(cards)
+
+}
+
+})
+
+
+</script>
+
+</body>
+</html>

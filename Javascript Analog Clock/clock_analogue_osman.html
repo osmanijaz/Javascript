@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+      * {
+        font-family: "Kanit", sans-serif;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #c3faff;
+        flex-direction: column;
+        gap: 10px;
+      }
+      #clock {
+        width: 300px;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        border-radius: 50%;
+        background-position: center center;
+        background-color: #d0fffb;
+        box-shadow: 0 0 15px rgba(0, 7, 57, 0.158);
+        /* background-image: url(https://illustoon.com/photo/5054.png); */
+        /* background-image: url(toppng.com-clock-icon-with-numbers-731x732.png); */
+      }
+      .innerCircle {
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        background-color: #d8fcff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.087);
+        /* position: absolute; */
+      }
+      .base {
+        width: 10px;
+        height: 10px;
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        border-radius: 50%;
+        position: absolute;
+        /* transform: rotate(45deg); */
+        background-color: black;
+      }
+      #sec {
+        width: 2.5px;
+        height: 130px;
+        /* border-radius: 50%; */
+        background-color: #fa5555;
+        position: absolute;
+        bottom: 0;
+        z-index: 1000;
+      }
+      #min {
+        width: 4px;
+        height: 90px;
+        /* border-radius: 50%; */
+        background-color: black;
+        position: absolute;
+        bottom: 0;
+      }
+      #hour {
+        width: 5px;
+        height: 70px;
+        /* border-radius: 50%; */
+        background-color: black;
+        position: absolute;
+        bottom: 0;
+      }
+      .city {
+        font-size: 2rem;
+        color: #fa5555;
+      }
+      .time {
+        font-size: 2.5rem;
+      }
+      .country {
+        font-size: 1rem;
+      }
+
+
+
+
+</style>
+</head>
+
+
+<div id="clock">
+  <div class="innerCircle"></div>
+  <div class="base" id="pin-hour"><div id="hour"></div></div>
+  <div class="base" id="pin-min"><div id="min"></div></div>
+  <div class="base" id="pin-sec"><div id="sec"></div></div>
+</div>
+
+<div class="city">London</div>
+<div class="time"></div>
+<div class="country">United Kingdom</div>
+
+
+
+<body>
+  
+
+
+  <script>
+
+    var pin_hour = document.getElementById('pin-hour')
+    var pin_min = document.getElementById('pin-min')
+    var pin_sec = document.getElementById('pin-sec')
+    var base = document.querySelectorAll('.base')
+
+
+
+
+    setInterval(()=>{
+   
+     var today = new Date()
+     var hour = today.getHours()
+     var minutes = today.getMinutes()
+     var seconds = today.getSeconds()
+  
+
+     var rotateHourAnswer = hour/12 * 360
+     var rotateMinutesAnswer = minutes/60 * 360
+     var rotateSecondsAnswer = seconds/60 * 360
+
+
+ 
+     pin_hour.style.rotate = `${rotateHourAnswer}deg`
+     pin_min.style.rotate = `${rotateMinutesAnswer}deg`
+     pin_sec.style.rotate = `${rotateSecondsAnswer}deg`
+
+
+
+    },1000)
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+//     var today = new Date()
+
+
+//     new_pin_hour_function()
+//     new_pin_min_function()
+//     new_pin_sec_function()
+    
+
+
+// function new_pin_hour_function(){
+
+//   setInterval(()=>{
+
+
+
+  
+//   console.log(today)
+
+//   var hour = today.getHours() //24hrs 
+//   console.log(hour, 'hours')
+
+//   var hourTimeRotateAnswer = hour/12 * 360;
+
+//   pin_hour.style.transform = `rotate(${hourTimeRotateAnswer}deg)`;
+
+//   console.log(hourTimeRotateAnswer)
+
+// },1000)
+// }
+
+
+// function new_pin_min_function(){
+
+//   setInterval(()=>{
+
+    
+//     today = new Date()
+    
+//     var minutes = today.getMinutes()
+    
+//     console.log(minutes, 'minutes')
+    
+//     var minutesTimeRotateAnswer = minutes/60 * 360;
+    
+//     pin_min.style.transform = `rotate(${minutesTimeRotateAnswer}deg)`;
+    
+//     console.log(minutesTimeRotateAnswer)
+    
+//   },1000)
+    
+//   }
+
+
+
+// function new_pin_sec_function(){
+
+//   setInterval(function() {
+
+//     today = new Date()
+  
+//   var seconds = today.getSeconds()
+
+//   console.log(seconds, 'seconds')
+
+//   var secondsTimeRotateAnswer = seconds /60 * 360;
+  
+//   base[2].style.transform = `rotate(${secondsTimeRotateAnswer}deg)`;
+
+//   console.log(secondsTimeRotateAnswer)
+
+//   }, 1000);
+  
+// }
+
+
+
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0px;
+            margin: 0;
+        }
+
+
+        /* ---CSS 1--- */
+
+
+        /* #main {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 10px;
+        }
+
+        #main1 {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(23, 11, 11);
+            margin: 10px;
+        }  */
+
+
+        /* ---CSS 2--- */
+
+
+
+
+        #buttonMain {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            /* border: 1px solid black; */
+            margin-top: 60px;
+
+        }
+
+        #button {
+            width: 100px;
+            height: 50px;
+            border: none;
+            background-color: red;
+            color: white;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #heading {
+            display: none;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #square {
+            width: 100%;
+            height: 60px;
+            background-color: Orange;
+            cursor: pointer;
+            display: none;
+        }
+
+
+        #column {
+            width: 100%;
+            height: 60px;
+            background-color: red;
+            cursor: pointer;
+            display: none;
+        }
+
+        /* ---pic button start--- */
+
+        #btnMain {
+            display: flex;
+            justify-content: center;
+        }
+
+        #btn {
+            width: 100px;
+            height: 50px;
+            border: none;
+            background-color: rgb(144, 0, 255);
+
+            color: white;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+
+        }
+
+        #image {
+            width: 450px;
+            height: 320px;
+            margin: auto;
+            margin-top: 20px;
+            background-image: url(1-1.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: none;
+            cursor: pointer;
+
+
+        }
+
+        #image1 {
+            width: 450px;
+            height: 320px;
+            margin: auto;
+            margin-top: 20px;
+            background-image: url(2-1.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: none;
+            cursor: pointer;
+
+
+        }
+
+        #image2 {
+            width: 450px;
+            height: 320px;
+            margin: auto;
+            margin-top: 20px;
+            background-image: url(3-1.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: none;
+            cursor: pointer;
+        }
+
+        #image3 {
+            width: 450px;
+            height: 320px;
+            margin: auto;
+            margin-top: 20px;
+            background-image: url(4-1.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: none;
+            cursor: pointer;
+        }
+
+        #image4 {
+            width: 450px;
+            height: 320px;
+            margin: auto;
+            margin-top: 20px;
+            background-image: url(5.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: none;
+            cursor: pointer;
+        }
+
+        #image5 {
+            width: 450px;
+            height: 320px;
+            margin: auto;
+            margin-top: 20px;
+            background-image: url(6.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: none;
+            cursor: pointer;
+        }
+
+        /* ---pic button end --- */
+
+        /* ---left right slide start CSS---  */
+
+
+
+
+
+        #box {
+            width: 100%;
+            height: 300px;
+
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #centerMain {
+            width: 50%;
+            height: 100%;
+            border: 0.5px solid rgb(210, 210, 210);
+            background-position: center;
+            background-size: cover;
+
+        }
+
+
+        #butstyle1 {
+            border-radius: 50%;
+            border: 0.5px solid rgb(255, 255, 255);
+            font-size: 30px;
+            color: rgb(42, 42, 42);
+            cursor: pointer;
+            margin: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+
+
+        }
+
+
+        #butstyle2 {
+            border-radius: 50%;
+            border: 0.5px solid rgb(255, 255, 255);
+            font-size: 30px;
+            color: rgb(42, 42, 42);
+            cursor: pointer;
+            margin: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+
+        }
+
+
+
+
+        /* ---left right slide End CSS---  */
+
+
+
+
+        .butFinalMain {
+            display: flex;
+            justify-content: center;
+
+
+        }
+
+        .buttonFinal {
+            width: 100px;
+            height: 50px;
+            border: none;
+            background-color: rgb(242, 255, 0);
+            color: black;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+
+        }
+
+
+        .blueBox {
+            height: 300px;
+            width: 300px;
+            background-color: blue;
+            transition: all 1s;
+        }
+
+        .redBox {
+            height: 300px;
+            width: 300px;
+            background-color: rgb(255, 0, 0);
+            position: relative;
+            margin-right: 0px;
+            transition: all 1s;
+        }
+
+        /* ---left right slide end--- */
+
+
+        /* ---navbar start--- */
+
+
+        #buttonContainer {
+
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        #buttonClick {
+            width: 100px;
+            height: 50px;
+            border: none;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+
+        }
+
+
+        #logo {
+            margin-left: 15px;
+            cursor: pointer;
+        }
+
+
+        #navBar {
+            width: 100%;
+            height: 60px;
+            background-color: yellow;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            visibility: hidden;
+            /* display: none; */
+        }
+
+        #nav-ul {
+            display: flex;
+            list-style: none;
+            margin-right: 30px;
+
+
+        }
+
+        #nav-li {
+
+            margin-left: 35px;
+            cursor: pointer;
+        }
+
+
+        #boxSQ {
+            width: 300px;
+            height: 300px;
+            background-color: yellowgreen;
+            cursor: pointer;
+            transition: all 1s;
+
+        }
+
+
+        #butCenter {
+            display: flex;
+            justify-content: center;
+        }
+
+
+        #butPress {
+            width: 100px;
+            height: 50px;
+            border: none;
+            background-color: rgb(13, 255, 0);
+            color: black;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+
+
+
+
+
+        /* ---navbar end--- */
+    </style>
+</head>
+
+<body>
+
+
+    <!-- ---HTML 1--- -->
+
+
+    <!-- <button onclick="mainStyleBack()">BUTTON</button>
+    <div id="main" onclick="mainStyle()"></div>
+    <div id="main1" onclick="mainStyle()"></div>
+    <h1 id="heading">Osman</h1>  -->
+
+
+
+    <!-- ---HTML 2--- -->
+
+    <div id="buttonMain">
+        <button id="button" onclick="button()">BUTTON</button>
+    </div>
+    <h1 id="heading" onclick="headColor()">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, debitis.</h1>
+
+    <div id="square" onclick="squareSize()"></div>
+    <div id="column" onclick="columnSize()"></div>
+
+    <div id="btnMain">
+        <button id="btn" onclick="btn()">BUTTON</button>
+    </div>
+
+    <!-- ---pic button start--- -->
+
+
+    <div id="image" onclick="image()"></div>
+    <div id="image1" onclick="image1()"></div>
+    <div id="image2" onclick="image2()"></div>
+    <div id="image3" onclick="image3()"></div>
+    <div id="image4" onclick="image4()"></div>
+    <div id="image5" onclick="image5()"></div>
+
+
+    <!-- ---pic button end--- -->
+
+
+    <!-- ---left right slide start HTML--- -->
+
+    <div id="box">
+
+        <button id="butstyle1" onclick="leftButton()">&#60;</button>
+        <div id="centerMain"></div>
+        <button id="butstyle2" onclick="rightButton()">></button>
+    </div>
+
+
+
+
+
+
+    <!-- ---left right slide end HTML--- -->
+
+
+    <div class="butFinalMain">
+        <button class="buttonFinal" onclick="yellowBTN()">BUTTON</button>
+    </div>
+
+    <div class="blueBox"></div>
+    <div class="redBox"></div>
+
+
+    <!-- ---html--- -->
+
+    <!-- ---navbar start--- -->
+
+
+    <div id="buttonContainer">
+        <button id="buttonClick" onclick="buttonMove()">BUTTON</button>
+    </div>
+
+
+
+    <div id="navBar" onclick="navShow">
+        <h1 id="logo" onclick="logoStyle()">LOGO</h1>
+
+        <ul id="nav-ul" onclick="ULstyle()">
+
+            <li id="nav-li" class="nav0" onclick="liHome()">HOME</li>
+
+
+            <li id="nav-li" class="nav1" onclick="liAbout()">ABOUT US</li>
+
+
+
+            <li id="nav-li" class="nav2" onclick="liBlog()">BLOG</li>
+
+
+            <li id="nav-li" class="nav3" onclick="liContact()">CONTACT</li>
+        </ul>
+    </div>
+
+
+    <!-- ---navbar end--- -->
+
+    <div id="butCenter">
+
+
+
+        <button id="butPress" onclick="butColor()">BUTTON</button>
+    </div>
+
+
+    <div id="boxSQ" onclick="boxSQmove()"></div>
+
+
+
+    <script>
+
+
+        // ---JS 1---
+
+        // var main = document.getElementById('main')
+
+        // var osman = document.getElementById('heading')
+
+        // var main1 = document.getElementById('main1')
+
+        // function mainStyle() {
+        //     main.style.height = '100px'
+        //     osman.style.color = 'red'
+        //     main1.style.width = '400px'
+        // }
+
+
+        // function mainStyleBack() {
+        //     osman.style.color = 'green'
+        //     osman.style.fontSize = '70px'
+        //     main.style.height = '200px'
+        //     main1.style.width = '20px'
+        // }
+
+
+        // ---JS 2---
+
+        var buttonStyle = document.getElementById('button')
+
+        var headingStyle = document.getElementById('heading')
+
+        var squareStyle = document.getElementById('square')
+
+
+        function headColor() {
+            heading.style.color = 'limegreen'
+            squareStyle.style.display = 'block'
+        }
+
+        function button() {
+            buttonStyle.style.background = 'black'
+            headingStyle.style.display = 'block'
+
+            squareStyle.style.width = '100%'
+            squareStyle.style.height = '60px'
+        }
+
+        function squareSize() {
+            squareStyle.style.width = '50%'
+            squareStyle.style.background = 'Violet'
+            column.style.display = 'block'
+        }
+
+        function columnSize() {
+            column.style.width = '50%'
+            column.style.height = '50vh'
+
+            column.style.background = 'yellow'
+        }
+
+
+        // ---pic button start---
+
+
+        var btnStyle = document.getElementById('btn')
+        var imageStyle = document.getElementById('image')
+        var image1Style = document.getElementById('image1')
+        // console.log(image1Style, 'r');
+
+        var image2Style = document.getElementById('image2')
+
+        var image3Style = document.getElementById('image3')
+
+        var image4Style = document.getElementById('image4')
+
+        var image5Style = document.getElementById('image5')
+
+
+        function btn() {
+            btnStyle.style.background = 'black'
+            imageStyle.style.display = 'block'
+        }
+
+        function image() {
+            imageStyle.style.display = 'none'
+            image1Style.style.display = 'block'
+            // imageStyle.style.backgroundImage = 'url(2-1.jpg)'
+            // imageStyle.classList.add('image-a')
+        }
+
+
+        function image1() {
+            image1Style.style.display = 'none'
+            image2Style.style.display = 'block'
+            // image1Style.style.backgroundImage = 'url(3-1.jpg)'
+
+        }
+
+
+        function image2() {
+            image2Style.style.display = 'none'
+            image3Style.style.display = 'block'
+        }
+
+        function image3() {
+            image3Style.style.display = 'none'
+            image4Style.style.display = 'block'
+        }
+
+        function image4() {
+            image4Style.style.display = 'none'
+            image5Style.style.display = 'block'
+        }
+
+
+        // ---pic button end---
+
+        // ---left right slide start JS---
+
+        // var butstyle1 = document.getElementById('butstyle1')
+        // var butstyle2 = document.getElementById('butstyle2')
+
+
+        var centerMain = document.getElementById('centerMain')
+
+        function leftButton() {
+            centerMain.style.backgroundImage = 'url(6.jpg)'
+        }
+
+        function rightButton() {
+            centerMain.style.backgroundImage = 'url(5.jpg)'
+        }
+
+
+
+
+
+
+
+
+
+        // ---left right slide end JS---
+
+
+        var redBox = document.getElementsByClassName('redBox')[0]
+        // console.log(redBox)
+
+        var blueBox = document.getElementsByClassName('blueBox')[0]
+        // console.log(blueBox)
+
+
+        var buttonFinal = document.getElementsByClassName('buttonFinal')[0]
+
+
+        function yellowBTN() {
+            buttonFinal.style.background = 'black'
+            buttonFinal.style.color = 'white'
+            redBox.style.width = '100%'
+            blueBox.style.width = '100%'
+
+        }
+
+
+
+
+        // ---navbar start---
+
+
+        var buttonClick = document.getElementById('buttonClick')
+
+
+
+        var logo = document.getElementById('logo')
+
+        var ULremove = document.getElementById('nav-ul')
+
+        var navBar = document.getElementById('navBar')
+
+
+
+        function buttonMove() {
+            buttonClick.style.background = 'purple'
+            navBar.style.visibility = 'visible'
+        }
+
+
+
+        function logoStyle() {
+            logo.style.color = 'grey'
+            logo.style.marginLeft = '45%'
+            logo.style.fontSize = '45px'
+            ULremove.style.display = 'none'
+        }
+
+
+
+
+
+        var navLI1 = document.querySelector('.nav0')
+
+
+        function liHome() {
+            navLI1.style.color = 'grey'
+            navLI1.style.background = 'lightgreen'
+
+
+        }
+
+
+
+        var navLI2 = document.querySelector('.nav1')
+
+        function liAbout() {
+            navLI2.style.color = 'grey'
+            navLI2.style.background = 'lightblue'
+        }
+
+        var navLI3 = document.querySelector('.nav2')
+
+        function liBlog() {
+            navLI3.style.color = 'grey'
+            navLI3.style.background = 'white'
+        }
+
+        var navLI4 = document.querySelector('.nav3')
+
+        function liContact() {
+            navLI4.style.color = 'black'
+            navLI4.style.background = 'lightslategray'
+        }
+
+        // ---navbar end---
+
+        var butPress = document.getElementById('butPress')
+        var boxSQ = document.getElementById('boxSQ')
+
+
+        function butColor() {
+            butPress.style.background = 'hotpink'
+          
+        }
+
+
+        function boxSQmove() {
+            boxSQ.style.background = 'hotpink'
+            boxSQ.style.width = '500px'
+
+           
+
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .header {
+      margin-top: 20px;
+      background-color: lightskyblue;
+      padding: 20px;
+      font-size: 40px;
+      border-radius: 10px;
+    }
+
+    .score {
+    }
+
+    .main {
+      width: 600px;
+      height: 480px;
+      border: 10px solid rgb(255, 255, 255);
+      display: flex;
+      flex-wrap: wrap;
+      /* border: 4px solid lime; */
+      margin-top: 10px;
+    }
+
+    .box {
+      border: 5px solid rgb(0, 0, 0);
+      height: 33.333%;
+      width: 33.333%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: rgb(190, 190, 190);
+      font-size: 40px;
+      cursor: pointer;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .box1 {
+      border-top: 0px;
+      border-left: 0px;
+    }
+
+    .box2 {
+      border-top: 0px;
+    }
+
+    .box3 {
+      border-top: 0px;
+      border-right: 0px;
+    }
+
+    .box4 {
+      border-left: 0px;
+    }
+
+    .box6 {
+      border-right: 0px;
+    }
+
+    .box7 {
+      border-left: 0px;
+      border-bottom: 0px;
+    }
+
+    .box8 {
+      border-bottom: 0px;
+    }
+
+    .box9 {
+      border-bottom: 0px;
+      border-right: 0px;
+    }
+
+    .active_circle {
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+      border: 20px solid blue;
+      position: absolute;
+    }
+
+    .active_cross {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 175px;
+      color: rgb(255, 0, 0);
+      position: absolute;
+    }
+  </style>
+
+  <body>
+    <div class="header">Player <span class="score">1</span></div>
+
+    <div class="main">
+      <div class="box box1"></div>
+      <div class="box box2"></div>
+      <div class="box box3"></div>
+      <div class="box box4"></div>
+      <div class="box box5"></div>
+      <div class="box box6"></div>
+      <div class="box box7"></div>
+      <div class="box box8"></div>
+      <div class="box box9"></div>
+    </div>
+
+    <script>
+            var score = document.querySelector('.score');
+            var box = document.querySelectorAll('.box');
+            var message = document.querySelector('.header');
+
+            var array = [
+              [0, 1, 2],
+              [3, 4, 5],
+              [6, 7, 8],
+              [0, 3, 6],
+              [1, 4, 7],
+              [2, 5, 8],
+              [0, 4, 8],
+              [2, 4, 6],
+            ];
+
+            var player = true;
+
+            box.forEach(function (box, index) {
+              box.addEventListener('click', () => {
+                console.log('click is working');
+
+                if (box.innerHTML !== '') return;
+
+                if (player == true) {
+                  score.innerHTML = '2';
+
+                  var cross = document.createElement('i');
+                  cross.classList.add('fa-solid', 'fa-xmark', 'active_cross');
+                  console.log(cross, 'cross');
+                  box.appendChild(cross);
+                  player = false;
+                } else {
+                  score.innerHTML = '1';
+
+                  var circle = document.createElement('div');
+                  circle.classList.add('active_circle');
+                  box.appendChild(circle);
+                  player = true;
+                }
+
+                checkWinnner();
+              });
+            });
+
+            function checkWinnner() {
+              array.forEach((element, index) => {
+                var firstIndex = element[0];
+                var secondIndex = element[1];
+                var thirdIndex = element[2];
+
+                // console.log('***===start===***');
+                // console.log('===before 1 index before===');
+                console.log(firstIndex);
+                // console.log('===after 1 index after===');
+
+                // console.log('===before 2 index before===');
+                console.log(secondIndex);
+                // console.log('===after 2 index after===');
+
+                // console.log('===before 3 index before===');
+                console.log(thirdIndex);
+                // console.log('===after 3 index after===');
+                // console.log('***===end===***');
+
+                if (
+                  box[firstIndex].firstChild !== null &&
+                  box[secondIndex].firstChild !== null &&
+                  box[thirdIndex].firstChild !== null
+                ) {
+
+
+                  // --- Console Output Start ---
+
+                  console.log('========');
+
+                  console.log(
+                    box[firstIndex].firstChild.classList,
+                    'box[firstIndex].firstChild.classList'
+                  );
+
+                  // ---cross output index ---
+
+                  //DOMTokenList(3) ['fa-solid', 'fa-xmark', 'active_cross', value: 'fa-solid fa-xmark active_cross']
+                  // 0:"fa-solid"       // classList[0] // box[firstIndex].firstChild.classList[0]
+                  // 1:"fa-xmark"
+                  // 2:"active_cross"
+                  // length:3
+                  // value: "fa-solid fa-xmark active_cross"
+
+                  // ---circle output index---
+
+                  // DOMTokenList ['active_circle', value: 'active_circle'] 
+                  // 0:"active_circle"  // classList[0] // box[firstIndex].firstChild.classList[0]
+                  // length:1
+                  // value:"active_circle"
+                  // [[Prototype]]:DOMTokenList
+
+
+                  console.log('========');
+
+                  // --- Console Output End ---
+
+                  if (
+                    box[firstIndex].firstChild.classList[0] ==
+                      box[secondIndex].firstChild.classList[0] &&
+                    box[firstIndex].firstChild.classList[0] ==
+                      box[thirdIndex].firstChild.classList[0]
+                  ) {
+                    // any of the 3 index's matches it will be a winnig match and you only
+                    // need to call one out of the three e.g box[firstIndex].firstChild for it to still work
+                    // box[firstIndex].firstChild
+                    // box[secondIndex].firstChild
+                    // box[thirdIndex].firstChild
+                    console.log('***Cross Winner***');
+
+                    if (
+                      box[firstIndex].firstChild.classList.contains('active_cross')
+                    ) {
+                      // x
+                      message.innerHTML = 'Cross Wins';
+                    } else {
+                      // o
+                      console.log('***Circle Winner***');
+                      message.innerHTML = 'Circle Wins';
+                    }
+                  }
+                }
+              });
+            }
+    </script>
+  </body>
+</html>

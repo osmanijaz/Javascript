@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* #box {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        margin: 10px;
+        display: none;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+
+    } */
+</style>
+
+<body>
+    <!-- ---------------------------practice 1------------------------------- -->
+    <!-- 
+    <button class="Heads" onclick="Head()">Heads</button>
+    <button class="Tails" onclick="Tail()">Tails</button> -->
+
+
+    <!-- <button class="Heads">Heads</button>
+    <button class="Tails">Tails</button> -->
+
+    <!-- ---------------------------practice 2------------------------------- -->
+
+
+    <!-- <button class="head">head</button>
+    <button class="tail">tail</button>  -->
+
+    <!-- ---------------------------practice 3------------------------------- -->
+    <!-- 
+    <button class="btnSameClass head">Head</button>
+    <button class="btnSameClass tail">Tail</button> -->
+
+
+    <!-- ---------------------------practice 4------------------------------- -->
+
+    <!-- <button class="heads">heads</button>
+    <button class="tails">tails</button> -->
+
+
+
+    <!-- 30 divs  -->
+
+    <!-- 1-10 -->
+
+    <!-- <div id="box">1</div>
+    <div id="box">2</div>
+    <div id="box">3</div>
+    <div id="box">4</div>
+    <div id="box">5</div>
+    <div id="box">6</div>
+    <div id="box">7</div>
+    <div id="box">8</div>
+    <div id="box">9</div>
+    <div id="box">10</div> -->
+
+    <!-- 10-20 -->
+
+    <!-- <div id="box">11</div>
+    <div id="box">12</div>
+    <div id="box">13</div>
+    <div id="box">14</div>
+    <div id="box">15</div>
+    <div id="box">16</div>
+    <div id="box">17</div>
+    <div id="box">18</div>
+    <div id="box">19</div>
+    <div id="box">20</div> -->
+
+    <!-- 20-30 -->
+
+    <!-- <div id="box">21</div>
+    <div id="box">22</div>
+    <div id="box">23</div>
+    <div id="box">24</div>
+    <div id="box">25</div>
+    <div id="box">26</div>
+    <div id="box">27</div>
+    <div id="box">28</div>
+    <div id="box">29</div>
+    <div id="box">30</div> -->
+
+
+
+    <script>
+        // <!-- Javascript-------------------- -->
+
+        // -------practice 1---------------------------- -->
+        //     
+
+        // var btns = document.querySelectorAll('button')
+        // console.log(btns);
+        // // console.log();
+
+        // var player = ''
+
+        // for (var i = 0; i < btns.length; i++) {
+        //     console.log(btns[i]);
+
+        //     btns[i].addEventListener('click', function () {
+
+        // alert('hello i am called')
+
+
+        // this is a keyword => refrence purpose => it refers to the target element
+        // console.log(this.innerHTML);
+
+
+        //         player = this.innerHTML
+        //         console.log('player value ', player);
+        //         if (this.innerHTML == 'Heads') {
+        //             alert('heads is called')
+        //             this.style.background = 'red'
+        //         }
+        //     })
+        // }
+
+
+        // function Head() {
+        //     alert('head is clicked')
+        // }
+
+        // function Tail() {
+        //     alert('Tail is clicked')
+        // }
+
+        // < !-- practice 2--------------------- -->
+
+        // var buttonShow = document.querySelectorAll('button')
+        // // console.log(buttonShow[0])
+        // // console.log(buttonShow[1])
+        // // console.log()
+
+        // // var player 
+        // var player = 0
+
+
+        // // var player =  ''
+
+
+        // for (var i = 0; i < buttonShow.length; i++) {
+        //     console.log(buttonShow[i]);
+
+        //     buttonShow[i].addEventListener('click', function(){
+
+        //    alert('Winner')  
+        //    player = this.innerHTML
+        //    console.log('player', player)  
+
+        //    if(player=='head'){
+        //    alert('Calling Heads') 
+        //    this.style.background='green'
+        //    }
+        //    else{
+        //    alert("Calling Tails") 
+        //    this.style.background='red'
+        //    }
+        // })
+        // }
+
+
+
+        // < !--practice 3--------------------- -->
+
+
+        // var btn = document.getElementsByClassName('btnSameClass')
+
+        // //   console.log(btn[0])
+        // // console.log(btn[1])
+        // // console.log(btn)
+
+
+        // var player = 0
+
+        // for (i = 0; i < btn.length; i++) {
+
+        //     console.log(btn[i]);
+
+        //     btn[i].addEventListener('click', function () {
+
+        //         alert('I am calling the button!?')
+
+        //         console.log(this.innerHTML);
+
+        //         player = this.innerHTML
+        //         console.log('The player value is:', player)
+
+        //         if (this.innerHTML == 'Head') {
+        //             btn[0].style.background = 'red'
+
+        //         }
+        //         else if (this.innerHTML == 'Tail') {
+
+        //             btn[1].style.background = 'blue'
+        //         }
+
+        //     })
+        // }
+
+        // < !--practice 4--------------------- -->
+
+        // var buttonHeads = document.querySelector('.heads')
+        // var buttonTails = document.querySelector('.tails')
+
+        // // ---starting points start---
+
+        // var player=0
+        // var computer=0 
+        // var array =['heads', 'tails']
+
+        // randomNumbers()
+
+        // // ---starting points end---
+
+        // // ---computer player start---
+
+        // function randomNumbers(){
+        // var numbers = Math.floor(Math.random()*2)
+        // computer = array[numbers]
+        // console.log(computer, numbers);
+        // }
+
+        // // ---computer player end---
+
+
+        // // ---heads functions start---
+
+        // buttonHeads.addEventListener('click', function(e){
+        // // console.log(e);
+        // player=e.target.innerHTML
+        // console.log(player)
+
+        // if (player == computer) {
+        //                 alert('You won')
+        //             }
+        //             else {
+        //                 alert('You lost')
+        //             }
+        //             randomNumbers()
+        //         })
+
+        // // ---heads functions end---
+
+
+        // // ---tails functions start---
+
+        // buttonTails.addEventListener('click', function(e){
+        // // console.log(e);
+        // player=e.target.innerHTML
+        // console.log(player)
+
+        // if (player == computer) {
+        //                 alert('You won')
+        //             }
+        //             else {
+        //                 alert('You lost')
+        //             }
+        //             randomNumbers()    
+        //         })
+
+        // ---tails functions end---
+
+
+
+        // ----NEW START PRACTICE 5----
+
+        // ---fetch html start---  
+
+        // var buttonHeads = document.querySelector('.heads')
+        // var buttonTails = document.querySelector('.tails')
+
+        // // ---fetch html end---  
+
+        // // ---set up players vs computer---
+
+        // var player;
+        // var computer;
+        // var array = ['heads', 'tails'] 
+
+        // // ---set up computer Random Number Generator player ---
+
+        // random()
+
+        // function random(){
+        // var num = Math.floor(Math.random()*2)
+        // computer= array[num]
+        // console.log(computer, num);
+        // }
+
+
+
+        // // ---player Heads---
+
+
+        // buttonHeads.addEventListener('click', function(e){
+        //     player=e.target.innerHTML
+        //     console.log(player)
+
+        //     if(player==computer){
+        //         alert('Winner')
+        //     }else{
+        // alert('Loser')
+        //     }
+        //   random()  
+        // })
+
+        // ---player Tails---
+
+        // buttonTails.addEventListener('click', function(e){
+        // player=e.target.innerHTML
+        // console.log(player)
+
+        // if(player==computer){
+        // alert('Winner')
+        // }
+        // else{
+        // alert('Loser')
+        // }
+
+        // random()
+
+        // })
+
+
+
+
+        // Practice 6---
+
+
+        // var buttonHeads = document.querySelector('.heads')
+        // var buttonTails = document.querySelector('.tails')
+
+        // var player;
+        // var computer;
+        // var array =['heads', 'tails']
+
+        // // computer 
+
+        // random()
+
+        // function random() {   
+        // var num = Math.floor(Math.random()*2)
+        // computer = array[num]
+        // console.log(computer, num);
+        // }
+
+        // // player 
+
+        // buttonHeads.addEventListener('click', function(e){
+        // player= e.target.innerHTML
+        // console.log(player)
+
+        // if(player == computer){
+        // alert('winner')
+        // }
+        // else{
+        // alert('loser')
+        // }
+
+        // random()
+        // })
+
+
+        // buttonTails.addEventListener('click', function(e){
+
+        // player=e.target.innerHTML
+        // console.log(player);
+
+        // if(player==computer){
+        // alert('Winner')
+        // }else{
+        // alert('Loser')
+        // }
+
+        // random()
+
+
+        // })
+
+
+        // Practice 7 ---
+
+        // var buttonHeads = document.querySelector('.heads')
+        // var buttonTails = document.querySelector('.tails')
+
+
+        // var player = 0
+        // var computer = 0
+        // var array = ['heads', 'tails']
+
+        // // computer number generatar
+
+
+        // function random() {
+        //     var num = Math.floor(Math.random() * 2)
+        //     computer = array[num]
+        //     console.log(computer, num, 'computer')
+
+        // }
+
+        // random()
+
+        // // player heads 
+
+        // buttonHeads.addEventListener('click', function (e) {
+        //     player = e.target.innerHTML
+        //     console.log(player)
+
+        //     if (player == computer) {
+        //         alert('winner')
+        //     }
+
+        //     else {
+        //         alert('loser')
+        //     }
+
+        // })
+
+
+        // buttonTails.addEventListener('click', function (e) {
+        //     player = e.target.innerHTML
+        //     console.log(player);
+
+        //     if (player == computer) {
+        //         alert('Winner')
+        //     }
+        //     else {
+        //         alert('Loser')
+        //     }
+        //     random()
+        // })
+
+        // Practice 8 ---
+
+
+        // var buttonHeads = document.querySelector('.heads')
+        // var buttonTails = document.querySelector('.tails')
+
+
+        // var player = 0
+        // var computer = 0
+        // var array = ['tails', 'heads']
+
+        // // computer 
+
+        // random()
+
+        // function random(){
+        // var num = Math.floor(Math.random()*2)
+        // computer=array[num]
+        // console.log(computer, num)
+        // }
+
+        // // heads 
+
+        // buttonHeads.addEventListener('click', function(e){
+        // player=e.target.innerHTML
+        // console.log(player)
+
+        // if(player == computer){
+        // alert('winner')
+        // }
+        // else{
+        // alert('loser')
+        // }
+
+
+        // random()
+        // })
+
+        // buttonTails.addEventListener('click', function(e){
+        // player=e.target.innerHTML
+        // console.log(player)
+
+        // if(player==computer){
+        // alert('winner')
+        // }else
+        // {'loser'}
+        // random()
+        // })
+
+
+        // practice 9
+
+
+        // var buttonHeads = document.querySelector('.heads')
+        // var buttonTails = document.querySelector('.tails')
+
+
+        // var player=0
+        // var computer=0
+        // var array = ['tails', 'heads']
+
+
+        // // computer 
+
+        // function random(){
+        // var num = Math.floor(Math.random()*2)
+        // computer=array[num]
+        // console.log(computer, num)
+        // }
+        // // heads 
+
+        // buttonHeads.addEventListener('click', function(e){
+        // player = e.target.innerHTML
+        // console.log(player)
+
+        // if(player==computer){
+        // alert('winner')
+        // }
+        // else
+        // {
+
+        // alert('loser')
+        // }
+        // random()
+        // })
+
+        // buttonTails.addEventListener('click', function(e){
+        // player = e.target.innerHTML
+        // console.log(player)
+        // if(player==computer){
+        // alert('winner')
+        // }
+        // else{
+        // alert('loser')
+        // }
+
+        // random()
+
+        // })
+
+
+        // // tails
+
+        // buttonTails.addEventListener('click', function(e){
+        // player=e.target.innerHTML 
+        // console.log(player)
+        // })
+
+
+
+
+        // Practice 10 
+
+
+
+        // var buttonHeads = document.querySelector('.heads')
+        // var buttonTails = document.querySelector('.tails')
+
+        // var player = 0 
+        // var computer = 0
+        // var array = ['heads', 'tails']
+
+
+
+
+        // random()
+
+        // function random(){
+        // var num = Math.floor(Math.random()*2)
+        // computer=array[num]
+        // console.log(computer, num)
+        // } 
+
+
+        // buttonHeads.addEventListener('click', function(e){ 
+        // player = e.target.innerHTML
+        // console.log(player)
+
+        // if(player==computer){
+        // alert('Winner')
+        // }
+        // else
+        // {
+        // alert('Loser')
+        // }
+        // random()
+        // })
+
+
+
+        // buttonTails.addEventListener('click', function(e){
+        // player=e.target.innerHTML
+        // console.log(player);
+
+        // if(player==computer){
+        // alert('winner')
+        // }
+        // else{
+        // alert('loser')
+        // }
+
+
+        // random()
+        // })
+
+
+        // Practice 11
+
+
+        // var buttonHeads = document.querySelector('.heads')
+        // var buttonTails = document.querySelector('.tails')
+
+        // var player = 0
+        // var computer = 0
+        // var array = ['tails', 'heads']
+
+        // // computer 
+
+
+
+        // function random(){
+        // var num = Math.floor(Math.random() * 2)
+        // computer = array[num]
+        // console.log(computer, num)
+        // }
+        // random()
+
+
+        // buttonHeads.addEventListener('click', function(e){
+
+
+
+        // player = e.target.innerHTML
+        // console.log(player)
+
+
+        // if(player==computer){
+
+        // alert('winner')
+        // }
+        // else{
+        // alert('loser')
+        // }
+
+        // random()
+        // })
+
+
+        // buttonTails.addEventListener('click', function(e){
+        // player=e.target.innerHTML
+        // console.log(player)
+
+
+        // if(player==computer){
+
+        // alert('winner')
+        // }
+        // else{
+        // alert('loser')
+        // }
+
+        // random()
+        // })
+
+
+
+        // ***practice Divs***
+
+
+        // var box = document.querySelectorAll('#box')
+
+        // function random(){
+        // var num = Math.floor(Math.random()*30)
+        // box[num].style.backgroundColor='red'
+        // box[num].style.display='block'
+
+        // }
+
+        // random()
+
+
+        // var num1 = Number(prompt("Enter any starting number?"))
+        // var num2 = Number(prompt("Enter any ending number?"))
+
+        // for(i=num1; i<=num2; i++){          
+
+        // box[i].style.backgroundColor='blue'
+        // box[i].style.display='block'
+
+        // }
+
+
+
+
+
+        var num = +(prompt("Enter any number?"))
+        let count = 0
+        for (i = 1; i <= num; i++) {
+
+            count++
+            // console.log(count, ' ');
+
+            var box = document.createElement('div')
+            box.style.height = '100px'
+            box.style.width = '100px'
+            box.innerHTML = count
+            box.style.backgroundColor = 'yellow'
+            box.style.fontFamily = 'arial'
+            box.style.color = 'grey'
+            box.style.display = 'flex'
+            box.style.justifyContent = 'center'
+            box.style.alignItems = 'center'
+            box.style.fontSize = '25px'
+            box.style.border = '2px solid lightgrey'
+            box.style.margin = '10px'
+            document.body.appendChild(box)
+
+            if(i%2==0){
+                box.style.backgroundColor = 'red'
+            }
+            else{
+                box.style.backgroundColor = 'yellow'
+            }
+       }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

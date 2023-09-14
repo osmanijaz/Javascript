@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation With Click</title>
+    <style>
+        .main {
+            height: 50vh;
+            width: 50%;
+            border: 1px solid;
+            margin: 20vh auto;
+            position: relative;
+        }
+
+        .box {
+            width:20% ;
+            height: 20vh;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .box-2{
+            background-color:blue;
+            top: 0;
+            left: 26.5%;
+        }
+        .box-3{
+            background-color: yellow;
+            top: 0;
+            left: 53.5%;
+        }
+        .box-4{
+            background-color: green;
+            top: 0;
+            left: 80%;
+        }
+
+        .button-div{
+            height: 7vh;
+            width: 50%;
+            /* border: 1px solid #000; */
+            margin: -10vh auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn{
+            height: 100%;
+            width: 18%;
+            border: 1px solid #000;
+        }
+        .move1{
+            animation: ani-1 3s linear infinite;
+        }
+        @keyframes ani-1{
+            0%{
+                margin-top: 0;
+                margin-left: 0;
+            }
+            25%{
+                margin-top: 30vh;
+                margin-left: 0;
+            }
+            50%{
+                margin-top: 30vh;
+                margin-left: 80%;
+            }
+            75%{
+                margin-top: 30vh;
+                margin-left: 0;
+            }
+            100%{
+                margin-top: 0;
+                margin-left: 0;
+            }
+        }
+
+        .move2{
+            animation: ani-2 3s linear infinite;
+        }
+        @keyframes ani-2{
+            0%{
+                margin-top: 0;
+                margin-left: 0%;
+            }
+            25%{
+                margin-top: 30vh;
+                margin-left: 0%;
+            }
+            50%{
+                margin-top: 30vh;
+                margin-left: 53.5%;
+            }
+            75%{
+                margin-top: 30vh;
+                margin-left: 0%;
+            }
+            100%{
+                margin-top: 0;
+                margin-left: 0%;
+            }
+        }
+
+        .move3{
+            animation: ani-3 3s linear infinite;
+        }
+        @keyframes ani-3{
+            0%{
+                margin-top: 0;
+                margin-left: 0%;
+            }
+            25%{
+                margin-top: 30vh;
+                margin-left: 0%;
+            }
+            50%{
+                margin-top: 30vh;
+                margin-left: -53.5%;
+            }
+            75%{
+                margin-top: 30vh;
+                margin-left: 0%;
+            }
+            100%{
+                margin-top: 0;
+                margin-left: 0%;
+            }
+        }
+
+        .move4{
+            animation: ani-4 3s linear infinite;
+        }
+        @keyframes ani-4{
+            0%{
+                margin-top: 0;
+                margin-left: 0;
+            }
+            25%{
+                margin-top: 30vh;
+                margin-left: 0;
+            }
+            50%{
+                margin-top: 30vh;
+                margin-left: -81%;
+            }
+            75%{
+                margin-top: 30vh;
+                margin-left: 0;
+            }
+            100%{
+                margin-top: 0;
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="box box-1"></div>
+        <div class="box box-2"></div>
+        <div class="box box-3"></div>
+        <div class="box box-4"></div>
+
+    </div>
+
+    <div class="button-div">
+
+        <button class="btn btn1 " onclick="btn_1()">pick_1</button>
+        <button class="btn btn2"  onclick="btn_2()">pick_2</button>
+        <button class="btn btn3"  onclick="btn_3()">pick_3</button>
+        <button class="btn btn4"  onclick="btn_4()">pick_4</button>
+    </div>
+    <script>
+
+        var box_1 = document.getElementsByClassName('box-1')[0]
+        var box_2 = document.getElementsByClassName('box-2')[0]
+        var box_3 = document.getElementsByClassName('box-3')[0]
+        var box_4 = document.getElementsByClassName('box-4')[0]
+
+
+
+        var btn1 = document.getElementById('btn1')
+        var btn2 = document.getElementById('btn2')
+        var btn3 = document.getElementById('btn3')
+        var btn4 = document.getElementById('btn4')
+
+
+
+        function btn_1(){
+        box_1.classList.add('move1')    
+        box_2.classList.remove('move2')    
+        box_3.classList.remove('move3')    
+        box_4.classList.remove('move4')        
+    }
+
+        function btn_2(){
+        box_1.classList.remove('move1')    
+        box_2.classList.add('move2')  
+        box_3.classList.remove('move3')    
+        box_4.classList.remove('move4')
+            
+        }
+
+        function btn_3(){
+        box_1.classList.remove('move1')    
+        box_2.classList.remove('move2')    
+        box_3.classList.add('move3')      
+        box_4.classList.remove('move4') 
+        }
+
+        function btn_4(){
+        box_1.classList.remove('move1')    
+        box_2.classList.remove('move2')    
+        box_3.classList.remove('move3')    
+        box_4.classList.add('move4')    
+        }
+    </script>
+</body>
+
+</html>

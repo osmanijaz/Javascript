@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        font-family: 'Roboto', sans-serif;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      .message {
+        font-size: 30px;
+        padding: 20px;
+        background-color: lightblue;
+        width: max-content;
+        border-radius: 10px;
+      }
+
+      .score {
+      }
+
+      .main {
+        width: 600px;
+        height: 480px;
+        border: 10px solid rgb(255, 255, 255);
+        display: flex;
+        flex-wrap: wrap;
+        /* border: 4px solid lime; */
+        margin-top: 15px;
+      }
+
+      .black_screen_over {
+        background-color: rgba(0, 0, 0, 0.65);
+        /* height: 100vh; */
+        max-height: 0px;
+        width: 100%;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .black_text_container {
+        border: 2px solid lime;
+        width: 650px;
+        height: 250px;
+        margin-top: 160px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .black_text_container.active {
+        max-height: 100vh;
+      }
+
+      .black_text_container h1 {
+        color: rgba(224, 255, 255, 0.947);
+        letter-spacing: 1px;
+        font-size: 120px;
+      }
+
+      .button_container {
+        width: 100%;
+        height: 80px;
+        border: 2px solid lightblue;
+      }
+
+      .box {
+        border: 5px solid rgb(0, 0, 0);
+        height: 33.333%;
+        width: 33.333%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(190, 190, 190);
+        font-size: 40px;
+        cursor: pointer;
+        box-sizing: border-box;
+        position: relative;
+      }
+
+      .box1 {
+        border-top: 0px;
+        border-left: 0px;
+      }
+
+      .box2 {
+        border-top: 0px;
+      }
+
+      .box3 {
+        border-top: 0px;
+        border-right: 0px;
+      }
+
+      .box4 {
+        border-left: 0px;
+      }
+
+      .box6 {
+        border-right: 0px;
+      }
+
+      .box7 {
+        border-left: 0px;
+        border-bottom: 0px;
+      }
+
+      .box8 {
+        border-bottom: 0px;
+      }
+
+      .box9 {
+        border-bottom: 0px;
+        border-right: 0px;
+      }
+
+      .button_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .btn {
+        width: 290px;
+        height: 50px;
+        border: none;
+        border-radius: 5px;
+        font-size: 23px;
+        color: rgb(255, 255, 255);
+        letter-spacing: 1px;
+        margin: 10px;
+        cursor: pointer;
+      }
+
+      .btn_restart {
+        /* background-image: linear-gradient(
+        to right,
+    #26a0da 0%,
+    #26a0da 50%,
+    #26a0da 100%
+  ); */
+
+        background-color: #26a0da;
+      }
+
+      .btn_restart:hover {
+        background-color: #1db7ff;
+      }
+
+      .btn_restart:focus {
+        background-color: #1db7ffd3;
+      }
+
+      .btn_end {
+        /* background-image: linear-gradient(
+    to right,
+    #ff001e 0%,
+    #ff001e 50%,
+    #ff001e 100%
+  ); */
+        background-color: #ff001e;
+      }
+
+      .btn_end:hover {
+        background-color: #e70000;
+      }
+
+      .btn_end:focus {
+        background-color: #e70000c6;
+      }
+
+      /* cross */
+      .cross::before,
+      .cross-hover::before {
+        content: '\274C'; /* cross */
+        font-size: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+
+      /* .circle */
+      .circle::before,
+      .circle-hover::before {
+        content: '\26AB'; /* circle */
+        font-size: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+
+      /* ***grey hover before click*/
+      .circle-hover::before,
+      .cross-hover::before {
+        opacity: 0.3;
+        filter: grayscale(100%);
+      }
+
+      .highlight {
+        background-color: yellow;
+      }
+    </style>
+
+    <div class="message" id="message">
+      Player <span class="score">1</span> Go
+    </div>
+
+    <div class="main">
+      <div class="box box1"></div>
+      <div class="box box2"></div>
+      <div class="box box3"></div>
+      <div class="box box4"></div>
+      <div class="box box5"></div>
+      <div class="box box6"></div>
+      <div class="box box7"></div>
+      <div class="box box8"></div>
+      <div class="box box9"></div>
+    </div>
+
+    <div class="black_screen_over">
+      <div class="black_text_container">
+        <h1>Game Over</h1>
+
+        <div class="button_container">
+          <button class="btn btn_restart">Restart</button>
+
+          <button class="btn btn_end">End</button>
+        </div>
+      </div>
+    </div>
+
+    <audio src="./click.mp3" id="clickAudio"></audio>
+    <audio src="./gameover.mp3" id="gameover"></audio>
+    <script>
+      var box = document.querySelectorAll('.box');
+      var message = document.getElementById('message');
+      var black_screen_over = document.querySelector('.black_screen_over');
+      var btn_restart = document.querySelector('.btn_restart');
+      var btn_end = document.querySelector('.btn_end');
+      var clickAudio = document.getElementById('clickAudio');
+      var gameoverAudio = document.getElementById('gameover');
+
+      var current_go = 'Player 1';
+
+      var win = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ];
+
+      var wonArray;
+
+      box.forEach((box) => {
+        box.addEventListener('mouseenter', hoverIn);
+        box.addEventListener('mouseleave', hoverOut);
+        box.addEventListener('click', action, { once: true });
+      });
+
+      function hoverIn() {
+        var currentClass = current_go === 'Player 1' ? 'cross' : 'circle';
+
+        if (
+          this.classList.contains('cross') ||
+          this.classList.contains('circle')
+        ) {
+          this.style.cursor = 'not-allowed';
+        } else {
+          this.classList.add(`${currentClass}-hover`);
+        }
+      }
+
+      function hoverOut() {
+        if (
+          this.classList.contains('cross-hover') ||
+          this.classList.contains('circle-hover')
+        ) {
+          this.classList.remove('cross-hover');
+          this.classList.remove('circle-hover');
+        }
+      }
+
+      btn_restart.addEventListener("click", restart);
+      btn_end.addEventListener("click", quit);
+
+function restart() {
+  message.innerText = "Player 1 Go";
+  black_screen_over.classList.remove("active");
+
+  box.forEach((cell) => {
+    box.addEventListener("mouseenter", hoverIn);
+    box.addEventListener("mouseleave", hoverOut);
+    box.classList.remove("cross");
+    box.classList.remove("cross-hover");
+    box.classList.remove("circle");
+    box.classList.remove("circle-hover");
+    box.classList.remove("highlight");
+    box.removeEventListener("click", action);
+    box.addEventListener("click", action, { once: true });
+    box.style.cursor = "pointer";
+  });
+}
+
+function quit() {
+  window.close();
+}
+
+
+      function action() {
+        var currentClass = current_go === 'Player 1' ? 'cross' : 'circle';
+        // remove hover
+        this.classList.remove(`${currentClass}-hover`);
+        // add cross
+        this.classList.add(currentClass);
+        clickAudio.play();
+
+        // if(true)
+
+        if (isWinner(currentClass)) {
+          message.innerText = `${current_go} Won`;
+          // cell[i] e.g. win = [6, 7, 8]
+          wonArray.forEach((i) => box[i].classList.add('highlight'));
+          reset();
+          return
+
+// DRAW TIE RESULT 
+        }else{
+          // Array.from(box)
+          // box getting a NodeList converting into Array
+          // every is Array method
+          
+          // result true 
+          var result = Array.from(box).every((box)=>{
+            // every((box) 9 boxes 
+            return box.classList.length === 2;
+            // catching the length of what is inside of the box if every box is deep equal === to 2 classList within each and every box when clicked e.g. classList one is the box, classList two is either a cross or circle then return true to var result
+
+            // if all boxes clicked have two classList and there is no 3 in a row match then...
+          })
+          // if(true)
+
+          if(result){
+            message.innerHTML = `It is a Draw`;
+            box.forEach((box)=>{
+              box.classList.add('highlight')
+            })
+
+            reset()
+            return
+          }
+        }
+
+        function isWinner(currentClass) {
+          // return true
+          return win.some((win) => {
+            // lose = [0, 1, 2]
+            // lose = [3, 4, 5],
+            // win = [6, 7, 8],
+            var result = win.every((i) =>
+              box[i].classList.contains(currentClass)
+            );
+            // win = [6, 7, 8],
+            // win = [i, i, i],
+
+            if (result) {
+              wonArray = win;
+            }
+            return result;
+          });
+        }
+        
+        current_go === "Player 1"
+    ? (current_go = "Player 2")
+    : (current_go = "Player 1");
+
+  message.innerText = `${current_go} Go`;
+      }
+
+      function reset() {
+          box.forEach((box) => {
+            box.removeEventListener('mouseenter', hoverIn);
+            box.removeEventListener('mouseleave', hoverOut);
+            box.removeEventListener('click', action);
+            box.style.cursor = 'not-allowed';
+          });
+
+          gameoverAudio.play();
+
+          setTimeout(()=>{
+            black_screen_over.classList.add('active')
+
+
+          }, 1000)
+
+
+        }
+
+    </script>
+  </body>
+</html>

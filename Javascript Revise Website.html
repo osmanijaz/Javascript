@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+
+    .abc {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+    }
+
+    .button-style {
+        width: 150px;
+        height: 35px;
+        border: none;
+        color: white;
+        background-color: blue;
+        font-size: 20px;
+        cursor: pointer;
+
+
+    }
+</style>
+
+
+
+
+<body>
+
+    <div class="box1"></div>
+
+
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+    <div class="box2"></div>
+
+
+    <div id="box123"></div>
+
+
+    <div class="box3"></div>
+    <div class="box3"></div>
+    <div class="box3"></div>
+
+
+
+    <!-- <button class="button-style">Click</button> -->
+
+
+
+
+    <button class="btn" onclick="name1()">Click</button>
+
+
+
+    <script>
+
+
+        // num1 = +(prompt("Enter your score?"))
+
+        // // or || any one
+        // // and && both
+
+        // if(num1<=100 && num1>=90){
+        // alert("Your score is A")
+        // }
+
+        // else if(num1<=89 && num1>=80){
+        // alert("Your score is B")}
+
+        // else if(num1<=79 && num1>=70){
+        // alert("Your score is C")}
+
+        // else if(num1<=69 && num1>=60){
+        // alert("Your score is D")}
+
+
+        // else if(num1<59 && num1>=0){
+        // alert("Fail")}
+
+        // else{
+        // alert("error")
+        // }
+
+
+        // for(i=1; i<=10; i++){
+        // var box = document.createElement('div')
+        // document.body.appendChild(box)
+        // box.style.width='300px'
+        // box.style.height='300px'
+        // box.style.backgroundColor='red'
+        // box.style.border='1px solid black'
+        // box.innerHTML=i
+        // box.style.color='white'
+        // box.style.fontSize='50px'
+        // box.style.textAlign='center'
+        // box.style.lineHeight='300px'
+        // box.style.fontFamily='arial'
+
+        // if(i<=5){
+        // box.style.backgroundColor='red'
+        // }
+
+        // else{
+        // box.style.backgroundColor='blue'
+        // }
+        // }
+
+
+
+        // {key : value}  object
+
+        // [0,1,2,3....]  array
+
+
+        // var box = document.createElement('img')
+        // box.style.width = '300px'
+        // box.style.height = '300px'
+        // box.style.border = '2px solid black'
+        // box.setAttribute('src', 'https://cdn.statusqueen.com/dpimages/thumbnail/dp_images_8-1279.jpg')
+        // // box.style.backgroundColor='hotpink'
+
+        // console.log(box)
+        // document.body.appendChild(box)
+
+        // -------------------------------- this is all in script JS -----------------------------
+
+        // var box = document.createElement('div')
+        // //   img, p, h1, span, div, ul, li, a, all tags of HTML
+        // box.style.width='300px'
+        // box.style.height='300px'
+        // box.style.backgroundColor='hotpink'
+        // box.innerHTML='ykjhkjbkjnb'
+        // box.style.color='white'
+
+
+        // document.body.appendChild(box)
+        // // location to show in body
+
+        // box.setAttribute('class', 'abc')
+        // atributes e.g. id, class, src, href, style,
+        // class same name as div abc is now the name of the div can style both abc and div.
+
+
+
+        // ----------calling from body elements html into JS -----------------
+
+        // var num1 = document.querySelector('.box1')  #box 1 if id
+
+        // var box1 = document.querySelector('.box1')
+        // box1.style.width='150px'
+        // box1.style.height='150px'
+        // box1.style.backgroundColor='blue'
+        // console.log(box1)
+
+
+
+        // var box2 = document.querySelectorAll('.box2')
+        // for (var i = 0; i < 4; i++) {
+        //     box2[i].style.width = '150px'
+        //     box2[i].style.height = '150px'
+        //     box2[i].style.backgroundColor = 'hotpink'
+        //     box2[i].style.border = '2px solid black'
+        // }
+
+
+        // box2[0].style.width = '150px'
+        // box2[0].style.height = '150px'
+        // box2[0].style.backgroundColor = 'hotpink'
+        // box2[0].style.border = '2px solid black'
+        // box2[1].style.width = '150px'
+        // box2[1].style.height = '150px'
+        // box2[1].style.backgroundColor = 'hotpink'
+        // box2[1].style.border = '2px solid black'
+        // box2[2].style.width = '150px'
+        // box2[2].style.height = '150px'
+        // box2[2].style.backgroundColor = 'hotpink'
+        // box2[2].style.border = '2px solid black'
+        // box2[3].style.width = '150px'
+        // box2[3].style.height = '150px'
+        // box2[3].style.backgroundColor = 'hotpink'
+        // box2[3].style.border = '2px solid black'
+        // console.log(box2)
+
+
+
+        // var box123 = document.getElementById('box123')
+        // no need to show # as already said get element by id
+        // only show first element in body div
+        // box123.style.width = '150px'
+        // box123.style.height = '150px'
+        // box123.style.backgroundColor = 'grey'
+        // box123.style.border = '2px solid black'
+
+
+        // var box3  = document.getElementsByClassName('box3')
+        // for(var i=0; i<3; i++){
+        // box3[i].style.width = '150px'
+        // box3[i].style.height = '150px'
+        // box3[i].style.backgroundColor = 'green'
+        // box3[i].style.border = '2px solid black'
+        // box3[i].style.marginTop = '2px'
+
+        // console.log(box3)
+        // }
+
+
+
+
+        // var div  = document.getElementsByTagName('div') give in an array
+        // for(var i=0; i<div.length; i++){
+        // div[i].style.width = '150px'
+        // div[i].style.height = '150px'
+        // div[i].style.backgroundColor = 'yellow'
+        // div[i].style.border = '2px solid black'
+        // div[i].style.marginTop = '2px'
+
+        // }
+
+
+        // var number = Math.floor(Math.random() * 5)
+        // console.log(number)
+
+
+        // function name(){}
+        // name()
+        // e.g
+        // function print() {
+        //     console.log('Ahmad');
+        // }
+
+        // print()
+
+
+
+        // () => {}
+
+        // addEventListener('click', () => {})
+
+
+        // var button = document.querySelector('button')
+        // button.addEventListener('click', ()=>{  
+        //     // alert('You Clicked a Button')
+        //     button.style.backgroundColor='grey'
+
+        // })
+
+
+        // var button = document.querySelector('button')
+        // button.addEventListener('click', (e)=>{  
+        //     // alert('You Clicked a Button')
+        //     e.target.style.backgroundColor='yellow'
+        //     e.target.style.color='black'
+
+        // })
+
+
+
+        // this does not work with arrow function 
+        // var button = document.querySelector('button')
+        // button.addEventListener('click', function() {
+
+        //     // alert('You Clicked a Button')
+        //     this.style.backgroundColor = 'yellow'
+        //     this.style.color = 'black'
+        //     console.log(this)
+
+        // })
+
+
+
+
+        var btn = document.querySelector('.btn')
+
+        function name1() {
+            alert('clicked')
+
+            btn.style.width = '100px'
+            btn.style.height = '40px'
+            btn.style.backgroundColor = 'green'
+
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Element Game</title>
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      body {
+        height: 96.6vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border: 10px solid lime;
+      }
+
+      .output {
+        /* background-color: aquamarine; */
+        height: 450px;
+        width: 750px;
+        border: 5px solid black;
+        overflow: hidden;
+        cursor: pointer;
+        /* position: relative; */
+      }
+
+      .box {
+        /* position: absolute; */
+        left: 50%;
+        top: 50%;
+        display: flex;
+        align-items: center;
+        width: 100px;
+        justify-content: center;
+        height: 100px;
+     background-color: rgb(24, 55, 255);
+      }
+      /* .box_2{
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        display: flex;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        border-radius: 15px;
+        border: 5px solid red;
+      } */
+      span {
+        font-size: 30px;
+        font-weight: 400;
+        color: lightpink;
+      }
+      .message {
+        font-size: 30px;
+        font-weight: 300;
+        color: rgb(0, 0, 0);
+        margin-bottom: 20px;
+      }
+      .image {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        border: 5px solid yellowgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="color: rgb(152, 152, 152); font-size: 40px; font-weight: 300">
+      Catching Element
+    </h1>
+
+    <div class="message">
+      X: <span> 0</span>
+      <!-- [0] -->
+      Y: <span> 0</span>
+      <!-- [1] -->
+      score: <span> 0</span>
+      <!-- [2] -->
+    </div>
+
+    <div class="output"></div>
+
+    <script>
+      var output = document.querySelector('.output');
+      var message = document.querySelectorAll('.message span');
+
+      var score = 0
+   
+
+      output.addEventListener('mouseenter', () => {
+        var color = '#' + Math.random().toString(16).substr(-6);
+        // console.log(color);
+
+        output.style.backgroundColor = color;
+      });
+
+
+      output.addEventListener('mouseleave', () => {
+        output.style.backgroundColor = 'white';
+      });
+
+
+      output.addEventListener('mousemove', (e) => {
+
+        message[0].innerHTML = e.x 
+        // console.log(message[0].innerHTML, 'x')
+        message[1].innerHTML = e.y
+        // console.log(message[1].innerHTML, 'y')
+        // console.log(e)   
+
+      });
+
+
+
+document.addEventListener('DOMContentLoaded', ()=>{
+var createBox = document.createElement('div')
+createBox.classList.add('box')
+output.appendChild(createBox)
+
+
+createBox.x = createBox.offsetLeft
+console.log(createBox.x, 'x')
+
+createBox.y = createBox.offsetTop
+console.log(createBox.y, 'y')
+
+// 1. steps define how many steps the box will move? 
+
+// steps 
+// on refresh gives one time start of the number of steps 
+createBox.steps = Math.random()*20
+// var steps = Math.random()*20
+console.log(createBox.steps, 'steps')
+
+
+
+// 2. direction define which direction?
+
+// direction
+// on refresh gives one time start for direction 
+createBox.direction = Math.floor(Math.random()*4)
+console.log(createBox.direction, 'direction')
+// index 0, 1, 2, 3 for left, right, top, bottom (not defined here)
+
+createBox.addEventListener('mouseenter', function(){
+createBox.style.backgroundColor='red'
+})
+
+createBox.addEventListener('mouseleave', function(){
+createBox.style.backgroundColor='rgb(24, 55, 255)'
+})
+
+
+createBox.addEventListener('click', function(){
+score++
+message[2].innerText = score
+})
+
+window.requestAnimationFrame(move)
+
+})
+
+
+
+function move(){
+
+  // 3. speed how fast?
+  // continuous animation movement so need to be placed in a different function  
+
+  // speed 
+  var speed = Math.random() * 15 + 10
+  // speed random number generated less than 15 
+  // plus + 10 is the minimum movement speed limit it will generate
+
+  
+  var area = output.getBoundingClientRect()
+  // returns: left, top, right, bottom, x, y, width, height
+  // relative to the viewport
+  
+  
+
+  var box = document.querySelector('.box') 
+  // box is called again as above was local and need to  link from above 'DOMContentLoaded' function to this function move() 
+  
+  // ---from above---
+  // var createBox = document.createElement('div')
+  // createBox.classList.add('box')
+  // output.appendChild(createBox)  
+  // ---from above---
+
+
+  // from above function 
+  // steps and direction is connected also by: 
+  // var box = document.querySelector('.box') 
+
+  // createBox.steps = Math.random()*20
+  // createBox.direction = Math.floor(Math.random()*4)
+
+
+  box.steps--
+  console.log(box.steps, 'box steps: ***-minus***')
+
+
+  if(box.steps < 0){
+  // (0 -1 -2 < 0)  
+
+   // if box.steps-- goes down to 0 or minus and is less that 0 create a new direction and steps 
+   box.direction = Math.floor(Math.random() * 4)
+
+   box.steps = Math.random() * 20  
+  }
+
+
+
+  // right 
+  if(box.direction == 0 && box.x < area.right - 230){
+ 
+  // ***created from above function***    
+  // createBox.x = createBox.offsetLeft
+
+
+  // box.x 0 to 649 < width 750px area.right
+
+
+  box.x += speed 
+
+  // var speed = Math.random() * 15 + 10
+  // speed random number generated less than 15 
+  // plus + 10 is the minimum movement speed limit it will generate
+
+  }
+  
+
+  //left
+  if(box.direction == 1 && box.x > area.left){
+  // ***created from above function***    
+  // createBox.x = createBox.offsetLeft
+    
+  // box.x 649 to 0 > area.left width: 750px 
+
+  box.x -= speed  
+  }
+
+  // bottom
+  if(box.direction == 2 && box.y < area.bottom - 250){
+  // ***created from above function*** 
+  // createBox.y = createBox.offsetTop
+  
+  //  box.y 0 to 449 < height: 450px area.bottom
+  box.y += speed  
+  }
+
+
+  // top
+  if(box.direction == 3 && box.y > area.top){
+  // ***created from above function*** 
+  // createBox.y = createBox.offsetTop
+
+  // box.y 449 to 0 > height: 450px area.top
+  box.y -= speed  
+  }
+
+  box.style.marginLeft =`${box.x}px`
+  box.style.marginTop = `${box.y}px`
+
+
+  window.requestAnimationFrame(move)
+}
+
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 95vh;
+            background-color: #f2ebe9;
+        }
+
+        .box {
+            width: 130px;
+            height: 130px;
+            border: 3px solid #264143;
+            margin: 10px;
+            background-color: rgb(249, 249, 249);
+
+        }
+
+        .pic {
+            background-image: url('https://source.unsplash.com/random/150x150/?nature/');
+            height: 125px;
+            width: 125px;
+            cursor: pointer;
+        }
+
+        .invisible {}
+
+        .newBorder {
+            border: 3px solid #545454;
+        }
+
+        .hoverDottedBorder {
+            background-color: #dfdfdf;
+            border: 3px dashed #264143;
+
+
+
+
+
+
+        }
+
+
+
+
+
+        @media (max-width:800px) {
+            body {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <div class="pic" draggable="true"></div>
+    </div>
+
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+
+    <script>
+
+        // 1.	dragstart
+        // (when the user starts dragging an element)
+        // 2.	dragenter 
+        // (draggable element enters a drop zone)
+        // 3.	dragleave 
+        // (element leaves a drop zone)
+        // 4.	dragover 
+        // (element is over a drop zone)
+        // 5.	dragdrop
+        // (draggable element dropped onto a drop zone)
+        // 6.	drag
+        // (element is being dragged)
+        // 7.	dragend 
+        // (draggable element is dropped)
+
+        var box = document.querySelectorAll('.box')
+        var pic = document.querySelector('.pic')
+
+        //  ----------------
+        // dragstart
+
+        //    pic.addEventListener('dragstart', function(dragstart){
+        //     console.log('dragstart');
+        //    })
+
+        pic.addEventListener('dragstart', dragstart)
+
+        function dragstart() {
+            console.log('dragstart');
+
+            //  ----------------
+            // this = pic 
+            //  ----------------
+            // className = returns, sets class as a ‘string’
+            //  ----------------
+            // can use classList or className written differently:
+
+            // this.classList.add('newBorder')
+            // this.className += ' newBorder'
+
+            //  ----------------
+            // += 
+            // The previous pic stay's in the box and the new 2nd pic is a copy and dragged out it also has a new class which is styled with new border 
+
+            //  ----------------
+            // ' newBorder' (gap) = 1 class is pic 2 class is  newBorder. Both classes combine as one class it concatenates so need gap to seperate classes as two different classes
+
+            // ----------------
+            // option 1 syntax
+            // setTimeout(() => {
+            //     this.className = 'invisible'
+            // }, 0)
+
+            // option 2 syntax
+            // setTimeout(() => this.className = 'invisible', 0)
+            //  ----------------
+
+            // this.classList.add('newBorder')
+            this.className += ' newBorder'
+            console.log(this)
+            console.log(this.className)
+
+            //  ----------------
+            // option 1 syntax
+            // setTimeout(() => {
+            //     this.className = 'invisible'
+
+            // }, 0)
+
+            // option 2 syntax
+            setTimeout(() => this.className = 'invisible', 0)
+            //  ----------------
+
+        }
+
+        // for in vs for of 
+
+        // for in = index only (don't need index now) 
+        // for of = elements only 
+
+        // box.forEach(function (element, index) {
+        //     element.addEventListener('dragenter', dragenter)
+        //     element.addEventListener('dragover', dragover)
+        //     element.addEventListener('dragleave', dragleave)
+        //     element.addEventListener('dragdrop', dragdrop)
+        // })
+
+
+        // var box = document.querySelectorAll('.box')
+        // for of calling elements NOT Index 
+
+        //  ----------------
+
+        //    dragend 
+
+        pic.addEventListener('dragend', dragend)
+
+        function dragend() {
+
+            this.className = 'pic'
+        }
+
+        for (var anyName of box) {
+            console.log(anyName)
+            anyName.addEventListener('dragenter', dragenter)
+            anyName.addEventListener('dragover', dragover)
+            anyName.addEventListener('drop', drop)
+            anyName.addEventListener('dragleave', dragleave)
+        }
+
+        function dragenter(e) {
+            e.preventDefault()
+            this.className += ' hoverDottedBorder'
+            // console.log(hoverDottedBorder)
+        }
+
+        function dragover(e) {
+            e.preventDefault()
+
+        }
+
+        function dragleave() {
+            this.className = 'box'
+        }
+
+
+        function drop() {
+            this.className = 'box'
+            this.append(pic)
+        }
+
+    </script>
+</body>
+
+</html>

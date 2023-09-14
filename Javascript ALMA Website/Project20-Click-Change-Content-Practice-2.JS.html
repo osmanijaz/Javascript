@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<style>
+    * {
+        font-family: Arial, sans-serif;
+
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+    }
+
+
+    .outerCircleLine {
+        width: 500px;
+        height: 500px;
+        border: 2px solid grey;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+
+
+
+    .miniCircle {
+        width: 80px;
+        height: 80px;
+        background-color: lightgrey;
+        border-radius: 50px;
+        position: absolute;
+        z-index: 100;
+        margin: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .one {
+        margin-left: -430px;
+        margin-top: -250px;
+        background-color: lightgray;
+    }
+
+    .two {
+        margin-left: 430px;
+        margin-top: -250px;
+        background-color: lightgrey;
+    }
+
+    .three {
+        margin-top: 500px;
+        background-color: lightgrey;
+    }
+
+
+    .four {
+        margin-bottom: 500px;
+        background-color: lightgrey;
+    }
+
+
+    .five {
+        margin-left: 430px;
+        margin-top: 250px;
+        background-color: lightgray;
+    }
+
+
+    .six {
+        margin-left: -430px;
+        margin-top: 250px;
+        background-color: lightgray;
+    }
+
+    .activeCircle {
+        background-color: pink;
+        animation: bounce 1s infinite;
+    }
+
+
+
+
+    @keyframes bounce {
+
+        from {
+            transform: scale(1);
+        }
+
+        to {
+            transform: scale(1.2);
+        }
+    }
+
+
+
+    .innerCircleSolid {
+        width: 320px;
+        height: 320px;
+        border: 2px solid lightgray;
+        background-color: lightgrey;
+        border-radius: 50%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content {
+
+        position: absolute;
+        font-size: 60px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        opacity: 0;
+    }
+
+    /* .contentActive {
+        opacity: 1;
+    } */
+
+    .c1header {
+        font-size: 27px;
+        letter-spacing: 1px;
+        padding-top: 10px;
+    }
+
+    .para {
+        text-align: center;
+        color: black;
+        font-size: 14px;
+    }
+</style>
+
+<body>
+
+    <div class="miniCircle one activeCircle"><i class="fa-solid fa-network-wired"></i>
+    </div>
+    <div class="miniCircle two"><i class="fa-solid fa-computer"></i></div>
+    <div class="miniCircle three"><i class="fa-solid fa-radio"></i></div>
+    <div class="miniCircle four"><i class="fa-solid fa-heart"></i></div>
+    <div class="miniCircle five"><i class="fa-solid fa-file"></i></div>
+    <div class="miniCircle six"><i class="fa-solid fa-book"></i></div>
+
+
+    <div class="outerCircleLine">
+
+
+
+        <div class="innerCircleSolid">
+
+            <div class="content c1">
+                <i class="fa-solid fa-network-wired"></i>
+                <h1 class="c1header">ILLUSTRATION</h1>
+                <p class="para">Lorem ipsum is placeholder text<br> commonly used in for<br>previewing layouts and
+                    visual<br>mockups.</p>
+
+
+
+            </div>
+
+
+
+            <div class="content c2">
+                <i class="fa-solid fa-computer"></i>
+                <h1 class="c1header">WEB DESIGN</h1>
+                <p class="para">Lorem ipsum is placeholder text<br> commonly used in for<br>previewing layouts and
+                    visual<br>mockups.</p>
+
+
+            </div>
+            <div class="content c3">
+                <i class="fa-solid fa-radio"></i>
+                <h1 class="c1header">WEB DEVELEPMENT</h1>
+                <p class="para">Lorem ipsum is placeholder text<br> commonly used in for<br>previewing layouts and
+                    visual<br>mockups.</p>
+
+
+            </div>
+
+            <div class="content c4">
+                <i class="fa-solid fa-heart"></i>
+                <h1 class="c1header">GRAPHIC DESIGN</h1>
+                <p class="para">Lorem ipsum is placeholder text<br> commonly used in for<br>previewing layouts and
+                    visual<br>mockups.</p>
+
+
+            </div>
+
+
+
+
+            <div class="content c5">
+                <i class="fa-solid fa-file"></i>
+                <h1 class="c1header">CONSULTING</h1>
+                <p class="para">Lorem ipsum is placeholder text<br> commonly used in for<br>previewing layouts and
+                    visual<br>mockups.</p>
+
+
+            </div>
+            <div class="content c6">
+                <i class="fa-solid fa-book"></i>
+                <h1 class="c1header">3D MODELLING</h1>
+                <p class="para">Lorem ipsum is placeholder text<br> commonly used in for<br>previewing layouts and
+                    visual<br>mockups.</p>
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+    <script>
+
+
+        var miniCircle = document.querySelectorAll('.miniCircle')
+        console.log(miniCircle);
+
+        miniCircle.forEach(function (element, index) {
+            console.log(element)
+            console.log(index)
+
+            element.addEventListener('mouseenter', function () {
+                removeActive()
+                console.log('mouse enter is working', this)
+                this.classList.add('activeCircle')
+            })
+        })
+
+
+        function removeActive() {
+
+            miniCircle.forEach(function (element, index) {
+                element.classList.remove('activeCircle')
+            })
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
+
+
+<!-- create a function 
+pass to each circle
+html pass the keywork to receive in function this
+content id argument c1 c2 
+get element by id hover -->
+
+

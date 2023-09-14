@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    #messegeScramble {
+        color: grey;
+        font-size: 16.5px;
+    }
+
+    .input {
+        color: grey;
+        font-size: 14px;
+
+        font-size: 30px;
+        display: none;
+    }
+
+    /* .active {
+        display: block;
+    } */
+
+    .button {
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        height: 40px;
+        width: 60px;
+        margin-top: 10px;
+        background-color: rgb(212, 212, 212);
+        font-size: 15px;
+        color: gray;
+    }
+
+    .button:hover {
+        background-color: rgb(199, 199, 199);
+        color: rgb(43, 43, 43);
+    }
+</style>
+
+<body>
+    <p id="messegeScramble"></p>
+    <input type="text" class="input" />
+    <br />
+    <button class="button">Start</button>
+    <div id="result"></div>
+
+    <script>
+        var messegeScramble = document.querySelector('#messegeScramble');
+        // console.log(messegeScramble)
+
+        var button = document.querySelector('.button');
+        var input = document.querySelector('input');
+
+        var play = false
+        var scramble
+        var showBrowser = '';
+        var count = 0;
+        var myArray = ['new']
+        var random
+
+        // console.log(random, 'random')
+
+        button.addEventListener('click', function () {
+            console.log('click')
+
+            if (play == false) {
+
+                // input.classList.add('active')
+                // input.className = 'active'
+                input.classList.toggle('input')
+                input.style.outline = 'none'
+                play = true
+
+                random = myArray[Math.floor(Math.random() * myArray.length)]
+
+                console.log(random, 'random')
+
+                scramble = random.split('')
+                console.log(scramble)
+
+
+                // randomArray(scramble)
+
+                // messegeScramble.innerHTML = random
+
+                showBrowser = randomArray(scramble);
+
+
+                // return (arr) this is where we return info from function to assemble back to showBrowser.join('')
+                messegeScramble.innerHTML = showBrowser.join('');
+
+                console.log(showBrowser);
+
+
+
+            } else {
+                console.log(input.value, 'input value')
+                console.log(random, 'random')
+                if (input.value == random) {
+
+                    console.log('Winner Match');
+                    result.innerHTML = 'Winner Match';
+                } else {
+                    count++;
+
+                    console.log(`Try again attempt ${count}`);
+                    result.innerHTML = `Try again attempt ${count}`;
+                }
+            }
+
+
+        })
+
+
+
+        function randomArray(arr) {
+
+
+            // for (var i = 0; i < arr.length; i++) {
+            //     console.log(i, 'i', arr[i], arr.length)
+
+            // index i + 1 to show length
+            // console.log(i, 'i', arr[i], i + 1)
+
+            // index + 1 to get length
+            // e.g. 
+            // 0 'i' 'n' 1
+            // 1 'i' 'e' 2
+            // 2 'i' 'w' 3
+
+            // arr.length will show the total length 
+            // console.log(i, 'i', arr[i], i + 1)
+
+            // e.g. 
+            // 0 'i' 'n' 3
+            // 1 'i' 'e' 3
+            // 2 'i' 'w' 3
+
+            // }
+
+            //arr.length - 1 
+            // e.g.
+
+            // 6 'i' undefined 6
+            // 5 'i' 'o' 6
+            // 4 'i' 't' 6
+            // 3 'i' 'a' 6
+            // 2 'i' 't' 6
+            // 1 'i' 'o' 6
+            // 0 'i' 'p' 6
+
+
+            // index of the word potato in e.g is 6 (i)
+            // index always starts with 0 and will still count up to 6
+            // therefore there will be an extra index 7 (+1) an undefined letter
+            // as length is not defined to a number and length starts with 1 (not like index 0) then we can length - 1 to make it equal and avoid undefined.
+
+            for (var i = arr.length - 1; i >= 0; i--) {
+                console.log(i, 'index', arr[i], i + 1, 'length')
+
+
+                var splitReverseSave = arr[i]
+                console.log(splitReverseSave, 'splitReverseSave')
+
+
+                var newRandomLetterMix = Math.floor(Math.random() * i)
+
+                // with: (arr.length - 1) written in loop 
+                // index in Math.floor(Math.random() * i + 1) 
+                // without +1 it will only show: 
+                // 0 
+                // 1 
+                // and it misses last index e.g. 2 (empty) because arr.length - 1 
+                // newRandomLetterMix will miss last index  
+
+
+                // will calculate random from index 0 to 1 
+                // e.g.
+                // length 1 n index 0
+                // length 2 e index 1
+                // length 3 w index - (missing: arr.length - 1)
+
+                // length 3 w index (will not calculate because of length-1)
+
+                // Therefor i + 1: Math.floor(Math.random() * i + 1
+                // i + 1 to add the last missing index 
+
+                // will NOW calculate total index from random e.g. new 0, 1, 2: 
+                // index 0 to 2 (the total amount in the index equal to the length)
+                // e.g.
+                // length 1 n index 0
+                // length 2 e index 1
+                // length 3 w index 2 (NOW ADDED EXTRA INDEX (number 2) to the list of index for additional calculation random Math.floor(Math.random() * i + 1) 
+
+                // console.log(newRandomLetterMix, 'newRandomLetterMix')
+                // console.log(newRandomLetterMix, 'newRandomLetterMix', 'i', i)
+                console.log('---')
+
+
+                // arr[i] = arr[newRandomLetterMix]
+                // arr[newRandomLetterMix] = splitReverseSave
+
+
+                arr[i] = arr[newRandomLetterMix];
+                arr[newRandomLetterMix] = splitReverseSave;
+
+
+
+
+
+
+
+
+
+
+            }
+
+            return (arr)
+        }
+
+    </script>
+</body>
+
+</html>

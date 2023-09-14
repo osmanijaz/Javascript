@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Document</title>
+</head>
+<style>
+  *{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;  
+  }
+
+  body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  #gameBoard{
+width: 300px;
+height: 300px;
+display: flex;
+flex-wrap: wrap;
+position: relative;
+border: 2px solid rgb(0, 0, 0);
+
+  }
+
+  .square{
+    width: 100px;
+    height: 100px;
+    border: solid 2px black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+  }
+
+  .Circle{
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    border: 15px solid blue;
+    box-sizing: border-box;
+    color: rgb(208, 255, 0);  
+  }
+
+  .Cross{
+    height: 90px;
+    width: 90px;
+    position: relative;
+  }
+
+  .Cross:before, .Cross:after{
+   content:"";
+   position: absolute; 
+   background-color: red;
+  }
+
+  .Cross:before{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 25%;
+  height: 100%;
+  }
+
+  .Cross:after{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 25%;
+  height: 100%;
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+<body>
+
+  <div id="gameBoard"></div>
+  <div id="info"></div>
+
+
+
+  
+  <script>
+
+ var gameBoard = document.querySelector('#gameBoard')
+
+ var info = document.querySelector('#info')
+
+ var startCells = [ 
+ "","","","","","","","",""
+ ]
+
+ var go = "Circle"
+ info.textContent = "Circle Your Turn!? GO!!!"
+
+
+
+ info.style.padding = '20px'
+info.style.backgroundColor = 'lightblue'
+info.style.borderRadius = '10px'
+info.style.marginTop = '40px'
+
+
+
+
+
+function createBoard(){
+
+startCells.forEach((_cell, index)=>{
+var cellElement = document.createElement('div')
+cellElement.classList.add('square')
+
+cellElement.id = index
+
+cellElement.addEventListener('click', addGo)
+
+gameBoard.append(cellElement)
+})
+}
+
+createBoard()
+
+
+
+
+
+// add either circle or cross  
+function addGo(e){
+console.log(e.target)
+
+var goDisplay = document.createElement('div')
+
+goDisplay.classList.add(go)
+// goDisplay.innerText = ''
+e.target.append(goDisplay)
+
+// if( go === 'circle'){
+//   go = "cross"
+
+// }else{
+//   go = "circle"
+// }
+
+go = go === 'Circle' ? 'Cross' : 'Circle'
+
+info.textContent = go  + " Your Turn!? GO!!!"
+
+
+info.style.padding = '20px'
+info.style.backgroundColor = 'lightblue'
+info.style.borderRadius = '10px'
+info.style.marginTop = '40px'
+
+e.target.removeEventListener('click', addGo) 
+
+checkScore()
+
+
+}
+
+function checkScore(){
+
+ var allSquares = document.querySelectorAll('.square')
+ console.log(allSquares)
+
+  
+ 
+ var winningCombo = [
+  [0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]
+  ]
+
+  console.log(allSquares[0])
+
+  // option 1 can write this way: 
+
+  // for(let array of winningCombo){
+  //   console.log(array, 'array')
+  // }
+
+
+  // option 2 can write this way: 
+
+  // winningCombo.forEach(array =>{
+  //   console.log(array, 'array')
+  // })
+
+  // option 3 can write this way:
+
+   
+//   winningCombo.forEach((element, index, array) =>{
+//       console.log(array, 'array')
+// })
+
+
+
+  winningCombo.forEach(array=>{
+    // console.log(array, 'array')
+
+const circleWins = array.every(cell => allSquares[cell].firstChild?.classList.contains('Circle'))
+
+if(circleWins){
+
+  info.textContent = "Circle Wins"
+  allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))
+
+  return
+}
+
+  })
+ 
+
+  winningCombo.forEach(array=>{
+    // console.log(array, 'array')
+
+const crossWins = array.every(cell => allSquares[cell].firstChild?.classList.contains('Cross'))
+
+if(crossWins){
+
+  info.textContent = "Cross Wins"
+  allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))
+
+  return
+}
+
+  })
+ 
+}
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>

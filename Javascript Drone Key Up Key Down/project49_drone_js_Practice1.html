@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+      }
+
+      .container {
+        background-color: #262261;
+        height: 100vh;
+        position: relative;
+      }
+
+      .drone {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+        align-items: center;
+        position: absolute;
+        width: 250px;
+        height: 100px;
+        /* border: 5px solid rgb(255, 0, 208); */
+
+     
+      }
+
+      .drone img {
+        width: 100%;
+
+        /* border: 3px solid yellow; */
+      }
+    </style>
+
+    <div class="container">
+      <div class="drone">
+        <img
+          src="https://cdn.dribbble.com/users/3898087/screenshots/15287542/media/c93f2eb7637752fe243b44c31397cc04.gif"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <script>
+
+var container = document.querySelector('.container')
+var drone = document.querySelector('.drone')
+
+
+var button = {
+ArrowUp:false,
+ArrowDown:false,
+ArrowRight:false,
+ArrowLeft:false,
+};
+
+var player = {
+speed:5,
+}
+
+document.addEventListener('keydown', pressOn)
+document.addEventListener('keyup', pressOff)
+document.addEventListener('DOMContentLoaded', start)
+
+//  DOMContentLoaded javascript window event 
+// window loads e.g. refresh 
+// function start will be called
+
+// offsetTop
+// offsetLeft
+// offsetWidth
+// offsetHeight
+
+function start(){
+player.x = drone.offsetLeft;
+console.log(player.x, 'x')
+player.y = drone.offsetTop;
+console.log(player.y, 'y')
+}
+
+
+window.requestAnimationFrame(playGame);
+// same as setInterval or setTimeout 
+
+
+function pressOn(element){
+element.preventDefault();
+// button[element.keyCode] = true
+button[element.key] = true
+console.log(button)
+// console.log(element.keyCode)
+console.log(element.key)
+}
+
+function pressOff(element){
+element.preventDefault();
+drone.style.transform = 'rotate(0deg)'
+button[element.key] = false
+}
+
+
+
+function playGame(){
+  
+  // getBoundingClientRect()
+  // returns: left, top, right, bottom, x, y, width, height
+  // relative to the viewport
+
+  var area = container.getBoundingClientRect();
+
+  if(button.ArrowUp && player.y > area.top + 40){
+  player.y -= player.speed
+  console.log(player.y, 'y', 'up')
+  }
+
+  if(button.ArrowDown && player.y < area.bottom - 120){
+player.y += player.speed;
+
+    console.log(player.y, 'y', 'down');
+  }
+
+  if (button.ArrowLeft && player.x > 0) {
+      drone.style.transform = "rotate(-20deg)"
+      player.x -= player.speed;
+    }
+
+
+    if (button.ArrowRight && player.x < area.width - 240) {
+      drone.style.transform = "rotate(20deg)"
+    player.x += player.speed;
+  }
+
+drone.style.left = player.x + 'px'
+drone.style.top = player.y + 'px'
+window.requestAnimationFrame(playGame);
+
+}
+
+
+</script>
+  </body>
+</html>

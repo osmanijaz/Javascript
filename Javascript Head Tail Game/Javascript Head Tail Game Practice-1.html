@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+<!-- 
+    <button class="head">Head</button>
+    <button class="tail">Tail</button> -->
+
+    <button class="buttonHead">Heads</button>
+    <button class="buttonTail">Tails</button>
+
+
+
+
+
+
+    <script>
+
+// -----------------------------Declare Setup-------------------------------------
+
+// var query selector head and tail
+// player 
+// computer
+// array head and tail 
+
+
+var buttonHead = document.querySelector('.buttonHead')
+var buttonTail = document.querySelector('.buttonTail')
+
+var player
+var computer
+var array = ['Heads', 'Tails']
+
+
+// -----------------------------Random Number-------------------------------------
+randomNumber()
+function randomNumber(){
+var num = Math.floor(Math.random()*2)
+computer=array[num]
+console.log(num, computer)
+}
+
+
+// ------------------------------Head------------------------------------
+
+buttonHead.addEventListener('click', function(e){
+randomNumber()
+player=e.target.innerHTML
+console.log(player)
+
+if(player==computer){
+alert('Winner')
+}else {
+alert ('Loser')
+}
+})
+
+// ------------------------------Tails------------------------------------
+
+
+
+buttonTail.addEventListener('click', function(e){
+randomNumber()
+player=e.target.innerHTML
+console.log(player)
+
+if(player==computer){
+alert('Winner')
+}else {
+alert ('Loser')
+}
+})
+
+
+
+
+
+
+
+
+// -----------------------------Declare Setup-------------------------------------
+
+// var query selector head and tail
+// player 
+// computer
+// array head and tail 
+
+// var buttonHead = document.querySelector('.buttonHead')
+// var buttonTail = document.querySelector('.buttonTail')
+// var player
+// var computer
+// var array =['Heads', 'Tails']
+
+// -----------------------------Random Number-------------------------------------
+// randomNumber()
+// function randomNumber(){
+// var num = Math.floor(Math.random()*2)
+// computer = array[num]
+// console.log(computer,'comp')
+// }
+
+// ------------------------------Head------------------------------------
+
+// buttonHead.addEventListener('click', function(e){
+// randomNumber()
+// // console.log(e)
+// player = e.target.innerHTML
+// console.log(player)
+// console.log(computer,'compin funtion');
+
+// if(player===computer){
+// alert('Won')
+// }else{
+// alert('Loss')
+// }
+
+// })
+
+// ------------------------------Tails------------------------------------
+
+// buttonTail.addEventListener('click', function(e){
+//         randomNumber()
+// player= e.target.innerHTML 
+
+// if(player===computer){
+// alert('Won')
+// }else{
+// alert('Loss')
+// }
+
+// }) 
+
+
+
+
+
+// -----------------------------Declare Setup--------------------------------------
+        // var btnHead = document.querySelector('.head')
+        // var btnTail = document.querySelector('.tail')
+        // var player;
+        // var computer;
+        // var array = ['Head', 'Tail']
+        
+// -----------------------------Random Number-------------------------------------
+        // random()
+
+        // function random() {
+        //     var num = Math.floor(Math.random() * 2)
+        //     computer = array[num]
+        //     console.log(computer, num);
+        // }
+// ------------------------------Head------------------------------------
+        // btnHead.addEventListener('click', function (e) { 
+        //     // console.log(e);
+        //     player = e.target.innerHTML
+        //     console.log(player);
+
+        //     if (player == computer) {
+        //         alert('You won')
+        //     }
+        //     else 
+        //     {
+        //         alert('You lost')
+        //     }
+
+        //     random()
+        // })
+// ------------------------------Tail------------------------------------
+        // btnTail.addEventListener('click', function (e) {
+        //     player = e.target.innerHTML
+        //     console.log(player);
+
+        //     if (player == computer) {
+        //         alert('You won')
+        //     }
+        //     else {
+        //         alert('You lost')
+        //     }
+        //     random()
+        // })
+// ------------------------------------------------------------------
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

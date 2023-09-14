@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="stylesheet" href="./notification.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="alert">
+
+        <p class="alertText">ATTENTION: Warning the user is at risk of possible error conditions. Please enter text
+            information.</p>
+
+    </div>
+
+    <div class="main">
+        <div class="sideBar"></div>
+
+        <div class="dashboard">
+
+            <div class="contentMain">
+
+                <!-- TOASTER CONFIGURATOR start-->
+
+                <div class="textMain">
+                    <p class="title">TOASTER CONFIGURATOR</p>
+
+
+                    <p class="header">Title <br></p>
+
+                    <input class="inputText1" type="text" placeholder="Enter a title ...">
+
+                    <p class="header">Message <br> </p>
+                    <textarea class="input2" name="comments" id="" cols="30" rows="4"
+                        placeholder="Enter a message ..."></textarea>
+
+                </div>
+
+                <!-- TOASTR CONFIGURATOR end-->
+
+
+                <!-- Toast Type Position start -->
+
+                <div class="listMain">
+
+                    <p class="listTitleP">
+                        Toast Type
+                        <br />
+                    </p>
+
+                    <input class="one" type="radio" name="rating" value="Success" id="a1" />
+                    <label for="a1">Yes</label><br>
+
+                    <input class="one" type="radio" name="rating" value="Info" id="a2" />
+                    <label for="a2">Info</label><br>
+
+                    <input class="one" type="radio" name="rating" value="Warning" id="a3" />
+                    <label for="a3">Warning</label><br>
+
+                    <input class="one" type="radio" name="rating" value="Error" id="a4" />
+                    <label for="a4">Error</label><br>
+
+
+                    <p class="listTitleP listP2">
+                        Position
+                        <br />
+                    </p>
+
+
+                    <!-- Top Right  -->
+
+                    <!-- data-item="top_right" -->
+                    <!-- will not work becuase of - hyphen in data-item for  javascript so use alt  -->
+
+                    <input class="one" alt="top_right" type="radio" name="rating" value="Success" id="a5" />
+                    <label for="a5">Top Right</label><br>
+
+                    <!-- Bottom Right  -->
+
+                    <input class="one" alt="bottom_right" type="radio" name="rating" value="Info" id="a6" />
+                    <label for="a6">Bottom Right</label><br>
+
+                    <!-- Bottom Left -->
+
+                    <input class="one" alt="bottom_left" type="radio" name="rating" value="Warning" id="a7" />
+                    <label for="a7">Bottom Left</label><br>
+
+                    <!-- Top Left -->
+
+                    <input class="one" alt="top_left" type="radio" name="rating" value="Error" id="a8" />
+                    <label for="a8">Top Left</label><br>
+
+                    <!-- Top Full Width  -->
+
+                    <input class="one" alt="top_full_width" type="radio" name="rating" value="Success" id="a9" />
+                    <label for="a9">Top Full Width</label><br>
+
+                    <!-- Bottom Full Width  -->
+
+                    <input class="one" alt="bottom_full_width" type="radio" name="rating" value="Info" id="a10" />
+                    <label for="a10">Bottom Full Width</label><br>
+
+                    <!-- Top Center  -->
+
+                    <input class="one" alt="top_center" type="radio" name="rating" value="Warning" id="a11" />
+                    <label for="a11">Top Center</label><br>
+
+                    <!-- Bottom Center -->
+                    <input class="one" alt="bottom_center" type="radio" name="rating" value="Error" id="a12" />
+                    <label for="a12">Bottom Center</label><br>
+
+                </div>
+
+                <!-- Toast Type Position end -->
+
+
+                <!-- close checked -->
+
+                <button class="btn1">Show Toast</button>
+
+                <div class="closeMain">
+
+                    <input class="two" alt="closeCheck" type="checkbox" name="rating" value="Error" id="a13" />
+                    <label for="a13">Close Button</label><br>
+
+
+
+                </div>
+
+
+                <!-- close checked end -->
+
+                <!--start pop up with cross content page start -->
+
+                <div class="buttonMain">
+                    <button class="buttonClick">Modal</button>
+
+                </div>
+
+
+
+
+
+                <!--end pop up with cross content page end -->
+
+
+
+            </div>
+
+
+
+        </div>
+
+        <div class="contentParent top_right"></div>
+
+        <div class="popUp_Parent">
+            <div class="boxStyleCSS">
+                <i class="fa-solid fa-xmark cross"></i>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <script src="./notification.js"></script>
+
+
+</body>
+
+</html>

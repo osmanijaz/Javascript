@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Roboto", sans-serif;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+      background-color: #bfeaf5;
+    }
+    .btn {
+      padding: 5px 30px;
+      margin: 20px 0;
+      border-radius: 20px;
+      font-size: 1.3rem;
+      border: 2px solid #82aae3;
+      color: #528ee3;
+    }
+    h2 {
+      color: #82aae3;
+      margin: 20px 0;
+      letter-spacing: 1px;
+    }
+    textarea {
+      width: 45%;
+      height: 300px;
+      padding: 20px;
+      background-color: #eafdfc9c;
+      border: 2px solid #82aae369;
+      border-radius: 10px;
+      resize: none;
+      font-size: 20px;
+    }
+    textarea::placeholder {
+      font-size: 20px;
+    }
+    #message {
+      font-size: 18px;
+      color: #82aae3;
+    }
+    #mistakes {
+      font-size: 18px;
+      color: #82aae3;
+    }
+    .correct {
+      color: green;
+    }
+
+    .incorrect {
+      color: red;
+      text-decoration: underline;
+    }
+  </style>
+  <body>
+    <h2 class="text"></h2>
+    <textarea
+      name=""
+      id=""
+      disabled
+      placeholder="START TYPING............"
+    ></textarea>
+
+    <button class="btn">Start</button>
+    <p id="message"></p>
+    <p id="mistakes"></p>
+    <div id="accuracy"></div>
+
+    <script>
+      let text = document.querySelector(".text");
+      let area = document.querySelector("textarea");
+      let mistakes = document.querySelector("#mistakes");
+      let message = document.querySelector("#message");
+      let accuracy = document.querySelector("#accuracy");
+      console.log(area);
+      // console.log(area);
+      var btn = document.querySelector(".btn");
+
+      let correct = true;
+      let mistake = 0;
+      let messageArray = [
+        "Sometimes it's hard to avoid the happiness of others.",
+        "The idea of a mass audience was really an invention of the Industrial Revolution.",
+        "I don't know the key to success, but the key to failure is trying to please everybody.",
+        "When you reach the end of your rope, tie a knot in it and hang on. ",
+      ];
+
+      // let random = Math.floor(Math.random() * messageArray.length);
+
+      function renderNewQuote() {
+        let random = Math.floor(Math.random() * messageArray.length);
+
+        let quote = messageArray[random];
+
+        text.innerHTML = "";
+        quote.split("").forEach((characters) => {
+          // console.log(characters, "characters");
+          const characterSpan = document.createElement("span");
+          // characterSpan.classList.add('correct')
+
+          characterSpan.innerHTML = characters;
+
+          text.appendChild(characterSpan);
+        });
+      }
+
+      area.addEventListener("input", function () {
+        let arrayQuote = text.querySelectorAll("span");
+        let arrayValue = area.value.split("");
+
+        arrayQuote.forEach((characterSpan, index) => {
+          let character = arrayValue[index];
+          if (!character) {
+            characterSpan.classList.remove("incorrect");
+            characterSpan.classList.remove("correct");
+            correct = false;
+          } else if (character !== characterSpan.innerHTML) {
+            mistake++;
+            characterSpan.classList.add("incorrect");
+            characterSpan.classList.remove("correct");
+            mistakes.innerHTML = `you made ${mistake} mistakes`;
+            correct = false;
+          } else if (character === characterSpan.innerHTML) {
+            characterSpan.classList.add("correct");
+            characterSpan.classList.remove("incorrect");
+          }
+        });
+        if (correct === true) {
+          renderNewQuote();
+          console.log("working");
+        }
+      });
+
+      let startTime;
+      let endTime;
+
+      btn.addEventListener("click", function () {
+        if (btn.innerHTML == "Start") {
+          playeGame();
+        } else {
+          endGame();
+        }
+      });
+
+      function playeGame() {
+        renderNewQuote();
+
+        mistake = 0;
+        btn.innerHTML = "Done";
+        area.disabled = false;
+        message.innerHTML = "";
+
+        startTime = new Date().getTime();
+      }
+
+      function endGame() {
+        btn.innerHTML = "Start";
+        endTime = new Date().getTime();
+        console.log(startTime, "start");
+        let totalTime = (endTime - startTime) / 1000;
+
+        let wordsCount = area.value.length;
+        console.log(wordsCount);
+
+        let speed = Math.round((wordsCount / totalTime) * 60);
+
+        message.innerHTML = `Your typing speed is ${speed} word per min`;
+        area.disabled = true;
+        area.value = "";
+      }
+    </script>
+  </body>
+</html>

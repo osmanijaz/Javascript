@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: #444267;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .dropList_container {
+      width: 300px;
+      height: max-content;
+      /* border: 3px solid lime; */
+    }
+
+    #movieList {
+      border: none;
+      outline: none;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      color: white;
+      background-color: transparent;
+    }
+
+    option p {
+      font-size: 40px;
+    }
+
+    option {
+      background-color: #444267;
+      appearance: none;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .opt {
+      display: none;
+    }
+
+    select {
+      color: #000000;
+      cursor: pointer;
+      font-size: 1em;
+      width: 100%;
+    }
+
+    .price_container {
+      margin-top: 30px;
+      width: 200px;
+      height: 40px;
+      /* border: 2px solid rgb(0, 0, 0); */
+      /* background-color: rgb(0, 0, 0); */
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 5px;
+    }
+
+    p {
+      color: white;
+    }
+    p span {
+      color: white;
+      font-weight: 500;
+    }
+
+    .showcase {
+      background: rgba(0, 0, 0, 0.1);
+      padding: 5px 10px;
+      border-radius: 5px;
+      color: #777;
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 90px;
+    }
+
+    .row {
+      display: flex;
+    }
+
+    .seat {
+      background-color: #444451;
+      border: 1px solid black;
+      height: 12px;
+      width: 15px;
+      margin: 3px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      cursor: pointer;
+    }
+
+    .seat.selected {
+      background-color: #6feaf6;
+    }
+
+    .seat.occupied {
+      background-color: #ffffff;
+    }
+
+    .seat:not(.occupied):hover {
+      transform: scale(1.2);
+    }
+
+    .seat:nth-of-type(2) {
+      margin-right: 18px;
+    }
+
+    .seat:nth-last-of-type(2) {
+      margin-left: 18px;
+    }
+
+    .showcase li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 10px;
+    }
+
+    .showcase li small {
+      margin-left: 2px;
+    }
+
+    .cinema_container {
+      perspective: 1000px;
+      margin-bottom: 30px;
+    }
+
+    .screen {
+      height: 50px;
+      width: 200px;
+      background-color: white;
+      margin: 30px 0px;
+      transform: rotateX(-55deg);
+      box-shadow: 0 3px 10px 1px rgba(255, 255, 255, 0.7);
+    }
+
+    #single_price {
+      color: #6feaf6;
+    }
+
+    #count {
+      color: #6feaf6;
+    }
+
+    #total {
+      color: #6feaf6;
+    }
+  </style>
+  <body>
+    <!-- price  -->
+    <div class="price_container">
+      <p>Price £<span id="single_price">0.00</span></p>
+    </div>
+    <!-- price  -->
+
+    <!-- droplist  -->
+    <div class="dropList_container" style="width: 200px">
+      <select id="movieList">
+        <option class="opt" selected value="0">Select Movie:</option>
+        <option value="5.55">Spiderman</option>
+        <option value="10.99">Batman</option>
+        <option value="15.69">Superman</option>
+        <option value="20.22">Wonder Woman</option>
+      </select>
+    </div>
+    <!-- droplist  -->
+
+    <ul class="showcase">
+      <li>
+        <div class="seat"></div>
+        <small>N/A</small>
+      </li>
+
+      <li>
+        <div class="seat selected"></div>
+        <small>Selected</small>
+      </li>
+
+      <li>
+        <div class="seat occupied"></div>
+        <small>Occupied</small>
+      </li>
+    </ul>
+
+    <div class="cinema_container">
+      <div class="screen"></div>
+
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+      </div>
+
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+        <div class="seat"></div>
+      </div>
+    </div>
+
+    <p class="text">
+      You have selected <span id="count">0</span> seat's for a price of £<span
+        id="total"
+        >0</span
+      >
+    </p>
+
+    <script>
+
+      var single_price = document.getElementById('single_price')
+      var movieList = document.getElementById('movieList')
+      var seat = document.querySelectorAll('.row .seat:not(.occupied)')
+      var count = document.getElementById('count')
+      var total = document.getElementById('total')
+
+      // part 2
+
+      movieList.addEventListener('change', (element)=>{
+      // console.log('change list is working')
+      single_price.innerHTML = element.target.value
+      localStorage.setItem('price', element.target.value)
+
+
+
+      localStorage.setItem('movieIndex', element.target.selectedIndex)
+
+
+      })
+
+      var showPriceOutput = localStorage.getItem('price')
+      single_price.innerHTML = showPriceOutput
+      // console.log(showPriceOutput, 'showPriceOutput')
+
+
+      var showMovieOutput = localStorage.getItem('movieIndex')
+
+      movieList.selectedIndex = showMovieOutput
+
+
+
+      // part 3
+
+      seat.forEach((e, i)=>{
+        // console.log(e, 'e')
+        e.addEventListener('click', ()=>{
+        // console.log('click')
+        e.classList.toggle('selected')
+
+        updateSelectedCount()
+
+        })
+
+      })
+
+      // part 4
+
+
+
+      function updateSelectedCount(){
+
+      var selected = document.querySelectorAll('.row .selected')
+      // console.log(selected);
+
+      var seatIndex = [...selected].map((e) => [...seat].indexOf(e))
+      console.log(seatIndex)
+
+      localStorage.setItem('selectedSeats', JSON.stringify(seatIndex))
+      console.log(seatIndex)
+
+      // objects [{'2','3','4'}] // shows the string in objects
+      // arrays  [2, 3, 4] // does NOT show strings in array
+
+
+       var seatTotal = seatIndex.length
+       count.innerHTML = seatTotal
+
+      //  console.log(seatTotal, 'seatTotal')
+      //  console.log(single_price, 'single_price')
+
+      // var totalAnswer = seatTotal * single_price.innerHTML;
+      // total.innerHTML = totalAnswer
+
+
+       var answerSinglePrice = localStorage.getItem('price')
+
+
+      var totalAnswer = seatTotal * answerSinglePrice;
+      total.innerHTML = totalAnswer
+      }
+
+
+      onRefreshStoreSeats_Price()
+
+
+
+
+      function onRefreshStoreSeats_Price(){
+
+       var getPrice = localStorage.getItem('price')
+      //  console.log(getPrice, 'getPrice')  
+
+       var get_selected_seats = JSON.parse(localStorage.getItem('selectedSeats'));
+      //  console.log(get_selected_seats, 'get_selected_seats')
+
+      var onRefresh_newTotalAnswer = get_selected_seats.length * getPrice;
+      total.innerHTML = onRefresh_newTotalAnswer
+      count.innerHTML = get_selected_seats.length
+
+
+
+      if(get_selected_seats !== null && get_selected_seats.length > 0){
+        seat.forEach((seat, index)=>{
+          if(get_selected_seats.indexOf(index) > -1){
+
+      // indexOf() // default -1
+      // selectedSeats.indexOf(1) > -1
+
+      // 0(-1 > -1)  // false
+      // 1(0 > -1)   // true (indexOf starts with its own new index 0)
+      // 2(-1 > -1)  // false
+      // 3(-1 > -1)  // false
+
+      seat.classList.add('selected');
+    }
+        })
+      }
+    }
+    </script>
+  </body>
+</html>

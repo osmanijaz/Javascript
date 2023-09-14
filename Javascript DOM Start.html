@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+      
+                    }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="main">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil vitae debitis, reiciendis aspernatur dolore
+            voluptate adipisci consequuntur amet necessitatibus saepe, blanditiis sit nisi magni, quas fugiat beatae
+            voluptates expedita consectetur.</p>
+    </div>
+
+    <div id="main"></div>
+    <div id="main"></div>
+
+
+
+    <script>
+
+        // 1: querySelector    get single Element must put  ( . # )
+        // - class
+        // - id
+        // - tag  
+        // 2: querySelectorAll   
+        // get all same elements  must put  ( . # )  create an array for childs
+        // - class
+        // - id
+        // - tag
+        // 3: getElementById   get single elements   and first element from multiple
+        // - id
+        // 4: getElementsByClassName   get single or multiple elements   create an array for childs
+        // - class
+        // 5: getElementsByTagName   get single or multiple elements   create an array for childs
+        // - tag e.g. img, p, span, button, i, video, audio, li, ul
+
+
+        // var main = document.querySelectorAll('#main')
+        // console.log(main[0]);
+        // main[0].style.width = '100px'
+        // main[0].style.height = '100px'
+        // main[0].style.backgroundColor = 'red'
+
+
+        var para = document.getElementById('main')
+        console.log(para);
+        // console.log(para[0]);
+        // para[0].style.color = 'blue'
+
+
+
+
+    </script>
+
+</body>
+
+</html>

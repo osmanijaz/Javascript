@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .quiz-conainer {
+        position: relative;
+        height: auto;
+        background-color: pink;
+      }
+
+      .btns {
+        position: absolute;
+        /* bottom: 0; */
+        width: 99%;
+        border: 1px solid #000;
+      }
+
+      .quiz-header {
+        padding: 4rem;
+      }
+
+      .quiz-header h2 {
+        padding: 1rem;
+        text-align: center;
+        margin: 0;
+      }
+
+      .quiz-header ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .quiz-header ul li {
+        font-size: 1.2rem;
+        margin: 1rem 0;
+      }
+
+      .quiz-header ul li label {
+        cursor: pointer;
+      }
+
+      #prev {
+        background-color: #f79504;
+        color: #fff;
+        border: none;
+        /* display: inline-block; */
+        /* width: 50%; */
+        display: inline-block;
+        cursor: pointer;
+        font-size: 1.1rem;
+        font-family: inherit;
+        transition: all 0.3s linear;
+        padding: 1.3rem;
+      }
+
+      #prev:hover {
+        background-color: #732d91;
+      }
+
+      #prev:active {
+        outline: none;
+        background-color: #5e3370;
+      }
+
+      #next {
+        background-color: #f79504;
+        color: #fff;
+        border: none;
+        display: block;
+        /* width: 20%; */
+        float: right;
+        cursor: pointer;
+        font-size: 1.1rem;
+        font-family: inherit;
+        border-left: 1px solid white;
+        padding: 1.3rem;
+        transition: all 0.3s linear;
+      }
+
+      #next:hover {
+        background-color: #732d91;
+      }
+
+      #next:active {
+        outline: none;
+        background-color: #5e3370;
+      }
+
+      #submit {
+        background-color: #f79504;
+        color: #fff;
+        border: none;
+        display: block;
+        /* width: 50%; */
+        float: right;
+        cursor: pointer;
+        font-size: 1.1rem;
+        font-family: inherit;
+        border-left: 1px solid white;
+        padding: 1.3rem;
+        transition: all 0.3s linear;
+        display: none;
+      }
+
+      #submit:hover {
+        background-color: #732d91;
+      }
+
+      #submit:active {
+        outline: none;
+        background-color: #5e3370;
+      }
+
+      .slider {
+        width: 100%;
+        position: relative;
+      }
+      .slide {
+        width: 100%;
+        padding: 10px;
+        background-color: white;
+        position: absolute;
+        display: none;
+      }
+
+      .active {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+
+
+    <div class="quiz-container" id="quiz">
+      <div class="slider">
+        <div class="slide slide1 active"></div>
+        <div class="slide slide2"></div>
+        <div class="slide slide3"></div>
+        <div class="slide slide4"></div>
+        <div class="slide slide5"></div>
+      </div>
+    </div>
+
+    <div class="btns">
+      <button id="prev">Previous</button>
+      <button id="submit">Submit</button>
+      <button id="next">Next</button>  
+    </div>
+
+    <script>
+
+
+      const quizData = [
+        {
+          question: "Q1: Which language runs in a web browser?",
+          a: "Java",
+          b: "C",
+          c: "Python",
+          d: "JavaScript",
+          correct: "d",
+        },
+        {
+          question: "Q2: What does CSS stand for?",
+          a: "Central Style Sheets",
+          b: "Cascading Style Sheets",
+          c: "Cascading Simple Sheets",
+          d: "Cars SUVs Sailboats",
+          correct: "b",
+        },
+        {
+          question: "Q3: What does HTML stand for?",
+          a: "Hypertext Markup Language",
+          b: "Hypertext Markdown Language",
+          c: "Hyperloop Machine Language",
+          d: "Helicopters Terminals Motorboats Lamborginis",
+          correct: "a",
+        },
+        {
+          question: "Q4: What year was JavaScript launched?",
+          a: "1996",
+          b: "1995",
+          c: "1994",
+          d: "none of the above",
+          correct: "b",
+        },
+        {
+          question:
+            "Q5: What is the difference between null and undefined in JavaScript?",
+          a: "Null is a value of nothing while undefined means a variable has not been assigned a value",
+          b: "Undefined is a value of nothing while null means a variable has not been assigned a value",
+          c: "Null and undefined are the same thing",
+          d: "There is no difference between null and undefined",
+          correct: "a",
+        },
+        {
+          question:
+            "Q6: What is the output of the following code: console.log(typeof [])",
+          a: "Array",
+          b: "Object",
+          c: "Undefined",
+          d: "String",
+          correct: "b",
+        },
+        {
+          question:
+            "Q7: What is the correct way to create a new object in JavaScript?",
+          a: "var obj = Object()",
+          b: "var obj = new Object()",
+          c: "var obj = {}",
+          d: "All of the above",
+          correct: "c",
+        },
+        {
+          question:
+            "Q8: What is the output of the following code: console.log(1 + '2' + 3 + 4)",
+          a: "1234",
+          b: "10",
+          c: "9",
+          d: "NaN",
+          correct: "a",
+        },
+        {
+          question:
+            "Q9: What is the difference between == and === in JavaScript?",
+          a: "== compares two values for equality, while === compares two values for equality and type",
+          b: "== compares two values for equality and type, while === compares two values for equality",
+          c: "== and === are the same thing",
+          d: "There is no difference between == and ===",
+          correct: "a",
+        },
+        {
+          question:
+            "Q10: What is the output of the following code: console.log(typeof 42)",
+          a: "String",
+          b: "Number",
+          c: "Object",
+          d: "Undefined",
+          correct: "b",
+        },
+        {
+          question:
+            "Q11: What is the command used to create a new directory in Linux?",
+          a: "create",
+          b: "mkdir",
+          c: "newdir",
+          d: "makedir",
+          correct: "b",
+        },
+        {
+          question: "Q12: What does CPU stand for?",
+          a: "Central Processing Unit",
+          b: "Computer Processing Unit",
+          c: "Core Processing Unit",
+          d: "Control Processing Unit",
+          correct: "a",
+        },
+        {
+          question: "Q13: What is the main difference between HTTP and HTTPS?",
+          a: "HTTP is faster than HTTPS",
+          b: "HTTPS is more secure than HTTP",
+          c: "HTTP uses port 80, while HTTPS uses port 443",
+          d: "There is no difference between HTTP and HTTPS",
+          correct: "b",
+        },
+        {
+          question:
+            "Q14: Which of the following is a block-level element in HTML?",
+          a: "a",
+          b: "span",
+          c: "div",
+          d: "p",
+          correct: "c",
+        },
+        {
+          question:
+            "Q15: What is the purpose of the alt attribute in an img tag?",
+          a: "To provide a caption for the image",
+          b: "To specify the width of the image",
+          c: "To specify the height of the image",
+          d: "To provide alternative text for the image",
+          correct: "d",
+        },
+        {
+          question: "Q16: What is the purpose of the z-index property in CSS?",
+          a: "To specify the position of an element",
+          b: "To specify the color of an element",
+          c: "To specify the font of an element",
+          d: "To specify the stacking order of an element",
+          correct: "d",
+        },
+        {
+          question: "Q17: Which of the following is a CSS preprocessor?",
+          a: "Sass",
+          b: "LESS",
+          c: "Stylus",
+          d: "All of the above",
+          correct: "d",
+        },
+        {
+          question:
+            "Q18: What is the difference between margin and padding in CSS?",
+          a: "Margin is the space outside the border, while padding is the space inside the border",
+          b: "Margin is the space inside the border, while padding is the space outside the border",
+          c: "Margin and padding are the same thing",
+          d: "None of the above",
+          correct: "a",
+        },
+        {
+          question: "Q19: What does OOP stand for?",
+          a: "Object-Oriented Programming",
+          b: "Object-Oriented Protocol",
+          c: "Object-Oriented Processing",
+          d: "Object-Oriented Procedure",
+          correct: "a",
+        },
+        {
+          question:
+            "Q20: What is the purpose of the this keyword in JavaScript?",
+          a: "To refer to the current object",
+          b: "To create a new object",
+          c: "To refer to the parent object",
+          d: "To refer to the child object",
+          correct: "a",
+        },
+        {
+          question: "Q21: What does PHP stand for?",
+          a: "Personal Home Page",
+          b: "PHP: Hypertext Preprocessor",
+          c: "Private Hypertext Processor",
+          d: "Preprocessed Hypertext Pages",
+          correct: "b",
+        },
+        {
+          question:
+            "Q22: Which HTML attribute is used to define inline styles?",
+          a: "style",
+          b: "class",
+          c: "id",
+          d: "font",
+          correct: "a",
+        },
+        {
+          question: "Q23: What does SQL stand for?",
+          a: "Structured Query Language",
+          b: "Simple Query Language",
+          c: "Standard Query Language",
+          d: "Secondary Query Language",
+          correct: "a",
+        },
+        {
+          question:
+            "Q24: What is the correct HTML element for the largest heading?",
+          a: "h6",
+          b: "h2",
+          c: "h1",
+          d: "heading",
+          correct: "c",
+        },
+        {
+          question:
+            "Q25: What is the correct HTML element for inserting a line break?",
+          a: "break",
+          b: "lb",
+          c: "br",
+          d: "line",
+          correct: "c",
+        },
+        {
+          question:
+            "Q26: What is the correct CSS syntax for targeting all <p> elements with a class of 'intro'?",
+          a: ".intro {p}",
+          b: "#intro p",
+          c: "p.intro",
+          d: "p .intro",
+          correct: "c",
+        },
+        {
+          question: "Q27: What does AJAX stand for?",
+          a: "Asynchronous JavaScript and XML",
+          b: "Advanced JavaScript and XML",
+          c: "Asynchronous JSON and XML",
+          d: "Advanced JSON and XML",
+          correct: "a",
+        },
+        {
+          question: "Q28: Which HTML tag is used to define an image?",
+          a: "img",
+          b: "picture",
+          c: "image",
+          d: "photo",
+          correct: "a",
+        },
+        {
+          question:
+            "Q29: Which CSS property is used to change the background color of an element?",
+          a: "color",
+          b: "background-color",
+          c: "font-color",
+          d: "text-color",
+          correct: "b",
+        },
+        {
+          question: "Q30: Which HTML tag is used to define a hyperlink?",
+          a: "link",
+          b: "a",
+          c: "href",
+          d: "hyperlink",
+          correct: "b",
+        },
+        {
+          question: "Q31: What does XML stand for?",
+          a: "eXtensible Markup Language",
+          b: "eXact Markup Language",
+          c: "eXecutable Markup Language",
+          d: "eXplicit Markup Language",
+          correct: "a",
+        },
+        {
+          question:
+            "Q32: Which of the following is not a JavaScript data type?",
+          a: "string",
+          b: "number",
+          c: "boolean",
+          d: "character",
+          correct: "d",
+        },
+        {
+          question:
+            "Q33: Which of the following is the correct syntax to declare a variable in JavaScript?",
+          a: "var myVar = 5;",
+          b: "variable myVar = 5;",
+          c: "int myVar = 5;",
+          d: "myVar = 5;",
+          correct: "a",
+        },
+        {
+          question:
+            "Q34: What is the correct way to add an element to the end of an array in JavaScript?",
+          a: "array.add('new element')",
+          b: "array.insert('new element')",
+          c: "array.push('new element')",
+          d: "array.append('new element')",
+          correct: "c",
+        },
+        {
+          question: "Q35: What does the 'this' keyword refer to in JavaScript?",
+          a: "The global object",
+          b: "The function it belongs to",
+          c: "The object that owns the function",
+          d: "The previous object in the call stack",
+          correct: "c",
+        },
+        {
+          question:
+            "Q36: Which of the following is not a valid way to create a function in JavaScript?",
+          a: "function myFunction() { }",
+          b: "var myFunction = function() { }",
+          c: "var myFunction = () => { }",
+          d: "myFunction() { }",
+          correct: "d",
+        },
+        {
+          question:
+            "Q37: Which of the following is not a valid JavaScript comparison operator?",
+          a: "===",
+          b: "!==",
+          c: "||",
+          d: "<=",
+          correct: "c",
+        },
+        {
+          question:
+            "Q38: What is the difference between null and undefined in JavaScript?",
+          a: "They are the same",
+          b: "null is the absence of a value while undefined is the absence of a defined value",
+          c: "undefined is the absence of a value while null is the absence of a defined value",
+          d: "There is no difference",
+          correct: "b",
+        },
+        {
+          question:
+            "Q39: Which of the following is not a JavaScript loop statement?",
+          a: "for",
+          b: "while",
+          c: "do-while",
+          d: "until",
+          correct: "d",
+        },
+        {
+          question:
+            "Q40: What is the purpose of the 'use strict' statement in JavaScript?",
+          a: "To enable strict mode which enforces stricter parsing and error handling",
+          b: "To disable strict mode which allows for looser parsing and error handling",
+          c: "To define a strict variable naming convention",
+          d: "To enable strict type checking",
+          correct: "a",
+        },
+        {
+          question: "Q41: What is a callback function in JavaScript?",
+          a: "A function that is called when an event occurs",
+          b: "A function that is passed as an argument to another function and is executed inside that function",
+          c: "A function that is called before another function",
+          d: "A function that is executed at the end of a program",
+          correct: "b",
+        },
+        {
+          question: "Q42: What is the DOM in JavaScript?",
+          a: "A database of web pages",
+          b: "A programming language",
+          c: "A web server",
+          d: "A programming interface for web documents",
+          correct: "d",
+        },
+        {
+          question:
+            "Q43: What is the difference between null and undefined in JavaScript?",
+          a: "null is an object, while undefined is a type",
+          b: "null is a type, while undefined is an object",
+          c: "null represents the intentional absence of any object value, while undefined represents an uninitialized value",
+          d: "undefined represents the intentional absence of any object value, while null represents an uninitialized value",
+          correct: "c",
+        },
+        {
+          question: "Q44: What is a closure in JavaScript?",
+          a: "A function that is called when an event occurs",
+          b: "A function that is passed as an argument to another function and is executed inside that function",
+          c: "An inner function that has access to the outer function's variables",
+          d: "A function that is executed at the end of a program",
+          correct: "c",
+        },
+        {
+          question:
+            "Q45: What is the difference between == and === in JavaScript?",
+          a: "They are the same thing",
+          b: "== compares values without regard to type, while === compares both value and type",
+          c: "== compares both value and type, while === compares values without regard to type",
+          d: "== is used for string comparison, while === is used for number comparison",
+          correct: "b",
+        },
+        {
+          question:
+            "Q46: What is the difference between let and var in JavaScript?",
+          a: "They are the same thing",
+          b: "var is used to declare variables with block scope, while let is used to declare variables with function scope",
+          c: "let is used to declare variables with block scope, while var is used to declare variables with function scope",
+          d: "var is used for integer values, while let is used for string values",
+          correct: "c",
+        },
+        {
+          question:
+            "Q47: What is the purpose of the 'use strict' statement in JavaScript?",
+          a: "To enable strict mode for the entire program",
+          b: "To disable strict mode for the entire program",
+          c: "To enable strict mode for a specific function or block of code",
+          d: "To disable strict mode for a specific function or block of code",
+          correct: "c",
+        },
+        {
+          question: "Q48: What is a generator function in JavaScript?",
+          a: "A function that generates random numbers",
+          b: "A function that returns an iterator object",
+          c: "A function that generates HTML code",
+          d: "A function that generates CSS code",
+          correct: "b",
+        },
+        {
+          question:
+            "Q49: Which of the following is not a programming language?",
+          a: "Java",
+          b: "Python",
+          c: "HTML",
+          d: "C++",
+          correct: "c",
+        },
+        {
+          question:
+            "Q50: What is the difference between padding and margin in CSS?",
+          a: "Padding adds space inside an element, while margin adds space outside an element",
+          b: "Margin adds space inside an element, while padding adds space outside an element",
+          c: "Padding is used for horizontal spacing, while margin is used for vertical spacing",
+          d: "Margin is used for horizontal spacing, while padding is used for vertical spacing",
+          correct: "a",
+        },
+      ];
+
+
+      const quiz = document.getElementById("quiz");
+      const slides = document.querySelectorAll(".slide");
+      const nextBtn = document.getElementById("next");
+      const prevbtn = document.getElementById("prev");
+      const submitBtn = document.getElementById("submit");
+
+
+      let score = 0;
+      let count = 1;
+      let sliderIndex = 0;
+
+
+// ----------------------------------------
+
+
+function onLoad() {
+  
+  
+  quizData.forEach(function (element, index) {
+    
+    let div = document.createElement("div");
+          div.innerHTML = `
+        
+        
+          <div class="quiz-header">
+        <h2 id="question">${element.question}</h2>
+        <ul>
+          <li>
+            <input type="radio" name="answer${count}" alt="a" id="a${count}" class="answer">
+            <label for="a${count}" id="a_text">${element.a}</label>
+          </li>
+
+          <li>
+            <input type="radio" name="answer${count}"  alt="b" id="b${count}" class="answer">
+            <label for="b${count}" id="b_text">${element.b}</label>
+          </li>
+
+          <li>
+            <input type="radio" name="answer${count}" alt="c" id="c${count}" class="answer">
+            <label for="c${count}" id="c_text">${element.c}</label>
+          </li>
+
+          <li>
+            <input type="radio" name="answer${count}" alt="d" id="d${count}" class="answer">
+            <label for="d${count}" id="d_text">${element.d}</label>
+          </li>
+        </ul>
+      </div>
+        
+      `;
+
+            // if(index < 10){
+            //     slides[0].appendChild(div)
+            // }
+            // else if(index < 20){
+            //     slides[1].appendChild(div)
+            // }
+
+
+            // if
+            index < 10 ? slides[0].appendChild(div) :
+            // else if 
+            index < 20 ? slides[1].appendChild(div) :
+            // else if 
+            index < 30 ? slides[2].appendChild(div) : 
+            // else if 
+            index < 40 ? slides[3].appendChild(div) : 
+            // else
+            slides[4].appendChild(div);
+          count++;
+        });
+      }
+
+
+// ----------------------------------------
+
+      
+      onLoad();
+      var emptyArry = [];
+      let activePage = 10;
+
+      const answerEls = document.querySelectorAll(".answer");
+
+
+
+// ----------------------------------------
+
+      nextBtn.addEventListener("click", function () {
+
+          var allAnswers = selectedAnswers()
+
+          console.log(allAnswers);
+
+
+
+          if (sliderIndex < slides.length-1) {
+            console.log(allAnswers.length , activePage, "activePage previouse");
+                if(allAnswers.length >= activePage){
+                    // 10 >= 10
+                    // 20 >= 20
+                    // 30 >= 30
+                    // 40 >= 40
+                    // 50 >= 50
+                    sliderIndex++;
+                    activePage = (10 * (sliderIndex+1))
+                    // (10 * (0+1)) = 10
+                    // (10 * (1+1)) = 20
+                    // (10 * (2+1)) = 30
+                    // (10 * (3+1)) = 40
+                    // (10 * (4+1)) = 50
+                    console.log(activePage, 'activePage');
+                    slides.forEach(function(e){
+                        e.classList.remove('active')
+                    })
+                    slides[sliderIndex].classList.add('active')
+                }
+                else{
+                    alert('fill all inputs')
+                }
+              } else {
+                checkAnswer()
+                quiz.innerHTML = `Your Guessed ${score}/${quizData.length} Correct Answers`;
+              }
+      });
+
+// ----------------------------------------
+
+// ----------------------------------------
+
+
+      function selectedAnswers() {
+        emptyArry = []
+        answerEls.forEach((a) => {
+          if (a.checked === true) {
+            emptyArry.push(a.alt);
+            // console.log(emptyArry, emptyArry.length);
+          }
+        });
+        return emptyArry
+      }
+
+// ----------------------------------------
+
+// ----------------------------------------
+
+      prevbtn.addEventListener("click", function () {
+          if(sliderIndex > 0){
+            sliderIndex--;
+            activePage = (10 * (sliderIndex+1))
+            slides.forEach(function(e){
+                e.classList.remove('active')
+            })
+            slides[sliderIndex].classList.add('active')
+        }
+      });
+
+// ----------------------------------------
+
+// ----------------------------------------
+      
+            function checkAnswer() {
+                for(var i=0; i<emptyArry.length; i++){
+                  console.log(emptyArry[i], quizData[i].correct);
+                  if(emptyArry[i] == quizData[i].correct){
+                      score++
+                  }
+              }
+            }
+      
+      
+// ----------------------------------------
+            
+
+    </script>
+  </body>
+</html>

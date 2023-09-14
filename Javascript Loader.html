@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .main-div{
+            height: 100vh;
+            width: 100%;
+            position: relative;
+        }
+        .loader{
+            height: 50px;
+            width:50%;
+            border: 1px solid #000;
+            border-radius: 55px;
+            margin:45vh auto;
+            overflow: hidden;
+        }
+        .active{
+            height: 100%;
+            background-color: blue;
+            transition: .5s;
+        }
+        .p{
+            position: absolute;
+            left: 47%;
+            top: 55vh;
+        }
+        .div{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .icon{
+            font-size: 50px;
+            color: darkgrey;
+            transition: .5s;
+            cursor: pointer;
+        }
+        .icon:hover{
+            color: rgb(77, 76, 76);
+        }
+        .div2{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-div">
+        <p class="p">Loading......</p class="p">
+        <div class="loader"></div>
+    </div>
+
+    <script>
+        var main = document.querySelector('.main-div')
+        var loader = document.querySelector('.loader')
+        var p = document.querySelector('.p')
+        var child = document.createElement('div')
+        console.log(child);
+        var count = 0
+        child.classList.add('active')
+        loader.appendChild(child)
+        var interval = setInterval(function(){
+            count++
+            console.log(count);
+            child.style.width=count+'%'
+            if(count>=105){
+                clearInterval(interval)
+                // loader.style.display='none'
+                main.style.display='none'
+                // p.style.display='none'
+                var div = document.createElement('div')
+                    div.classList.add('div')
+                    document.body.appendChild(div)
+                    var icon = document.createElement('i')
+                    icon.setAttribute("class", "fa-solid fa-user")
+                    icon.classList.add('icon')
+                    div.appendChild(icon)
+                    var p = document.createElement('p')
+                    // p.style.marginLeft='7px'
+                    div.appendChild(p)
+                    p.innerHTML='user'
+                    console.log(p);
+                    icon.addEventListener('click',function(){
+                        var div2 = document.createElement('div')
+                        div2.classList.add('div2')
+                        div.style.display='none'
+                        div2.innerHTML='nothing just trynig to keep myself busy'
+                        document.body.appendChild(div2)
+                    })
+                    
+            }
+        },100)
+        
+    </script>
+</body>
+</html>

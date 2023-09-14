@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* #btn {
+            width: 85px;
+            height: 35px;
+            background-color: #b0c4de;
+            color: white;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        } */
+
+        #btn{
+width: 85px;
+height: 45px;
+border-radius: 5px;
+background-color: black;
+color: white;
+cursor: pointer;
+font-size: 19px;
+border: none;
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+<button id="btn" class="rock" onclick="Rock()">rock</button>
+<button id="btn" class="paper" onclick="Paper()">paper</button>
+<button id="btn" class="scissor" onclick="Scissor()">scissor</button>
+
+
+<!-- 
+    <button id="btn" class="rock" onclick="Rock()">ROCK</button>
+    <button id="btn" class="paper" onclick="Paper()">PAPER</button>
+    <button id="btn" class="scissor" onclick="Scissor()">SCISSOR</button> -->
+    <script>
+
+
+var rock = document.querySelector('.rock')
+
+
+var paper = document.querySelector('.paper')
+var scissor = document.querySelector('.scissor')
+
+function Rock(){
+rock.style.backgroundColor='grey'
+}
+
+function Paper(){
+paper.style.backgroundColor='grey'
+}
+
+function Scissor(){
+scissor.style.backgroundColor='grey'
+}
+
+
+var player = 0
+var computer = 0
+var array = ['rock', 'paper', 'scissor']
+
+function random(){
+var num = Math.floor(Math.random()*3)
+computer = array[num] 
+console.log(computer, num)
+}
+random()
+
+
+
+// rock 
+
+rock.addEventListener('click', function(e){
+
+var player = e.target.innerHTML
+console.log(player)
+
+if(player == 'rock' && computer == 'paper'){
+alert('Computer WINS Paper beats Rock')
+}
+else if(player == 'rock' && computer == 'scissor'){
+alert('Player WINS Rock beats Scissor')
+}else{
+alert('It is a Draw Rock matches Rock')
+
+}
+random()
+})
+
+
+// Paper 
+
+paper.addEventListener('click', function(e){
+
+var player = e.target.innerHTML
+console.log(player)
+
+if(player == 'paper' && computer == 'rock'){
+alert('Player WINS Paper beats Rock')
+}
+else if(player == 'paper' && computer == 'scissor'){
+alert('Computer WINS Scissor beats Rock')
+}else{
+alert('It is a Draw Paper matches Paper')
+
+}
+random()
+})
+
+
+// Paper 
+
+scissor.addEventListener('click', function(e){
+
+var player = e.target.innerHTML
+console.log(player)
+
+if(player == 'scissor' && computer == 'rock'){
+alert('Computer WINS Rock beats Scissor')
+}
+else if(player == 'scissor' && computer == 'paper'){
+alert('Player WINS Scissor beats Paper')
+}else{
+alert('It is a Draw Scissor matches Scissor')
+
+}
+random()
+})
+
+
+// var rock = document.querySelector('.rock')
+        // var paper = document.querySelector('.paper')
+        // var scissor = document.querySelector('.scissor')
+
+        // function Rock() {
+        //     rock.style.backgroundColor = 'lightpink'
+        // }
+
+        // function Paper() {
+        //     paper.style.backgroundColor = 'lightpink'
+        // }
+
+        // function Scissor() {
+        //     scissor.style.backgroundColor = 'lightpink'
+        // }
+
+        // var player = 0
+        // var computer = 0
+        // var array = ['ROCK', 'PAPER', 'SCISSOR']
+
+
+        // function random() {
+        //     var num = Math.floor(Math.random() * 3)
+        //     computer = array[num]
+        //     console.log(computer, num)
+        // }
+        // random()
+
+
+
+
+
+
+        // // rock 
+
+        // rock.addEventListener('click', function (e) {
+        //     player = e.target.innerHTML
+        //     console.log(player, computer)
+
+
+        //     if (player == 'ROCK' && computer == 'PAPER') {
+        //         alert("Computer WINS 'Paper beats Rock'")
+        //     } else if (player == 'ROCK' && computer == 'SCISSOR') {
+        //         alert("Player WINS 'Rock beats Scissor'")
+        //     } else {
+        //         alert('It is a DRAW Rock vs ROCK')
+
+        //     }
+
+        //     random()
+        // })
+
+// paper 
+
+        // paper.addEventListener('click', function (e) {
+        //     player = e.target.innerHTML
+        //     console.log(player, computer)
+
+
+        //     if (player == 'PAPER' && computer =='ROCK') {
+        //         alert("Player WINS 'Paper beats Rock'")
+        //     } 
+        //     else if (player == 'PAPER' && computer =='SCISSOR' ){
+        //     alert("Computer WINS 'Scissor beats Paper'")
+        //     }else {
+            
+        //         alert('It is a DRAW PAPER vs PAPER')
+        //     }
+        //     random()
+        // })
+
+
+
+// scissor 
+
+        // scissor.addEventListener('click', function (e) {
+        //     player = e.target.innerHTML
+        //     console.log(player, computer)
+
+
+          
+        //     if (player == 'SCISSOR' && computer =='ROCK') {
+        //         alert("Computer WINS 'Rock beats Scissor'")
+        //     } 
+        //     else if (player == 'SCISSOR' && computer =='PAPER' ){
+        //     alert("Player WINS 'Scissor beats Paper'")
+
+
+        //     }else {
+            
+        //         alert('It is a DRAW SCISSOR vs SCISSOR')
+        //     }
+        //     random()
+        // })
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

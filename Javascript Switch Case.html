@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // switch syntax 
+
+        
+        // switch (  ) {
+
+        //     case a:
+        //         { console.log("") }
+        //         break;
+
+        //     case b:
+        //         { console.log("") }
+        //         break;
+
+        //     case c:
+        //         { console.log("") }
+        //         break;
+
+        //     default:
+        //         {console.log("Invalid")}
+        //         break;
+        // }
+
+
+        // Q1 Switch Days of the week?
+
+        // var day = 3;
+
+        // switch (day) {
+        //     case 1:
+        //         document.write("Today is Monday")
+        //         break;
+
+        //     case 2:
+        //         document.write("Today is Tuesday")
+        //         break;
+
+        //     case 3:
+        //         document.write("Today is Wednesday")
+        //         break;
+
+        //     case 4:
+        //         document.write("Today is Thursday")
+        //         break;
+
+        //     case 5:
+        //         document.write("Today is Friday")
+        //         break;
+
+        //     case 6:
+        //         document.write("Today is Saturday")
+        //         break;
+
+        //     case 7:
+        //         document.write("Today is Sunday")
+        //         break;
+
+        //     default:
+        //      document.write("Not a valid date?")
+        //         break;
+        // }
+
+
+        // Q2 Switch Weekday and Weekend
+
+        // var day = 8;
+
+        // switch (day) {
+        //     case 1: case 2: case 3: case 4: case 5:
+        //         document.write("Today is a Weekday")
+        //         break;
+
+
+
+        //     case 6:
+        //         document.write("Today is a Weekend")
+        //         break;
+
+        //     case 7:
+        //         document.write("Today is a Weekend")
+        //         break;
+
+        //     default:
+        //         document.write("Not a valid date?")
+        //         break;
+        // }
+
+
+        // Q3 Switch Comparison Operator 
+
+        // var age = Number(prompt("Enter your age?"))
+
+        // switch (age > 0) {                            //(age > 0) or (true) must be true or false to work
+        //     case (age >= 0 && age < 18):
+        //         document.write("You are NOT Eligible")
+        //         break;
+
+        //     case (age >= 18 && age <= 100):
+        //         document.write("You are Eligible")
+        //         break;
+
+        //     default:
+        //         document.write("INVALID?")
+        //         break;
+        // }
+
+
+        // Q4: Get two numbers from user and (Add / multiply / divivde / subtract ).
+
+
+        // var num1 = +(prompt("Enter number 1"))
+        // var operator = prompt("Enter symbol operator")
+        // var num2 = +(prompt("Enter number 2"))
+
+        // switch (operator) {
+        //     case "+":
+        //         console.log(`${num1} + ${num2} = ${num1 + num2}`)
+        //         break;
+
+        //     case "-":
+        //         console.log(`${num1} - ${num2} = ${num1 - num2}`)
+        //         break;
+
+        //     case "*":
+        //         console.log(`${num1} * ${num2} = ${num1 * num2}`)
+        //         break;
+
+        //     case "/":
+        //         console.log(`${num1} / ${num2} = ${num1 / num2}`)
+        //         break;
+
+        //     default:
+        //         alert("INVALID?")
+        //         break;
+        // }
+
+
+        // Q5: Get a number from user to find number is positive or negative?
+
+        // var number = +(prompt("Enter any number?"))
+
+        // switch (number > 0 || number < 0 ){
+
+        //     case (number > 0):
+        //         console.log("Positive", number)
+        //         break;
+
+        //     case (number < 0):
+        //         console.log("Negative", number)
+        //         break;
+
+        //     default:
+        //         console.log("INVALID")
+        //         break;
+        // }
+
+        //Q6. Input from the user and show the month’s according to the input number using switch statement’s?
+
+        // var number = +(prompt("Enter a number 1 to 12"));
+
+        // switch (number) {
+        //     case 1:
+        //         alert("Jan")
+        //         break;
+
+        //     case 2:
+        //         alert("Feb")
+        //         break;
+
+        //     case 3:
+        //         alert("Mar")
+        //         break;
+
+        //     case 4:
+        //         alert("Apr")
+        //         break;
+
+        //     case 5:
+        //         alert("May")
+        //         break;
+
+        //     case 6:
+        //         alert("Jun")
+        //         break;
+
+        //     case 7:
+        //         alert("Jul")
+        //         break;
+
+        //     case 8:
+        //         alert("Aug")
+        //         break;
+
+        //     case 9:
+        //         alert("Sep")
+        //         break;
+
+        //     case 10:
+        //         alert("Oct")
+        //         break;
+
+        //     case 11:
+        //         alert("Nov")
+        //         break;
+
+        //     case 12:
+        //         alert("Dec")
+        //         break;
+
+        //     default:
+        //         alert("INVALID")
+        //         break;
+        // }
+
+        //Q7. Input from the user and show the weekday's according to the input number?
+
+
+        // var number = Number(prompt("Enter number 1 to 7?"))
+
+        // switch (number) {
+
+        //     case 1:
+        //         console.log("Monday")
+        //         break;
+
+        //     case 2:
+        //         console.log("Tuesday")
+        //         break;
+
+        //     case 3:
+        //         console.log("Wednesday")
+        //         break;
+
+        //     case 4:
+        //         console.log("Thursday")
+        //         break;
+
+        //     case 5:
+        //         console.log("Friday")
+        //         break;
+
+        //     case 6:
+        //         console.log("Saturday")
+        //         break;
+
+        //     case 7:
+        //         console.log("Sunday")
+        //         break;
+
+        //     default:
+        //         console.log("Invalid")
+        //         break;
+
+        // }
+
+
+        // var status = prompt("Enter 'M' for Married, 'S' for Single, 'W' for Widowed")
+        // status = status.toLowerCase( )
+
+        // switch (status) {
+
+        //     case "m": { console.log("Married") }
+        //         break;
+
+
+        //     case "s": { console.log("Single") }
+        //         break;
+
+        //     case "w": { console.log("Widow") }
+        //         break;
+
+        //     default:
+        //         { console.log("Enter a valid status?") }
+        //         break;
+        // }
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

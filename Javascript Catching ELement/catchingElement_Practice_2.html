@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+
+      *{
+        font-family: 'Roboto', sans-serif;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body{
+        height: 100vh;
+        border: 10px solid lime;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .xy_score{
+      color: black;
+        letter-spacing: 1px; 
+        font-weight: 300;
+        font-size: 30px;
+        margin-bottom: 10px;
+        
+      
+      }
+
+      span{
+        font-weight: 400;
+        color: lightpink; 
+      }
+
+      .box{
+        width:115px;
+        height:115px;
+        background-color: rgb(255, 0, 179);
+        /* transition: all 0.54s; */
+      }
+
+       .output{
+        height: 450px;
+        width: 750px;
+        border: 5px solid black;
+        overflow: hidden;
+        cursor: grab;
+        background-color: rgb(240, 240, 240);
+      }
+
+
+
+
+    </style>
+  </head>
+  <body>
+   <h1 style="color: lightslategray; letter-spacing: 1px; font-weight: 300;" class="header">Catching Element</h1> 
+
+<div class="xy_score">
+X:<span> 0</span> <!-- [0] -->
+Y:<span> 0</span> <!-- [1] -->
+Score:<span> 0</span> <!-- [2] -->
+</div>
+
+<div class="output">
+  <div class="box"></div>
+</div>
+
+    <script>
+
+     var output = document.querySelector('.output')
+     var message = document.querySelectorAll('.xy_score span')
+     var box = document.querySelector('.box')
+
+     var score = 0
+
+
+
+     output.addEventListener('mouseenter', function(){
+      // output.style.backgroundColor = 'lightblue'
+      
+      // random background color everytime mouse enter:
+      
+      var color = '#' + Math.random().toString(16).substr(-6)
+        
+      // Math.random()
+      // #0.6073595311470257 
+
+      // toString(11) = a
+      // toString(12) = b
+      // toString(13) = c
+      // toString(14) = d
+      // toString(15) = e
+      // toString(16) = f
+
+      // Math.random().toString(16)
+      // #0.78daea56dfcb1
+
+       // .substr(-6)
+      //  #75aa01 color 
+       
+      console.log(color, 'toString')
+      output.style.backgroundColor = color
+
+      
+    })
+
+     output.addEventListener('mouseleave', function(){
+      output.style.backgroundColor = 'rgb(240, 240, 240)'
+
+     })
+
+
+
+    output.addEventListener('mousemove', function(element){
+      console.log(output, 'mousemove')
+
+
+    // X:<span> 0</span> <!-- [0] -->
+    // Y:<span> 0</span> <!-- [1] -->
+    message[0].innerHTML = element.x 
+    message[1].innerHTML = element.y
+    
+    // console.log(message[0].innerHTML, 'x')
+    // console.log(message[1].innerHTML, 'y')
+
+  
+
+     })
+
+     move()
+     function move(){
+
+
+      setInterval(()=>{
+
+    var getBox = output.getBoundingClientRect()
+    // returns: left, top, right, bottom, x, y, width, height
+// relative to the viewport
+console.log(getBox, 'getBox')
+ 
+var getPositionX =  getBox.width 
+ var getPositionY =  getBox.height
+
+
+var randomX = Math.floor(Math.random()*getPositionX )
+console.log(randomX, 'X')
+var randomY = Math.floor(Math.random()*getPositionY)
+console.log(randomX, 'Y')
+
+box.style.marginLeft = `${randomX}px` 
+box.style.marginTop = `${randomY}px`
+
+},400)
+}
+
+box.addEventListener('click', function(){
+  box.style.cursor = 'grabbing'
+  
+
+  box.style.backgroundColor='yellow'
+  setInterval(()=>{
+    box.style.backgroundColor='hotpink'
+
+
+  },400)
+  
+score++
+message[2].innerHTML = score 
+
+})
+
+
+    </script>
+  </body>
+</html>

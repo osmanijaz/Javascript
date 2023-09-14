@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images with click</title>
+    <style>
+        .main {
+            height: 50vh;
+            width: 50%;
+            border: 1px solid;
+            position: relative;
+            margin: 20vh auto;
+        }
+
+        .img {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .button-div{
+            height: 7vh;
+            width: 50%;
+            /* border: 1px solid #000; */
+            margin: -10vh auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn{
+            height: 100%;
+            width: 18%;
+            border: 1px solid #000;
+        }
+        .move{
+            border: 2px solid red;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <img class="img img1"
+            src="https://media.istockphoto.com/id/1197077400/photo/flying-birds-over-the-mosque.jpg?b=1&s=612x612&w=0&k=20&c=SXDtN8jf0Bzi8lqaDKVVJWMc3xHDh-JA886yJcIZK-U="
+            alt="">
+        <img class="img img2" src="https://cdn.pixabay.com/photo/2015/06/28/19/01/fort-824774__340.jpg" alt="">
+        <img class="img img3"
+            src="https://www.shutterstock.com/image-photo/domes-badshahi-mosque-emperor-built-260nw-492232558.jpg"
+            alt="">
+        <img class="img img4"
+            src="https://media.istockphoto.com/id/619503842/photo/wazir-khan-mosque-lahore-pakistan.jpg?s=612x612&w=0&k=20&c=3vrR52_8PkripvQhwP_TOVCW4e9xvv4lIjlSRyPd9Hs="
+            alt="">
+        <img class="img img5"
+            src="https://media.gettyimages.com/id/102751068/photo/pidgeons-fly-over-the-wazir-khan-mosque-in-the-walled-city-of-old-lahore-on-july-9-2010-in.jpg?s=612x612&w=gi&k=20&c=QBOtrqNfM-bdA_xgpS_iDzR-s-RZwKM9hTYo1627FVc="
+            alt="">
+    </div>
+
+
+    <div class="button-div">
+
+        <button class="btn btn1 " onclick="btn_1()">pick_1</button>
+        <button class="btn btn2"  onclick="btn_2()">pick_2</button>
+        <button class="btn btn3"  onclick="btn_3()">pick_3</button>
+        <button class="btn btn4"  onclick="btn_4()">pick_4</button>
+        <button class="btn btn5"  onclick="btn_5()">pick_5</button>
+    </div>
+
+    <script>
+        var img1 = document.getElementsByClassName('img1')[0]
+        var img2 = document.getElementsByClassName('img2')[0]
+        var img3 = document.getElementsByClassName('img3')[0]
+        var img4 = document.getElementsByClassName('img4')[0]
+        var img5 = document.getElementsByClassName('img5')[0]
+
+
+        var btn1 = document.getElementById('btn1')
+        var btn2 = document.getElementById('btn2')
+        var btn3 = document.getElementById('btn3')
+        var btn4 = document.getElementById('btn4')
+        var btn5 = document.getElementById('btn5')
+
+
+
+        function btn_1(){
+            // img1.classList.add("move")
+            img1.style.zIndex=('1')
+            img2.style.zIndex=('-1')
+            img3.style.zIndex=('-1')
+            img4.style.zIndex=('-1')
+            img5.style.zIndex=('-1')
+        }
+        
+        function btn_2(){
+            // img1.classList.remove("move")
+            img2.style.zIndex=('2')
+            img1.style.zIndex=('-1')
+            img3.style.zIndex=('-1')
+            img4.style.zIndex=('-1')
+            img5.style.zIndex=('-1')
+        }
+
+        function btn_3(){
+            // img1.classList.remove("move")
+            img3.style.zIndex=('3')
+            img2.style.zIndex=('-1')
+            img1.style.zIndex=('-1')
+            img4.style.zIndex=('-1')
+            img5.style.zIndex=('-1')
+        }
+
+        function btn_4(){
+            // img1.classList.remove("move")
+            img4.style.zIndex=('4')
+            img2.style.zIndex=('-1')
+            img3.style.zIndex=('-1')
+            img1.style.zIndex=('-1')
+            img5.style.zIndex=('-1')
+        }
+
+        function btn_5(){
+            // img1.classList.remove("move")
+            img5.style.zIndex=('5')
+            img2.style.zIndex=('-1')
+            img3.style.zIndex=('-1')
+            img4.style.zIndex=('-1')
+            img1.style.zIndex=('-1')
+        }
+    </script>
+</body>
+
+</html>

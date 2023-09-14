@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+    <title>Practice</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&display=swap");
+
+      body {
+        font-family: "Barlow", sans-serif;
+        color: #333;
+        font-size: 1.1rem;
+        margin: 0;
+        border: 3px solid lime ;
+      }
+
+      a {
+        text-decoration: none;
+        /* color: rgb(15, 96, 163); */
+        /* border: 3px solid rgb(255, 149, 0) ; */
+        
+      }
+      a:hover {
+        color: rgb(9, 63, 107);
+      }
+
+      main {
+        padding: 1rem;
+        max-width: 700px;
+        margin: 0 auto;
+        min-height: 88vh;
+        border: 3px solid rgb(43, 0, 255) ;
+      }
+
+      .header {
+        background: lightblue;
+        padding: 1rem;
+        border: 3px solid rgb(255, 252, 73) ;
+      }
+
+      .title {
+        font-size: 2rem;
+        font-weight: 600;
+        margin: 10px 0;
+        text-align: center;
+        border: 3px solid rgb(246, 0, 160) ;
+      }
+
+      .subtitle {
+        text-align: center;
+        border: 3px solid rgb(255, 0, 43) ;
+      }
+
+      .content {
+        padding: 0.5rem 1rem;
+        border: 3px solid rgb(3, 255, 179) ;
+      }
+
+
+
+
+
+     .pagination {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: center;
+        border: 5px solid rgb(57, 43, 255) ;}
+
+
+
+
+      .pagination__link {
+        padding: 5px 10px;
+        cursor: pointer;
+        background-color: #dc0000;
+        margin-left: 4px;
+        /* border: 10px solid rgb(31, 185, 246); */
+        transform: all 0.3s ease;
+        /* border: 5px solid lime ; */
+      }
+      /* .pagination__link:not(:last-child) {
+    border-right: none;
+} */
+      .pagination__link:hover {
+        transform: scale(1.1);
+      }
+
+      /* footer {
+    text-align: center;
+} */
+
+
+    </style>
+  </head>
+
+
+  <body>
+  
+  
+  
+    <main>
+      <div class="header">
+        <p class="title">Pagination</p>
+        <p class="subtitle">
+          The following data is being fetched from
+          <a target="_blank" href="https://jsonplaceholder.typicode.com/">
+            JSON Placeholder API</a
+          >
+        </p>
+      </div>
+
+
+
+      <div class="content">Loading...</div>
+      
+      <div class="pagination">
+        <a class="pagination__link" href="#">1</a>
+        <a class="pagination__link" href="#">2</a>
+        <a class="pagination__link" href="#">3</a>
+        <a class="pagination__link" href="#">4</a>
+        <a class="pagination__link" href="#">5</a>
+        <a class="pagination__link" href="#">6</a>
+        <a class="pagination__link" href="#">7</a>
+        <a class="pagination__link" href="#">8</a>
+        <a class="pagination__link" href="#">9</a>
+        <a class="pagination__link" href="#">10</a>
+      </div>
+
+
+
+    </main>
+
+
+
+
+
+    <script src="./index_(teacher_js).js"></script>
+    <!-- <script>
+      let content = document.querySelector(".content");
+      const elementNumber = 10;
+      // getData()
+      async function getData() {
+        let res = await fetch("https://jsonplaceholder.typicode.com/posts");
+        let data = await res.json();
+
+        return data;
+      }
+
+      renderData(0, elementNumber);
+
+      function renderData(startElement, Number) {
+        getData().then((data) => {
+          data = data.splice(startElement, Number);
+          console.log(data);
+          let str = "";
+          data.forEach((item) => {
+            str += `<p>${item.id}. ${item.title}</p>`;
+          });
+          content.innerHTML = str;
+        });
+      }
+
+      let paginationLink = document.querySelectorAll(".pagination__link");
+
+      paginationLink.forEach((e) => {
+        e.addEventListener("click", shownumber);
+      });
+
+      function shownumber() {
+        let number = parseInt(this.textContent);
+        console.log(number);
+        renderData(number * 10 - 10, elementNumber);
+      }
+    </script> -->
+  </body>
+</html>

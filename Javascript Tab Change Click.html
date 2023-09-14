@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<style>
+    * {
+        font-family: 'Roboto', sans-serif;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main {
+        width: 515px;
+        height: 255px;
+        border: 0.5px solid grey;
+        margin: auto;
+        margin-top: 200px;
+        position: relative;
+    }
+
+    .header {
+        width: 100%;
+        height: 57px;
+        border-bottom: 0.5px solid grey;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+    }
+
+    .left_header {
+        width: 220px;
+        height: 50px;
+        border: 1px solid red;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .right_header {
+        width: 145px;
+        height: 35px;
+        border: 1px solid rgb(0, 255, 64);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    .left-para {
+        font-size: 12px;
+        font-weight: 500;
+        color: rgb(64, 64, 64);
+
+    }
+
+    .icon {
+        font-size: 16px;
+    }
+
+    .but {
+        border: none;
+        outline: none;
+        background-color: #3F6AD7;
+        width: 46px;
+        height: 27px;
+        border-radius: 1.5px;
+        color: white;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 500;
+
+    }
+
+
+    .but:hover {
+        background-color: #2259e4;
+
+    }
+
+    .active_button {
+        background-color: #000000;
+
+    }
+
+    .siblingContent {
+        width: 100%;
+        height: 50%;
+        border: 2px solid blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+    }
+
+
+    .ParaText {
+        visibility: hidden;
+
+    }
+
+
+    .text1 {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        width: 100%;
+        height: 100%;
+        /* border: 2px solid rgb(226, 119, 43); */
+        background-color: yellow;
+        position: absolute;
+
+    }
+
+
+    .text2 {
+        text-align: center;
+        font-size: 14px;
+        width: 100%;
+        height: 100%;
+        /* border: 2px solid rgb(0, 195, 255); */
+        background-color: rgb(0, 255, 255);
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .text3 {
+        text-align: center;
+        font-size: 14px;
+        width: 100%;
+        height: 100%;
+        /* border: 2px solid rgb(81, 255, 0); */
+        background-color: rgb(221, 0, 255);
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .active_text {
+        z-index: 100;
+        visibility: visible;
+
+    }
+
+    .green_button {
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        color: white;
+        width: 77px;
+        height: 32px;
+        background-color: #53cb35;
+        position: absolute;
+        right: 15px;
+        bottom: 17px;
+        cursor: pointer;
+
+
+
+    }
+
+
+    .green_button:hover {
+        background-color: #28a907;
+
+    }
+
+    .border-top {
+        width: 100%;
+        border-top: 0.5px solid grey;
+
+    }
+</style>
+
+<body>
+
+    <div class="main">
+
+        <div class="header">
+
+            <div class="left_header">
+                <i class="fa-solid fa-list icon"></i>
+                <p class="left-para">HEADER WITH TABS</p>
+            </div>
+
+
+            <div class="right_header">
+
+                <button class="but but1 active_button">Tab 1</button>
+                <button class="but but2">Tab 2</button>
+                <button class="but but3">Tab 3</button>
+
+            </div>
+
+
+        </div>
+
+        <div class="siblingContent">
+            <p class="ParaText text1 active_text">It was popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                including versions of Lorem Ipsum.</p>
+
+            <p class="ParaText text2">Like Aldus PageMaker including versions of Lorem. It has survived not only five
+                centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
+            <p class="ParaText text3">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
+                an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived
+                not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+            </p>
+
+        </div>
+
+        <div class="border-top">
+            <button class="green_button">Save</button>
+        </div>
+
+    </div>
+
+    <script>
+
+
+        var but = document.querySelectorAll('.but')
+        var ParaText = document.querySelectorAll('.ParaText')
+
+
+        // var but1 = document.querySelector('.but1');
+        // var but2 = document.querySelector('.but2');
+        // var but3 = document.querySelector('.but3');
+
+
+
+        // var text1 = document.querySelector('.text1');
+        // var text2 = document.querySelector('.text2');
+        // var text3 = document.querySelector('.text3');
+
+
+        but.forEach(function (element, index) {
+            element.addEventListener('click', function () {
+                console.log('click is working')
+
+                removeButColor()
+                element.classList.add('active_button')
+
+
+                removeText()
+                ParaText[index].classList.add('active_text')
+
+
+            })
+        })
+
+
+
+
+
+
+
+
+
+
+        function removeButColor() {
+            but.forEach(function (element) {
+                element.classList.remove('active_button')
+            })
+        }
+
+        function removeText() {
+            ParaText.forEach(function (element) {
+                element.classList.remove('active_text')
+            })
+        }
+
+    </script>
+
+
+</body>
+
+
+
+
+
+</html>

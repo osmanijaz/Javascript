@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analog clock</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
+      * {
+        font-family: "Kanit", sans-serif;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #c3faff;
+        flex-direction: column;
+        gap: 10px;
+      }
+      #clock {
+        width: 300px;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        border-radius: 50%;
+        background-position: center center;
+        background-color: #d0fffb;
+        box-shadow: 0 0 15px rgba(0, 7, 57, 0.158);
+        /* background-image: url(https://illustoon.com/photo/5054.png); */
+        /* background-image: url(toppng.com-clock-icon-with-numbers-731x732.png); */
+      }
+      .innerCircle {
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        background-color: #d8fcff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.087);
+        /* position: absolute; */
+      }
+      .base {
+        width: 10px;
+        height: 10px;
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        border-radius: 50%;
+        position: absolute;
+        /* transform: rotate(45deg); */
+        background-color: black;
+      }
+      #sec {
+        width: 2.5px;
+        height: 130px;
+        /* border-radius: 50%; */
+        background-color: #fa5555;
+        position: absolute;
+        bottom: 0;
+        z-index: 1000;
+      }
+      #min {
+        width: 4px;
+        height: 90px;
+        /* border-radius: 50%; */
+        background-color: black;
+        position: absolute;
+        bottom: 0;
+      }
+      #hour {
+        width: 5px;
+        height: 70px;
+        /* border-radius: 50%; */
+        background-color: black;
+        position: absolute;
+        bottom: 0;
+      }
+      .city {
+        font-size: 2rem;
+        color: #fa5555;
+      }
+      .time {
+        font-size: 2.5rem;
+      }
+      .country {
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clock">
+      <div class="innerCircle"></div>
+      <div class="base" id="pin-hour"><div id="hour"></div></div>
+      <div class="base" id="pin-min"><div id="min"></div></div>
+      <div class="base" id="pin-sec"><div id="sec"></div></div>
+    </div>
+
+    <div class="city">Lahore</div>
+    <div class="time"></div>
+    <div class="country">Pakistan</div>
+
+    <script src="pracite.js"></script>
+    <!-- <script>
+      var hour = document.getElementById("pin-hour");
+      var min = document.getElementById("pin-min");
+      var sec = document.getElementById("pin-sec");
+
+      function activeclock() {
+        var date = new Date();
+        console.log(date);
+        var g_hour = date.getHours();
+        var g_min = date.getMinutes();
+        var g_sec = date.getSeconds();
+
+        var ans_hour = (g_hour * 360) / 12;
+        var ans_min = (g_min * 360) / 60;
+        var ans_sec = (g_sec * 360) / 60;
+
+        sec.style.transform = `rotate(${ans_sec}deg)`;
+        min.style.transform = `rotate(${ans_min}deg)`;
+        hour.style.transform = `rotate(${ans_hour}deg)`;
+
+        setInterval(function () {
+          activeclock();
+        }, 1000);
+      }
+
+      activeclock();
+    </script> -->
+  </body>
+</html>

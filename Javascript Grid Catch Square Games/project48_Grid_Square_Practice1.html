@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catching Element</title>
+
+    <style>
+      .gameArea {
+        width: 800px;
+        height: 600px;
+      }
+
+      .score {
+        font-size: 3em;
+      }
+      
+      .square {
+        position: relative;
+        border: 1px solid #ddd;
+        width: 98px;
+        height: 98px;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 100px;
+        font-size: 24px;
+        color: #ddd;
+      }
+      .box {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+
+      .active {
+        background-color: green;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gameArea"></div>
+    <div>Score :<span class="score">0</span></div>
+
+    <script>
+
+
+    //// 1st step get Elements
+
+var score = document.querySelector('.score'); 
+
+var gameArea1 = document.querySelector('.gameArea')
+
+var gameArea = gameArea1.getBoundingClientRect();
+console.log(gameArea)
+  // returns: left, top, right, bottom, x, y, width, height
+  // relative to the viewport
+
+// declare box 
+  var box; 
+
+  // declare square as an empty array 
+  // elements created 1, 2, 3, 4 etc. will store into the square array
+  var square = []
+
+  // create a player object speed 100px 
+  // red box is 100px and will move 100px 
+  // red box is 50px will move 50% half of square 
+  // default square 1
+  // score stored inside the player object 
+
+  //these key values could be saved globally but stored inside an abject
+
+  var player = {
+
+    speed : 100,
+    square: 1,
+    score: 0,
+ }
+
+//  var gamebox = {
+//   x: 8,
+//   y:6, 
+//  }
+
+var gamebox = {
+x: Math.floor(gameArea.width / 100),  //8 boxes 800/100 = 8 boxes
+y: Math.floor(gameArea.height / 100), //6 boxes 600/100 = 6 boxes
+}
+
+   ///// Second Step
+
+   document.addEventListener('DOMContentLoaded', build);
+  //  DOMContentLoaded javascript window event 
+  // window loads e.g. refresh 
+  // function build will be called 
+
+
+  function build(){
+    
+// player box (red) first created***
+
+ box = document.createElement('div');
+ box.classList.add('box');
+ gameArea1.appendChild(box);
+
+//  element top and left stored
+ box.x = gameArea.top;  //8px top stored in x 
+ box.y = gameArea.left; //8px left stored in y
+
+// concatenate into px 
+box.style.left = box.x + 'px';
+box.style.top = box.y + 'px';
+
+// counting square boxes second created***
+
+var counter = 1;
+for(var y = 0; y < gamebox.y; y++){ //6 times
+
+for(var x = 0; x < gamebox.x; x++){ //8 times
+
+// y = 1 time first 
+// x = 8 times  
+
+// y = 2 time second  
+// x = 8 times again 
+
+// y = 3 time third  
+// x = 8 times again 
+
+// etc up to 6 times for y and 8 times x
+
+// ---
+
+   // call from above: var square = []
+   // var counter = 1;
+
+   // create div 1 index
+  square[counter] = document.createElement('div')
+
+  // add class for styling
+  square[counter].classList.add('square')
+
+  // innerHTML will be also be 1
+  square[counter].innerHTML = counter
+
+  // append
+  gameArea1.appendChild(square[counter]);
+  
+  // counter ++ will be 2 repeats process creates new div...
+  counter++
+
+}
+}
+
+
+     // random box (green) third created***
+     makeActive();
+  
+  }
+
+
+
+  function makeActive(){
+    var randomIndex = Math.floor(Math.random()* square.length) 
+    // square.length is 48
+    // 48 and less will generate any number
+
+
+    // if randomIndex e.g. 48 is not equal to 0
+    // && if player.square is not equal to randomIndex e.g. 48
+    if(randomIndex !=0 && player.square != randomIndex){
+
+    // player.square is 1 from above e.g.  
+    // var player = {
+    //     speed: 100,
+    //     square: 1,
+    //     score: 0,
+    //   };
+
+    // randomIndex number generated should not = 0 
+    // player.square should not equal randomIndex
+// && both must be true and generates the green box
+ 
+square[randomIndex].classList.add('active');
+
+
+}else{
+
+makeActive()
+}
+  }
+
+   ///// third Step
+
+  //  keyup will call function in object 
+   document.addEventListener('keyup', function(element){
+    console.log(element.keyCode);
+
+    var allowKey = {
+      37: 'left',
+      38: 'up',
+      39: 'right',
+      40: 'down',
+    };
+    if(allowKey[element.keyCode]){
+    // if in object allowKey there is a keyCode e.g. 38: 'up' then execute function  
+    handleKeyPress(allowKey[element.keyCode]);
+    }
+    });
+
+    // function handleKeyPress(allowKey[element.keyCode]);
+    
+    function handleKeyPress(key){
+      if(key === 'left' && box.x > gameArea.left){
+      // if(key === 'left' && 8 > 8) // stops
+      box.x -= player.speed 
+      // box.x -= 100 (minus 100)
+      player.square--;
+    }
+    
+    // 708px - 100px
+    // 608px
+    // can not go bigger than 708px in width
+    if(key === 'right' && box.x < gameArea.right - box.offsetWidth) {
+          box.x += player.speed;
+          player.square++;
+        }
+
+        if (key === 'up' && box.y > gameArea.top) {
+          box.y -= player.speed;
+          console.log(player.square);
+          player.square -= gameArea.x;
+          console.log(player.square);
+        }
+
+        if (key === 'down' && box.y < gameArea.bottom - box.offsetHeight) {
+          box.y += player.speed;
+          player.square += gameArea.x;
+        }
+
+        // values for moving the red box 
+        box.style.top = box.y + 'px';
+        box.style.left = box.x + 'px';
+
+
+        if (square[player.square].classList.contains('active')){
+              // if square green box is in [index 1] contains show add active   
+          square[player.square].classList.remove('active');
+      // then remove green box from [index 1] 
+
+      
+          makeActive();
+          player.score++;
+          score.innerHTML = player.score;
+          
+          // calling from above 
+          // var player = {
+          // speed : 100,
+          // square: 1,
+          // score: 0,
+          // }
+        }
+  }    
+    </script>
+  </body>
+</html>

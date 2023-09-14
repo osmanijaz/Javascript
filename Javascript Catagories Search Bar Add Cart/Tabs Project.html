@@ -1,0 +1,459 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practise</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            /* height:100vh; */
+            padding: 20px 0px;
+        }
+
+        .navbar {
+            width: 70%;
+            height: 10vh;
+            border: 2px solid red;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 22px;
+        }
+
+        .navbar ul {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            list-style: none;
+        }
+
+        .navbar li {
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .central-div {
+            width: 100%;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            border: 3px solid yellow;
+        }
+
+        .product {
+            width: 250px;
+            height: 300px;
+            background-color: gray;
+            border: 1px solid;
+            margin: 20px;
+            color: white;
+            font-size: 60px;
+            display: none;
+        }
+
+        .active {
+            display: flex;
+            animation: bounce 0.4s linear;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: scale(0.6);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li>All</li>
+            <li>Branded</li>
+            <li>Sales</li>
+            <li>Tranding</li>
+            <li>Featured</li>
+        </ul>
+    </div>
+    <div class="central-div">
+
+        <div class="product active All Featured Branded">1</div>
+        <div class="product active All Tranding Sales">2</div>
+        <div class="product active All Tranding Branded">3</div>
+        <div class="product active All Sales Branded">4</div>
+        <div class="product active All Featured Sales">5</div>
+        <div class="product active All Featured Tranding">6</div>
+        <div class="product active All Featured Branded">7</div>
+        <div class="product active All Tranding Sales">8</div>
+
+    </div>
+
+
+    <script>
+
+        var tabs = document.querySelectorAll("li")
+        var products = document.querySelectorAll('.product')
+
+
+        tabs.forEach(function (ele) {
+            ele.addEventListener('click', function () {
+                var text = this.textContent
+                remove()
+                // console.log(text);
+                setTimeout(function () {
+                    products.forEach(function (pro) {
+                        if (pro.classList.contains(text)) {
+                            pro.classList.add('active')
+                        }
+                        else {
+                            pro.classList.remove('active')
+                        }
+                    })
+                }, 100)
+            })
+        })
+
+
+        function remove() {
+            products.forEach(function (pro) {
+                pro.classList.remove('active')
+            })
+        }
+
+
+
+
+
+
+
+
+        // tabs.forEach(function(e, i){
+        //     e.addEventListener("click", function(){
+        //         var text = this.innerHTML
+        //         removeClass()
+        //         setTimeout(function(){
+        //             products.forEach(function(element, index){
+        //                 if(element.classList.contains(text)){
+        //                     element.classList.add('active')
+        //                 }
+        //                 else{
+        //                     element.classList.remove('active')
+        //                 }
+        //             })
+
+        //         }, 100)
+
+
+        //     })
+        // })
+
+        // function removeClass() {
+        //     products.forEach(function(e){
+        //         e.classList.remove('active')
+        //     })
+        // }
+
+    </script>
+
+
+</body>
+
+</html> -->
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabs-practise</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    .main-container{
+        width: 100%;
+        height: 130vh;
+        background-color: fuchsia;
+    }
+    header{
+        height: 15vh;
+        border: 1px solid #000;
+        box-sizing: border-box;
+    }
+    ul{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #000;
+    }
+    li{
+        list-style: none;
+        border: 1px solid #000;
+        padding: 15px 50px;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+    .product-main{
+        width: 100%;
+        height: auto;
+        border: 1px solid #000;
+        box-sizing: border-box;
+        margin-top: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    .boxes{
+        width: 270px;
+        height: 300px;
+        border: 1px solid #000;
+        margin-top: 20px;
+        font-size: 60px;
+        color: white;
+        display: none;
+    }
+    .act{
+        display: flex;
+        animation: zoom 0.34s linear;
+    }
+    @keyframes zoom{
+        0%{
+            transform: scale(0.5);
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <ul>
+                <li>All</li>
+                <li>Trendings</li>
+                <li>Sellers</li>
+                <li>Featured</li>
+                <li>Sall</li>
+            </ul>
+        </header>
+
+        <div class="product-main">
+            <div class="boxes act All Sellers Sall">1</div>
+            <div class="boxes act All Trendings Featured">2</div>
+            <div class="boxes act All Sellers Sall">3</div>
+            <div class="boxes act All Trendings Featured">4</div>
+            <div class="boxes act All Sellers Sall">5</div>
+            <div class="boxes act All Trendings Featured">6</div>
+            <div class="boxes act All Sellers Sall">7</div>
+            <div class="boxes act All Trendings Featured">8</div>
+        </div>
+    </div>
+
+    <script>
+        var lis=document.querySelectorAll('li')
+        var boxes=document.querySelectorAll('.boxes')
+        lis.forEach(function(lee){
+            lee.addEventListener('click',function(){
+                // console.log(lee.innerHTML);
+                remove()
+                var text=this.textContent
+                // console.log(text);
+               setTimeout(() => {
+                boxes.forEach(function(bx){
+                    // console.log(bx,'bx');
+                    if(bx.classList.contains(text)){
+                        // console.log(bx,'bx');
+                        bx.classList.add('act')
+                    }
+                    else{
+                        bx.classList.remove('act')
+                    }
+                })
+               }, 10);
+            })
+        })
+
+
+        function remove(){
+            boxes.forEach(function(bx){
+                bx.classList.remove('act')
+            })
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            /* height: 100vh; */
+            background-color: slategray;
+        }
+
+        .nav {
+            height: 15vh;
+            background-color: burlywood;
+        }
+
+        ul {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #000;
+            font-size: 20px;
+        }
+
+        li {
+            list-style: none;
+            margin: 20px;
+            text-transform: capitalize;
+            padding: 15px 30px;
+            cursor: pointer;
+            border-radius: 50px;
+        }
+
+        .border {
+            border: 2px dashed #000;
+        }
+
+        .products-main {
+            border: 1px solid #000;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .boxes {
+            width: 270px;
+            height: 300px;
+            border: 1px solid #000;
+            margin: 20px;
+            font-size: 50px;
+            color: white;
+            display: none;
+        }
+
+        .act {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li class="li border" id="new">new arrival</li>
+            <li class="li" id="trende">trending</li>
+            <li class="li" id="best">best sellers</li>
+            <li class="li" id="feature">featured</li>
+            <li class="li" id="sall">on sall</li>
+        </ul>
+    </div>
+    <div class="products-main">
+        <div class="boxes act new best sall">1</div>
+        <div class="boxes act new trende feature">2</div>
+        <div class="boxes act new best sall">3</div>
+        <div class="boxes act new trende feature">4</div>
+        <div class="boxes act new best sall">5</div>
+        <div class="boxes act new trende feature">6</div>
+        <div class="boxes act new best sall">7</div>
+        <div class="boxes act new trende feature">8</div>
+    </div>
+    <script>
+        var li = document.querySelectorAll('.li')
+        var products = document.querySelectorAll('.boxes')
+        li.forEach(function (lee) {
+            lee.addEventListener('click', function () {
+                // remove()
+                // console.log(lee);
+                for (var i = 0; i < li.length; i++) {
+                    li[i].classList.remove('border')
+                }
+                lee.classList.add('border')
+
+                var text = this.id
+                // console.log(text);
+
+                products.forEach(function (bx) {
+                    if (bx.classList.contains(text)) {
+                        bx.classList.add('act')
+                    }
+                    else {
+                        bx.classList.remove('act')
+                    }
+                })
+
+            })
+        })
+
+        function remove() {
+            products.forEach(function (pro) {
+                pro.classList.remove('act')
+            })
+        }
+    </script>
+</body>
+
+</html>

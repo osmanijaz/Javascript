@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="message"></div>
+    <textarea name="" id="" cols="30" rows="10" disabled></textarea><br>
+    <button>Start</button>
+    <div class="result"></div>
+
+
+
+    <script>
+
+        let message = document.querySelector('.message')
+        let text = document.querySelector('textarea')
+        let btn = document.querySelector('button')
+        let result = document.querySelector('.result')
+
+        let startTime
+        let endTime
+
+        let messageArr = [ "i like javascript", "how fast can you type ", "you are a slow typer ", "find joy in the journey "] 
+        let random = Math.floor(Math.random() * messageArr.length)
+
+        
+        // function renderNewQuote(){
+
+        //     let quote = messageArr[random]
+
+        //     quote.split('').forEach(element => {
+        //         let characterSpan = document.createElement(span)
+
+        //         characterSpan.innerHTML = element
+
+        //         text.appendChild(characterSpan)
+        //     });
+        // }
+
+        // text.addEventListener('input', function(){
+
+        //     let quoteArr = document.querySelectorAll('span')
+        //     let textValue = text.value.split('')
+
+        //     quoteArr.forEach((charSpan, index) =>{
+
+
+        //     })
+        // })
+
+
+        // btn.addEventListener('click', function(){
+
+        //     if(btn.innerHTML == 'Start'){
+        //         renderNewQuote()
+        //         playGame()
+        //         btn.innerHTML = 'Done'
+        //     }
+        //     else{
+        //         endGame()
+        //         btn.innerHTML = 'Start'
+        //     }
+        // })
+
+
+
+
+        
+
+        btn.addEventListener('click', function(){
+
+            if(btn.innerHTML == 'Start'){
+                btn.innerHTML = 'Done'
+                playGame()
+            }
+            else{
+                endGame()
+                btn.innerHTML = 'Start'
+            }
+        })
+
+        function playGame(){
+           text.disabled = false
+
+           message.innerHTML = messageArr[random]
+
+           startTime = new Date().getTime()
+        }
+        
+        function endGame(){
+            text.disabled = true
+            message.innerHTML = null
+            
+            endTime = new Date().getTime()
+            
+            let totalTime = ((endTime - startTime) / 1000)
+            console.log(totalTime);
+            
+            let wordsCount = text.value.length
+            
+            console.log(wordsCount, 'wordcount');
+            
+            let speed = Math.round(((wordsCount / totalTime) * 60))
+            
+            console.log(speed);
+            text.value = null
+
+
+             result.innerHTML = `Your typing speed is ${speed} word per min`
+
+        }
+
+        
+    </script>
+</body>
+</html>

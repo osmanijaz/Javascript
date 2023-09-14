@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<style>
+    * {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 60px;
+        /* border: 3px solid red; */
+        width: max-content;
+        height: max-content;
+
+
+    }
+
+    .title {
+
+        color: grey;
+        justify-content: flex-start;
+        align-items: flex-start;
+        font-size: 15px;
+
+
+
+    }
+
+    .text {
+        outline: grey;
+        border: 0.5px solid rgb(180, 180, 180);
+        font-size: 15px;
+        color: grey;
+
+
+
+
+
+    }
+
+    .button1 {
+        border: none;
+        background-color: rgb(211, 211, 211);
+        color: rgb(40, 40, 40);
+        font-size: 15px;
+        width: 80px;
+        height: 30px;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+    .button1:hover {
+
+        background-color: rgb(200, 200, 200);
+
+    }
+</style>
+
+<body>
+
+
+    <div class="container">
+
+
+        <p class="title"></p>
+        <textarea class="text" name="words" id="" cols="75" rows="10" disabled></textarea>
+        <br>
+
+
+        <button class="button1">Start</button>
+
+    </div>
+
+
+    <script>
+
+        var title = document.querySelector('.title');
+        var text = document.querySelector('.text');
+        var button1 = document.querySelector('.button1');
+
+        var titleArray = ["What is the meaning of life?", "How does a car engine work?", "What is the fastest land animal?", "How do you solve a Rubik's cube?"]
+
+
+
+
+
+
+        // button1.addEventListener('click', function (element) {
+        //     // console.log('click is working')
+        //     console.log(element)
+        //    element.target.innerHTML = 'Done'
+        //     button1.innerHTML = 'Done'
+        // })
+
+
+        button1.addEventListener('click', (e) => {
+            // console.log('click is working')
+            var random = Math.floor(Math.random() * titleArray.length)
+
+
+            if (button1.innerHTML == 'Start') {
+
+                button1.innerHTML = 'Done'
+
+
+
+                text.disabled = false
+                title.innerHTML = titleArray[random]
+
+            } else {
+                button1.innerHTML = 'Start'
+                text.disabled = true
+                text.value = ''
+            }
+
+
+
+
+
+
+
+        })
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

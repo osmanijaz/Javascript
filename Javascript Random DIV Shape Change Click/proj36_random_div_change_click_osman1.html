@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        /* overflow: hidden; */
+    }
+
+    * {
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
+
+<body>
+
+    <p class="alert"></p>
+    <p class="message"></p>
+    <button class="button">Start</button>
+    <div class="gameArea"></div>
+
+    <script>
+        var message = document.querySelector('.message')
+        var button = document.querySelector('.button')
+        var gameArea = document.querySelector('.gameArea')
+
+        var alert = document.querySelector('.alert')
+
+        // --- object start--- 
+
+        var playSave = { play: false }
+        // playSave.play = false;
+        // console.log(playSave, 'playSave')
+
+        // var playing = {
+        //     play: false
+        // }
+        // playing.play 
+
+        // --- object end--- 
+
+        var color = ['red', 'blue', 'lime', 'yellow', 'hotpink']
+
+        var startTime
+        var endTime
+
+        // function 1 start ---
+
+        button.addEventListener('click', function () {
+            // console.log('click')
+
+
+
+            if (!playSave.play) {
+                // console.log('if')
+                playSave.play = true
+                button.style.display = 'none'
+                message.innerHTML = 'Click Box Quickly! (Time Sensitive)'
+                // randomNumber()
+                myBox()
+
+
+
+            } else {
+
+
+
+            }
+        })
+
+        // function 1 end ---
+
+        // function 2 start ---
+
+        function myBox() {
+            // console.log('myBox')
+            var box = document.createElement('div')
+            var randomColor = Math.floor(Math.random() * color.length)
+
+            box.style.position = 'relative'
+
+
+            // width 
+            // console.log(randomNumber(100, 50), 'width');
+            console.log('width')
+            box.style.width = randomNumber(100, 50) + 'px';
+            console.log('-----')
+
+            // height 
+            // console.log(randomNumber(100, 50), 'height');
+            console.log('height')
+            box.style.height = randomNumber(100, 50) + 'px';
+            console.log('-----')
+
+            // border radius 
+            // console.log(randomNumber(50, 5), 'borderRadius');
+            console.log('borderRadius')
+            box.style.borderRadius = randomNumber(50, 5) + '%';
+            console.log('-----')
+
+
+            // left position
+            // console.log(randomNumber(700, 100), 'left');
+            console.log('Left Position')
+            box.style.left = randomNumber(700, 100) + 'px'
+            console.log('-----')
+
+            // top position 
+            // console.log(randomNumber(200, 100), 'top');
+            console.log('Top Position')
+            box.style.top = randomNumber(200, 100) + 'px'
+            console.log('-----')
+
+            box.style.cursor = 'pointer'
+            box.style.backgroundColor = color[randomColor]
+
+            startTime = 0
+
+            startTime = new Date().getTime()
+            // console.log(startTime, 'startTime')
+
+            // function 3 start ---
+
+
+            box.addEventListener('click', function (e) {
+                box.style.display = 'none'
+
+                endTime = new Date().getTime()
+                // console.log(endTime, 'endTime')
+
+                var totalTime = ((endTime - startTime) / 1000)
+                // console.log(totalTime, 'totalTime')
+
+                alert.innerHTML = `Time ${totalTime} seconds`
+                myBox()
+
+            })
+
+            // function 3 end ---
+
+
+            gameArea.appendChild(box)
+        }
+
+        // function 2 end ---
+
+
+        // function 4 start ---
+
+        function randomNumber(numMax, numMin) {
+
+            // console.log('---function randomNumber Start---')
+
+            // console.log(numMax, 'numMax', numMin, 'numMin')
+
+            var tempValue = (Math.floor(Math.random() * numMax) + numMin)
+            // console.log(tempValue, 'tempValue')
+
+            // console.log('---function randomNumber End---')
+
+            return tempValue;
+
+        }
+
+        // function 4 end ---
+
+
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <title>Tesla Website</title>
+    <style>
+         @import url('https://fonts.cdnfonts.com/css/gotham-ssm');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* font-family: Arial, Helvetica, sans-serif; */
+        }
+
+        .parent {
+            width: 100%;
+            height: 100vh;
+            /* border: 1px solid red; */
+            background-image:url(https://tesla-cdn.thron.com/delivery/public/image/tesla/9ed31f26-4d49-4701-bc5b-2121ff85e5b3/bvlatuR/std/2880x1800/Model-S-Main-Hero-Desktop-LHD?quality=auto-medium&format=auto);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 10vh;
+            /* border:2px solid black; */
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .logo {
+            width: max-content;
+            /* border:2px solid hotpink; */
+        }
+
+        .Lidiv1 {
+            width: 55%;
+            height: 10vh;
+      
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border:5px solid red;
+        }
+
+        .Lidiv1 ul {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none;
+            border:5px solid lime;
+        }
+
+        .Lidiv1 ul li a {
+            text-decoration: none;
+            color:black;
+            /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+          font-family: 'Roboto Mono', monospace;;
+            
+        }
+        .Lidiv2 {
+            width: 15%;
+            height: 10vh;
+            /* border:1px solid red; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .Lidiv2 ul {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none;
+        }
+
+        .Lidiv2 ul li a {
+            text-decoration: none;
+            color:black;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        nav {
+            position: relative;
+            /* border: 1px solid red; */
+          
+            /* width: 50%; */
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            
+        }
+
+        li {
+            color:gray;
+            width: 100px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: gray;
+            position: relative;
+            z-index:2;
+            font-size: 12px;
+            /* width:100%; */
+        }
+
+        #hover-div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateY(50%);
+            width: 100px;
+            height: 30px;
+            /* background-color:rgba(148, 146, 146, 0.481); */
+            background-color:#4e6a8bb9;
+            border-radius: 5px;
+            transition: all .56s ease 0s;
+            visibility: hidden;
+            /* z-index: -1; */
+        }
+    </style>
+</head>
+
+<body>
+     <div class="parent">
+    <div class="navbar">
+
+
+
+        <div class="logo">
+        <img src="./teslaimages/Screenshot_2022-10-02_232940-removebg-preview.png" alt="">
+        </div>
+
+
+
+
+        <div class="Lidiv1">
+            <nav>
+                <ul>
+                    <li><a href="">Model S</a></li>
+                    <li><a href="">Model 3</a></li>
+                    <li><a href="">Model X</a></li>
+                    <li><a href="">Model Y</a></li>
+                    <li><a href="">Solar Roof</a></li>
+                    <li><a href="">Solar Panels</a></li>
+                    <li><a href="">Powerwall</a></li>
+                </ul>
+                <div id="hover-div"></div>
+            </nav>
+        </div>
+
+
+
+        <div class="Lidiv2">
+          
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        
+    </div>
+    </div>
+
+
+
+<!-- ---Java Script----- -->
+
+    <script>
+        const nav = document.querySelector('nav');
+        const hoverDiv = document.getElementById('hover-div');
+        const links = document.querySelectorAll('nav li');
+        console.log(links);
+
+
+        
+        const linkWidth = links[0].offsetWidth;
+        console.log(linkWidth);
+        let activeLink = 0;
+
+        // Initialize hover div position
+        hoverDiv.style.transform = `translateX(${activeLink * linkWidth}px)`;
+
+        // Update hover div position when link is hovered
+        links.forEach((link, index) => {
+            link.addEventListener('mouseenter', () => {
+                hoverDiv.style.transform = `translateX(${index * linkWidth}px)`;
+                hoverDiv.style.visibility = 'visible'
+                activeLink = index;
+            });
+        });
+
+        // Reset hover div position when mouse leaves nav element
+        nav.addEventListener('mouseleave', () => {
+            hoverDiv.style.transform = `translateX(${activeLink * linkWidth}px)`;
+            hoverDiv.style.visibility = 'hidden'
+
+
+        });
+
+    </script>
+
+</body>
+
+</html>
+

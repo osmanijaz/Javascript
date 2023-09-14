@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+
+    }
+
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 4px solid lime;
+        margin-top: 25px;
+    }
+
+
+
+
+    .container {
+        width: 90vw;
+        height: 90vh;
+        border: 4px solid rgb(0, 16, 233);
+        display: flex;
+        align-items: center;
+    }
+
+    .panel {
+        height: 80vh;
+        width: 100px;
+        border: 1px solid rgb(255, 0, 212);
+        border-radius: 50px;
+        cursor: pointer;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+
+    }
+
+    .panel h3 {
+        position: absolute;
+        bottom: 25px;
+        left: 25px;
+        color: white;
+        font-size: 30px;
+        font-weight: 200;
+        letter-spacing: 1px;
+        opacity: 0;
+
+    }
+
+    .active {
+        border: 4px solid yellow;
+
+        width: 100%;
+        transition: all .34s;
+        margin-left: 10px;
+        margin-right: 10px;
+
+
+    }
+
+    .panel.active h3 {
+        opacity: 1;
+
+    }
+</style>
+
+<body>
+
+    <div class="container">
+
+
+        <div class="panel active"
+            style="background-image: url('https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');">
+            <h3>Explore The World</h3>
+        </div>
+
+        <div class="panel"
+            style="background-image: url('https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')">
+            <h3>Wild Forest</h3>
+        </div>
+
+        <div class="panel"
+            style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80')">
+            <h3>Sunny Beach</h3>
+        </div>
+
+        <div class="panel"
+            style="background-image: url('https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80')">
+            <h3>City on Winter</h3>
+        </div>
+
+
+        <div class="panel"
+            style="background-image: url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')">
+            <h3>Mountains - Clouds</h3>
+        </div>
+    </div>
+
+    <script>
+
+        // practice 1 
+
+        // var panel = document.getElementsByClassName('panel')
+        // console.log(panel)
+
+        // for (var i = 0; i < panel.length; i++) {
+        //     panel[i].addEventListener('click', function (ele, ind) {
+        //         removeActive()
+        //         let clickdiv = ele.target
+        //         clickdiv.classList.add('active')
+        //     })
+        // }
+
+        // function removeActive() {
+        //     for (var j = 0; j < panel.length; j++) {
+        //         panel[j].classList.remove('active')
+        //         console.log(panel)
+        //     }
+        // }
+
+        // practice 2
+
+        var panel = document.querySelectorAll('.panel')
+        console.log(panel)
+
+        for (var i = 0; i < panel.length; i++) {
+            panel[i].addEventListener('click', function (e) {
+                removeActive()
+                e.target.classList.add('active')
+                console.log(e)
+
+            });
+        }
+
+
+        function removeActive() {
+            for (j = 0; j < panel.length; j++) {
+                panel[j].classList.remove('active')
+                console.log(panel)
+
+
+
+            }
+
+
+
+        }
+
+
+    </script>
+
+
+
+
+</body>
+
+
+</html>
